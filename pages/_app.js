@@ -26,15 +26,15 @@ function App({ Component, pageProps, router }) {
   useEffect(() => {
     let new_path = router.pathname.split('/');
     setPath(new_path);
-  }, [router.pathname]);
+  }, [router.pathname]); 
   return (
     <div className={font.className}>
       <Head>
         <title>{path && Pages[path[path.length - 1]]["title"]} | Personality Academy</title>
         <meta content={`${path && Pages[path[path.length - 1]]['title']} | Personality Academy`} property="og:title" />
-        <meta content={`${Pages[path[path.length - 1]]['description']}`} property="og:description" />
+        <meta content={`${path && Pages[path[path.length - 1]]['description']}`} property="og:description" />
         <meta content={`https://personalityacademy.netlify.app/${router.pathname}`} property="og:url" />
-        <meta content={`https://personalityacademy.netlify.app/img/embed/${Pages[path[path.length - 1]]["img"]}.png`} property="og:image" />
+        <meta content={`https://personalityacademy.netlify.app/img/embed/${path && Pages[path[path.length - 1]]["img"]}.png`} property="og:image" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Navbar section={path[1]} />
