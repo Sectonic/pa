@@ -1,0 +1,19 @@
+.rounded_edges-img {
+  border-radius: 50%;
+}
+
+.resources_title {
+  font-size: 20px !important;
+}
+
+.m0 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.negtop_m0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}

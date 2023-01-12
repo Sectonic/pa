@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
+
+.border-func img {
+    border-radius: 50%;
+    background-color: white;
+    outline: 4px solid white;
+}
+
+.border-logo {
+    outline: 4.5px solid white;
+}
+
+.border-logo-main {
+    outline: 4.5px solid white;
+}
+
+.border-logo-third {
+    outline: 4.5px dashed white !important;
+}
+
+.border-logo-third {
+    background-color: var(--dark-grey) !important;
+    outline: 4.5px solid #3333cc !important;
+}
+
+.border-logo-last {
+    background-color: var(--dark-grey) !important;
+    outline: 4.5px dashed #3333cc !important;
+    transform: translate(-50%, -50%) rotate(-1deg) !important;
+}
+
+.bracket {
+    width: 200px; 
+    height: 100px;  
+    border: solid 5px white;
+    border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+}
+
+.first_bracket {
+    width: 200px; 
+    height: 100px;  
+    border: solid 8px white;
+    border-color: rgba(255, 255, 255, 0.8) transparent transparent transparent;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+}
+
+.demon_bracket {
+    width: 200px; 
+    height: 100px;  
+    border: solid 3px #494e5c;
+    border-color: rgba(255, 255, 255, 0.35) transparent transparent transparent;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    opacity: 1;
+}
+
+.last_demon_bracket {
+    width: 200px; 
+    height: 100px;  
+    border: dotted 3px #ff4d4d65;
+    border-color: #ff4d4d65 transparent transparent transparent;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    opacity: 1;
+}
+
+.top_bracket {
+    width: 150px; 
+    height: 100px;
+    left: 54.5%;
+    top: 33%;
+    transform: translate(-50%, -50%) rotate(15deg);
+}
+
+.second_bracket {
+    width: 140px; 
+    height: 100px;
+    right: -18%;
+    bottom: 8.5%;
+    transform: translate(-50%, -50%) rotate(112deg);
+}
+
+.third_bracket {
+    width: 140px; 
+    height: 100px;
+    left: 35%;
+    top: 57.5%;
+    transform: translate(-50%, -50%) rotate(-118deg);
+}
+
+.last_bracket {
+    width: 145px; 
+    height: 100px;
+    left: 55%;
+    bottom: -2.5%;
+    transform: translate(-50%, -50%) rotate(168deg);
+}
+
+@media screen and (max-width: 475px) {
+    .first_bracket {
+        border-width: 7px;
+    }
+    .top_bracket {
+        top: 38%;
+        width: 120px;
+        transform:translate(-50%, -50%) rotate(22deg);
+    }
+    .second_bracket {
+        width: 100px;
+        right: -3%;
+        bottom: 3%;
+        transform: translate(-50%, -50%) rotate(130deg);
+    }
+    .third_bracket {
+        width: 120px;
+        left: 38%;
+        top: 53%;
+        transform: translate(-50%, -50%) rotate(-110deg);
+    }
+    .last_bracket {
+        width: 120px; 
+        left: 52%;
+        bottom: -3.5%;
+        transform: translate(-50%, -50%) rotate(177deg);
+    }
+}
+
+.top_logo {
+    left: 65%;
+    top: 6%;
+}
+
+.second_logo {
+    right: -3%;
+    bottom: 24%;
+}
+
+.third_logo {
+    left: 12%;
+    top: 69%;
+}
+
+.fourth_logo {
+    left: 57%;
+    bottom: -2.5%;
+}
+
+.main_logo {
+    font-size: 46px !important;
+    font-weight: 800 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 50%;
+    padding: 1px;
+    border: 0px dashed white;
+}
+
+.savior_logo {
+    font-size: 35px !important;
+    font-weight: 800 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.demon_logo {
+    color: rgba(255, 255, 255, 0.35) !important;
+    font-weight: 500 !important;
+    font-size: 22px !important;
+}
+
+.last_logo {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #ff4d4d65 !important;
+} 
+
+@media screen and (max-width: 475px) {
+    .main_logo {
+        font-size: 40px !important;
+    }
+    .savior_logo {
+        font-size: 30px !important;
+    }
+}
+
+.bracket-logo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.stack {
+    width: 300px;
+    height: 300px;
+    transform: scale(1.1);
+    position: relative;
+    margin-left: 22px;
+}
+
+.stack_container {
+    width: 50%;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    background-color: var(--dark-grey);
+    border-radius: 20px;
+    display: flex;
+}
+
+@media screen and (max-width:900px) {
+    .stack_container {
+        width: 68%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 625px) {
+    .stack_container {
+        width: 87.5%;
+    }
+    .stack {
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 475px) {
+    .stack_container {
+        padding-top: 20px;
+        padding-bottom: 7.5px;
+    }
+    .stack {
+       transform: scale(1)
+    }
+}
+@media screen and (max-width: 475px) {
+    .stack {
+        width: 250px;
+        height: 250px;
+    }
+    .stack_container {
+        padding-top: 27px;
+    }
+}
+.rotated_stack {
+    transform: translate(-50%, -50%) scaleX(-1);
+}
+
+.rotated_stack img {
+    transform: translate(-50%, -50%) rotateY(180deg) !important;
+}
+
+.top {
+    position: absolute;
+    left: 30.5%;
+    top: 33.5%;
+    width: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.top img {
+    width: 100%;
+}
+
+.second {
+    width: 35%;
+    position: absolute;
+    right: -8%;
+    top: 40.5%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.second img {
+    width: 80%;
+}
+
+.third {
+    width: 26%;
+    position: absolute;
+    left: 41%;
+    bottom: 2%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.third img {
+    width: 90%;
+}
+
+.last {
+    width: 16.5%;
+    position: absolute;
+    right: 14%;
+    bottom: 9%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.last img {
+    width: 100%;
+}
+
+.double_logo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding:4px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.double_top {
+    top:20px;
+    left:17.5px;
+}
+
+.double_2nd {
+    top:20px;
+    right:-12.5px;
+}
+
+.double_3rd {
+    filter: brightness(90%);
+    top:15px;
+    left:11px;
+    padding:2px;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.double_last {
+    filter: brightness(90%);
+    top:7px;
+    right:-10px;
+    padding:2px;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.demon_func img {
+    filter: brightness(40%) grayscale(30%);
+}
+
+.demon_animal-logo {
+    color: #989898;
+    outline-color: #4f4f4f !important;
+}
+
+
+.big-axis {
+    position: absolute;
+    top: 57.5%;
+    left: 55%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    height: 4px;
+    background-color: #61687c;
+    width: 30%;
+}
+
+.small-axis {
+    position: absolute;
+    top: 57.5%;
+    left: 55%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    height: 4px;
+    background-color: #61687c;
+    width: 20%;
+}

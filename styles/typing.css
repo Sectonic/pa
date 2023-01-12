@@ -1,0 +1,148 @@
+.top_typing .section_text {
+  width: 330px;
+}
+
+.top_typing {
+  flex-wrap: wrap !important;
+}
+
+@media screen and (max-width:1100px) {
+  .top_typing {
+    gap: 25px;
+  }
+}
+
+.typing_img-home {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 110px;
+}
+
+.typing_section .section_body {
+  cursor: pointer;
+  margin-top: -20px;
+}
+
+.typing_section img {
+  padding: 5px;
+}
+
+.typing_rec {
+  margin: 20px auto;
+  margin-top: -5px;
+  background-color: #5c64f4;
+  width: 170px;
+  border-radius: 20px;
+}
+
+.not_rec {
+  margin-top: 15px;
+}
+
+.top_typing .section_text h1 {
+  padding: -5px;
+  margin: 0;
+  margin-top: 15px !important;
+}
+
+.top_typing p {
+  padding: 5px;
+  margin-top: -1px;
+}
+
+.typing_section .section_text {
+  justify-content: center;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.typing_section .section_text:hover {
+  background-color: var(--light-grey);
+  transform: scale(1.1);
+}
+
+.type_subtitle {
+  margin-top: -15px !important;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.typing_btn_subtitle {
+  margin-top: -5px;
+}
+
+.change_page {
+  text-align: center;
+}
+
+.change_page_btn {
+  margin-top: 20px;
+  border: none;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 32px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  transition: 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.change_page_btn:hover {
+  background-color: var(--vibrant-purple);
+  color: white;
+}
+
+.section_title-img img {
+  height: 120px;
+}
+
+.neg-mt-20 {
+  margin-top: -20px;
+}
+
+.section-title_images-in {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  background-color: transparent;
+  width: 100%;
+}
+
+.section_title-text h2 {
+  font-size: 35px;
+}
+
+.section_title-desc {
+  width: 30%;
+}
+
+.neg-mt-45 {
+  margin-top: -45px;
+}
+
+.typing_method_btn {
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.typing_method_btn:hover {
+  background-color: #2e3346;
+  transform: scale(1.1);
+}
+
+.official_site_btn {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  margin-top: -10px;
+}
+
+.typing_title-h3 {
+  padding: 10px;
+  margin-bottom: -10px;
+  font-size: 26px;
+}

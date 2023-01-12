@@ -1,0 +1,232 @@
+
+.db_card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-left: 2.5px;
+    padding-right: 5px;
+}
+
+.db_card {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--dark-grey);
+    transition: .2s ease;
+}
+
+@media screen and (max-width: 487px) {
+.db_card {
+    width: 44.5%;
+}
+.db_card-container {
+    gap:13px;
+    margin-top: 92px;
+}
+}
+
+.db_card_hover:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: var(--light-grey);
+}
+
+.db_card-img {
+    width: 100%;
+    height: 140px;
+    margin-bottom: 10px;
+}
+
+.db_card-img span[style] {
+    display: block !important;
+    width: 100%;
+    height: 140px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 487px) {
+    .db_card-img {
+        height: 140px;
+    }
+    .db_card-img span[style] {
+        height: 140px;
+    }
+}
+
+.db_card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 0px;
+}
+
+.db_card-img-empty {
+    background-color: rgba(var(--purple-black-rgb), .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.db_card-img-empty img {
+    object-fit: none;
+    width: 100px;
+    opacity: .1;
+}
+
+.db_card-text {
+    border-radius: 18px;
+    margin: 0px auto;
+    margin-bottom: 2px;
+}
+
+.db_card-text h3 {
+    font-size: 14px;
+}
+
+.db_card-type {
+    font-size: 16px;
+    margin: 2px auto;
+}
+
+.db_card-text-purple {
+    background-color: #5c64f4;
+    font-size: 12px;
+    margin: 7px auto;
+    width: 140px;
+    border-radius: 50px;
+    padding: 1px;
+}
+
+.db_card-type_placehold {
+    background-color: rgba(var(--purple-black-rgb), .5);
+    margin: 10px auto;
+    width: 150px;
+    border-radius: 50px;
+    height: 15px;
+}
+
+@media screen and (max-width: 487px) {
+    .db_card-text-purple {
+        width: 100%;
+        font-size: 11px;
+    }
+    .db_card-type_placehold {
+        width: 95%;
+    }
+    .db_card-type {
+        font-size: 14px;
+    }
+}
+
+.db_update-btn {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background-color: var(--dark-grey);
+    border-radius: 20px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.db_update-btn-container {
+    display: block; 
+    width: 100%;
+    margin: 30px auto;
+    margin-top: 0;
+}
+
+.db_update-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--light-grey);
+    color: white;
+}
+
+.db_background {
+    width: calc(100% - 50px);
+    margin: 0 auto;
+    background-color: var(--purple-black);
+    border: 5px solid var(--dark-grey);
+    margin-top: 17px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    outline: none;
+    position: relative;
+    height: calc(100vh - 67px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.db_background::-webkit-scrollbar-thumb {
+    background-color: #5c64f4;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;  
+}
+
+.db_background::-webkit-scrollbar {
+    width: 16px;
+}
+
+@media screen and (max-width: 775px) {
+    .db_background {
+        height: calc(100vh - 102px);
+        width: calc(100% - 25px);
+        margin-top: 14px;
+    }
+    .db_background::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+.db_search {
+    width: 35%;
+    border-radius: 50px;
+    background-color: var(--dark-grey);
+    border: 5px solid var(--light-grey);
+    position: relative;
+}
+
+@media screen and (max-width: 1500px) {
+    .db_search {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 775px) {
+    .db_search {
+        width: 75%;
+    }
+}
+
+.db_search-input {
+    width: calc(100% - 128px - 20px);
+    margin-left: 10px;
+    height: 48px;
+    border: none;
+    outline: none;
+    background-color: var(--dark-grey);
+    border-radius: 50px;
+    font-size: 18px;
+    color: white;
+    padding-left: 20px;
+}
