@@ -32,9 +32,9 @@ function App({ Component, pageProps, router }) {
       <Head>
         <title>{path && Pages[path[path.length - 1]]["title"]} | Personality Academy</title>
         <meta content={`${path && Pages[path[path.length - 1]]['title']} | Personality Academy`} property="og:title" />
-        <meta content="Site Description" property="og:description" />
+        <meta content={`${Pages[path[path.length - 1]]['description']}`} property="og:description" />
         <meta content={`https://personalityacademy.netlify.app/${router.pathname}`} property="og:url" />
-        <meta content="https://embed.com/embedimage.png" property="og:image" />
+        <meta content={`https://personalityacademy.netlify.app/img/embed/${Pages[path[path.length - 1]]["img"]}.png`} property="og:image" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Navbar section={path[1]} />

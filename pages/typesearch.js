@@ -285,7 +285,7 @@ const filter_template = {
     "format": 'modified',
 }
 
-const TYPES_API = process.env.TYPES_API ? process.env.TYPES_API : "http://127.0.0.1:5000";
+const API = process.env.NEXT_PUBLIC_API;
 
 function Database() {
     const [data, setData] = useState([]);
@@ -306,8 +306,7 @@ function Database() {
     };
 
     useEffect(() => {
-        console.log(TYPES_API)
-        let url = `${TYPES_API}/types/${lowBound}to${highBound}?`;
+        let url = `${API}/types/${lowBound}to${highBound}?`;
         fetch(url + new URLSearchParams(filters)).then(
             res => res.json()
         ).then(
@@ -321,7 +320,7 @@ function Database() {
     }, []);
 
     const updateData = () => {
-        let url = `${TYPES_API}/types/${lowBound}to${highBound}?`;
+        let url = `${API}/types/${lowBound}to${highBound}?`;
         fetch(url + new URLSearchParams(filters)).then(
             res => res.json()
         ).then(
@@ -334,7 +333,7 @@ function Database() {
     }
 
     function updateFilters(new_filters) {
-        let url = `${TYPES_API}/types/0to50?`;
+        let url = `${API}/types/0to50?`;
         fetch(url + new URLSearchParams(new_filters)).then(
             res => res.json()
         ).then(
