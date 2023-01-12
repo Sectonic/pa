@@ -1,4 +1,5 @@
 import Image from "../../components/image";
+import Link from 'next/link';
 
 function give_trees() {
   return ["intro", "fundamentals" , "basic", "advanced"];
@@ -110,14 +111,14 @@ function Learn() {
           <div className="section_map-space">
             <div id="intro">
               <div className="section_top">First Steps</div>
-              <a href="/learn/start" className="icon_container link_text">
+              <Link href="/learn/start" className="icon_container link_text">
                 <div className="page_icon">
                   <Image src={"/img/learn/home/start.png"}  />
                 </div>
                 <div className="icon_text">Start</div>
-              </a>
+              </Link>
               <div className="seconds">
-                <a
+                <Link
                   href="/learn/typology_intro"
                   className="icon_container link_text"
                 >
@@ -128,18 +129,18 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Personality Theory</div>
-                </a>
-                <a href="/learn/ops_intro" className="icon_container link_text">
+                </Link>
+                <Link href="/learn/ops_intro" className="icon_container link_text">
                   <div className="page_icon">
                     <Image src={"/img/learn/home/ops_intro.png"}  />
                   </div>
                   <div className="icon_text">Objective Personality</div>
-                </a>
+                </Link>
               </div>
             </div>
             <div id="fundamentals">
               <div className="section_top">Fundamentals</div>
-              <a
+              <Link
                 href="/learn/savior_demon"
                 className="icon_container link_text"
               >
@@ -150,9 +151,9 @@ function Learn() {
                   />
                 </div>
                 <div className="icon_text">Savior & Demon</div>
-              </a>
+              </Link>
               <div className="seconds">
-                <a
+                <Link
                   href="/learn/human_needs"
                   className="icon_container link_text"
                 >
@@ -163,22 +164,22 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Human Needs</div>
-                </a>
-                <a href="/learn/letters" className="icon_container link_text">
+                </Link>
+                <Link href="/learn/letters" className="icon_container link_text">
                   <div className="page_icon">
                     <Image src={"/img/learn/home/letters.png"}  />
                   </div>
                   <div className="icon_text">Letters</div>
-                </a>
+                </Link>
               </div>
-              <a href="/learn/functions" className="icon_container link_text">
+              <Link href="/learn/functions" className="icon_container link_text">
                 <div className="page_icon">
                   <Image src={"/img/learn/home/functions.png"}  />
                 </div>
                 <div className="icon_text">Functions</div>
-              </a>
+              </Link>
               <div className="seconds">
-                <a href="#" className="icon_container link_text">
+                <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
                     <Image
                       src={"/img/learn/home/function_stack.png"}
@@ -186,8 +187,8 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Function Stack</div>
-                </a>
-                <a href="#" className="icon_container link_text">
+                </Link>
+                <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
                     <Image
                       src={"/img/learn/home/modality_combos.png"}
@@ -195,9 +196,9 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Observer & Decider</div>
-                </a>
+                </Link>
               </div>
-              <a
+              <Link
                 href="/learn/action_trait"
                 className="icon_container link_text"
               >
@@ -208,18 +209,18 @@ function Learn() {
                   />
                 </div>
                 <div className="icon_text">Actions</div>
-              </a>
+              </Link>
             </div>
             <div id="basic">
               <div className="section_top">Intermediate</div>
               <div className="seconds">
-                <a href="/learn/animals" className="icon_container link_text">
+                <Link href="/learn/animals" className="icon_container link_text">
                   <div className="page_icon">
                     <Image src={"/img/learn/home/animals.png"}  />
                   </div>
                   <div className="icon_text">Animals</div>
-                </a>
-                <a href="#" className="icon_container link_text">
+                </Link>
+                <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
                     <Image
                       src={"/img/learn/home/animal_stack.png"}
@@ -227,10 +228,10 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Animal Stack</div>
-                </a>
+                </Link>
               </div>
               <div className="seconds">
-                <a
+                <Link
                   href="/learn/modalities"
                   className="icon_container link_text"
                 >
@@ -241,8 +242,8 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Modalities</div>
-                </a>
-                <a href="#" className="icon_container link_text">
+                </Link>
+                <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
                     <Image
                       src={"/img/learn/home/modality_combos.png"}
@@ -250,12 +251,12 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Function Modalities</div>
-                </a>
+                </Link>
               </div>
             </div>
             <div id="advanced">
               <div className="section_top">Advanced</div>
-              <a
+              <Link
                 href="/learn/extroversion"
                 className="icon_container link_text"
               >
@@ -266,9 +267,9 @@ function Learn() {
                   />
                 </div>
                 <div className="icon_text">Energy Spectrum</div>
-              </a>
+              </Link>
               <div className="thirds">
-                <a
+                <Link
                   href="/learn/animal_modalities"
                   className="icon_container link_text"
                 >
@@ -279,8 +280,8 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Animal Modalities</div>
-                </a>
-                <a href="#" className="icon_container link_text">
+                </Link>
+                <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
                     <Image
                       src={"/img/learn/home/modality_combos.png"}
@@ -288,13 +289,13 @@ function Learn() {
                     />
                   </div>
                   <div className="icon_text">Modality Combos</div>
-                </a>
-                <a href="/learn/quadras" className="icon_container link_text">
+                </Link>
+                <Link href="/learn/quadras" className="icon_container link_text">
                   <div className="page_icon">
                     <Image src={"/img/learn/home/quadras.png"}  />
                   </div>
                   <div className="icon_text">Quadras</div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

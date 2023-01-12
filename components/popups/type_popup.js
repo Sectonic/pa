@@ -1,4 +1,5 @@
 import Image from '../image';
+import Link from 'next/link';
 
 function TypePopup({data}) {
   function checkSavior(animal) {
@@ -193,13 +194,13 @@ function TypePopup({data}) {
           </div>
           <div className="type_top-info__links">
             <div className="type_top-info__links-title">Links</div>
-            {data['links'].map((person) => {
+            {data['links'].map((person, i) => {
               return(
-                <a href={person['url']} rel="noopener noreferrer" target="_blank">
+                <Link href={person['url']} rel="noopener noreferrer" target="_blank" key={i}>
                   <div className="type_top-info_link">
                     <strong>{person['name']}</strong>
                   </div>
-                </a>
+                </Link>
               )
             })}
           </div>
@@ -237,16 +238,16 @@ function TypePopup({data}) {
               <div className="animal_diagram-names">
                 {animal_stack.map((animal, i, {length}) => {
                   if (i + 1 === length) {
-                    return <div className="names_last">{animal[0]}</div>
+                    return <div key={i} className="names_last">{animal[0]}</div>
                   }
                   else {
-                    return <div>{animal[0]}{ checkDouble(animal) ? <div className="animal_double">x2</div> : null}</div>
+                    return <div key={i} >{animal[0]}{ checkDouble(animal) ? <div className="animal_double">x2</div> : null}</div>
                   }
                 })}
               </div>
               <div className="animal_diagram-details">
-                {animal_details.map((detail) => {
-                  return (<div>
+                {animal_details.map((detail, i) => {
+                  return (<div key={i}>
                     <div className="animal_detail-modality">{detail.modality}</div>
                     <div className="animal_detail-funcs">
                       <Image src={`/img/icons/Functions/${detail.functions[0]}.png`} />

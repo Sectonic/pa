@@ -496,7 +496,7 @@ function Database() {
                     <div className="db_card-container">
                         {data.map((person, index) => {
                             return(
-                                <div className="db_card outline-gray db_card_hover" onClick={() => handlePopup(true, data[index])}>
+                                <div key={person.id} className="db_card outline-gray db_card_hover" onClick={() => handlePopup(true, data[index])}>
                                     {
                                         person['image'] === null ? 
                                         <div className="db_card-img db_card-img-empty"><Image src="/pa/static/img/main/empty_img.png"/></div> :
@@ -520,8 +520,8 @@ function Database() {
                     </div>
                 ) : (
                     <div className="db_card-container">
-                    {[...Array(50)].map(() =>
-                        <div  className="db_card outline-gray">
+                    {[...Array(50)].map((index) =>
+                        <div key={index} className="db_card outline-gray">
                             <div className="db_card-img db_card-img-empty load_wraper"><div className="activity"></div></div>
                             <div className="db_card-text">
                                 <div>

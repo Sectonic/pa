@@ -1,5 +1,6 @@
 import ChangeSection from "../../components/change_section";
 import Banner from "../../components/banner";
+import Link from 'next/link';
 
 function Typing() {
   return (
@@ -33,7 +34,7 @@ function Typing() {
         Start here to learn the best way to nail down types for yourself or others
         </p>
         <div className="section_body top_typing">
-          <a href="/typing/your_type">
+          <Link href="/typing/your_type">
             <div className="section_text outline-gray">
               <div>
                 <img
@@ -45,8 +46,8 @@ function Typing() {
                 <p>Accurately type yourself</p>
               </div>
             </div>
-          </a>
-          <a href="/typing/typing_method">
+          </Link>
+          <Link href="/typing/typing_method">
             <div className="section_text outline-gray">
               <div>
                 <img
@@ -58,7 +59,7 @@ function Typing() {
                 <p>Accurately type others</p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="section typing_section">
@@ -68,7 +69,7 @@ function Typing() {
         </p>
         <div className="section_body top_typing">
           <div className="section_text outline-gray">
-            <a href="/typing/triangulation">
+            <Link href="/typing/triangulation">
               <div>
                 <img
                   src="/img/typing/home/triangulation.png"
@@ -81,10 +82,10 @@ function Typing() {
                 </p>
                 <div className="typing_rec">Accurate & Free</div>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray">
-            <a href="/typing/typing_teams">
+            <Link href="/typing/typing_teams">
               <div>
                 <img
                   src="/img/typing/home/teams.png"
@@ -97,10 +98,10 @@ function Typing() {
                 </p>
                 <div className="typing_rec">Easy & Free</div>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray">
-            <a href="/typing/d&s_typing">
+            <Link href="/typing/d&s_typing">
               <div>
                 <img
                   src="/img/typing/home/d&s.png"
@@ -113,7 +114,7 @@ function Typing() {
                 </p>
                 <div className="typing_rec">Expensive</div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

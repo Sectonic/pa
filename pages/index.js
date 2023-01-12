@@ -1,5 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
 import Image from '../components/image';
+import Link from 'next/link';
 
 function Home() {
   return (
@@ -146,7 +147,7 @@ function Home() {
         </div>
         <h2 className="section_title">Get Started</h2>
         <div className="section_body section_texts-sm">
-          <a href="/learn/start">
+          <Link href="/learn/start">
           <div className="section_text outline-grey page_btn">
             <div className="text-sm_img page_btn-img">
               <Image
@@ -157,7 +158,7 @@ function Home() {
               <h3 className="section_subtitle text-center">Start Learning OPS</h3>
             </div>
           </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

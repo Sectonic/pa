@@ -1,5 +1,6 @@
 import ChangeSection from "../../components/change_section";
 import Banner from "../../components/banner";
+import Link from 'next/link';
 
 function typingMethod() {
   return (
@@ -222,7 +223,7 @@ function typingMethod() {
         <h2 className="section_title">Practice & Track</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray">
-            <a
+            <Link
               href="https://ops-dashboard.herokuapp.com/practice"
               rel="noopener noreferrer"
               target="_blank"
@@ -238,10 +239,10 @@ function typingMethod() {
                   Practice typing random people <br /> Good tool to improve{" "}
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray">
-            <a
+            <Link
               href="https://docs.google.com/spreadsheets/d/18BdZo7w_gRaNKGMY6bpw86YMsGiOZvOqBugKQ2JJgfA/edit#gid=614804140"
               rel="noopener noreferrer"
               target="_blank"
@@ -259,7 +260,7 @@ function typingMethod() {
                   Compare to the offical types
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import ChangeSection from "../../components/change_section";
 import Banner from "../../components/banner";
+import Link from 'next/link';
 
 function typingTeams() {
   return (
@@ -62,7 +63,7 @@ function typingTeams() {
         <h2 className="section_title">The Free Options</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://sites.google.com/view/cognitive-resolution"
               target="_blank"
               rel="noopener noreferrer"
@@ -80,10 +81,10 @@ function typingTeams() {
                 CRG is comprised of multiple typings teams. Accuracy is fairly consistent, wait time is around a month.
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://discord.com/invite/FcqsJHXCBR"
               target="_blank"
               rel="noopener noreferrer"
@@ -98,7 +99,7 @@ function typingTeams() {
                 <p>Opinions by willing typists, only for active members of the community. 
                   Accuracy is highly dependent on the typists.</p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="section_body top_typing">

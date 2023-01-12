@@ -1,5 +1,6 @@
 import Banner from "../components/banner";
 import Image from "../components/image";
+import Link from 'next/link';
 
 function Resources() {
   return (
@@ -14,7 +15,7 @@ function Resources() {
         <h2 className="section_title">Videos & Content</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://www.youtube.com/c/ObjectivePersonality"
               target="_blank"
               rel="noopener noreferrer"
@@ -33,10 +34,10 @@ function Resources() {
                   Older content covers core concepts!
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://www.youtube.com/c/LiJo1"
               target="_blank"
               rel="noopener noreferrer"
@@ -49,10 +50,10 @@ function Resources() {
                 <h3 className="typing_title-h3 resources_title">Lijo</h3>
                 <p>General typology content, but has plenty of stuff on OPS.</p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://www.youtube.com/c/BinyaminTsadikBenMalka"
               target="_blank"
               rel="noopener noreferrer"
@@ -67,10 +68,10 @@ function Resources() {
                 </h3>
                 <p>Interviews and informative OPS content with more depth</p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://www.youtube.com/c/PersonalityTrainer"
               target="_blank"
               rel="noopener noreferrer"
@@ -89,10 +90,10 @@ function Resources() {
                   See how they all act!
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://www.youtube.com/c/AugmentedPersonality"
               target="_blank"
               rel="noopener noreferrer"
@@ -107,7 +108,7 @@ function Resources() {
                 </h3>
                 <p>Videos & Streams focused mostly on OPS.</p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -115,7 +116,7 @@ function Resources() {
         <h2 className="section_title">Learning Sources</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://ops-dashboard.herokuapp.com/home"
               target="_blank"
               rel="noopener noreferrer"
@@ -133,10 +134,10 @@ function Resources() {
                   articles
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://docs.google.com/document/d/1JlYKh73yyJo15oYb5LTC3EqYmiU51azNV257sP_TFic/edit"
               target="_blank"
               rel="noopener noreferrer"
@@ -151,10 +152,10 @@ function Resources() {
                 </h3>
                 <p>90+ Pages of OPS Notes to help!</p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://docs.google.com/document/d/1JlYKh73yyJo15oYb5LTC3EqYmiU51azNV257sP_TFic/edit"
               target="_blank"
               rel="noopener noreferrer"
@@ -169,7 +170,7 @@ function Resources() {
                 </h3>
                 <p>A collection of links regarding OPS</p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -177,7 +178,7 @@ function Resources() {
         <h2 className="section_title">Tools & Utilities</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://opt-toy.vercel.app/?fbclid=IwAR2Xyj2zQNKmUDOOxovsrvUEgla9esiqFrYS5CF9koni6Zv2X04cEczOm9k#?type[]=Dx/Ox-%3F"
               target="_blank"
               rel="noopener noreferrer"
@@ -195,10 +196,10 @@ function Resources() {
                   checklist
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://ops-dashboard.herokuapp.com/analyzer?m=FF&s1=Fe&s2=Se&a=PCSB"
               target="_blank"
               rel="noopener noreferrer"
@@ -216,10 +217,10 @@ function Resources() {
                   similarly typed
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://ops-dashboard.herokuapp.com/practice"
               target="_blank"
               rel="noopener noreferrer"
@@ -236,10 +237,10 @@ function Resources() {
                   Type random officially typed people and check your guesses
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://airtable.com/shrQ6IoDtlXpzmC1l/tblyUDDV5zVyuX5VL/viweXFJuHAQpi5as3"
               target="_blank"
               rel="noopener noreferrer"
@@ -257,10 +258,10 @@ function Resources() {
                   members
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://ops-dashboard.herokuapp.com/search"
               target="_blank"
               rel="noopener noreferrer"
@@ -276,7 +277,7 @@ function Resources() {
                   Enneagram, and Socionics!
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -284,7 +285,7 @@ function Resources() {
         <h2 className="section_title">Groups</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://discord.com/invite/s4v5yQdnE9"
               target="_blank"
               rel="noopener noreferrer"
@@ -302,10 +303,10 @@ function Resources() {
                   through OPS. Anyone is welcome to join!
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSf9aoDFBV53yy0SmNPog6XEGpm_STtU8VIZossofHIFY_V0nQ/viewform"
               target="_blank"
               rel="noopener noreferrer"
@@ -323,10 +324,10 @@ function Resources() {
                   typed by Dave & Shan
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="section_text outline-gray m0">
-            <a
+            <Link
               href="https://www.facebook.com/groups/objectivepersonality/"
               target="_blank"
               rel="noopener noreferrer"
@@ -343,7 +344,7 @@ function Resources() {
                   A large OPS Class Facebook community, for better or worse.
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
