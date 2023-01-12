@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+{% block title %} {{current_person.name}} Edit {% endblock %}
+{% block content %}
+<div class="mt-4  mb-4 container-sm" style="background-color: #080b11; border: 2px solid #262e47; width: 650px;margin: 0 auto; border-radius: 20px; color: white;">
+    <form method="POST" id="edit">
+        <h1 class="text-left mt-1" style="padding-left:20px; margin-bottom: -10px">{{current_person.name}} <span style="font-size: 22px">({{current_person.id}})</span></h1>
+        <hr>
+        <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+            <input name="person_name" type="text" class="form-control" placeholder="Name" value="{{current_person.name}}" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+            <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
+            <select name="sex" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                {% if not current_person.sex %}
+                    <option value="" selected>---</option>
+                {% endif %}
+                {% for g in type_entries['gender'] %}
+                    {% if g == current_person.sex %}
+                        <option value="{{g}}" selected>{{g}}</option>
+                    {% else %}
+                        <option value="{{g}}">{{g}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <label for="floatingSelect">Sex</label>
+        </div>
+        <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="sensoryModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.sensoryModality %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for m in type_entries['sM'] %}
+                            {% if m == current_person.sensoryModality %}
+                                <option value="{{m}}" selected>{{m}}</option>
+                            {% else %}
+                                <option value="{{m}}">{{m}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">Sensory Modality</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="deModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.deModality %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for m in type_entries['deM'] %}
+                            {% if m == current_person.deModality %}
+                                <option value="{{m}}" selected>{{m}}</option>
+                            {% else %}
+                                <option value="{{m}}">{{m}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">De Modality</label>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="function1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.function1 %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for func in type_entries['func'] %}
+                            {% if func == current_person.function1 %}
+                                <option value="{{func}}" selected>{{func}}</option>
+                            {% else %}
+                                <option value="{{func}}" >{{func}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">1st Function</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="function2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.function2 %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for func in type_entries['func'] %}
+                            {% if func == current_person.function2 %}
+                                <option value="{{func}}" selected>{{func}}</option>
+                            {% else %}
+                                <option value="{{func}}" >{{func}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">2nd Function</label>
+                </div>
+            </div>
+        </div>
+        <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Animals</h6>
+        <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="animal1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.animal1 %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for anim in type_entries['anim'] %}
+                            {% if anim == current_person.animal1 %}
+                                <option value="{{anim}}" selected>{{anim}}</option>
+                            {% else %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">1st</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="animal2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.animal2 %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for anim in type_entries['anim'] %}
+                            {% if anim == current_person.animal2 %}
+                                <option value="{{anim}}" selected>{{anim}}</option>
+                            {% else %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">2nd</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="animal3" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.animal3 %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for anim in type_entries['anim'] %}
+                            {% if anim == current_person.animal3 %}
+                                <option value="{{anim}}" selected>{{anim}}</option>
+                            {% else %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">3rd</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <select name="animal4" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        {% if not current_person.animal4 %}
+                            <option value="" selected>None</option>
+                        {% else %}
+                            <option value="">None</option>
+                        {% endif %}
+                        {% for anim in type_entries['anim'] %}
+                            {% if anim == current_person.animal4 %}
+                                <option value="{{anim}}" selected>{{anim}}</option>
+                            {% else %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">4th</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3" style="color: white;margin: 0 auto;width: 610px">
+            <div class="col-5">
+                <div class="form-check form-switch">
+                    <input name="Community Member" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Community Member" in tags %} checked {% endif %}>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Community Member</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check form-switch">
+                    <input name="Class Typing" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Class Typing" in tags %} checked {% endif %}>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Class Typing</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check form-switch">
+                    <input name="Speculation" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Speculation" in tags %} checked {% endif %}>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Speculation</label>
+                </div>
+            </div>
+        </div>
+        <template id="link_template">
+            <div class="row align-items-center mb-3 mt-3 link_row" style="color: white;width: 610px;margin: 0 auto;">
+                <div class="col-1" style="cursor:pointer;">
+                    <button onclick="delete_link(this)" class="btn btn-danger" type="button" role='button' style="margin-top: 2px;"><i class="bi bi-trash" style="font-size: 26px;"></i></button>
+                </div>
+                <div class="col" style="margin-left: 25px;">
+                    <div class="form-floating">
+                        <input type="text" class="form-control link_name" placeholder="Name"  style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <label for="floatingInput">Name</label>
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <input type="text" class="form-control link_url" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <label for="floatingInput">URL</label>
+                      </div>
+                </div>
+            </div>
+        </template>
+        <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Links</h6>
+        <button id="add_link" class="btn btn-primary mb-3" type="button" style="margin-top: 1px;display:block;margin: 0 auto;"><i class="bi bi-plus-lg" style="font-size:25px"></i></button>
+        <div id="links_container">
+            {% for link in links %}
+            <div class="row align-items-center mb-3 mt-3 link_row" style="color: white;width: 610px;margin: 0 auto;">
+                <div class="col-1" style="cursor:pointer;">
+                    <button onclick="delete_link(this)" class="btn btn-danger" type="button" role='button' style="margin-top: 2px;"><i class="bi bi-trash" style="font-size: 26px;"></i></button>
+                </div>
+                <div class="col" style="margin-left: 25px;">
+                    <div class="form-floating">
+                        <input type="text" class="form-control link_name" placeholder="Name" value="{{link['name']}}"  style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <label for="floatingInput">Name</label>
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <input type="text" class="form-control link_url" placeholder="Name" value="{{link['url']}}"  style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <label for="floatingInput">URL</label>
+                      </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+            <input name="image" class="form-control" id="floatingPassword" placeholder="Image URL" value="{{current_person.image}}" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+            <label for="floatingPassword">Image URL</label>
+        </div>
+        <button class="btn btn-primary mb-3" style="width: 590px;margin: 0 auto;display: block;" onclick="submit_edit('{{current_person.id}}')" type="button">Save</button>
+    </form>
+    <form method="POST">
+        <button class="btn btn-danger mb-4" style="width: 590px;margin: 0 auto;display: block;" name="delete" value="delete">Delete</button>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $('.form-check-input').click(function() {
+            $('.form-check-input').not(this).prop('checked', false);
+        });
+        $('#add_link').click(function() {
+            var container = document.getElementById("links_container");
+            var temp = document.getElementById("link_template")
+            var clon = temp.content.cloneNode(true);
+            container.appendChild(clon);
+        });
+        function delete_link(child) {
+            $(child).parent().parent().remove();
+        }
+        function submit_edit(person_id) {
+            all_links = []
+            $("#links_container").children().each(function() {
+                all_links.push({'name': $(this).find('.link_name').val(), 'url': $(this).find('.link_url').val()})
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{url_for('link_update')}}",
+                data: JSON.stringify({'links': all_links, 'id': person_id}),
+                dataType: "json",
+                contentType: "application/json;charset=utf-8"
+            }).then(() => {
+                $('#edit').submit();
+            });
+        }
+    </script>
+</div>
+{% endblock %}

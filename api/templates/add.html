@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+{% block title %} Database New Entry {% endblock %}
+{% block content %}
+<div class="mt-4 container-sm" style="background-color: #080b11; border: 2px solid #262e47; width: 650px;margin: 0 auto; border-radius: 20px; color: white;">
+    <form method="POST" id="edit">
+        <h1 class="text-left mt-1" style="padding-left:20px; margin-bottom: -10px">New Entry <span style="font-size: 22px">({{next_id}})</span></h1>
+        <hr>
+        <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+            <input name="person_name" type="text" class="form-control" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+            <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
+            <select name="sex" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                <option value="" selected>---</option>
+                {% for g in type_entries['gender'] %}
+                        <option value="{{g}}">{{g}}</option>
+                {% endfor %}
+            </select>
+            <label for="floatingSelect">Sex</label>
+        </div>
+        <h5 class="text-center mb-3">Type Selection</h5>
+        <div class="mb-3" style="display: flex;justify-content: center;">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="change_select('full_type', 'incomplete')">
+                <label class="btn btn-outline-primary" for="btnradio1">Full Type</label>
+
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="change_select('incomplete', 'full_type')">
+                <label class="btn btn-outline-primary" for="btnradio3">Incomplete</label>
+            </div>
+        </div>
+        <div id="full_type">
+            <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+                <input id="type_input" type="text" class="form-control" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                <label for="floatingInput">Type</label>
+            </div>
+        </div>
+        <div id="incomplete" style="display: none;">
+            <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="sensoryModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                <option value="" selected>None</option>
+                            {% for m in type_entries['sM'] %}
+                                    <option value="{{m}}">{{m}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">Sensory Modality</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="deModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                <option value="" selected>None</option>
+                            {% for m in type_entries['deM'] %}
+                                <option value="{{m}}">{{m}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">De Modality</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="function1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                <option value="" selected>None</option>
+                            {% for func in type_entries['func'] %}
+                                <option value="{{func}}" >{{func}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">1st Function</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="function2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                <option value="" selected>None</option>
+                            {% for func in type_entries['func'] %}
+                                    <option value="{{func}}" >{{func}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">2nd Function</label>
+                    </div>
+                </div>
+            </div>
+            <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Animals</h6>
+            <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="animal1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                            <option value="" selected>None</option>
+                            {% for anim in type_entries['anim'] %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">1st</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="animal2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                            <option value="" selected>None</option>
+                            {% for anim in type_entries['anim'] %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">2nd</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="animal3" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                            <option value="" selected>None</option>
+                            {% for anim in type_entries['anim'] %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">3rd</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select name="animal4" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                            <option value="" selected>None</option>
+                            {% for anim in type_entries['anim'] %}
+                                <option value="{{anim}}">{{anim}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="floatingSelect">4th</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3" style="color: white;margin: 0 auto;width: 610px">
+            <div class="col-5">
+                <div class="form-check form-switch">
+                    <input name="Community Member" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Community Member" in tags %} checked {% endif %}>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Community Member</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check form-switch">
+                    <input name="Class Typing" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Class Typing" in tags %} checked {% endif %}>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Class Typing</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check form-switch">
+                    <input name="Speculation" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Speculation" in tags %} checked {% endif %}>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Speculation</label>
+                </div>
+            </div>
+        </div>
+        <template id="link_template">
+            <div class="row align-items-center mb-3 mt-3 link_row" style="color: white;width: 610px;margin: 0 auto;">
+                <div class="col-1" style="cursor:pointer;">
+                    <button onclick="delete_link(this)" class="btn btn-danger" type="button" role='button' style="margin-top: 2px;"><i class="bi bi-trash" style="font-size: 26px;"></i></button>
+                </div>
+                <div class="col" style="margin-left: 25px;">
+                    <div class="form-floating">
+                        <input type="text" class="form-control link_name" placeholder="Name"  style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <label for="floatingInput">Name</label>
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <input type="text" class="form-control link_url" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <label for="floatingInput">URL</label>
+                      </div>
+                </div>
+            </div>
+        </template>
+        <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Links</h6>
+        <button id="add_link" class="btn btn-primary mb-3" type="button" style="margin-top: 1px;display:block;margin: 0 auto;"><i class="bi bi-plus-lg" style="font-size:25px"></i></button>
+        <div id="links_container">
+        </div>
+        <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+            <input name="image" class="form-control" id="floatingPassword" placeholder="Image URL" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+            <label for="floatingPassword">Image URL</label>
+        </div>
+        <button class="btn btn-primary mb-3" style="width: 590px;margin: 0 auto;display: block;" onclick="submit_edit('{{next_id}}')" type="button">Add</button>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+        function change_select(id_add, id_remove) {
+            $(`#${id_add}`).show()
+            $(`#${id_remove}`).hide();
+        }
+        $('.form-check-input').click(function() {
+            $('.form-check-input').not(this).prop('checked', false);
+        });
+        $('#add_link').click(function() {
+            var container = document.getElementById("links_container");
+            var temp = document.getElementById("link_template")
+            var clon = temp.content.cloneNode(true);
+            container.appendChild(clon);
+        });
+        function delete_link(child) {
+            $(child).parent().parent().remove();
+        }
+        function submit_edit(person_id) {
+            if ($('#btnradio1').is( ":checked" )) {
+                var animal_options = {
+                    'P': 'Play',
+                    'B': 'Blast',
+                    'C': 'Consume',
+                    'S': 'Sleep'
+                }
+                var full_type = $('#type_input').val();
+                var parts = full_type.split(' ')
+                if (full_type.length == 16 && parts.length == 3) {
+                    modalities = parts[0]
+                    functions = parts[1].split('/')
+                    animals = parts[2]
+                    form_loop = {
+                        'sensoryModality': modalities[0].toLowerCase() + 'S',
+                        'deModality': modalities[1].toLowerCase() + 'De',
+                        'function1': capitalizeFirstLetter(functions[0].toLowerCase()),
+                        'function2': capitalizeFirstLetter(functions[1].toLowerCase()),
+                        'animal1': animal_options[animals[0].toUpperCase()],
+                        'animal2': animal_options[animals[1].toUpperCase()],
+                        'animal3': animal_options[animals[3].toUpperCase()],
+                        'animal4': animal_options[animals[5].toUpperCase()],
+                    }
+                    for (const [key, value] of Object.entries(form_loop)) {
+                        $(`[name=${key}]`).val(value);
+                    }
+                }
+            }
+             all_links = []
+            $("#links_container").children().each(function() {
+                all_links.push({'name': $(this).find('.link_name').val(), 'url': $(this).find('.link_url').val()})
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{url_for('link_update')}}",
+                data: JSON.stringify({'links': all_links, 'id': person_id}),
+                dataType: "json",
+                contentType: "application/json;charset=utf-8"
+            }).then(() => {
+                $('#edit').submit();
+            });
+        }
+    </script>
+</div>
+{% endblock %}

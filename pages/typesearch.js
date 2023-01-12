@@ -282,20 +282,16 @@ const options = [
 ]
 
 const filter_template = {
-    skip: 0,
-    take: 50,
-    orderBy: {
-        createdAt:'desc'
-    },
-    include: {
-        links: true,
-    }
+    "format": 'modified',
 }
+
+const TYPES_API = process.env.TYPES_API ? process.env.TYPES_API : "http://127.0.0.1:5000";
 
 function Database() {
     const [data, setData] = useState([]);
     const [dataTrue, setDataTrue] = useState(false);
     const [lowBound, setLowBound] = useState(0);
+    const [highBound, setHighBound] = useState(50);
     const [filters, setFilters] = useState(filter_template);
     const [popupShown, setPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
@@ -310,48 +306,44 @@ function Database() {
     };
 
     useEffect(() => {
-        fetch('/api/types', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(filters)
-        }).then(res => res.json()).then(newdata => {
-            setData(newdata.data);
-            setDataTrue(true);
-            setLowBound(lowBound + 50);
-        });
+        console.log(TYPES_API)
+        let url = `${TYPES_API}/types/${lowBound}to${highBound}?`;
+        fetch(url + new URLSearchParams(filters)).then(
+            res => res.json()
+        ).then(
+            data => {
+                setData(data);
+                setDataTrue(true);
+                setLowBound(lowBound + 50);
+                setHighBound(highBound + 50);
+            }
+        )
     }, []);
 
     const updateData = () => {
-        var updated_filters = filters
-        updated_filters.skip = lowBound;
-        fetch('/api/types', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(filters)
-        }).then(res => res.json()).then(newdata => {
-            setData(data.concat(newdata.data).unique());
-            setLowBound(lowBound + 50);
-        })
+        let url = `${TYPES_API}/types/${lowBound}to${highBound}?`;
+        fetch(url + new URLSearchParams(filters)).then(
+            res => res.json()
+        ).then(
+            newdata => {
+                setData(data.concat(newdata).unique());
+                setLowBound(lowBound + 50);
+                setHighBound(highBound + 50);
+            }
+        )
     }
 
     function updateFilters(new_filters) {
-        fetch('/api/types', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(new_filters)
-        }).then(res => res.json()).then(newdata => {
-            setData(newdata.data);
-            setLowBound(50);
-        });
+        let url = `${TYPES_API}/types/0to50?`;
+        fetch(url + new URLSearchParams(new_filters)).then(
+            res => res.json()
+        ).then(
+            newdata => {
+                setData(newdata);
+                setLowBound(50);
+                setHighBound(100);
+            }
+        )
     }
 
     const formatOptionLabel = ({label}) => (
@@ -362,28 +354,39 @@ function Database() {
 
     const handleSelectChange = (selectedOptions) => {
         var clean_filters = {
-            skip: lowBound,
-            take: 50,
-            orderBy: {
-                createdAt:'desc'
-            },
-            where: {},
-            include: {
-                links: true,
-            }
+            "format": 'created',
+            "tags": [],
+            "quadra": [],
+            "sensoryModality": [],
+            "deModality": [],
+            "mbti": [],
+            "sex": [],
+            "temperment": [],
+            "oD": [],
+            "animal1": [],
+            "animal2": [],
+            "animal3": [],
+            "animal4": [],
+            "function1": [],
+            "function2": [],
+            "playModality": [],
+            "blastModality": [],
+            "consumeModality": [],
+            "sleepModality": [],
+            "observerAxis": [],
+            "observerNeed": [],
+            "observerLetter": [],
+            "deciderAxis": [],
+            "deciderNeed": [],
+            "deciderLetter": [],
+            "energyInfo": [],
         };
         selectedOptions.forEach(filter => {
             var all_filters = filter_exchange[filter['value']];
             all_filters.forEach(item => {
-                var location = clean_filters.where
-                if (item['name'] in location) {
-                    if (!location[item.name].in.includes(item.value)) {
-                        location[item.name].in.push(item.value);
-                    }
-                } else {
-                    location[item['name']] = {};
-                    location[item['name']].in = [];
-                    location[item.name].in.push(item.value)
+                let filter_col = clean_filters[item['name']];
+                if (!filter_col.includes(item['value'])) {
+                    clean_filters[item['name']].push(item['value']);
                 }
             });
         });
@@ -506,7 +509,7 @@ function Database() {
                                         <div>
                                             <h3>{person['name']}</h3>
                                             <p className="db_card-type">{person['type']}</p>
-                                            {person['tag'] ? <p className="db_card-text-purple">{person['tag']}</p> : null}
+                                            {person['tags'][0] != null ? <p className="db_card-text-purple">{person['tags'][0]}</p> : null}
                                         </div>
                                     </div>
                                 </div>

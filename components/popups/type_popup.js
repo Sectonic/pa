@@ -190,7 +190,7 @@ function TypePopup({data}) {
         <div className="type_top-info">
           <div className="type_top-info__full">
             <p className="db_card-type">{data['type']}</p>
-            {data['tag'] != null ? <p className="db_card-text-purple">{data['tag']}</p> : <p className="db_card-text-purple">General</p> }
+            {data['tags'][0] != null ? <p className="db_card-text-purple">{data['tags'][0]}</p> : <p className="db_card-text-purple">General</p> }
           </div>
           <div className="type_top-info__links">
             <div className="type_top-info__links-title">Links</div>
