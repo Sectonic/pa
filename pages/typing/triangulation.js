@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Triangulation() {
   return (
     <div className="main">
-      <ChangeSection type="typing" />
       <Banner
         background="yellow"
         title="Triangulation"

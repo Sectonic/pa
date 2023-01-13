@@ -600,7 +600,7 @@
 }
 
 .functions .text-sm_img img {
-  width: 85px !important;
+  width: 85px;
 }
 
 .functions h1 {
@@ -790,11 +790,22 @@
   border: 5px solid rgba(144, 150, 225, 0.6) !important;
 }
 
+.top_padding {
+  padding-top: 60px;
+}
+
 .page_btn {
   border-radius: 100px;
-  width: 350px!important;
+  width: 350px;
   cursor: pointer;
   transition: .2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page_btn_multi {
+  width: calc(100% - 50px) !important;
 }
 
 .page_btn:hover {
@@ -804,6 +815,7 @@
 
 .page_btn-img {
   margin: 0;
+  padding:10px;
 }
 
 .page_btn-img span {
@@ -811,7 +823,7 @@
 }
 
 .page_btn-img img {
-  width: 65px;
+  width: 65px !important;
 }
 
 .page_btn-text {

@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function dsTyping() {
   return (
     <div className="main">
-      <ChangeSection type="typing" />
       <Banner
         background="blue"
         title="D&S Typing"
@@ -109,6 +108,7 @@ function dsTyping() {
                 In practise this means paying for 4 months which is around 76$.
               </p>
             </div>
+            <ChangeSection link="https://www.objectivepersonalitysystem.com/signup" text="Join the Class" src="/img/typing/d&s/signup_btn.png" type="multi" />
           </div>
         </div>
       </div>
@@ -122,7 +122,6 @@ function dsTyping() {
                 based on the instructions on the instructions on their page.
               </p>
               <p>
-                
               </p>
             </div>
             <div className="multi_paragraph">
@@ -135,6 +134,7 @@ function dsTyping() {
                 
               </p>
             </div>
+            <ChangeSection link="https://www.objectivepersonalitysystem.com/videotyping" text="Apply for Typing" src="/img/typing/d&s/apply.png" type="multi"/>
           </div>
           <div className="section_img">
             <img src="/img/typing/d&s/submit.png" alt="" />
@@ -161,6 +161,7 @@ function dsTyping() {
               You may have some luck with asking simple questions however, they do tend to respond.
               </p>
             </div>
+            <ChangeSection link="https://www.objectivepersonalitysystem.com/" text="The Official Website" src="/img/typing/d&s/website.png" type="multi"/>
           </div>
         </div>
       </div>
@@ -204,6 +205,7 @@ function dsTyping() {
               If your type was changed, be sure to send in an application for us so we can correct your type in our database as well!
               </p>
             </div>
+            <ChangeSection link="https://docs.google.com/forms/d/e/1FAIpQLSfJj8DJiqCg5AGLov3oiEn3P8WTOTyUkxjh4hkLZsVAbAQihw/viewform" text="Join our Database" src="/img/typing/d&s/typesearch_btn.png" type="multi"/>
           </div>
         </div>
       </div>

@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Quadras() {
   return (
     <div className="main">
-      <ChangeSection section="quadras" />
       <Banner background="pink" title="Quadras" section="quadras" />
       <div className="section functions">
         <img

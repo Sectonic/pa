@@ -16,7 +16,6 @@ function SaviorDemon() {
   };
   return (
     <div className="main">
-      <ChangeSection section="savior_demon" />
       <Banner
         background="yellow"
         title="Savior & Demon"
@@ -188,6 +187,7 @@ function SaviorDemon() {
             />
           </div>
         </div>
+        <ChangeSection link="/learn/human_needs" text="Human Needs" src="human_needs" padding={true} />
       </div>
     </div>
   );

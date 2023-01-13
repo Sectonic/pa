@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function OPS() {
   return (
     <div className="main">
-      <ChangeSection section="ops_intro" />
       <Banner background="blue" title="Objective Personality" section="ops_intro" />
       <div className="section section_images-in">
         <div className="section_body">
@@ -128,6 +127,7 @@ function OPS() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/savior_demon" text="Savior & Demon" src="savior_demon" padding={true} />
       </div>
     </div>
   );

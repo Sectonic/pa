@@ -5,7 +5,6 @@ import Link from 'next/link';
 function typingMethod() {
   return (
     <div className="main">
-      <ChangeSection type="typing" />
       <Banner
         background="green"
         title="Typing Method"

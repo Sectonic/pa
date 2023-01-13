@@ -1,6 +1,5 @@
 import { TypeAnimation } from 'react-type-animation';
-import Image from '../components/image';
-import Link from 'next/link';
+import ChangeSection from '../components/change_section';
 
 function Home() {
   return (
@@ -10,7 +9,7 @@ function Home() {
           <h1 className="home_title">
             <div>
               <div className="home_title_img">
-                <Image src={"/img/main/logo.png"}/>
+                <img src={"/img/main/logo.png"}/>
               </div>
               <h1 className="home_title_text">
                 <div className="home_title_top">Objective Personality</div>
@@ -31,7 +30,7 @@ function Home() {
       </div>
       <div className="home_dashboard">
         <div className="home_dashboard-sm">
-          <Image src="/img/main/discord.png" class="updates_img" />
+          <img src="/img/main/discord.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
               Join Our
@@ -42,7 +41,7 @@ function Home() {
           </div>
         </div>
         <div className="home_dashboard-sm negml-10">
-          <Image src="/img/main/support.png" class="updates_img" />
+          <img src="/img/main/support.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
               Support With
@@ -54,7 +53,7 @@ function Home() {
         </div>
         <div className="home_dashboard-lg">
           <div className="home-text_date">Feb 1</div>
-          <Image src="/img/main/launch.png" class="updates_img" />
+          <img src="/img/main/launch.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
               Personality Academy
@@ -68,7 +67,7 @@ function Home() {
       <div className="section_home section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <Image
+            <img
               src={"/img/main/mission.png"}
             />
           </div>
@@ -92,7 +91,7 @@ function Home() {
         <div className="section_body section_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
-              <Image
+              <img
                 src={"/img/main/learn_icon.png"}
               />
             </div>
@@ -105,7 +104,7 @@ function Home() {
           </div>
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
-              <Image
+              <img
                 src={"/img/main/typing.png"}
               />
             </div>
@@ -120,7 +119,7 @@ function Home() {
         <div className="section_body section_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
-              <Image
+              <img
                 src={"/img/main/resources.png"}
               />
             </div>
@@ -133,7 +132,7 @@ function Home() {
           </div>
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
-              <Image
+              <img
                 src={"/img/main/improve.png"}
               />
             </div>
@@ -146,20 +145,7 @@ function Home() {
           </div>
         </div>
         <h2 className="section_title">Get Started</h2>
-        <div className="section_body section_texts-sm">
-          <Link href="/learn/start">
-          <div className="section_text outline-grey page_btn">
-            <div className="text-sm_img page_btn-img">
-              <Image
-                src={"/img/learn/home/start.png"}
-              />
-            </div>
-            <div className="text-sm_desc page_btn-text">
-              <h3 className="section_subtitle text-center">Start Learning OPS</h3>
-            </div>
-          </div>
-          </Link>
-        </div>
+        <ChangeSection link="/learn/start" text="Start Learning OPS" src="start" />
       </div>
     </div>
   );

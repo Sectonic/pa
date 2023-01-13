@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Modalities() {
   return (
     <div className="main">
-      <ChangeSection section="modalities" />
       <Banner background="pink" title="Modalities" section="modalities" />
       <div className="section section_images-in">
         <div className="section_body">
@@ -113,6 +112,7 @@ function Modalities() {
             />
           </div>
         </div>
+        <ChangeSection link="/learn/extroversion" text="Energy Spectrum" src="extroversion" padding={true} />
       </div>
     </div>
   );

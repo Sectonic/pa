@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function yourType() {
   return (
     <div className="main">
-      <ChangeSection type="typing" />
       <Banner
         background="blue"
         title="Your Type"

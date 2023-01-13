@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Typology() {
   return (
     <div className="main">
-      <ChangeSection section="typology_intro" />
       <Banner background="yellow" title="Personality Theory" section="typology_intro" />
       <div className="section section_images-in">
         <div className="section_body">
@@ -93,6 +92,7 @@ function Typology() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/ops_intro" text="OPS Intro" src="ops_intro" padding={true} />
       </div>
     </div>
     

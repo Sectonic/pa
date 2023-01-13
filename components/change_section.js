@@ -1,100 +1,45 @@
 import Link from "next/link";
 
 function ChangeSection(props) {
-  var learn_pages = [
-    "start",
-    "typology_intro",
-    "ops_intro",
-    "savior_demon",
-    "human_needs",
-    "letters",
-    "functions",
-    "function_stack",
-    "observer_decider",
-    "action_trait",
-    "animals",
-    "animal_stack",
-    "modalities",
-    "function_modalities",
-    "extroversion",
-    "animal_modalities",
-    "modality_combos",
-    "quadras",
-  ];
 
-  var start_end;
+  var external_links = {};
+  if (props.link.includes('http')) {
+    external_links = {
+      target: '_blank',
+      rel: "noopener noreferrer"
+    }
+  }
 
-  var index = learn_pages.indexOf(props.section);
-  if ("type" in props) {
+  const BtnInfo= () => {
     return (
-      <div className="change_section hidden-menu back_menu">
-        <div className="change_back hidden-seen">
-          <Link href="/typing">
-            <img src="/img/main/section_btn.png" alt="" />
-          </Link>
+      <Link href={props.link} {...external_links}>
+      <div className={`multi_paragraph page_btn ${props.type === "multi" && "page_btn_multi"}`}>
+        <div className="text-sm_img page_btn-img">
+          <img
+            src={props.src.includes('/') ? props.src : `/img/learn/home/${props.src}.png`}
+          />
         </div>
-        <div className="change_forward hidden">
-          <img src="/img/main/section_btn.png" alt="" />
+        <div className="page_btn-text">
+          <h3 className="section_subtitle text-center">{props.text}</h3>
         </div>
       </div>
-    );
-  } else {
-    if (index > 0 && index < 15) {
-      return (
-        <div className="change_section">
-          <div className="change_back">
-            <Link href={`/learn/${learn_pages[index - 1]}`}>
-              <img src="/img/main/section_btn.png" alt="" />
-            </Link>
-          </div>
-          <div className="current">
-            <Link href={`/learn/${learn_pages[index]}`}>
-              <img
-                src={`/img/learn/home/${learn_pages[index]}.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="change_forward">
-            <Link href={`/learn/${learn_pages[index + 1]}`}>
-              <img src="/img/main/section_btn.png" alt="" />
-            </Link>
-          </div>
-        </div>
-      );
-    } else {
-      start_end = false;
-      if (index - 1 === -1) {
-        start_end = true;
-      }
+      </Link>
+    )
+  }
 
-      return (
-        <div className="change_section hidden-menu">
-          <div
-            className={`change_back ${start_end ? "hidden" : "hidden-seen"}`}
-          >
-            <Link href={`/learn/${learn_pages[index - 1]}`}>
-              <img src="/img/main/section_btn.png" alt="" />
-            </Link>
-          </div>
-          <div className={`current ${start_end ? "hidden-current-left" : "hidden-current-right"}`}>
-            <Link href={`/learn/${learn_pages[index]}`}>
-              <img
-                src={`/img/learn/home/${learn_pages[index]}.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div
-            className={`change_forward ${start_end ? "hidden-seen hidden-seen-right" : "hidden"}`}
-          >
-            <Link href={`/learn/${learn_pages[index + 1]}`}>
-              <img src="/img/main/section_btn.png" alt="" />
-            </Link>
-          </div>
-        </div>
-      );
-    }
+  if (props.type === 'multi') {
+    return (
+      <div style={{'width': '100%'}}>
+        <BtnInfo/>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className={`section_body section_texts-sm ${props.padding && "top_padding"}`}>
+        <BtnInfo/>
+      </div>
+    )
   }
 }
 

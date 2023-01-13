@@ -1,5 +1,4 @@
 import Banner from "../components/banner";
-import Image from "../components/image";
 import Link from 'next/link';
 
 function Resources() {
@@ -21,9 +20,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/official.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Objective Personality
@@ -43,9 +42,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/lijo.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">Lijo</h3>
                 <p>General typology content, but has plenty of stuff on OPS.</p>
@@ -59,9 +58,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/binyamin.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Binyamin Tsadik
@@ -77,9 +76,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/kendrick.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Personality Trainer
@@ -99,9 +98,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/gray.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Augmented Personality
@@ -122,9 +121,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/subjective.png"
-                  class="typing_img-home"
+                  className="typing_img-home"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Subjective Personality
@@ -143,9 +142,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/notes.png"
-                  class="typing_img-home"
+                  className="typing_img-home"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   OPS Notes v1
@@ -161,9 +160,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/directory.png"
-                  class="typing_img-home"
+                  className="typing_img-home"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   OPS Link Directory
@@ -184,9 +183,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/diagram.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Type Diagram Tool
@@ -205,9 +204,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/analyzer.png"
-                  class="typing_img-home"
+                  className="typing_img-home"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Type Analyzer
@@ -226,9 +225,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/practice.png"
-                  class="typing_img-home"
+                  className="typing_img-home"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Type Practice Tool
@@ -246,9 +245,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/database.png"
-                  class="typing_img-home"
+                  className="typing_img-home"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Airtable Database
@@ -267,9 +266,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/search.png"
-                  class="typing_img-home"
+                  className="typing_img-home"
                 />
                 <h3 className="typing_title-h3 resources_title">Search Tool</h3>
                 <p>
@@ -291,9 +290,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/main/logo.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Personality Academy
@@ -312,9 +311,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/unofficial.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Unofficial Class Server
@@ -333,9 +332,9 @@ function Resources() {
               rel="noopener noreferrer"
             >
               <div>
-                <Image
+                <img
                   src="/img/resources/facebook.png"
-                  class="typing_img-home rounded_edges-img"
+                  className="typing_img-home rounded_edges-img"
                 />
                 <h3 className="typing_title-h3 resources_title">
                   Class Only Facebook

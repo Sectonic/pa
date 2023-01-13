@@ -1,10 +1,10 @@
 import ChangeSection from "../../components/change_section";
 import Banner from "../../components/banner";
+import Link from "next/link";
 
 function Start() {
   return (
     <div className="main">
-      <ChangeSection section="start" />
       <Banner background="green" title="Start" section="start" />
       <div className="section section_images-in">
         <div className="section_body">
@@ -78,6 +78,7 @@ function Start() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/typology_intro" text="Typology Intro" src="typology_intro" padding={true} />
       </div>
     </div>
   );

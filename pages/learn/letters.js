@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Letters() {
   return (
     <div className="main">
-      <ChangeSection section="letters" />
       <Banner background="pink" title="Letters" section="letters" />
       <div className="section">
         <div className="section_body">
@@ -165,6 +164,7 @@ function Letters() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/functions" text="Functions" src="functions" padding={true} />
       </div>
     </div>
   );

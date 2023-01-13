@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Functions() {
   return (
     <div className="main">
-      <ChangeSection section="functions" />
       <Banner background="blue" title="Functions" section="functions" />
       <div className="section section_images-in">
         <div className="section_body">
@@ -228,6 +227,7 @@ function Functions() {
             <img src={"/img/icons/axes/fite.png"} alt="" />
           </div>
         </div>
+        <ChangeSection link="/learn/action_trait" text="Actions" src="action_trait" padding={true} />
       </div>
     </div>
   );

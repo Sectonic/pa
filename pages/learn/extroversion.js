@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Extroversion() {
   return (
     <div className="main">
-      <ChangeSection section="extroversion" />
       <Banner background="green" title="Energy Spectrum" section="extroversion" />
       <div className="section">
         <h2 className="section_title">Energy Preference</h2>
@@ -187,6 +186,7 @@ function Extroversion() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/animal_modalities" text="Animal Modalities" src="animal_modalities" padding={true} />
       </div>
     </div>
   );

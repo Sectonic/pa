@@ -1,4 +1,3 @@
-import Image from "../../components/image";
 import Link from 'next/link';
 
 function give_trees() {
@@ -113,7 +112,7 @@ function Learn() {
               <div className="section_top">First Steps</div>
               <Link href="/learn/start" className="icon_container link_text">
                 <div className="page_icon">
-                  <Image src={"/img/learn/home/start.png"}  />
+                  <img src={"/img/learn/home/start.png"}  />
                 </div>
                 <div className="icon_text">Start</div>
               </Link>
@@ -123,7 +122,7 @@ function Learn() {
                   className="icon_container link_text"
                 >
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/typology_intro.png"}
                       
                     />
@@ -132,7 +131,7 @@ function Learn() {
                 </Link>
                 <Link href="/learn/ops_intro" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image src={"/img/learn/home/ops_intro.png"}  />
+                    <img src={"/img/learn/home/ops_intro.png"}  />
                   </div>
                   <div className="icon_text">Objective Personality</div>
                 </Link>
@@ -145,7 +144,7 @@ function Learn() {
                 className="icon_container link_text"
               >
                 <div className="page_icon">
-                  <Image
+                  <img
                     src={"/img/learn/home/savior_demon.png"}
                     
                   />
@@ -158,7 +157,7 @@ function Learn() {
                   className="icon_container link_text"
                 >
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/human_needs.png"}
                       
                     />
@@ -167,21 +166,21 @@ function Learn() {
                 </Link>
                 <Link href="/learn/letters" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image src={"/img/learn/home/letters.png"}  />
+                    <img src={"/img/learn/home/letters.png"}  />
                   </div>
                   <div className="icon_text">Letters</div>
                 </Link>
               </div>
               <Link href="/learn/functions" className="icon_container link_text">
                 <div className="page_icon">
-                  <Image src={"/img/learn/home/functions.png"}  />
+                  <img src={"/img/learn/home/functions.png"}  />
                 </div>
                 <div className="icon_text">Functions</div>
               </Link>
               <div className="seconds">
                 <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/function_stack.png"}
                       
                     />
@@ -190,7 +189,7 @@ function Learn() {
                 </Link>
                 <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/modality_combos.png"}
                       
                     />
@@ -203,7 +202,7 @@ function Learn() {
                 className="icon_container link_text"
               >
                 <div className="page_icon">
-                  <Image
+                  <img
                     src={"/img/learn/home/action_trait.png"}
                     
                   />
@@ -216,13 +215,13 @@ function Learn() {
               <div className="seconds">
                 <Link href="/learn/animals" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image src={"/img/learn/home/animals.png"}  />
+                    <img src={"/img/learn/home/animals.png"}  />
                   </div>
                   <div className="icon_text">Animals</div>
                 </Link>
                 <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/animal_stack.png"}
                       
                     />
@@ -236,7 +235,7 @@ function Learn() {
                   className="icon_container link_text"
                 >
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/modalities.png"}
                       
                     />
@@ -245,7 +244,7 @@ function Learn() {
                 </Link>
                 <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/modality_combos.png"}
                       
                     />
@@ -261,7 +260,7 @@ function Learn() {
                 className="icon_container link_text"
               >
                 <div className="page_icon">
-                  <Image
+                  <img
                     src={"/img/learn/home/extroversion.png"}
                     
                   />
@@ -274,7 +273,7 @@ function Learn() {
                   className="icon_container link_text"
                 >
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/animal_modalities.png"}
                       
                     />
@@ -283,7 +282,7 @@ function Learn() {
                 </Link>
                 <Link href="#" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image
+                    <img
                       src={"/img/learn/home/modality_combos.png"}
                       
                     />
@@ -292,7 +291,7 @@ function Learn() {
                 </Link>
                 <Link href="/learn/quadras" className="icon_container link_text">
                   <div className="page_icon">
-                    <Image src={"/img/learn/home/quadras.png"}  />
+                    <img src={"/img/learn/home/quadras.png"}  />
                   </div>
                   <div className="icon_text">Quadras</div>
                 </Link>

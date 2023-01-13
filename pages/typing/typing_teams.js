@@ -5,7 +5,6 @@ import Link from 'next/link';
 function typingTeams() {
   return (
     <div className="main">
-      <ChangeSection type="typing" />
       <Banner
         background="pink"
         title="Typing Teams"
