@@ -110,7 +110,7 @@ function Letters() {
       <div className="section">
         <h2 className="section_title">Letter Combos</h2>
         <p className="letters_subtitle">How different letters work together</p>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-f_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nf.png"} alt="" />
@@ -138,7 +138,7 @@ function Letters() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-combos outline-combos-t_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nt.png"} alt="" />

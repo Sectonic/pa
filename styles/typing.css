@@ -1,5 +1,18 @@
 .top_typing .section_text {
-  width: 330px;
+  padding: 0;
+}
+
+
+@media screen and (min-width: 484px) {
+  .top_typing .section_text {
+    width: 330px;
+  }
+}
+
+@media screen and (max-width: 484px) {
+  .top_typing {
+    padding: 13px;
+  }
 }
 
 .top_typing {

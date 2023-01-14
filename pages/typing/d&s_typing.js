@@ -67,7 +67,7 @@ function dsTyping() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Not For Everyone</h2>
@@ -113,7 +113,7 @@ function dsTyping() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Apply For Typing</h2>
@@ -166,7 +166,7 @@ function dsTyping() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Retyping?</h2>

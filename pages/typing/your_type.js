@@ -11,7 +11,7 @@ function yourType() {
         type="typing"
       />
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Let's Nail It</h2>
@@ -48,7 +48,7 @@ function yourType() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Type Limbo</h2>
@@ -109,7 +109,7 @@ function yourType() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
           <div className="multi_paragraph">
               <h2 className="margin-sm">It's Worth It</h2>
@@ -130,7 +130,7 @@ function yourType() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Don't Pick And Choose</h2>

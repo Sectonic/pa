@@ -36,7 +36,7 @@ function ChangeSection(props) {
   }
   else {
     return (
-      <div className={`section_body section_texts-sm ${props.padding && "top_padding"}`}>
+      <div className={`button_body section_body section_texts-sm ${props.padding && "top_padding"}`}>
         <BtnInfo/>
       </div>
     )

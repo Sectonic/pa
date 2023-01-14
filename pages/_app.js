@@ -39,6 +39,7 @@ function App({ Component, pageProps, router }) {
       </Head>
       <Navbar section={path[1]} />
       <Component {...pageProps} />
+      {['', 'typing', 'learn', 'resources'].includes(path[1]) && <div className='main_extra_padding'></div>}
     </div>)
 }
 
