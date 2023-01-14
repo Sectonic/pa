@@ -1,4 +1,3 @@
-import Image from "./image";
 
 function Banner(props) {
   var directory;
@@ -17,7 +16,7 @@ function Banner(props) {
     >
       <div className="banner_logo">
         <div className="banner_icon">
-          <Image
+          <img
             src={`/img/${directory}/${props.section}.png`}
           />
         </div>

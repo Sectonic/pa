@@ -442,6 +442,9 @@ h3 {
     width: calc(100% - 10px);
     margin-left: 5px;
   }
+  .main_extra_padding {
+    padding: 25px 0;
+  }
 }
 .beta {
   margin-top: 15px;

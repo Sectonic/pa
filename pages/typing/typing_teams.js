@@ -5,7 +5,6 @@ import Link from 'next/link';
 function typingTeams() {
   return (
     <div className="main">
-      <ChangeSection type="typing" />
       <Banner
         background="pink"
         title="Typing Teams"
@@ -42,7 +41,7 @@ function typingTeams() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Combine Approaches</h2>

@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Animals() {
   return (
     <div className="main">
-      <ChangeSection section="animals" />
       <Banner background="pink" title="Animals" section="animals" />
       <div className="section section_images-in">
         <h1 className="section_title">Animals Are 2 Needs</h1>
@@ -164,6 +163,7 @@ function Animals() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/modalities" text="Modalities" src="modalities" padding={true} />
       </div>
     </div>
   );

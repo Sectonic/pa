@@ -2,9 +2,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function Image(props) {
-    var attributes = {}
+    var attributes = {};
     if (props.class) {
-        attributes.className = props.class
+        attributes.className = props.class;
     }
     return (
       <LazyLoadImage

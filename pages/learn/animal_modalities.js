@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function animalModalities() {
   return (
     <div className="main">
-      <ChangeSection section="animal_modalities" />
       <Banner
         background="pink"
         title="Animal Modalities"
@@ -135,6 +134,7 @@ function animalModalities() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/quadras" text="Quadras" src="quadras" padding={true} />
       </div>
     </div>
   );

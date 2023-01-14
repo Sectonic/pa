@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function actionTrait() {
   return (
     <div className="main">
-      <ChangeSection section="action_trait" />
       <Banner
         background="green"
         title="Actions"
@@ -131,6 +130,7 @@ function actionTrait() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/animals" text="Animals" src="animals" padding={true} />
       </div>
     </div>
   );

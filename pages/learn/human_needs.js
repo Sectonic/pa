@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function humanNeeds() {
   return (
     <div className="main">
-      <ChangeSection section="human_needs" />
       <Banner background="pink" title="Human Needs" section="human_needs" />
       <div className="section section_images-in">
         <div className="section_body">
@@ -141,6 +140,7 @@ function humanNeeds() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/letters" text="Letters" src="letters" padding={true} />
       </div>
     </div>
   );

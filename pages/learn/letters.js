@@ -4,7 +4,6 @@ import Banner from "../../components/banner";
 function Letters() {
   return (
     <div className="main">
-      <ChangeSection section="letters" />
       <Banner background="pink" title="Letters" section="letters" />
       <div className="section">
         <div className="section_body">
@@ -111,7 +110,7 @@ function Letters() {
       <div className="section">
         <h2 className="section_title">Letter Combos</h2>
         <p className="letters_subtitle">How different letters work together</p>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-f_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nf.png"} alt="" />
@@ -139,7 +138,7 @@ function Letters() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-combos outline-combos-t_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nt.png"} alt="" />
@@ -165,6 +164,7 @@ function Letters() {
             </div>
           </div>
         </div>
+        <ChangeSection link="/learn/functions" text="Functions" src="functions" padding={true} />
       </div>
     </div>
   );
