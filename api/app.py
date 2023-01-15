@@ -1,63 +1,57 @@
 from flask import Flask, jsonify, request, render_template, session, url_for, redirect, flash, get_flashed_messages
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import contains_eager
 import datetime
-import time
 import json
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.config['SECRET_KEY'] = 'key'
 db = SQLAlchemy(app)
+app.app_context().push()
 
 class Link(db.Model):
     __tablename__ = 'links'
     id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String())
-    url = db.Column(db.String())
-    person = db.Column(db.Integer(), db.ForeignKey('types.id'))
-
-class Tag(db.Model):
-    __tablename__ = 'tags'
-    id = db.Column(db.Integer(), primary_key=True)
-    tag = db.Column(db.String())
+    name = db.Column(db.String(100))
+    url = db.Column(db.String(100))
     person = db.Column(db.Integer(), db.ForeignKey('types.id'))
 
 class Types(db.Model):
     __tablename__ = 'types'
     id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String())
-    sex = db.Column(db.String())
-    type = db.Column(db.String())
-    mbti = db.Column(db.String())
-    extrovertIntrovert = db.Column(db.String())
-    temperment = db.Column(db.String())
-    quadra = db.Column(db.String())
-    sensoryModality = db.Column(db.String())
-    deModality = db.Column(db.String())
-    oD = db.Column(db.String())
-    energyInfo = db.Column(db.String())
-    function1 = db.Column(db.String())
-    function2 = db.Column(db.String())
-    deciderNeed = db.Column(db.String())
-    deciderLetter = db.Column(db.String())
-    observerNeed = db.Column(db.String())
-    observerLetter = db.Column(db.String())
-    animal1 = db.Column(db.String())
-    animal2 = db.Column(db.String())
-    animal3 = db.Column(db.String())
-    animal4 = db.Column(db.String())
-    playModality = db.Column(db.String())
-    sleepModality = db.Column(db.String())
-    blastModality = db.Column(db.String())
-    consumeModality = db.Column(db.String())
-    observerAxis = db.Column(db.String())
-    deciderAxis = db.Column(db.String())
+    name = db.Column(db.String(100))
+    sex = db.Column(db.String(100))
+    type = db.Column(db.String(100))
+    mbti = db.Column(db.String(100))
+    extrovertIntrovert = db.Column(db.String(100))
+    temperment = db.Column(db.String(100))
+    quadra = db.Column(db.String(100))
+    sensoryModality = db.Column(db.String(100))
+    deModality = db.Column(db.String(100))
+    oD = db.Column(db.String(100))
+    energyInfo = db.Column(db.String(100))
+    function1 = db.Column(db.String(100))
+    function2 = db.Column(db.String(100))
+    deciderNeed = db.Column(db.String(100))
+    deciderLetter = db.Column(db.String(100))
+    observerNeed = db.Column(db.String(100))
+    observerLetter = db.Column(db.String(100))
+    animal1 = db.Column(db.String(100))
+    animal2 = db.Column(db.String(100))
+    animal3 = db.Column(db.String(100))
+    animal4 = db.Column(db.String(100))
+    playModality = db.Column(db.String(100))
+    sleepModality = db.Column(db.String(100))
+    blastModality = db.Column(db.String(100))
+    consumeModality = db.Column(db.String(100))
+    observerAxis = db.Column(db.String(100))
+    deciderAxis = db.Column(db.String(100))
     createdAt = db.Column(db.Integer())
     updatedAt = db.Column(db.Integer())
-    image = db.Column(db.String())
-    tags = db.relationship('Tag', backref='related_tags', lazy=True)
+    image = db.Column(db.String(500))
+    tag = db.Column(db.String(100))
     links = db.relationship('Link', backref='related_links', lazy=True)
 
 def new_type(person):
@@ -89,35 +83,27 @@ def new_type(person):
         consumeModality=person['Consume Modality'],
         observerAxis=person['Observer Axis'],
         deciderAxis=person['Decider Axis'],
-        createdAt= int(datetime.datetime.utcnow().timestamp()),
-        updatedAt= int(datetime.datetime.utcnow().timestamp()),
+        createdAt= person['Created At'],
+        updatedAt= person['Updated At'],
+        tag=person['Tag'],
         image=person['Image'],
     )
     db.session.add(new_type)
-    if "Tags" in person.keys():
-        if person["Tags"]:
-            for tag in person["Tags"]:
-                new_tag = Tag(
-                    tag=tag,
-                    person=Types.query.order_by(Types.id.desc()).first().id + 1
-                )
-                db.session.add(new_tag)
+    new_type_id = Types.query.filter_by(name=person['Name'], createdAt=person['Created At']).first().id
     if "Links" in person.keys():
         if person["Links"]:
             for link in person["Links"]:
                 new_link = Link(
                     name=link["name"],
                     url=link["url"],
-                    person=Types.query.order_by(Types.id.desc()).first().id + 1
+                    person=new_type_id
                 )
                 db.session.add(new_link)
     db.session.commit()
 
 def dbToDict(data):
     data_dict = dict((col, getattr(data, col)) for col in data.__table__.columns.keys())
-    tags = Tag.query.filter_by(person=data.id)
     links = Link.query.filter_by(person=data.id)
-    data_dict["tags"] = [tag.tag for tag in tags]
     data_dict["links"] = [{'name': link.name, 'url': link.url} for link in links]
     return data_dict
 
@@ -191,14 +177,7 @@ def update_type(person_id, person):
     type.observerAxis=person['Observer Axis']
     type.deciderAxis=person['Decider Axis']
     type.image=person['Image']
-    Tag.query.filter_by(person=person_id).delete()
-    if "Tags" in person.keys():
-        for tag in person["Tags"]:
-            new_tag = Tag(
-                tag=tag,
-                person=person_id
-            )
-            db.session.add(new_tag)
+    type.tag=person['Tag']
     db.session.commit()
 
 @app.after_request
@@ -271,8 +250,6 @@ def edit(type_id):
         authentication = False
     if authentication:
         current_person = Types.query.filter_by(id=type_id).first()
-        person_tags = Tag.query.filter_by(person=type_id)
-        current_tags = [tag.tag for tag in person_tags]
         person_links = Link.query.filter_by(person=type_id)
         current_links = [{'name': link.name, 'url': link.url} for link in person_links]
         type_entries = {
@@ -302,17 +279,15 @@ def edit(type_id):
                 type_data['Name'] = request.form.get('person_name')
                 type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
                 type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
-                tags_arr = []
                 for tag in tag_options:
                     new_tag = request.form.get(tag)
                     if new_tag == 'on':
-                        tags_arr.append(tag)
-                type_data["Tags"] = tags_arr
+                        type_data['Tag'] = tag
                 flash(f'Successfully changed {type_data["Name"]}',
                   category='success')
                 update_type(type_id, type_data)
             return redirect(url_for('view'))
-        return render_template('edit.html', current_person=current_person, type_entries=type_entries, authentication=authentication, tags=current_tags, links=current_links)
+        return render_template('edit.html', current_person=current_person, type_entries=type_entries, authentication=authentication, tag=current_person.tag, links=current_links)
     else:
         return redirect(url_for('index'))
 
@@ -347,12 +322,10 @@ def add():
             type_data['Name'] = request.form.get('person_name')
             type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
             type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
-            tags_arr = []
             for tag in tag_options:
                 new_tag = request.form.get(tag)
                 if new_tag == 'on':
-                    tags_arr.append(tag)
-            type_data["Tags"] = tags_arr
+                    type_data['Tag'] = new_tag
             similar_types = Types.query.filter_by(type=type_data['Type']).all()
             add_type = True
             if similar_types:
@@ -395,10 +368,7 @@ def types(low, high):
             if k != 'format':
                 v_arr = v.split(',')
                 if v_arr[0] != '':
-                    if k == 'tags':
-                        original_query = original_query.join(Tag).options(contains_eager(Types.tags)).filter(Tag.tag.not_in(v_arr))
-                    else:
-                        original_query = original_query.filter(getattr(Types, k).in_(v_arr))
+                    original_query = original_query.filter(getattr(Types, k).in_(v_arr))
         result_query = original_query.all()
         bounded_query = result_query[low:high] if high_test else result_query[low:]
         all_bounds_arr = []
