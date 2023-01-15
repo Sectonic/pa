@@ -508,7 +508,7 @@ function Database() {
                                         <div>
                                             <h3>{person['name']}</h3>
                                             <p className="db_card-type">{person['type']}</p>
-                                            {person['tags'][0] != null ? <p className="db_card-text-purple">{person['tags'][0]}</p> : null}
+                                            {person['tag'] != null ? <p className="db_card-text-purple">{person['tag']}</p> : null}
                                         </div>
                                     </div>
                                 </div>

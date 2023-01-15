@@ -186,19 +186,19 @@
         <div class="row mb-3" style="color: white;margin: 0 auto;width: 610px">
             <div class="col-5">
                 <div class="form-check form-switch">
-                    <input name="Community Member" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Community Member" in tags %} checked {% endif %}>
+                    <input name="Community Member" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if tag == "Community Member" %} checked {% endif %}>
                     <label class="form-check-label" for="flexSwitchCheckDefault">Community Member</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-check form-switch">
-                    <input name="Class Typing" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Class Typing" in tags %} checked {% endif %}>
+                    <input name="Class Typing" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if tag == "Class Typing" %} checked {% endif %}>
                     <label class="form-check-label" for="flexSwitchCheckDefault">Class Typing</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-check form-switch">
-                    <input name="Speculation" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Speculation" in tags %} checked {% endif %}>
+                    <input name="Speculation" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if tag == "Speculation" %} checked {% endif %}>
                     <label class="form-check-label" for="flexSwitchCheckDefault">Speculation</label>
                 </div>
             </div>
