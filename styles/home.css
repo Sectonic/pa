@@ -5,12 +5,12 @@
       rgba(0, 0, 0, 0.3)
     ),
     url("./backgrounds/background_blur.png");
-  background-size: 2900px;
+  background-size: 2000px;
   background-attachment: fixed;
   width: calc(100% - 50px);
   margin: 0 auto;
   margin-top: 17px;
-  height: 71vh;
+  height: 72vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,7 +136,7 @@
 .home_dashboard > div {
   background-color: var(--dark-grey);
   margin: 27.5px auto;
-  border: 5px solid var(--dark-grey);
+  border: 5px solid #0022a85d;
   border-radius: 20px;
   height: 150px;
   padding: 15px 0;

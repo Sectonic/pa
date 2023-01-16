@@ -14,9 +14,9 @@ import { useEffect, useState } from "react";
 import { withRouter } from 'next/router';
 import Head from 'next/head';
 import Pages from '../public/json/pages.json';
-import { Inter } from "@next/font/google";
+import { Montserrat } from "@next/font/google";
 
-const font = Inter({ 
+const font = Montserrat ({ 
   weights: ['400', '500', '600', '700', '800', '900'],
   subsets: ['latin'] 
 }); 
