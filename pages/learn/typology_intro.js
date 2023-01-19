@@ -1,12 +1,12 @@
 import ChangeSection from "../../components/change_section";
 import Banner from "../../components/banner";
 
-function Typology() {
+export default function Typology() {
   return (
     <div className="main">
       <Banner background="yellow" title="Personality Theory" section="typology_intro" />
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">Why Personality?</h2>
@@ -49,7 +49,7 @@ function Typology() {
         </div>
       </div>
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
           <div className="multi_paragraph">
               <h2 className="margin-sm">How It Works</h2>
@@ -95,8 +95,5 @@ function Typology() {
         <ChangeSection link="/learn/ops_intro" text="OPS Intro" src="ops_intro" padding={true} />
       </div>
     </div>
-    
   );
 }
-
-export default Typology;

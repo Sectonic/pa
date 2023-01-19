@@ -76,7 +76,7 @@ function Modalities() {
         </div>
       </div>
       <div className="section ">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text outline-gray">
             <div>
               <h2 className="margin-sm">Modalities Type Code</h2>

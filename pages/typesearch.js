@@ -308,13 +308,31 @@ function Database() {
     useEffect(() => {
         let url = `${API}/types/${lowBound}to${highBound}?`;
         fetch(url + new URLSearchParams(filters)).then(
-            res => res.json()
-        ).then(
-            data => {
-                setData(data);
-                setDataTrue(true);
-                setLowBound(lowBound + 50);
-                setHighBound(highBound + 50);
+            res => {
+                if (res.ok) {
+                    res.json().then(data => {
+                        setData(data);
+                        setDataTrue(true);
+                        setLowBound(lowBound + 50);
+                        setHighBound(highBound + 50);
+                    })
+                }
+                else {
+                    console.log('Initial Failed. Requesting Database again.');
+                    setTimeout(() => {
+                        let url = `${API}/types/${lowBound}to${highBound}?`;
+                        fetch(url + new URLSearchParams(filters)).then(
+                            res => res.json()
+                        ).then(
+                            data => {
+                                setData(data);
+                                setDataTrue(true);
+                                setLowBound(lowBound + 50);
+                                setHighBound(highBound + 50);
+                            }
+                        )
+                    }, 1000)
+                }
             }
         )
     }, []);

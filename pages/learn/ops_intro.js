@@ -6,7 +6,7 @@ function OPS() {
     <div className="main">
       <Banner background="blue" title="Objective Personality" section="ops_intro" />
       <div className="section section_images-in">
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">What Is OPS?</h2>

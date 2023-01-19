@@ -10,6 +10,13 @@
   transition: 0.2s ease;
 }
 
+@media only screen and (max-width: 1000px) {
+  .page_icon {
+    height: 70px;
+    width: 70px;
+  }
+}
+
 .icon_container {
   margin: 40px auto;
 }
@@ -19,6 +26,12 @@
   font-weight: 600;
   margin-top: 20px;
   text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  .icon_text {
+    font-size: 16px;
+  }
 }
 
 .page_icon:hover {
@@ -65,13 +78,36 @@
   margin-left: 17px;
   background-image: linear-gradient(
       to right,
-      rgba(var(--purple-black-rgb), 0.7),
-      rgba(var(--purple-black-rgb), 0.7)
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
     ),
     url(".//backgrounds/background.png");
-  background-size: 2000px;
+  background-size: 2900px;
+  background-position: bottom;
   background-attachment: fixed;
   overflow: hidden;
+  border-radius: 20px;
+  border: solid 5px #0022a85d;
+}
+
+@media only screen and (max-width: 1400px) {
+  .learn_section {
+    width: calc(100% - 545px);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .learn_section {
+    width: calc(100% - 220px);
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .learn_section {
+    width: calc(100% - 30px);
+    height: calc(100% - 90px);
+    margin-left: 10px;
+  }
 }
 
 .section_top {
@@ -81,7 +117,16 @@
   padding: 10px;
   margin-top: 40px;
   margin-bottom: 40px;
-  /* background-color: #100076; */
+}
+
+@media only screen and (max-width: 775px) {
+  .section_top:first-child {
+    margin-top: 40px;
+  }
+  .section_top {
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
 }
 
 .section_buttons {
@@ -89,10 +134,22 @@
   float: right;
 }
 
+@media only screen and (max-width: 1400px) {
+  .section_buttons {
+    width: 325px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .section_buttons {
+    display: none;
+  }
+}
+
 .section_button {
   width: 95%;
   background-color: var(--dark-purple);
-  height: 290px;
+  height: 225px;
   border-radius: 20px;
   margin-bottom: 20px;
   position: relative;
@@ -101,13 +158,19 @@
   cursor: default;
 }
 
+@media only screen and (max-width: 1400px) {
+  .section_button {
+    height: 235px;
+  }
+}
+
 .section_button_small {
   width: 95%;
   background-color: transparent;
   border: 1px solid transparent;
-  height: 70px;
+  height: 50px;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   position: relative;
   transition: 0.3s ease;
   cursor: pointer;
@@ -224,6 +287,12 @@
   justify-content: center;
   width: 70%;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 775px) {
+  .seconds {
+    width: 100%;
+  }
 }
 
 .seconds .icon_container {

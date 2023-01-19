@@ -2,12 +2,15 @@ from flask import Flask, jsonify, request, render_template, session, url_for, re
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 import json
+from discord.ext.ipc import Client
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.config['SECRET_KEY'] = 'key'
+ipc = Client(secret_key="test")
+
 db = SQLAlchemy(app)
 app.app_context().push()
 
@@ -184,6 +187,11 @@ def update_type(person_id, person):
 def add_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
+
+@app.route('/discord')
+async def discord():
+    resp = await ipc.request("get_pa_member", user_id=460601227806244866)
+    return str(resp.response)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():

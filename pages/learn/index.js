@@ -14,27 +14,29 @@ function checkVisible(elm) {
 }
 
 function change_btns(curr_section, other_sections) {
-  for (let i = 0; i < other_sections.length; i++) {
-    let btn = document.getElementById(`${other_sections[i]}_btn`);
-    if (btn.className !== "section_button_small") {
-      btn.className = "section_button_small";
-      var collection = btn.getElementsByTagName("*");
-      collection[0].className = "button-title-container_small";
-      collection[1].className = "button_send_small";
-      collection[3].className = "button-title_small";
-      collection[4].className = "button_text_small";
-      collection[5].className = "button_infos_small";
+  if (window.innerWidth > 1200) {
+    for (let i = 0; i < other_sections.length; i++) {
+      let btn = document.getElementById(`${other_sections[i]}_btn`);
+      if (btn.className !== "section_button_small") {
+        btn.className = "section_button_small";
+        var collection = btn.getElementsByTagName("*");
+        collection[0].className = "button-title-container_small";
+        collection[1].className = "button_send_small";
+        collection[3].className = "button-title_small";
+        collection[4].className = "button_text_small";
+        collection[5].className = "button_infos_small";
+      }
     }
+  
+    var current_btn = document.getElementById(`${curr_section}_btn`);
+    current_btn.className = "section_button";
+    var current_collection = current_btn.getElementsByTagName("*");
+    current_collection[0].className = "button-title-container";
+    current_collection[1].className = "button_send";
+    current_collection[3].className = "button-title";
+    current_collection[4].className = "button_text";
+    current_collection[5].className = "button_infos";
   }
-
-  var current_btn = document.getElementById(`${curr_section}_btn`);
-  current_btn.className = "section_button";
-  var current_collection = current_btn.getElementsByTagName("*");
-  current_collection[0].className = "button-title-container";
-  current_collection[1].className = "button_send";
-  current_collection[3].className = "button-title";
-  current_collection[4].className = "button_text";
-  current_collection[5].className = "button_infos";
 }
 
 function handleScroll() {
@@ -159,7 +161,6 @@ function Learn() {
                   <div className="page_icon">
                     <img
                       src={"/img/learn/home/human_needs.png"}
-                      
                     />
                   </div>
                   <div className="icon_text">Human Needs</div>
