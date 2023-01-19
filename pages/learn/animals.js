@@ -27,7 +27,7 @@ function Animals() {
             </div>
           </div>
         </div>
-        <div className="section_body">
+        <div className="section_body reverse_body">
           <div className="section_text outline-gray">
             <div>
               <h2 className="margin-sm">Energy</h2>

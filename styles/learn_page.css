@@ -22,6 +22,14 @@
   justify-content: center;
 }
 
+@media screen and (max-width:775px) {
+  .banner {
+    width: calc(100% - 25px);
+    height: max-content;
+    padding: 30px 0;
+  }
+}
+
 .banner-sm {
   position: fixed;
   height: auto;
@@ -140,6 +148,34 @@
     display: flex;
     justify-content: center;
   }
+  .banner_text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:775px) {
+  .banner_icon {
+    height: 120px;
+    margin-top: 0;
+  }
+  .banner_text {
+    margin-top: 15px;
+    font-size: 55px;
+    line-height: 65px;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .banner_icon {
+    height: 100px;
+    margin-top: 0;
+  }
+  .banner_text {
+    margin-top: 25px;
+    font-size: 45px;
+    line-height: 55px;
+  }
 }
 
 .yellow {
@@ -200,6 +236,13 @@
   border: 5px solid var(--dark-grey);
 }
 
+@media screen and (max-width:775px) {
+  .section {
+    width: calc(100% - 25px);
+    margin-top: 20px;
+  }
+}
+
 .section_title {
   text-align: center;
   font-weight: 900;
@@ -222,6 +265,12 @@
 @media screen and (max-width:1100px) {
   .section_images-in .section_body {
     gap: 10px !important;
+  }
+}
+
+@media screen and (max-width:775px) {
+  .section_title {
+    padding: 10px;
   }
 }
 
@@ -286,6 +335,22 @@
   }
   .section_img span[style] {
     display: block !important;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width:775px) {
+  .section_img-sm img {
+    height: 100px !important;
+  }
+  
+  .section_img-mid img {
+    height: 160px !important;
+  }
+  
+  .section_img img {
+    height: 200px;
+    display:block;
     margin: 0 auto;
   }
 }
@@ -555,6 +620,7 @@
 
 .section_texts-sm {
   padding: 10px;
+  gap: 40px;
 }
 
 .section_texts-sm .section_text {
@@ -585,16 +651,13 @@
 @media screen and (max-width:1100px) {
   .section_texts-sm {
     flex-direction: row !important;
-    gap: 35px;
+    gap: 0px;
   }
 }
 
 @media screen and (max-width:1025px) {
   .section_texts-sm .section_text {
     flex-direction: column;
-  }
-  .section_texts-sm {
-    gap: 0px;
   }
   .text-sm_img {
     margin-top: 15px;
@@ -827,6 +890,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 460px) {
+  .page_btn {
+    width: calc(85% - 5px);
+    margin: 0 auto;
+  }
 }
 
 .page_btn_multi {

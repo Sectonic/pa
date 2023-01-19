@@ -9,6 +9,7 @@ function Triangulation() {
         title="Triangulation"
         section="triangulation"
         type="typing"
+        title_size="small"
       />
       <div className="section section_images-in">
         <div className="section_body">
