@@ -32,29 +32,15 @@ background-position-y: 500px;
 }
 
 .banner-sm {
-  position: fixed;
+  position: relative;
   height: auto;
   padding: 30px 0;
-  width: calc(100% - 277px);
-  margin: 0;
-  margin-left: -4px;
-  top: 17px;
+  width: 100%;
+  margin-top: -15px;
+  margin-left: -5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  z-index: 5;
-}
-
-@media screen and (max-width: 1400px) {
-  .banner-sm {
-    width: calc(100% - 236px);
-  }
-}
-
-@media only screen and (max-width: 775px) {
-  .banner-sm {
-    top: 14px;
-    width: calc(100% - 36px);
-  }
+  z-index: 10;
 }
 
 .banner_yellow-outline {
