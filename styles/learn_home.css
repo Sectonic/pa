@@ -98,7 +98,9 @@
 
 @media only screen and (max-width: 1200px) {
   .learn_section {
-    width: calc(100% - 220px);
+    margin-top: 17px;
+    width: calc(100% - 40px);
+    position: relative;
   }
 }
 
@@ -183,6 +185,12 @@
   overflow-y: scroll;
   height: 96.5vh;
   border-radius: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .section_map {
+    height: max-content;
+  }
 }
 
 .section_map-space {
