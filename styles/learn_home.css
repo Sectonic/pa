@@ -78,13 +78,16 @@
   margin-left: 17px;
   background-image: linear-gradient(
       to right,
-      rgba(var(--purple-black-rgb), 0.7),
-      rgba(var(--purple-black-rgb), 0.7)
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
     ),
     url(".//backgrounds/background.png");
-  background-size: 2000px;
+  background-size: 2900px;
+  background-position: bottom;
   background-attachment: fixed;
   overflow: hidden;
+  border-radius: 20px;
+  border: solid 5px #0022a85d;
 }
 
 @media only screen and (max-width: 1400px) {
