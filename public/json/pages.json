@@ -21,5 +21,7 @@
     "typing_teams": {"title": "Typing Teams", "description": "An alternative approach to official typing, teams", "img": "typing_teams"},
     "your_type": {"title": "Your Type", "description": "Understand what it takes to type yourself", "img": "your_type"},
     "resources": {"title": "Resources", "description": "OPS related resources for finding more info", "img": "resources"},
-    "typesearch": {"title": "TypeSearch", "description": "A searchable database of the officially typed", "img": "tools"}
+    "typesearch": {"title": "TypeSearch", "description": "A searchable database of the officially typed", "img": "tools"},
+    "academyplus": {"title": "Academy Plus", "description": "Support Personality Academy and get extra perks", "img": "support"},
+    "academyapps": {"title": "Academy Apps", "description": "Our own easy to use OPS tools", "img": "resources"}
 }
