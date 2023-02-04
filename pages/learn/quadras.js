@@ -243,7 +243,6 @@ function Quadras() {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );

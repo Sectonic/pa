@@ -186,7 +186,9 @@ function Extroversion() {
             </div>
           </div>
         </div>
-        <ChangeSection link="/learn/animal_modalities" text="Animal Modalities" src="animal_modalities" padding={true} />
+      </div>
+      <div className="section transparent_section">
+        <ChangeSection link="/learn/animal_modalities" text="Animal Modalities" src="animal_modalities"/>
       </div>
     </div>
   );

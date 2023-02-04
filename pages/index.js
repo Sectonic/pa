@@ -145,7 +145,7 @@ function Home() {
           </div>
         </div>
         <h2 className="section_title">Get Started</h2>
-        <ChangeSection link="/learn/start" text="Start Learning OPS" src="start" />
+        <span id="home_change"><ChangeSection link="/learn/start" text="Start Learning OPS" src="start" /></span>
       </div>
     </div>
   );

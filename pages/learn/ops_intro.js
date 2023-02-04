@@ -127,7 +127,9 @@ function OPS() {
             </div>
           </div>
         </div>
-        <ChangeSection link="/learn/savior_demon" text="Savior & Demon" src="savior_demon" padding={true} />
+      </div>
+      <div className="section transparent_section">
+        <ChangeSection link="/learn/savior_demon" text="Savior & Demon" src="savior_demon"/>
       </div>
     </div>
   );

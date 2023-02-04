@@ -140,7 +140,9 @@ function humanNeeds() {
             </div>
           </div>
         </div>
-        <ChangeSection link="/learn/letters" text="Letters" src="letters" padding={true} />
+      </div>
+      <div className="section transparent_section">
+        <ChangeSection link="/learn/letters" text="Letters" src="letters"/>
       </div>
     </div>
   );

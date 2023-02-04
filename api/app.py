@@ -2,24 +2,25 @@ from flask import Flask, jsonify, request, render_template, session, url_for, re
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 import json
+from flask_migrate import Migrate
 from discord.ext.ipc import Client
-
+ 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.config['SECRET_KEY'] = 'key'
 ipc = Client(secret_key="test")
-
 db = SQLAlchemy(app)
-app.app_context().push()
+migrate = Migrate(app, db)
 
 class Link(db.Model):
     __tablename__ = 'links'
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(100))
     url = db.Column(db.String(100))
-    person = db.Column(db.Integer(), db.ForeignKey('types.id'))
+    person = db.Column(db.Integer())
 
 class Types(db.Model):
     __tablename__ = 'types'
@@ -55,7 +56,6 @@ class Types(db.Model):
     updatedAt = db.Column(db.Integer())
     image = db.Column(db.String(500))
     tag = db.Column(db.String(100))
-    links = db.relationship('Link', backref='related_links', lazy=True)
 
 def new_type(person):
     new_type = Types(
@@ -92,14 +92,14 @@ def new_type(person):
         image=person['Image'],
     )
     db.session.add(new_type)
-    new_type_id = Types.query.filter_by(name=person['Name'], createdAt=person['Created At']).first().id
+    db.session.flush()
     if "Links" in person.keys():
         if person["Links"]:
             for link in person["Links"]:
                 new_link = Link(
                     name=link["name"],
                     url=link["url"],
-                    person=new_type_id
+                    person=new_type.id
                 )
                 db.session.add(new_link)
     db.session.commit()

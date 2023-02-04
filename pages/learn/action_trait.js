@@ -130,7 +130,9 @@ function actionTrait() {
             </div>
           </div>
         </div>
-        <ChangeSection link="/learn/animals" text="Animals" src="animals" padding={true} />
+      </div>
+      <div className="section transparent_section">
+          <ChangeSection link="/learn/animals" text="Animals" src="animals"/>
       </div>
     </div>
   );
