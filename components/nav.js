@@ -27,7 +27,7 @@ function Navbar(props) {
             <li className={props.section === "learn" ? "selected_nav" : undefined}>
               <div>
                 <img
-                  src={"/img/main/learn_icon.png"}
+                  src={"/img/main/learn.png"}
                   alt="learn icon"
                 />
               </div>
@@ -42,6 +42,17 @@ function Navbar(props) {
               <span>Typing</span>
             </li>
           </Link>
+          <Link href="/academyapps">
+            <li className={props.section === "academyplus" ? "selected_nav" : undefined}>
+              <div>
+                <img
+                  src={"/img/main/tools.png"}
+                  alt="tools icon"
+                />
+              </div>
+              <span>Apps</span>
+            </li>
+          </Link>
           <Link href="/resources">
             <li className={props.section === "resources" ? "selected_nav" : undefined}>
               <div>
@@ -53,15 +64,15 @@ function Navbar(props) {
               <span>Resources</span>
             </li>
           </Link>
-          <Link href="/typesearch">
-            <li className={props.section === "typesearch" ? "selected_nav" : undefined}>
+          <Link href="/academyplus">
+            <li className={props.section === "academyplus" ? "selected_nav" : undefined}>
               <div>
                 <img
-                  src={"/img/main/database.png"}
+                  src={"/img/main/support.png"}
                   alt="tools icon"
                 />
               </div>
-              <span>TypeSearch</span>
+              <span>Plus</span>
             </li>
           </Link>
         </ul>

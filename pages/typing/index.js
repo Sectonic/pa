@@ -29,9 +29,9 @@ function Typing() {
         </div>
       </div>
       <div className="section typing_section">
-        <h2 className="section_title">Typing Guides</h2>
+        <h2 className="section_title">Learn To Type</h2>
         <p className="letters_subtitle">
-        Start here to learn the best way to nail down types for yourself or others
+        Start to finish guides on how to type yourself & others
         </p>
         <div className="section_body top_typing">
           <Link href="/typing/your_type">
@@ -63,7 +63,7 @@ function Typing() {
         </div>
       </div>
       <div className="section typing_section">
-        <h2 className="section_title">Approaches</h2>
+        <h2 className="section_title">Typing Approaches</h2>
         <p className="letters_subtitle">
         Doable methods for nailing down your own type
         </p>
