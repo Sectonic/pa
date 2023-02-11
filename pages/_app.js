@@ -112,7 +112,7 @@ function App({ Component, pageProps, router }) {
                 </div>
               ) : (
                 <>
-                  {user.active ? (
+                  {user && user.active ? (
                     <div className='user-box'>
                       <div>{user.username}</div>
                       <div className='user-box_img'>
