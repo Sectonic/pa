@@ -249,6 +249,7 @@
             <input name="image" class="form-control" id="floatingPassword" placeholder="Image URL" value="{{current_person.image}}" style="color: white;border: 2px solid #262e47;background-color: #192030;">
             <label for="floatingPassword">Image URL</label>
         </div>
+        <input type="text" id="link_input" class="d-none" name="link_form" >
         <button class="btn btn-primary mb-3" style="width: 590px;margin: 0 auto;display: block;" onclick="submit_edit('{{current_person.id}}')" type="button">Save</button>
     </form>
     <form method="POST">
@@ -269,19 +270,12 @@
             $(child).parent().parent().remove();
         }
         function submit_edit(person_id) {
-            all_links = []
+            all_links = "|";
             $("#links_container").children().each(function() {
-                all_links.push({'name': $(this).find('.link_name').val(), 'url': $(this).find('.link_url').val()})
+                all_links += `${$(this).find('.link_name').val()}/${$(this).find('.link_url').val()}|`;
             });
-            $.ajax({
-                type: "POST",
-                url: "{{url_for('link_update')}}",
-                data: JSON.stringify({'links': all_links, 'id': person_id}),
-                dataType: "json",
-                contentType: "application/json;charset=utf-8"
-            }).then(() => {
-                $('#edit').submit();
-            });
+            $('#link_input').val(all_links);
+            $('#edit').submit();
         }
     </script>
 </div>

@@ -73,7 +73,7 @@
 
 .learn_section {
   border-radius: 20px;
-  width: calc(100% - 640px);
+  width: calc(100% - 500px);
   position: fixed;
   margin-left: 17px;
   background-image: linear-gradient(
@@ -92,7 +92,7 @@
 
 @media only screen and (max-width: 1400px) {
   .learn_section {
-    width: calc(100% - 545px);
+    width: calc(100% - 450px);
   }
 }
 
@@ -183,7 +183,7 @@
   width: 100%;
   position: relative;
   overflow-y: scroll;
-  height: 96.5vh;
+  height: 89vh;
   border-radius: 20px;
 }
 

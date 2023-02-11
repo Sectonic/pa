@@ -23,5 +23,7 @@
     "resources": {"title": "Resources", "description": "OPS related resources for finding more info", "img": "resources"},
     "typesearch": {"title": "TypeSearch", "description": "A searchable database of the officially typed", "img": "tools"},
     "academyplus": {"title": "Academy Plus", "description": "Support Personality Academy and get extra perks", "img": "support"},
-    "academyapps": {"title": "Academy Apps", "description": "Our own easy to use OPS tools", "img": "resources"}
+    "academyapps": {"title": "Academy Apps", "description": "Our own easy to use OPS tools", "img": "resources"},
+    "register": {"title": "Register", "description": "Register an account", "img": "home"},
+    "login": {"title": "Login", "description": "Login to an account", "img": "home"}
 }

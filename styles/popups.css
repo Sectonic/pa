@@ -42,7 +42,6 @@
   background-color: var(--purple-black);
   border: 2px solid var(--light-grey) !important;
   border-radius: 20px;
-  animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   z-index: 12;
   text-align: center;
   overflow: hidden;
@@ -76,32 +75,19 @@
 }
 
 .popup_text {
-  height: 80vh;
+  max-height: 80vh;
   -webkit-font-smoothing: antialiased;
   overflow-y: scroll;
 }
 
 @media screen and (min-height:937px) {
   .popup_text {
-    height: 800px;
+    max-height: 800px;
   }
 }
 
 .popup_text::-webkit-scrollbar {
   width: 5px;
-}
-
-@keyframes slide-in-fwd-center {
-  0% {
-    -webkit-transform: translate3d(-50%, -50%, -1400px);
-    transform: translate3d(-50%, -50%, -1400px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0);
-    opacity: 1;
-  }
 }
 
 .popup_exit {
@@ -452,4 +438,42 @@
   background-color: var(--light-grey);
   width: 40px;
   border-radius: 20px;
+}
+
+.account_box {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 35px 0;
+}
+
+.account_image-box {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account_image {
+  height: 150px;
+  width: 150px;
+  background-color: var(--vibrant-purple);
+  border: 3px solid var(--light-purple);
+  font-size: 80px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.account_info {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
 }

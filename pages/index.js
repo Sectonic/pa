@@ -1,7 +1,9 @@
 import { TypeAnimation } from 'react-type-animation';
 import ChangeSection from '../components/change_section';
-
+import {useRouter} from 'next/router';
 function Home() {
+  const router = useRouter();
+  const academyPlus = () => router.push('/academyplus');
   return (
     <div className="main">
       <div className="home_banner">
@@ -29,7 +31,7 @@ function Home() {
         </div>
       </div>
       <div className="home_dashboard">
-        <div className="home_dashboard-sm">
+        <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/FcqsJHXCBR", '_blank').focus()}>
           <img src="/img/main/discord.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
@@ -40,7 +42,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="home_dashboard-sm negml-10">
+        <div className="home_dashboard-sm negml-10" onClick={academyPlus}>
           <img src="/img/main/support.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
