@@ -163,7 +163,9 @@ function Animals() {
             </div>
           </div>
         </div>
-        <ChangeSection link="/learn/modalities" text="Modalities" src="modalities" padding={true} />
+      </div>
+      <div className="section transparent_section">
+        <ChangeSection link="/learn/modalities" text="Modalities" src="modalities"/>
       </div>
     </div>
   );

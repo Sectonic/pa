@@ -1,7 +1,9 @@
 import { TypeAnimation } from 'react-type-animation';
 import ChangeSection from '../components/change_section';
-
+import {useRouter} from 'next/router';
 function Home() {
+  const router = useRouter();
+  const academyPlus = () => router.push('/academyplus');
   return (
     <div className="main">
       <div className="home_banner">
@@ -29,7 +31,7 @@ function Home() {
         </div>
       </div>
       <div className="home_dashboard">
-        <div className="home_dashboard-sm">
+        <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/FcqsJHXCBR", '_blank').focus()}>
           <img src="/img/main/discord.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
@@ -40,7 +42,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="home_dashboard-sm negml-10">
+        <div className="home_dashboard-sm negml-10" onClick={academyPlus}>
           <img src="/img/main/support.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
@@ -52,14 +54,13 @@ function Home() {
           </div>
         </div>
         <div className="home_dashboard-lg">
-          <div className="home-text_date">Feb 1</div>
           <img src="/img/main/launch.png" className="updates_img" />
           <div className="home_lg-text">
             <div>
-              Personality Academy
+            February 14 Update
             </div>
             <div className="home_lg-textbig">
-              Project Launched!
+              Added TypeTool!
             </div>
           </div>
         </div>
@@ -87,18 +88,25 @@ function Home() {
         </div>
       </div>
       <div className="section">
-        <h2 className="section_title">Everything You'll Need, Right Here.</h2>
+      <div className="section_body">
+      <div className="home_title_img">
+            <img
+              src={"/img/main/logo.png"}
+            />
+          </div>
+        </div>
+        <h2 className="section_title">Everything Need, Right Here.</h2>
         <div className="section_body section_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
-                src={"/img/main/learn_icon.png"}
+                src={"/img/main/learn.png"}
               />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Learn</h3>
               <p>
-                Learn Objective Personality through a well-crafted straightforward course.
+                Learn Objective Personality through a straightforward course.
               </p>
             </div>
           </div>
@@ -111,7 +119,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Type</h3>
               <p>
-              Learn the typing method. Use doable approaches to type yourself and others accurately.
+              Use doable approaches to type yourself and others accurately.
               </p>
             </div>
           </div>
@@ -120,13 +128,13 @@ function Home() {
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
-                src={"/img/main/resources.png"}
+                src={"/img/main/tools.png"}
               />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Tools</h3>
               <p>
-                We provide you with the best tools available. No need to reinvent the wheel.
+                Navigate OPS using our easy to use Academy Tools.
               </p>
             </div>
           </div>
@@ -139,13 +147,15 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Improve</h3>
               <p>
-              Turn knowledge into action. Using personality type to leave a positive impact.
+              Using personality type to leave a positive impact.
               </p>
             </div>
           </div>
         </div>
-        <h2 className="section_title">Get Started</h2>
-        <ChangeSection link="/learn/start" text="Start Learning OPS" src="start" />
+      </div>
+      <div className="section">
+        <h2 className="section_title">New To All This?</h2>
+        <ChangeSection link="/learn/start" text="Start Here" src="start" />
       </div>
     </div>
   );

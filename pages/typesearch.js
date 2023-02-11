@@ -2,6 +2,9 @@ import Select from 'react-select';
 import { Popup } from "../components/popup_main";
 import Image from '../components/image';
 import { useState, useEffect } from "react";
+import Placeholder from '../components/placeholder';
+import { useRouter } from 'next/router';
+import { waitUntil, WAIT_FOREVER } from 'async-wait-until';
 
 Array.prototype.unique = function() {
     var a = this.concat();
@@ -287,7 +290,8 @@ const filter_template = {
 
 const API = process.env.NEXT_PUBLIC_API;
 
-function Database() {
+function Database({user}) {
+    const router = useRouter();
     const [data, setData] = useState([]);
     const [dataTrue, setDataTrue] = useState(false);
     const [lowBound, setLowBound] = useState(0);
@@ -295,6 +299,7 @@ function Database() {
     const [filters, setFilters] = useState(filter_template);
     const [popupShown, setPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
+    const [loading, setLoading] = useState(true);
 
     const handlePopup = (choice, type_data) => {
         document.body.style.overflowY = "auto";
@@ -306,36 +311,47 @@ function Database() {
     };
 
     useEffect(() => {
-        let url = `${API}/types/${lowBound}to${highBound}?`;
-        fetch(url + new URLSearchParams(filters)).then(
-            res => {
-                if (res.ok) {
-                    res.json().then(data => {
-                        setData(data);
-                        setDataTrue(true);
-                        setLowBound(lowBound + 50);
-                        setHighBound(highBound + 50);
-                    })
-                }
-                else {
-                    console.log('Initial Failed. Requesting Database again.');
-                    setTimeout(() => {
-                        let url = `${API}/types/${lowBound}to${highBound}?`;
-                        fetch(url + new URLSearchParams(filters)).then(
-                            res => res.json()
-                        ).then(
-                            data => {
+        async function checkUser() {
+            await waitUntil(() => user != null, {
+                timeout: WAIT_FOREVER,
+            });
+            if (user) {
+                setLoading(false);
+                let url = `${API}/types/${lowBound}to${highBound}?`;
+                fetch(url + new URLSearchParams(filters)).then(
+                    res => {
+                        if (res.ok) {
+                            res.json().then(data => {
                                 setData(data);
                                 setDataTrue(true);
                                 setLowBound(lowBound + 50);
                                 setHighBound(highBound + 50);
-                            }
-                        )
-                    }, 1000)
-                }
+                            })
+                        }
+                        else {
+                            console.log('Initial Failed. Requesting Database again.');
+                            setTimeout(() => {
+                                let url = `${API}/types/${lowBound}to${highBound}?`;
+                                fetch(url + new URLSearchParams(filters)).then(
+                                    res => res.json()
+                                ).then(
+                                    data => {
+                                        setData(data);
+                                        setDataTrue(true);
+                                        setLowBound(lowBound + 50);
+                                        setHighBound(highBound + 50);
+                                    }
+                                )
+                            }, 1000)
+                        }
+                    }
+                )   
+            } else {
+                router.push('/login');
             }
-        )
-    }, []);
+        }
+        checkUser();
+    }, [user]);
 
     const updateData = () => {
         let url = `${API}/types/${lowBound}to${highBound}?`;
@@ -415,147 +431,153 @@ function Database() {
       
     return (
         <div className="main">
-            {popupShown && <Popup popup={handlePopup} type="type" data={popupData} />}
-            <div className="db_background-exterior">
-            <div className="db_background">
-                <div className="banner banner_blue banner_blue-outline banner-sm">
-                    <div className="db_search">
-                        <Select
-                            styles={{
-                                input: (styles) => ({
-                                    ...styles,
-                                    color: 'white',
-                                }),
-                                control: styles => ({ 
-                                    ...styles,
-                                    backgroundColor: '#192030',
-                                    border: 'none',
-                                    outline: 'none', 
-                                    borderRadius: '50px', 
-                                    color: 'white', 
-                                    minHeight: '50px', 
-                                    cursor: 'text', 
-                                    }),
-                                option: (styles) => ({
-                                    ...styles,
-                                    backgroundColor: '#192030',
-                                    color: 'white',
-                                    ':hover': {
-                                        backgroundColor: '#262e47',
+            {loading ? (
+                <Placeholder/>
+            ) : (
+                <>
+                {popupShown && <Popup popup={handlePopup} type="type" data={popupData} />}
+                <div className="db_background-exterior">
+                <div className="db_background">
+                    <div className="banner banner_blue banner_blue-outline banner-sm">
+                        <div className="db_search">
+                            <Select
+                                styles={{
+                                    input: (styles) => ({
+                                        ...styles,
                                         color: 'white',
-                                        cursor: 'pointer',
+                                    }),
+                                    control: styles => ({ 
+                                        ...styles,
+                                        backgroundColor: '#192030',
+                                        border: 'none',
+                                        outline: 'none', 
+                                        borderRadius: '50px', 
+                                        color: 'white', 
+                                        minHeight: '50px', 
+                                        cursor: 'text', 
+                                        }),
+                                    option: (styles) => ({
+                                        ...styles,
+                                        backgroundColor: '#192030',
+                                        color: 'white',
+                                        ':hover': {
+                                            backgroundColor: '#262e47',
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                        },
+                                    }),
+                                    menu: (styles) => ({
+                                        position: 'absolute',
+                                        width: '100%',
+                                        marginTop: 2,
+                                        borderBottomLeftRadius: '20px',
+                                        borderBottomRightRadius: '20px',
+                                        backgroundColor: 'transparent',
+                                        overflow : 'hidden'
+                                    }),
+                                    menuList: (provided) => ({
+                                        ...provided,
+                                        width: '95%',
+                                        margin: '0 auto',
+                                        paddingTop: 0,
+                                        paddingBottom: 0,
+                                        borderBottomLeftRadius: '20px',
+                                        borderBottomRightRadius: '20px',
+                                        backgroundColor: '#192030',
+                                        borderTop: 'none',
+                                        borderLeft: '3px solid #262e47',
+                                        borderRight: '3px solid #262e47',
+                                        borderBottom: '3px solid #262e47',
+                                        zIndex: 10,
+                                        "::-webkit-scrollbar": {
+                                            width: "3px"
+                                        },
+                                        "::-webkit-scrollbar-thumb": {
+                                            background: "#5c64f4"
+                                        },
+                                    }),
+                                    multiValue: (styles) => {
+                                        return {
+                                        ...styles,
+                                        borderRadius: 20,
+                                        backgroundColor:'#5c64f4',
+                                        };
                                     },
-                                }),
-                                menu: (styles) => ({
-                                    position: 'absolute',
-                                    width: '100%',
-                                    marginTop: 2,
-                                    borderBottomLeftRadius: '20px',
-                                    borderBottomRightRadius: '20px',
-                                    backgroundColor: 'transparent',
-                                    overflow : 'hidden'
-                                }),
-                                menuList: (provided) => ({
-                                    ...provided,
-                                    width: '95%',
-                                    margin: '0 auto',
-                                    paddingTop: 0,
-                                    paddingBottom: 0,
-                                    borderBottomLeftRadius: '20px',
-                                    borderBottomRightRadius: '20px',
-                                    backgroundColor: '#192030',
-                                    borderTop: 'none',
-                                    borderLeft: '3px solid #262e47',
-                                    borderRight: '3px solid #262e47',
-                                    borderBottom: '3px solid #262e47',
-                                    zIndex: 10,
-                                    "::-webkit-scrollbar": {
-                                        width: "3px"
-                                    },
-                                    "::-webkit-scrollbar-thumb": {
-                                        background: "#5c64f4"
-                                    },
-                                }),
-                                multiValue: (styles) => {
-                                    return {
-                                    ...styles,
-                                    borderRadius: 20,
-                                    backgroundColor:'#5c64f4',
-                                    };
-                                },
-                                multiValueLabel: (styles) => ({
-                                ...styles,
-                                backgroundColor: '#5c64f4',
-                                color: '#FFF',
-                                borderTopLeftRadius: 20,
-                                borderBottomLeftRadius: 20
-                                }),
-                                multiValueRemove: (styles) => ({
+                                    multiValueLabel: (styles) => ({
                                     ...styles,
                                     backgroundColor: '#5c64f4',
-                                    borderTopRightRadius: 20,
-                                    borderBottomRightRadius: 20,
-                                    ':hover': {
-                                    backgroundColor: 'white',
-                                    color: '#5c64f4',
-                                    cursor: 'pointer',
-                                    },
-                                }),
-                            }}
-                            formatOptionLabel={formatOptionLabel}
-                            isMulti
-                            name="colors"
-                            options={options}
-                            classNamePrefix="select"
-                            spellcheck="false"
-                            onChange={handleSelectChange}
-                        />
+                                    color: '#FFF',
+                                    borderTopLeftRadius: 20,
+                                    borderBottomLeftRadius: 20
+                                    }),
+                                    multiValueRemove: (styles) => ({
+                                        ...styles,
+                                        backgroundColor: '#5c64f4',
+                                        borderTopRightRadius: 20,
+                                        borderBottomRightRadius: 20,
+                                        ':hover': {
+                                        backgroundColor: 'white',
+                                        color: '#5c64f4',
+                                        cursor: 'pointer',
+                                        },
+                                    }),
+                                }}
+                                formatOptionLabel={formatOptionLabel}
+                                isMulti
+                                name="colors"
+                                options={options}
+                                classNamePrefix="select"
+                                spellcheck="false"
+                                onChange={handleSelectChange}
+                            />
+                        </div>
                     </div>
-                </div>
-                {dataTrue ? (
-                    <div className="db_card-container">
-                        {data.map((person, index) => {
-                            return(
-                                <div key={person.id} className="db_card outline-gray db_card_hover" onClick={() => handlePopup(true, data[index])}>
-                                    {
-                                        person['image'] === null ? 
-                                        <div className="db_card-img db_card-img-empty"><Image src="/pa/static/img/main/empty_img.png"/></div> :
-                                        <div className="db_card-img"><Image src={person['image']} /></div> 
-                                    }
-                                    <div className="db_card-text">
-                                        <div>
-                                            <h3>{person['name']}</h3>
-                                            <p className="db_card-type">{person['type']}</p>
-                                            {person['tag'] != null ? <p className="db_card-text-purple">{person['tag']}</p> : null}
+                    {dataTrue ? (
+                        <div className="db_card-container">
+                            {data.map((person, index) => {
+                                return(
+                                    <div key={person.id} className="db_card outline-gray db_card_hover" onClick={() => handlePopup(true, data[index])}>
+                                        {
+                                            person['image'] === null ? 
+                                            <div className="db_card-img db_card-img-empty"><Image src="/pa/static/img/main/empty_img.png"/></div> :
+                                            <div className="db_card-img"><Image src={person['image']} /></div> 
+                                        }
+                                        <div className="db_card-text">
+                                            <div>
+                                                <h3>{person['name']}</h3>
+                                                <p className="db_card-type">{person['type']}</p>
+                                                {person['tag'] != null ? <p className="db_card-text-purple">{person['tag']}</p> : null}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })}
-                        <div className="db_update-btn-container" onClick={updateData}>
-                            <button className="db_update-btn">
-                                Load More
-                            </button>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="db_card-container">
-                    {[...Array(50)].map((index) =>
-                        <div key={index} className="db_card outline-gray">
-                            <div className="db_card-img db_card-img-empty load_wraper"><div className="activity"></div></div>
-                            <div className="db_card-text">
-                                <div>
-                                    <h3 className="db_card-type_placehold load_wraper"><div className="activity"></div></h3>
-                                    <div className="db_card-type_placehold load_wraper"><div className="activity"></div></div>
-                                </div>
+                                )
+                            })}
+                            <div className="db_update-btn-container" onClick={updateData}>
+                                <button className="db_update-btn">
+                                    Load More
+                                </button>
                             </div>
                         </div>
-                    )}
-                    </div>
-                )
-                }
+                    ) : (
+                        <div className="db_card-container">
+                        {[...Array(50)].map((index) =>
+                            <div key={index} className="db_card outline-gray">
+                                <div className="db_card-img db_card-img-empty load_wraper"><div className="activity"></div></div>
+                                <div className="db_card-text">
+                                    <div>
+                                        <h3 className="db_card-type_placehold load_wraper"><div className="activity"></div></h3>
+                                        <div className="db_card-type_placehold load_wraper"><div className="activity"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        </div>
+                    )
+                    }
+                </div>
             </div>
-        </div>
+                </>
+            )}
         </div>
     );
 }

@@ -5,12 +5,12 @@
       rgba(0, 0, 0, 0.3)
     ),
     url("./backgrounds/background_blur.png");
-  background-size: 2000px;
+  background-size: 3000px;
   background-attachment: fixed;
   width: calc(100% - 50px);
   margin: 0 auto;
   margin-top: 17px;
-  height: 72vh;
+  height: 68vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +144,7 @@
   margin: 27.5px auto;
   border: 5px solid #0022a85d;
   border-radius: 20px;
-  height: 150px;
+  height: 120px;
   padding: 15px 0;
 }
 
@@ -379,6 +379,7 @@
 .about {
   margin: 0 auto;
   margin-top: 25px;
+  
   width: calc(100% - 50px);
   padding: 30px 0;
   background-color: var(--purple-black);

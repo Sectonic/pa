@@ -268,7 +268,7 @@ function Learn() {
                 </div>
                 <div className="icon_text">Energy Spectrum</div>
               </Link>
-              <div className="thirds">
+              <div className="seconds">
                 <Link
                   href="/learn/animal_modalities"
                   className="icon_container link_text"
@@ -281,15 +281,6 @@ function Learn() {
                   </div>
                   <div className="icon_text">Animal Modalities</div>
                 </Link>
-                <Link href="#" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/modality_combos.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Modality Combos</div>
-                </Link>
                 <Link href="/learn/quadras" className="icon_container link_text">
                   <div className="page_icon">
                     <img src={"/img/learn/home/quadras.png"}  />
@@ -297,6 +288,7 @@ function Learn() {
                   <div className="icon_text">Quadras</div>
                 </Link>
               </div>
+              
             </div>
           </div>
         </div>

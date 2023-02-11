@@ -134,7 +134,9 @@ function animalModalities() {
             </div>
           </div>
         </div>
-        <ChangeSection link="/learn/quadras" text="Quadras" src="quadras" padding={true} />
+      </div>
+      <div className="section transparent_section">
+        <ChangeSection link="/learn/quadras" text="Quadras" src="quadras" />
       </div>
     </div>
   );

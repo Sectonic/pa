@@ -227,7 +227,9 @@ function Functions() {
             <img src={"/img/icons/axes/fite.png"} alt="" />
           </div>
         </div>
-        <ChangeSection link="/learn/action_trait" text="Actions" src="action_trait" padding={true} />
+      </div>
+      <div className="section transparent_section">
+        <ChangeSection link="/learn/action_trait" text="Actions" src="action_trait"/>
       </div>
     </div>
   );

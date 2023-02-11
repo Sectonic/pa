@@ -1,0 +1,161 @@
+.full_background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--purple-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./backgrounds/background_blur.png");
+    background-size: 4000px;
+    background-attachment: fixed;
+}
+
+.register_inputs {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 15px;
+}
+
+.register_inputs > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.register_label {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.register_section {
+    width: 350px;
+    background-color: var(--purple-black);
+    padding: 40px;
+    border-radius: 20px;
+    border: 5px solid rgba(var(--dark-grey-rgb), .7);
+}
+
+.register_inputs input {
+    background-color: var(--dark-grey);
+    border: 3px solid var(--light-grey);
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    padding: 6px 10px;
+}
+
+.register_title {
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.register_subtitle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.555);
+}
+
+.register_link {
+    color: white;
+}
+
+.register_link:hover {
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+.register_btn {
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 100%;
+    padding: 5px 0px;
+    font-weight: 00;
+    color: white;
+    background-color: var(--light-purple);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register_img {
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+.forgotten_right {
+    width: 96%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.forgotten_sides {
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.register_forgotten {
+    font-size: 12px;
+    margin-top: 10px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+}
+
+.register_forgotten > div {
+    border-bottom: 1px solid transparent;
+}
+
+.register_forgotten > div:hover {
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+.register_eye {
+    margin-top: 13px;
+    width: 22px;
+    cursor: pointer;
+}
+
+.register_eye img {
+    width: 100%;
+    filter: grayscale(1) invert(.8);
+
+}
+
+.register_eye-visible {
+    filter: grayscale(1) invert(1) !important;
+}
+
+.register_error {
+    color: rgb(236, 78, 78);
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.account_error {
+    margin-top: 15;
+}
+
+.register_back {
+    text-align: left;
+    font-size: 13px;
+    border-bottom: 1px solid transparent;
+    width: max-content;
+    cursor: pointer;
+}
+
+.register_back:hover {
+    border-bottom: 1px solid white;
+}

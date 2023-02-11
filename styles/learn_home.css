@@ -73,7 +73,7 @@
 
 .learn_section {
   border-radius: 20px;
-  width: calc(100% - 640px);
+  width: calc(100% - 500px);
   position: fixed;
   margin-left: 17px;
   background-image: linear-gradient(
@@ -92,7 +92,7 @@
 
 @media only screen and (max-width: 1400px) {
   .learn_section {
-    width: calc(100% - 545px);
+    width: calc(100% - 450px);
   }
 }
 
@@ -151,11 +151,11 @@
 .section_button {
   width: 95%;
   background-color: var(--dark-purple);
-  height: 225px;
+  height: 240px;
   border-radius: 20px;
   margin-bottom: 20px;
   position: relative;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
   border: 1px solid transparent;
   cursor: default;
 }
@@ -174,7 +174,7 @@
   border-radius: 20px;
   margin-bottom: 30px;
   position: relative;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
   cursor: pointer;
 }
 
@@ -183,7 +183,7 @@
   width: 100%;
   position: relative;
   overflow-y: scroll;
-  height: 96.5vh;
+  height: 89vh;
   border-radius: 20px;
 }
 
@@ -222,7 +222,7 @@
   text-align: right;
   margin: 0 auto;
   background-color: var(--vibrant-purple);
-  transition: 0.3s ease;
+  transition: 0.2s ease;
 }
 
 .button-title-container_small {
@@ -234,7 +234,7 @@
   text-align: right;
   padding-right: 40px;
   background-color: var(--vibrant-purple);
-  transition: 0.3s ease;
+  transition: 0.2s ease;
 }
 
 .section_button_small:hover .button-title-container_small {
@@ -287,7 +287,7 @@
 }
 
 .section_button_small:hover .button_send_small img {
-  transform: scale(1.15) rotate(270deg);
+  transform: scale(1.2) rotate(270deg);
 }
 
 .seconds {
