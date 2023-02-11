@@ -315,7 +315,7 @@ function Database({user}) {
             await waitUntil(() => user != null, {
                 timeout: WAIT_FOREVER,
             });
-            if (user) {
+            if (user.active) {
                 setLoading(false);
                 let url = `${API}/types/${lowBound}to${highBound}?`;
                 fetch(url + new URLSearchParams(filters)).then(
