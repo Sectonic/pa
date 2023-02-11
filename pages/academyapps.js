@@ -13,7 +13,7 @@ function AcademyApps({user}) {
       await waitUntil(() => user != null, {
         timeout: WAIT_FOREVER,
       });
-      if (user) {
+      if (user.active) {
         setLoading(false);
       } else {
         router.push('/login');

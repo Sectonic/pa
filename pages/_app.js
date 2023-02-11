@@ -43,8 +43,16 @@ function App({ Component, pageProps, router }) {
     .then(res => {
       if (res.ok) {
         res.json().then(data => {
-          setUser(data);
+          setUser({
+            active: true,
+            username: data.username
+          });
         });
+      } else {
+        setUser({
+          active: false,
+          username: null
+        })
       }
       setLoading(false);
     });
@@ -104,7 +112,7 @@ function App({ Component, pageProps, router }) {
                 </div>
               ) : (
                 <>
-                  {user ? (
+                  {user.active ? (
                     <div className='user-box'>
                       <div>{user.username}</div>
                       <div className='user-box_img'>
