@@ -17,9 +17,10 @@
   --vibrant-orange-rgb: 255, 183, 0;
 
   --dark-grey: #182948;
-  --dark-grey-rgb: 25, 32, 48;
+  --dark-grey-rgb: 24, 41, 72;
 
   --light-grey: #2a3e63;
+  --light-grey-rgb: 42, 62, 99;
 
   --purple-black: #090f22; 
   --purple-black-rgb: 8, 11, 17;
@@ -148,16 +149,24 @@ h3 {
 }
 
 .user-box_img {
-  width: 35px;
+  width: 40px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.user-box_img img {
-  width: 100%;
+.user_img {
+  width: 40px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-purple);
+  border-radius: 50%;
+  border: 2px solid var(--light-purple);
   cursor: pointer;
+  font-size: 19px;
 }
 
 .user-profile {

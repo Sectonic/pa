@@ -8,6 +8,7 @@ export default function Register() {
     const Register = async (e) => {
         e.preventDefault();
         let requestOptions = {
+            credentials: 'include',
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

@@ -16,16 +16,22 @@
     align-items: center;
 }
 
-.plcaeholder-loading {
-
-}
-
 .lds-ellipsis {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 60px;
 }
+
+.small_loader {
+    height: 74px;
+}
+
+.small_loader > div {
+    width: 10px !important;
+    height: 10px !important;
+}
+
 .lds-ellipsis div {
     position: absolute;
     top: 33px;

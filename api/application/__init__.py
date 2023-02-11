@@ -6,7 +6,7 @@ from flask_session import Session
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL') if os.getenv('DATABASE_URL') else 'sqlite:///database.db'
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True

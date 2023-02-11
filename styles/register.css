@@ -144,6 +144,10 @@
     margin-top: 15px;
 }
 
+.account_error {
+    margin-top: 15;
+}
+
 .register_back {
     text-align: left;
     font-size: 13px;

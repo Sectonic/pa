@@ -31,6 +31,7 @@ function App({ Component, pageProps, router }) {
   const [menu, setMenu] = useState(false);
   const [popupShown, setPopup] = useState(false);
   const [popupType, setPopupType] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let new_path = router.pathname.split('/');
@@ -45,6 +46,7 @@ function App({ Component, pageProps, router }) {
           setUser(data);
         });
       }
+      setLoading(false);
     });
   }, [])
 
@@ -96,46 +98,54 @@ function App({ Component, pageProps, router }) {
                 </div>
               </div>
               </Link>
-              {user ? (
+              {loading ? (
                 <div className='user-box'>
-                  <div>{user.username}</div>
-                  <div className='user-box_img'>
-                    <img src='/img/main/default_user.png' onClick={MenuVisible} />
-                    {menu && (
-                      <OutsideClickHandler onOutsideClick={MenuOutside}>
-                        <div className='user-profile'>
-                          <div className='user-profile_row' onClick={() => handlePopup(true, "account")}>
-                            <img src='/img/main/settings.png'/>
-                            <div>Account Settings</div>
-                          </div>
-                          <div className='user-profile_row' onClick={Logout}>
-                            <img src='/img/main/logout_icon.png'/>
-                            <div>Logout</div>
-                          </div>
-                        </div>
-                      </OutsideClickHandler>
-                    )}
-                  </div>
+                  <div class="lds-ellipsis small_loader"><div></div><div></div><div></div><div></div></div>
                 </div>
               ) : (
-                <div className='register-box'>
-                  <Link href='/login'>
-                    <div className='register-box_btn'>
-                      <img src='/img/main/login_icon.png' />
-                      <div>
-                        Login
+                <>
+                  {user ? (
+                    <div className='user-box'>
+                      <div>{user.username}</div>
+                      <div className='user-box_img'>
+                        <div className='user_img' onClick={MenuVisible}>{user.username[0]}</div>
+                        {menu && (
+                          <OutsideClickHandler onOutsideClick={MenuOutside}>
+                            <div className='user-profile'>
+                              <div className='user-profile_row' onClick={() => handlePopup(true, "account")}>
+                                <img src='/img/main/settings.png'/>
+                                <div>Account Settings</div>
+                              </div>
+                              <div className='user-profile_row' onClick={Logout}>
+                                <img src='/img/main/logout_icon.png'/>
+                                <div>Logout</div>
+                              </div>
+                            </div>
+                          </OutsideClickHandler>
+                        )}
                       </div>
                     </div>
-                  </Link>
-                  <Link href='/register'>
-                    <div className='register-box_btn'>
-                      <img src='/img/main/signup_icon.png' />
-                      <div>
-                        Signup
-                      </div>
+                  ) : (
+                    <div className='register-box'>
+                      <Link href='/login'>
+                        <div className='register-box_btn'>
+                          <img src='/img/main/login_icon.png' />
+                          <div>
+                            Login
+                          </div>
+                        </div>
+                      </Link>
+                      <Link href='/register'>
+                        <div className='register-box_btn'>
+                          <img src='/img/main/signup_icon.png' />
+                          <div>
+                            Signup
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
-                </div>
+                )}
+                </>
               )}
             </div>
           </div>

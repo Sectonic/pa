@@ -7,7 +7,9 @@ from application.functions import dbToDict
 @app.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Credentials'] = 'true'
+    response.headers['Access-Control-Allow-Methods'] = "GET,HEAD,OPTIONS,POST,PUT"
     response.headers['Access-Control-Allow-Origin'] = os.getenv('CURRENT_URL')
+    response.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept, Authorization"
     return response
 
 @app.route('/create/user', methods=['POST'])
@@ -55,11 +57,35 @@ def login():
             return {'success': 'Successfully Logged In'}, 200
         else:
             return {'error': 'Password does not match email'}, 409
+            
 
 @app.route('/logout', methods=['GET'])
 def logout():
     session.pop('user_id', default=None)
     return {'success': 'Logged Out'}, 200
+
+@app.route('/get/user/all', methods=['GET'])
+def get_user_all():
+    user_id = session.get('user_id')
+    user = db.session.get(Users, user_id)
+    return {'username': user.username, 'email': user.email}, 200
+
+@app.route('/edit/user')
+def edit_user():
+    user_id = session.get('user_id')
+    user = db.session.get(Users, user_id)
+    user.username = request.args.get('username')
+    db.session.commit()
+    return {'response': 200}, 200
+
+@app.route('/delete/user')
+def delete_user():
+    user_id = session.get('user_id')
+    user = db.session.get(Users, user_id)
+    db.session.delete(user)
+    session.pop('user_id', default=None)
+    db.session.commit()
+    return {'response': 200}, 200
 
 @app.route("/types/<int:low>to<int:high>", methods=['GET'])
 def types(low, high): 
