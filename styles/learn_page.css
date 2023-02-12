@@ -182,7 +182,7 @@ background-position-y: 500px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+purple
 .green {
   background: linear-gradient(to bottom, #c8fa64, #4de600, #00cc00);
   -webkit-background-clip: text;
@@ -208,8 +208,8 @@ background-position-y: 500px;
 
 @media screen and (min-width:775px) {
   .section {
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }
 
@@ -217,7 +217,7 @@ background-position-y: 500px;
   background-color: var(--purple-black);
   width: calc(100% - 50px);
   margin: 0 auto;
-  margin-top: 35px;
+  margin-top: 20px;
   border-radius: 20px;
   font-size: 18px !important;
   border: 5px solid var(--dark-grey);

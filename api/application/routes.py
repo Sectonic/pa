@@ -8,7 +8,7 @@ from application.functions import dbToDict
 def add_header(response):
     response.headers['Access-Control-Allow-Credentials'] = 'true'
     response.headers['Access-Control-Allow-Methods'] = "GET,HEAD,OPTIONS,POST,PUT"
-    response.headers['Access-Control-Allow-Origin'] = os.getenv('CURRENT_URL')
+    response.headers['Access-Control-Allow-Origin'] = os.getenv('CURRENT_URL') if os.getenv('CURRENT_URL') else 'http://localhost:3000'
     response.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept, Authorization"
     return response
 
