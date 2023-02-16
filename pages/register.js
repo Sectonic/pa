@@ -77,26 +77,26 @@ export default function Register() {
         <div className="full_background">
             <div>
                 <form className="register_section" onSubmit={VerificationStart}>
-                    <Link href='/'><div className='register_back'>Go Home</div></Link>
+                    <Link href='/'><div className='register_back'>Go Back</div></Link>
                     <img className="register_img" src="/img/main/logo.png"/>
                     <div className="register_title">Register an Account</div>
                     <div className="register_subtitle">Or <Link className="register_link" href="/login">login</Link> if you have one already</div>
                     {error !== '' && <div className='register_error'>{error}</div>}
                     <div className="register_inputs">
                         <div>
-                            <label className="register_label">Username:</label>
+                            <label className="register_label">Username</label>
                             <input type="text" required maxLength="35" name='username' />
                         </div>
                         <div>
-                            <label className="register_label">Email:</label>
+                            <label className="register_label">Email</label>
                             <input type="email" required maxLength="100" name='email' onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div>
-                            <label className="register_label">Password:</label>
+                            <label className="register_label">Password</label>
                             <input type={isVisible ? "text" : "password"} required maxLength="30" name='password' />
                         </div>
                         <div>
-                            <label className="register_label">Confirm Password:</label>
+                            <label className="register_label">Confirm Password</label>
                             <input type={isVisible ? "text" : "password"} required maxLength="30" name='confirm'/>
                         </div>
                     </div>

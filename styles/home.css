@@ -124,7 +124,7 @@
   background-color: white;
   border-radius: 20px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
 }
 
 .home_started:hover {
@@ -141,7 +141,7 @@
 
 .home_dashboard > div {
   background-color: var(--dark-grey);
-  margin: 27.5px auto;
+  margin: 15px auto;
   border: 5px solid #0022a85d;
   border-radius: 20px;
   height: 120px;
@@ -254,8 +254,8 @@
 
 @media screen and (min-width:775px) {
   .section_home {
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }
 
@@ -264,9 +264,10 @@
   background-color: var(--purple-black);
   width: calc(100% - 50px);
   margin: 0 auto;
-  margin-top: 0px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   border-radius: 20px;
-  font-size: 18px !important;
+  font-size: 20px !important;
   border: 5px solid var(--dark-grey);
 }
 
