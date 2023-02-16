@@ -8,12 +8,26 @@ from application.functions import dbToDict
 def add_header(response):
     response.headers['Access-Control-Allow-Credentials'] = 'true'
     response.headers['Access-Control-Allow-Methods'] = "GET,HEAD,OPTIONS,POST,PUT"
-    response.headers['Access-Control-Allow-Origin'] = os.getenv('CURRENT_URL')
+    response.headers['Access-Control-Allow-Origin'] = os.getenv('CURRENT_URL') if os.getenv('CURRENT_URL') else 'http://localhost:3000'
     response.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept, Authorization"
     return response
 
 @app.route('/create/user', methods=['POST'])
 def create_user():
+    data = request.get_json()
+    new_user = Users(
+        username=data['username'],
+        email=data['email'],
+        password=data['password'],
+    )
+    db.session.add(new_user)
+    db.session.flush()
+    session['user_id'] = new_user.id
+    db.session.commit()
+    return {'success': 'New Account Created'}, 200
+
+@app.route('/verify/user', methods=['POST'])
+def verify_user():
     if session.get('user_id'):
         return {'error': 'Already Logged In'}, 500
     data = request.get_json()
@@ -25,16 +39,7 @@ def create_user():
         return {'error': 'Email is already is in use'}, 409
     if data['password'] != data['confirm']:
         return {'error': 'Your confirm password does not match your password'}, 409
-    new_user = Users(
-        username=data['username'],
-        email=data['email'],
-        password=data['password'],
-    )
-    db.session.add(new_user)
-    db.session.flush()
-    session['user_id'] = new_user.id
-    db.session.commit()
-    return {'success': 'New Account Created'}, 200
+    return {'success': 'Information Valid'}, 200
 
 @app.route('/get/user', methods=['GET'])
 def get_user():

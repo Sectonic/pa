@@ -10,14 +10,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL') if os.getenv('
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') if os.getenv('SECRET') else 'key'
 app.config['SESSION_TYPE'] = 'sqlalchemy'
 app.config.update(
     SESSION_COOKIE_SECURE=True,
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="None",
 )
-admin_password = os.getenv('PASSWORD')
+admin_password = os.getenv('PASSWORD') if os.getenv('PASSWORD') else 'password'
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 app.config['SESSION_SQLALCHEMY'] = db

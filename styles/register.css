@@ -87,6 +87,11 @@
     cursor: pointer;
 }
 
+.register_unverified {
+    cursor:default !important;
+    background-color: var(--dark-grey) !important;
+}
+
 .register_img {
     width: 90px;
     margin-bottom: 10px;
@@ -158,4 +163,28 @@
 
 .register_back:hover {
     border-bottom: 1px solid white;
+}
+
+.authcode_inputs {
+    margin-top: 7px;
+    border: 3px solid var(--light-grey);
+    outline: none;
+    width: 30px;
+    margin-right: 7px;
+    padding: 7px 3px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    background-color: var(--dark-grey);
+}
+
+.account_verify {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.account_verify-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.555);
 }
