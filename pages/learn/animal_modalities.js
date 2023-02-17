@@ -16,7 +16,7 @@ function animalModalities() {
           alt=""
         />
         <h2 className="section_title">Masculine Animals</h2>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text">
             <div className="text-sm_img">
               <img src="/img/icons/Needs/oede.png" alt="" />
@@ -42,7 +42,7 @@ function animalModalities() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text">
             <div className="text-sm_img">
               <img src="/img/icons/Needs/oedi.png" alt="" />
@@ -78,7 +78,7 @@ function animalModalities() {
           alt=""
         />
         <h1 className="section_title">Feminine Animals</h1>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text">
             <div className="text-sm_img">
               <img src="/img/icons/Needs/oede.png" alt="" />
@@ -106,7 +106,7 @@ function animalModalities() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text">
             <div className="text-sm_img">
               <img src="/img/icons/Needs/oedi.png" alt="" />

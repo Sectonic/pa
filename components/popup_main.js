@@ -1,4 +1,5 @@
 import * as popups from "./popups/popup_links";
+import "animate.css";
 
 function Popup(props) {
   function removePopup() {
@@ -6,8 +7,8 @@ function Popup(props) {
   }
 
   return (
-    <div className="popup_bg">
-      <div className="popup_main">
+    <div className="popup_bg animate__animated animate__fadeIn">
+      <div className="popup_main animate__animated animate__fade_in">
         <div className="popup_bottom"></div>
         <div className="popup_exit" onClick={() => removePopup()}>
           <img

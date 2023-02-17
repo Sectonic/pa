@@ -16,7 +16,7 @@ function Quadras() {
           <img src="/img/icons/axes/tife.png" alt="" />
           <img src="/img/icons/axes/sine.png" alt="" />
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-f_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nf.png"} alt="" />
@@ -39,7 +39,7 @@ function Quadras() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-t_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nt.png"} alt="" />
@@ -73,7 +73,7 @@ function Quadras() {
           <img src="/img/icons/axes/tife.png" alt="" />
           <img src="/img/icons/axes/nise.png" alt="" />
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-f_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nf.png"} alt="" />
@@ -95,7 +95,7 @@ function Quadras() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-t_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nt.png"} alt="" />
@@ -132,7 +132,7 @@ function Quadras() {
           <img src="/img/icons/axes/fite.png" alt="" />
           <img src="/img/icons/axes/sine.png" alt="" />
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-f_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nf.png"} alt="" />
@@ -155,7 +155,7 @@ function Quadras() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-t_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nt.png"} alt="" />
@@ -192,7 +192,7 @@ function Quadras() {
           <img src="/img/icons/axes/fite.png" alt="" />
           <img src="/img/icons/axes/nise.png" alt="" />
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-f_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nf.png"} alt="" />
@@ -218,7 +218,7 @@ function Quadras() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text  outline-combos outline-combos-t_i">
             <div className="text-sm_img">
               <img src={"/img/icons/Letters/nt.png"} alt="" />

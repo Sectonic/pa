@@ -10,8 +10,9 @@ import '../styles/resources.css';
 import '../styles/typing.css';
 import '../styles/register.css';
 import '../styles/placeholder.css';
+import "animate.css";
 import Navbar from '../components/nav';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { withRouter } from 'next/router';
 import Head from 'next/head';
 import Pages from '../public/json/pages.json';
@@ -32,9 +33,13 @@ function App({ Component, pageProps, router }) {
   const [popupShown, setPopup] = useState(false);
   const [popupType, setPopupType] = useState("");
   const [loading, setLoading] = useState(true);
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const backgroundMobile = useRef(null);
+  const navMobile = useRef(null);
 
   useEffect(() => {
     let new_path = router.pathname.split('/');
+    setMobileMenu(false);
     setPath(new_path);
   }, [router.pathname]); 
 
@@ -82,6 +87,16 @@ function App({ Component, pageProps, router }) {
       window.location.reload();
     })
   }
+
+  const mobileMenuOut = () => {
+    if (mobileMenu) {
+      backgroundMobile.current.classList.add('animate__fadeOut');
+      navMobile.current.classList.add('animate__slideOutLeft');
+      setTimeout(() => {
+        setMobileMenu(false);
+      }, 500)
+    }
+  }
   
   return (
     <div className={font.className}>
@@ -96,8 +111,57 @@ function App({ Component, pageProps, router }) {
       { !['register', 'login'].includes(path[path.length - 1]) && (
         <>
           <Navbar section={path[1]} />
+          {mobileMenu && (
+            <div className='mobile_menu animate__animated animate__fadeIn' ref={backgroundMobile}>
+              <OutsideClickHandler onOutsideClick={mobileMenuOut}>
+                <div className='mobile_menu-base animate__animated animate__slideInLeft animate__faster' ref={navMobile}>
+                  <div className='mobile_menu-nav'>
+                    <Link href='/'>
+                      <div className={`mobile_menu-link ${path[1] == '' && 'mobile_menu-link--selected'}`}>
+                        <div>Home</div>
+                        <img src='/img/main/home.png'/>
+                      </div>
+                    </Link>
+                    <Link href='/learn'>
+                      <div className={`mobile_menu-link ${path[1] == 'learn' && 'mobile_menu-link--selected'}`}>
+                        <div>Learn</div>
+                        <img src='/img/main/learn.png'/>
+                      </div>
+                    </Link>
+                    <Link href='/typing'>
+                      <div className={`mobile_menu-link ${path[1] == 'typing' && 'mobile_menu-link--selected'}`}>
+                        <div>Typing</div>
+                        <img src='/img/main/typing.png'/>
+                      </div>
+                    </Link>
+                    <Link href='/academyapps'>
+                      <div className={`mobile_menu-link ${path[1] == 'academyapps' && 'mobile_menu-link--selected'}`}>
+                        <div>Apps</div>
+                        <img src='/img/main/tools.png'/>
+                      </div>
+                    </Link>
+                    <Link href='/resources'>
+                      <div className={`mobile_menu-link ${path[1] == 'resources' && 'mobile_menu-link--selected'}`}>
+                        <div>Resources</div>
+                        <img src='/img/main/resources.png'/>
+                      </div>
+                    </Link>
+                    <Link href='/academyplus'>
+                      <div className={`mobile_menu-link ${path[1] == 'academyplus' && 'mobile_menu-link--selected'}`}>
+                        <div>Plus</div>
+                        <img src='/img/main/support.png'/>
+                      </div>
+                    </Link>
+                  </div>
+              </div>
+            </OutsideClickHandler>
+          </div>
+          )}
           <div className='top_nav'>
             <div className='top_nav-box'>
+              <div className='logo-box menu_icon'>
+                <img src='/img/main/menu_icon.png' onClick={() => setMobileMenu(true)} />
+              </div>
               <Link href='/'>
               <div className='logo-box'>
                 <img src='/img/main/logo.png' />
@@ -114,12 +178,12 @@ function App({ Component, pageProps, router }) {
                 <>
                   {user && user.active ? (
                     <div className='user-box'>
-                      <div>{user.username}</div>
+                      <div className='user-username'>{user.username}</div>
                       <div className='user-box_img'>
                         <div className='user_img' onClick={MenuVisible}>{user.username[0]}</div>
                         {menu && (
                           <OutsideClickHandler onOutsideClick={MenuOutside}>
-                            <div className='user-profile'>
+                            <div className='user-profile animate__animated animate__zoomIn'>
                               <div className='user-profile_row' onClick={() => handlePopup(true, "account")}>
                                 <img src='/img/main/settings.png'/>
                                 <div>Account Settings</div>
@@ -161,7 +225,6 @@ function App({ Component, pageProps, router }) {
       )}
       {popupShown && <Popup popup={handlePopup} type={popupType} />}
       <Component {...pageProps} user={user} />
-      {['', 'typing', 'learn', 'resources',].includes(path[1]) && <div className='main_extra_padding'></div>}
     </div>)
 }
 

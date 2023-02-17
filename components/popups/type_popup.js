@@ -250,8 +250,8 @@ function TypePopup({data}) {
                   return (<div key={i}>
                     <div className="animal_detail-modality">{detail.modality}</div>
                     <div className="animal_detail-funcs">
-                      <Image src={`/img/icons/Functions/${detail.functions[0]}.png`} />
-                      <Image src={`/img/icons/Functions/${detail.functions[1]}.png`} />
+                      <Image src={`/img/icons/Functions/${!decider_functions.includes(detail.functions[0]) ? detail.functions[0] : detail.functions[1]}.png`} />
+                      <Image src={`/img/icons/Functions/${decider_functions.includes(detail.functions[1]) ? detail.functions[1] : detail.functions[0]}.png`} />
                     </div>
                     </div>)
                 })}

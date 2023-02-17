@@ -39,7 +39,7 @@ function OPS() {
       </div>
       <div className="section">
         <h2 className="section_title">OPS vs Alternatives</h2>
-        <div className="section_body section_texts-sm section_texts-sm-no-border">
+        <div className="section_body section_texts-sm section_texts-sm-no-border extra_spacing_texts-sm">
           <div className="section_text savior_outline-nopad">
             <div className="text-sm_img">
               <img
@@ -69,7 +69,7 @@ function OPS() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm section_texts-sm-no-border">
+        <div className="section_body section_texts-sm section_texts-sm-no-border extra_spacing_texts-sm">
           <div className="section_text savior_outline-nopad">
             <div className="text-sm_img">
               <img

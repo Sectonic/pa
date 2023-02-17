@@ -70,9 +70,11 @@
   transition: 0.2s ease;
 }
 
-.typing_section .section_text:hover {
-  background-color: var(--light-grey);
-  transform: scale(1.1);
+@media screen and (min-width: 775px) {
+  .typing_section .section_text:hover {
+    background-color: var(--light-grey);
+    transform: scale(1.1);
+  }
 }
 
 .type_subtitle {
@@ -104,9 +106,11 @@
   margin-bottom: 10px;
 }
 
-.change_page_btn:hover {
-  background-color: var(--vibrant-purple);
-  color: white;
+@media screen and (min-width: 775px) {
+  .change_page_btn:hover {
+    background-color: var(--vibrant-purple);
+    color: white;
+  }
 }
 
 .section_title-img img {
@@ -142,9 +146,11 @@
   cursor: pointer;
 }
 
-.typing_method_btn:hover {
-  background-color: #2e3346;
-  transform: scale(1.1);
+@media screen and (min-width: 775px) {
+  .typing_method_btn:hover {
+    background-color: #2e3346;
+    transform: scale(1.1);
+  }
 }
 
 .official_site_btn {

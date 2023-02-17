@@ -260,9 +260,16 @@ purple
   gap: 100px;
 }
 
+.section_images-in-sm .section_body {
+  gap: 100px;
+}
+
 @media screen and (max-width:1100px) {
   .section_images-in .section_body {
     gap: 10px !important;
+  }
+  .section_images-in-sm .section_body {
+    gap: 30px;
   }
 }
 
@@ -313,7 +320,7 @@ purple
 @media screen and (max-width:1100px) {
   .section_body {
     flex-direction: column;
-    gap: 0px;
+    gap: 20px;
   }
   .reverse_body {
     flex-direction: column-reverse !important;
@@ -351,6 +358,7 @@ purple
     display:block;
     margin: 0 auto;
   }
+  
 }
 
 @media screen and (max-width:500px) {
@@ -373,6 +381,14 @@ purple
   padding: 0px 20px;
   margin-bottom: 5px;
   margin-top: 15px;
+}
+
+.centered_text {
+  justify-content: center;
+}
+
+.centered_text {
+  text-align: center;
 }
 
 .section_column-title {
@@ -606,7 +622,7 @@ purple
   ) !important;
 }
 
-@media screen and (min-width: 9000px) {
+@media screen and (min-width: 900px) {
   .outline-combos-t_i {
     margin-top: 10px;
   }
@@ -624,6 +640,46 @@ purple
 .section_texts-sm .section_text {
   border: 5px solid var(--light-grey);
   width: 27%;
+}
+
+@media screen and (max-width: 1530px) {
+  .section_text-cards .section_text {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:1100px) {
+  .section_text-cards {
+    gap: 30px;
+  }
+  .section_text-cards .section_text{
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .section_text-cards .section_text {
+    gap: 10px;
+    width: 87% !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section_text-cards .section_text {
+    flex-direction: column;
+    gap: 0px;
+    width: calc(100% - 40px) !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .section_text-cards .section_text {
+    width: 83% !important;
+    margin: 0 auto;
+  }
+  .mobile-mt-20 {
+    margin-top: 5px !important;
+  }
 }
 
 @media screen and (max-width:1250px) {
@@ -909,9 +965,11 @@ purple
   width: calc(100% - 50px) !important;
 }
 
-.page_btn:hover {
-  transform: scale(1.1);
-  background-color: var(--light-grey);
+@media screen and (min-width: 775px) {
+  .page_btn:hover {
+    transform: scale(1.1);
+    background-color: var(--light-grey);
+  }
 }
 
 .page_btn-img {
@@ -927,6 +985,10 @@ purple
   width: 75px !important;
 }
 
+.page_btn-img-sm img {
+  width: 55px !important;
+}
+
 .page_btn-text {
   margin: 0;
   font-size: 24px;
@@ -934,4 +996,12 @@ purple
 
 .button_body {
   flex-direction: row !important;
+}
+
+.onboarding_code {
+  width: 100%;
+  margin-top: 10px;
+  padding: 40px 0px;
+  font-size: 60px;
+  text-align: center;
 }

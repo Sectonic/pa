@@ -111,7 +111,7 @@ function Extroversion() {
       </div>
       <div className="section">
         <h2 className="section_title">Activation & Energy</h2>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text needs-blue">
             <div className="text-sm_img">
               <img
@@ -156,7 +156,7 @@ function Extroversion() {
               />
             </div>
             <div className="text-sm_desc">
-              <h3 className="section_subtitle margin-sm">Oi Activation</h3>
+              <h3 className="section_subtitle margin-sm extra_spacing_texts-sm">Oi Activation</h3>
               <p>
                 Focused, Stabile
               </p>
