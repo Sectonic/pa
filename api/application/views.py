@@ -119,7 +119,7 @@ def add():
             for tag in tag_options:
                 new_tag = request.form.get(tag)
                 if new_tag == 'on':
-                    type_data['Tag'] = new_tag
+                    type_data['Tag'] = tag
             similar_types = Types.query.filter_by(type=type_data['Type']).all()
             add_type = True
             if similar_types:

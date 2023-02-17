@@ -26,11 +26,7 @@ function Start() {
       </div>
       <div className="section functions">
         <h2 className="section_title margin-sm">Course Overview</h2>
-        <div className="section_body section_texts-sm">
-          <div className="section_text section_column-title">
-          </div>
-        </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-s">
             <div className="text-sm_img">
               <img src={"/img/learn/home/start.png"} alt="" />
@@ -54,7 +50,7 @@ function Start() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-f">
             <div className="text-sm_img">
               <img src={"/img/learn/home/letters.png"} alt="" />

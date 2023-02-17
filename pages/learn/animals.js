@@ -5,7 +5,7 @@ function Animals() {
   return (
     <div className="main">
       <Banner background="pink" title="Animals" section="animals" />
-      <div className="section section_images-in">
+      <div className="section section_images-in-sm">
         <h1 className="section_title">Animals Are 2 Needs</h1>
         <div className="section_body">
           <div className="section_img section_img-sm">
@@ -50,7 +50,7 @@ function Animals() {
       </div>
       <div className="section">
         <h2 className="section_title margin-sm">Energy Animals</h2>
-        <div className="section_body">
+        <div className="section_body section_text-cards">
           <div className="section_text outline-gray animals-blue">
             <div className="text-sm_img extra_margin-letters">
               <img src={"/img/icons/Needs/oidi.png"} alt="" />
@@ -84,7 +84,7 @@ function Animals() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm neg-mt-20 mobile-mt-20">
           <div className="section_text">
             <div className="text-sm_img">
               <img
@@ -108,7 +108,7 @@ function Animals() {
       </div>
       <div className="section">
         <h2 className="section_title">Info Animals</h2>
-        <div className="section_body">
+        <div className="section_body section_text-cards">
           <div className="section_text outline-gray outline-combos outline-combos-e_i">
             <div className="text-sm_img extra_margin-letters">
               <img src={"/img/icons/Needs/oedi.png"} alt="" />
@@ -142,7 +142,7 @@ function Animals() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm neg-mt-20 mobile-mt-20">
           <div className="section_text">
             <div className="text-sm_img">
               <img

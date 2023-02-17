@@ -48,7 +48,7 @@ function Functions() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-grey external_link-source">
             <div className="text-sm_img">
               <img src={"/img/icons/Functions/ti.png"} alt="" />
@@ -82,7 +82,7 @@ function Functions() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img">
               <img src={"/img/icons/Functions/fi.png"} alt="" />
@@ -123,7 +123,7 @@ function Functions() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img">
               <img src={"/img/icons/Functions/si.png"} alt="" />
@@ -150,7 +150,7 @@ function Functions() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img">
               <img src={"/img/icons/Functions/ni.png"} alt="" />

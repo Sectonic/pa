@@ -127,6 +127,7 @@
   transition: 0.2s ease;
 }
 
+
 .home_started:hover {
   background-color: var(--vibrant-purple);
   color: white;
@@ -161,8 +162,10 @@
   transition: .2s ease;
 }
 
-.homedash-btn:hover {
-  transform: scale(1.1);
+@media only screen and (min-width: 775px) {
+  .homedash-btn:hover {
+    transform: scale(1.1);
+  }
 }
 
 .home_dashboard-sm {
@@ -235,14 +238,16 @@
   transition: .3s ease;
 }
 
-.home_dashboard-sm:hover {
-  transform: scale(1.025);
-  gap: 55px;
-  filter: contrast(90%);
-}
-
-.home_dashboard-sm:hover > * {
-  transform: scale(1.15);
+@media only screen and (min-width: 775px) {
+  .home_dashboard-sm:hover {
+    transform: scale(1.025);
+    gap: 55px;
+    filter: contrast(90%);
+  }
+  
+  .home_dashboard-sm:hover > * {
+    transform: scale(1.15);
+  }
 }
 
 @media screen and (min-width:1250px) {

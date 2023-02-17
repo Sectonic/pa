@@ -67,8 +67,8 @@ function Home() {
       </div>
       <div className="section_home section_images-in">
         <div className="section_body">
-          <div className="section_text multiple_paragraphs">
-            <div className="multi_paragraph">
+          <div className="section_text outline-gray">
+            <div>
               <h2 className="margin-sm">Basics Done Right</h2>
               <p>
                We're an unofficial community project set out to get basics right based on the original ideas of Objective Personality. All credit goes to the creators, Dave & Shan.
@@ -89,7 +89,7 @@ function Home() {
           </div>
         </div>
         <h2 className="section_title">Everything You Need, Right Here.</h2>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
@@ -117,7 +117,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="section_body section_texts-sm">
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
