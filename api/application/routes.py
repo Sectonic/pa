@@ -1,4 +1,4 @@
-from flask import request, session, jsonify
+from flask import request, jsonify
 import os
 from application.models import Users, Types
 from application import app, db
@@ -22,14 +22,11 @@ def create_user():
     )
     db.session.add(new_user)
     db.session.flush()
-    session['user_id'] = new_user.id
     db.session.commit()
-    return {'success': 'New Account Created'}, 200
+    return {'user_id': new_user.id, 'username': new_user.username, 'email': new_user.email}, 200
 
 @app.route('/verify/user', methods=['POST'])
 def verify_user():
-    if session.get('user_id'):
-        return {'error': 'Already Logged In'}, 500
     data = request.get_json()
     existing_user = Users.query.filter_by(username=data['username'])
     existing_email = Users.query.filter_by(email=data['email'])
@@ -41,16 +38,8 @@ def verify_user():
         return {'error': 'Your confirm password does not match your password'}, 409
     return {'success': 'Information Valid'}, 200
 
-@app.route('/get/user', methods=['GET'])
-def get_user():
-    user_id = session.get('user_id')
-    username = db.session.get(Users, user_id).username if user_id else None
-    return jsonify({'username': username}), 200 if username else 409
-
 @app.route('/login', methods=['GET'])
 def login():
-    if session.get('user_id'):
-        return {'error': 'Already Logged In'}, 500
     email = request.args.get('email')
     password = request.args.get('password')
     attempted_user = Users.query.filter_by(email=email).first()
@@ -58,26 +47,13 @@ def login():
         return {'error': 'Account does not exist'}, 404
     else:
         if attempted_user.check_password_correction(attempted_password=password):
-            session['user_id'] = attempted_user.id
-            return {'success': 'Successfully Logged In'}, 200
+            return {'user_id': attempted_user.id, 'email': attempted_user.email, 'username': attempted_user.username}, 200
         else:
             return {'error': 'Password does not match email'}, 409
-            
-
-@app.route('/logout', methods=['GET'])
-def logout():
-    session.pop('user_id', default=None)
-    return {'success': 'Logged Out'}, 200
-
-@app.route('/get/user/all', methods=['GET'])
-def get_user_all():
-    user_id = session.get('user_id')
-    user = db.session.get(Users, user_id)
-    return {'username': user.username, 'email': user.email}, 200
 
 @app.route('/edit/user')
 def edit_user():
-    user_id = session.get('user_id')
+    user_id = request.arsg.get('user_id')
     user = db.session.get(Users, user_id)
     user.username = request.args.get('username')
     db.session.commit()
@@ -85,10 +61,9 @@ def edit_user():
 
 @app.route('/delete/user')
 def delete_user():
-    user_id = session.get('user_id')
+    user_id = request.arsg.get('user_id')
     user = db.session.get(Users, user_id)
     db.session.delete(user)
-    session.pop('user_id', default=None)
     db.session.commit()
     return {'response': 200}, 200
 

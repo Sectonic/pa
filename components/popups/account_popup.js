@@ -8,7 +8,7 @@ function AccountPopup() {
     const [renameUser, setRenameUser] = useState('');
 
     useEffect(() => {
-      fetch(`${process.env.NEXT_PUBLIC_API}/get/user/all`, {credentials: 'include'}).then(res => res.json()
+      fetch(`api/get_user`).then(res => res.json()
       .then(data => {
         setUserData(data);
         setUserName(data.username);
@@ -19,7 +19,7 @@ function AccountPopup() {
       if (userName.length > 35) {
         setError('Username has to be shorter than 35 characters');
       } else {
-        fetch(`${process.env.NEXT_PUBLIC_API}/edit/user?username=${userName}`, {credentials: 'include'}).then(window.location.reload());
+        fetch(`api/edit_user?username=${userName}`).then(window.location.reload());
       }
     }
 
@@ -27,7 +27,7 @@ function AccountPopup() {
       if (renameUser != userdata.username) {
         setError('Input does not match your username');
       } else {
-        fetch(`${process.env.NEXT_PUBLIC_API}/delete/user`, {credentials: 'include'}).then(window.location.reload());
+        fetch(`api/delete_user`).then(window.location.reload());
       }
     }
     return (

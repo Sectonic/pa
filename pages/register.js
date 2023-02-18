@@ -15,12 +15,11 @@ export default function Register() {
     const Register = async () => {
         if (auth == code) {
             let requestOptions = {
-                credentials: 'include',
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(registerBody)
             }
-            fetch(`${process.env.NEXT_PUBLIC_API}/create/user`, requestOptions)
+            fetch(`api/create_user`, requestOptions)
             .then(window.location.href  = '/');
         }
     }
@@ -28,7 +27,6 @@ export default function Register() {
     const VerificationStart = async (e) => {
         e.preventDefault();
         let requestOptions = {
-            credentials: 'include',
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -38,12 +36,11 @@ export default function Register() {
                 confirm: e.target.confirm.value
             })
         }
-        fetch(`${process.env.NEXT_PUBLIC_API}/verify/user`, requestOptions)
+        fetch(`api/verify_user`, requestOptions)
         .then(res => {
             setVerificationLoading(true);
             if (res.ok) {
                 let requestOptions = {
-                    credentials: 'include',
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({

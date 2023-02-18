@@ -7,7 +7,7 @@ export default function Login() {
 
     const Login = async (e) => {
         e.preventDefault();
-        fetch(`${process.env.NEXT_PUBLIC_API}/login?email=${e.target.email.value}&password=${e.target.password.value}`, {credentials: 'include'})
+        fetch(`api/login?email=${e.target.email.value}&password=${e.target.password.value}`)
         .then(res => {
             if (res.ok) {
                 window.location.href = '/';

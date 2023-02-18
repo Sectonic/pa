@@ -44,19 +44,21 @@ function App({ Component, pageProps, router }) {
   }, [router.pathname]); 
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API}/get/user`, {credentials: 'include'})
+    fetch(`api/get_user`)
     .then(res => {
       if (res.ok) {
         res.json().then(data => {
           setUser({
             active: true,
-            username: data.username
+            username: data.username,
+            email: data.email
           });
         });
       } else {
         setUser({
           active: false,
-          username: null
+          username: null,
+          email: null
         })
       }
       setLoading(false);
@@ -83,7 +85,7 @@ function App({ Component, pageProps, router }) {
   }
 
   const Logout = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API}/logout`, {credentials: 'include'}).then(res => {
+    fetch(`api/logout`).then(res => {
       window.location.reload();
     })
   }
