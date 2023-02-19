@@ -222,7 +222,6 @@ purple
 }
 
 
-
 .transparent_section {
   background-color: transparent;
   padding: 0 !important;
@@ -783,6 +782,10 @@ purple
 
 .outline-gray {
   border: 5px solid var(--light-grey);
+}
+
+.outline-trans {
+  border: 5px solid transparent !important;
 }
 
 .section_text h1 {

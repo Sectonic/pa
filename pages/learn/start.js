@@ -75,8 +75,8 @@ function Start() {
           </div>
         </div>
       </div>
-      <div className="section">
-        <h1 className="section_title">Spectrum Of Extroversion</h1>
+      <div className="section extra_margin_section">
+        <h1 className="section_title">Sections of the Course</h1>
         <div className="section_body">
           <img
             src={"/img/learn/intro/start/overview.png"}

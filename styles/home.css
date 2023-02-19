@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  gap: 100px;
 }
 
 @media only screen and (min-width: 2000px) {
@@ -135,101 +136,32 @@
 .home_dashboard {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 35%;
+  background-color: rgba(var(--purple-black-rgb), .6);
   border-radius: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .home_dashboard > div {
-  background-color: var(--dark-grey);
-  margin: 15px auto;
+  margin: 0 auto;
   border-radius: 20px;
   height: 120px;
-  padding: 15px 0;
-}
-
-.homedash-btn {
-  width: 100%;
-  text-align: center;
-  margin-top: 10px;
-  background-color: #ffb700;
-  padding: 5px 0px;
-  font-weight: 800;
-  font-size: 30px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: .2s ease;
-}
-
-@media only screen and (min-width: 775px) {
-  .homedash-btn:hover {
-    transform: scale(1.1);
-  }
+  width: 75%;
+  padding: 15px 40px;
 }
 
 .home_dashboard-sm {
+  margin: 0 auto;
   cursor: pointer;
   display: flex;
   gap: 35px;
   transition: .3s ease;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: calc(30% - 50px);
-  background-image: linear-gradient(
-      to right,
-      rgba(var(--purple-black-rgb), .7),
-      rgba(var(--purple-black-rgb), .7)
-    ),
-    url("./backgrounds/background_blur.png");
-    background-size: 1200px;
-    background-position: 700px;
-}
-
-@media screen and (max-width:1300px) {
-  .home_dashboard {
-    flex-wrap: wrap;
-  }
-  .home_dashboard-sm {
-    width: calc(50% - 40px);
-  }
-  .home_dashboard > div {
-    margin-top: 35px;
-    margin-bottom: 0;
-  }
-}
-@media screen and (max-width:1050px) {
-  .home_dashboard {
-    flex-wrap:nowrap !important;
-    flex-direction: column-reverse;
-  }
-  .home_dashboard-sm {
-    width: calc(100% - 50px);
-  }
-  .home_dashboard-sm:first-child {
-    margin-bottom: 35px;
-  }
-}
-
-@media screen and (max-width:775px) {
-  .home_dashboard-sm {
-    width: calc(100% - 25px);
-  }
-  .home_dashboard > div {
-    margin-top: 20px;
-  }
-  .home_dashboard-sm:first-child {
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (max-width:540px) {
-  .home_dashboard-sm {
-    flex-direction: column;
-    text-align: center;  
-    gap: 20px;
-  }
-  .home_dashboard > div {
-    height: max-content;
-  }
 }
 
 .home_dashboard-sm > * {
@@ -238,13 +170,7 @@
 
 @media only screen and (min-width: 775px) {
   .home_dashboard-sm:hover {
-    transform: scale(1.025);
-    gap: 55px;
-    filter: contrast(90%);
-  }
-  
-  .home_dashboard-sm:hover > * {
-    transform: scale(1.15);
+    background-color: var(--dark-grey);
   }
 }
 
@@ -273,60 +199,13 @@
   font-size: 20px !important;
 }
 
-@media screen and (min-width:1050px) {
-  .negml-10 {
-    margin-left: 0px !important;
-  }
-}
-
 .home_dashboard-lg {
   position: relative;
   display: flex;
   gap: 35px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: calc(42% - 50px);
-  margin-left: 0px !important;
-  background-image: linear-gradient(
-      to right,
-      rgba(var(--purple-black-rgb), .7),
-      rgba(var(--purple-black-rgb), .7)
-    ),
-    url("./backgrounds/background_blur.png");
-    background-size: 1200px;
-    background-position: 800px;
-}
-
-@media screen and (max-width:1300px) {
-  .home_dashboard-lg {
-    width: calc(100% - 50px);
-    margin-left: 20px !important;
-    margin-bottom: 35px !important;
-  }
-}
-
-@media screen and (max-width:1050px) {
-  .home_dashboard-lg {
-    margin-bottom: 0px !important;
-  }
-}
-
-@media screen and (max-width:775px) {
-  .home_dashboard-lg {
-    width: calc(100% - 27px);
-    margin-left: 10px !important;
-  }
-  .section_home {
-    width: calc(100% - 25px);
-  }
-}
-
-@media screen and (max-width:540px) {
-  .home_dashboard-lg {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
 }
 
 

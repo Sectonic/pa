@@ -29,38 +29,38 @@ function Home() {
             </div>
           </h1>
         </div>
-      </div>
-      <div className="home_dashboard">
-        <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/FcqsJHXCBR", '_blank').focus()}>
-          <img src="/img/main/discord.png" className="updates_img" />
-          <div className="home_lg-text">
-            <div>
-              Join Our
-            </div>
-            <div className="home_lg-textbig">
-              Discord
-            </div>
-          </div>
-        </div>
-        <div className="home_dashboard-sm negml-10" onClick={academyPlus}>
-          <img src="/img/main/support.png" className="updates_img" />
-          <div className="home_lg-text">
-            <div>
-              Support With
-            </div>
-            <div className="home_lg-textbig">
-              Academy+
+        <div className="home_dashboard">
+          <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/FcqsJHXCBR", '_blank').focus()}>
+            <img src="/img/main/discord.png" className="updates_img" />
+            <div className="home_lg-text">
+              <div>
+                Join Our
+              </div>
+              <div className="home_lg-textbig">
+                Discord
+              </div>
             </div>
           </div>
-        </div>
-        <div className="home_dashboard-lg">
-          <img src="/img/main/launch.png" className="updates_img" />
-          <div className="home_lg-text">
-            <div>
-            February 14 Update
+          <div className="home_dashboard-sm negml-10" onClick={academyPlus}>
+            <img src="/img/main/support.png" className="updates_img" />
+            <div className="home_lg-text">
+              <div>
+                Support With
+              </div>
+              <div className="home_lg-textbig">
+                Academy+
+              </div>
             </div>
-            <div className="home_lg-textbig">
-              Added TypeTool!
+          </div>
+          <div className="home_dashboard-lg">
+            <img src="/img/main/launch.png" className="updates_img" />
+            <div className="home_lg-text">
+              <div>
+              February 14 Update
+              </div>
+              <div className="home_lg-textbig">
+                Added TypeTool!
+              </div>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ function Home() {
         *We are not affiliated with Objective Personality
         </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
-          <div className="section_text outline-grey">
+          <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
               <img
                 src={"/img/main/learn2.png"}
@@ -91,7 +91,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="section_text outline-grey">
+          <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
               <img
                 src={"/img/main/type2.png"}
@@ -106,7 +106,7 @@ function Home() {
           </div>
         </div>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
-          <div className="section_text outline-grey">
+          <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
               <img
                 src={"/img/main/tools2.png"}
@@ -119,7 +119,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="section_text outline-grey">
+          <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
               <img
                 src={"/img/main/improve2.png"}
@@ -147,7 +147,7 @@ function Home() {
         Set out to use OPS as it was intended
         </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
-          <div className="section_text outline-grey">
+          <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
               <img
                 src={"/img/main/positive.png"}
@@ -160,7 +160,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="section_text outline-grey">
+          <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
               <img
                 src={"/img/main/original.png"}

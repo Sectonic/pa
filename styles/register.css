@@ -44,6 +44,12 @@
     border: 5px solid rgba(var(--dark-grey-rgb), .7);
 }
 
+@media screen and (max-width:500px) {
+    .register_section {
+        width: calc(100% - 130px);
+    }
+}
+
 .register_inputs input {
     background-color: var(--dark-grey);
     border: 3px solid var(--light-grey);
@@ -57,6 +63,13 @@
 .register_title {
     font-size: 27px;
     font-weight: 900;
+}
+
+@media screen and (max-width:500px) {
+    .register_title {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
 }
 
 .register_subtitle {
