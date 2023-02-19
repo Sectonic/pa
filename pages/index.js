@@ -134,7 +134,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="section">
+      <div className="section extra_margin_section">
       <div className="section_body">
       <div className="home_title_img">
             <img
