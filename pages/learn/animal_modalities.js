@@ -77,7 +77,7 @@ function animalModalities() {
           src="/img/learn/basic/modalities/fem.png"
           alt=""
         />
-        <h1 className="section_title">Feminine Animals</h1>
+        <h2 className="section_title">Feminine Animals</h2>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text">
             <div className="text-sm_img">

@@ -9,8 +9,8 @@
     text-align: center;
     background-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.3)
+      rgba(var(--purple-black-rgb), .8),
+      rgba(var(--purple-black-rgb), .8)
     ),
     url("./backgrounds/background_blur.png");
     background-size: 3000px;

@@ -146,7 +146,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="section">
+      <div className="section extra_margin_section">
         <h2 className="section_title">New To All This?</h2>
         <ChangeSection link="/learn/start" text="Start Here" src="start" />
       </div>

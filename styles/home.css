@@ -1,8 +1,8 @@
 .home_banner {
   background-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.3)
+      rgba(var(--purple-black-rgb), .6),
+      rgba(var(--purple-black-rgb), .6)
     ),
     url("./backgrounds/background_blur.png");
   background-size: 3000px;
@@ -15,7 +15,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  border: solid 5px #0022a85d;
 }
 
 @media only screen and (min-width: 2000px) {
@@ -143,7 +142,6 @@
 .home_dashboard > div {
   background-color: var(--dark-grey);
   margin: 15px auto;
-  border: 5px solid #0022a85d;
   border-radius: 20px;
   height: 120px;
   padding: 15px 0;
@@ -178,8 +176,8 @@
   width: calc(30% - 50px);
   background-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
+      rgba(var(--purple-black-rgb), .7),
+      rgba(var(--purple-black-rgb), .7)
     ),
     url("./backgrounds/background_blur.png");
     background-size: 1200px;
@@ -273,7 +271,6 @@
   margin-bottom: 20px;
   border-radius: 20px;
   font-size: 20px !important;
-  border: 5px solid var(--dark-grey);
 }
 
 @media screen and (min-width:1050px) {
@@ -292,8 +289,8 @@
   margin-left: 0px !important;
   background-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
+      rgba(var(--purple-black-rgb), .7),
+      rgba(var(--purple-black-rgb), .7)
     ),
     url("./backgrounds/background_blur.png");
     background-size: 1200px;
