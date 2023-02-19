@@ -3,7 +3,7 @@
 }
 
 .banner {
-  height: 360px;
+  height: 320px;
   width: calc(100% - 50px);
   margin: 17px auto;
   background-color: white;
@@ -47,11 +47,11 @@ background-position-y: 500px;
 }
 
 .banner_blue-outline {
-  border: 5px solid #044D76;
+  border: 5px solid #044c7683;
 }
 
 .banner_pink-outline {
-  border: 5px solid #780369;
+  border: 5px solid #7803687f;
 }
 
 .banner_green-outline {
