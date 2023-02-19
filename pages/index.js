@@ -65,21 +65,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="section_home section_images-in">
-        <div className="section_body">
-          <div className="section_text outline-gray">
-            <div>
-              <h2 className="margin-sm">Basics Done Right</h2>
-              <p>
-               We're an unofficial community project set out to get basics right based on the original ideas of Objective Personality. All credit goes to the creators, Dave & Shan.
-              </p>
-              <p>
-              We are not affiliated with Objective Personality.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="section">
       <div className="section_body">
       <div className="home_title_img">
@@ -88,31 +73,34 @@ function Home() {
             />
           </div>
         </div>
-        <h2 className="section_title">Everything You Need, Right Here.</h2>
+        <h2 className="section_title">Everything OPS, In One Place</h2>
+        <p className="letters_subtitle">
+        *We are not affiliated with Objective Personality
+        </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
-                src={"/img/main/learn.png"}
+                src={"/img/main/learn2.png"}
               />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Learn</h3>
               <p>
-                Learn Objective Personality through a straightforward course.
+                The original Objective Personality theory made simple to navigate.
               </p>
             </div>
           </div>
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
-                src={"/img/main/typing.png"}
+                src={"/img/main/type2.png"}
               />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Type</h3>
               <p>
-              Use doable approaches to type yourself and others accurately.
+              Use doable OPS methods to type yourself and others accurately.
               </p>
             </div>
           </div>
@@ -121,7 +109,7 @@ function Home() {
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
-                src={"/img/main/tools.png"}
+                src={"/img/main/tools2.png"}
               />
             </div>
             <div className="text-sm_desc">
@@ -134,13 +122,54 @@ function Home() {
           <div className="section_text outline-grey">
             <div className="text-sm_img home-top_img">
               <img
-                src={"/img/main/improve.png"}
+                src={"/img/main/improve2.png"}
               />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Improve</h3>
               <p>
-              Using personality type to leave a positive impact.
+              Turn knowledge into action, based on the core ideas of OPS.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="section">
+      <div className="section_body">
+      <div className="home_title_img">
+            <img
+              src={"/img/main/community.png"}
+            />
+          </div>
+        </div>
+        <h2 className="section_title">A Community Project</h2>
+        <p className="letters_subtitle">
+        Set out to use OPS as it was intended
+        </p>
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
+          <div className="section_text outline-grey">
+            <div className="text-sm_img home-top_img">
+              <img
+                src={"/img/main/positive.png"}
+              />
+            </div>
+            <div className="text-sm_desc">
+              <h3 className="section_subtitle margin-sm">Net Positive Impact</h3>
+              <p>
+                We focus on how to use OPS for good, to leave an overall positive impact.
+              </p>
+            </div>
+          </div>
+          <div className="section_text outline-grey">
+            <div className="text-sm_img home-top_img">
+              <img
+                src={"/img/main/original.png"}
+              />
+            </div>
+            <div className="text-sm_desc">
+              <h3 className="section_subtitle margin-sm">True To OPS</h3>
+              <p>
+              Concepts are made simple to understand, true to the core OPS ideas.
               </p>
             </div>
           </div>
