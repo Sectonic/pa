@@ -107,7 +107,7 @@ export default function Onboarding() {
                             />
                             </div>
                             <div className="page_btn-text">
-                            <h3 className="section_subtitle text-center">I Understand</h3>
+                            <h3 className="section_subtitle text-center">Understood</h3>
                             </div>
                         </div>
                     </div>

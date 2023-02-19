@@ -166,7 +166,6 @@
     width: calc(100% - 50px);
     margin: 0 auto;
     background-color: var(--purple-black);
-    border: 5px solid var(--dark-grey);
     margin-top: 17px;
     padding-top: 10px;
     padding-bottom: 5px;

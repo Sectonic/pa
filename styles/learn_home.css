@@ -35,10 +35,9 @@
 }
 
 @media only screen and (min-width: 775px) {
-  .page_icon:hover {
-    transform: scale(1.2);
+  .page_icon:hover {    
     background-color: var(--vibrant-purple);
-    border: 14px solid var(--purple-black);
+    border: 10px solid var(--purple-black);
   }
 }
 
@@ -80,8 +79,8 @@
   margin-left: 17px;
   background-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
     ),
     url(".//backgrounds/background.png");
   background-size: 2900px;
@@ -89,7 +88,6 @@
   background-attachment: fixed;
   overflow: hidden;
   border-radius: 20px;
-  border: solid 5px #0022a85d;
 }
 
 @media only screen and (max-width: 1400px) {

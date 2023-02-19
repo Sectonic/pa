@@ -72,7 +72,6 @@ export default function Register() {
 
     return(
         <div className="full_background">
-            <div>
                 <form className="register_section" onSubmit={VerificationStart}>
                     <Link href='/'><div className='register_back'>Go Back</div></Link>
                     <img className="register_img" src="/img/main/logo.png"/>
@@ -117,7 +116,6 @@ export default function Register() {
                     )}
                     {!verifying ? <button type="submit" className="register_btn">Continue</button> : <button type="button" className={`register_btn ${auth != code && 'register_unverified'}`} onClick={Register}>Create Account</button> }
                 </form>
-            </div>
         </div>
     )
 }

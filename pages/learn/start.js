@@ -75,6 +75,16 @@ function Start() {
           </div>
         </div>
       </div>
+      <div className="section extra_margin_section">
+        <h1 className="section_title">Sections of the Course</h1>
+        <div className="section_body">
+          <img
+            src={"/img/learn/intro/start/overview.png"}
+            alt=""
+            className="spectrum_img outline-gray"
+          />
+        </div>
+      </div>
       <div className="section transparent_section">
         <ChangeSection link="/learn/typology_intro" text="Typology Intro" src="typology_intro"/>
       </div>
