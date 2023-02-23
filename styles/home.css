@@ -10,12 +10,11 @@
   width: calc(100% - 50px);
   margin: 0 auto;
   margin-top: 17px;
-  height: 68vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  gap: 100px;
 }
 
 @media screen and (max-width: 1225px) {
@@ -58,6 +57,7 @@
   height: 250px;
   margin-right: 40px;
   margin: 0 auto;
+  
 }
 
 .home_title_img span[style] {
@@ -172,14 +172,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 35%;
-  background-color: rgba(var(--purple-black-rgb), .6);
   border-radius: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px 0px,
-  rgba(0, 0, 0, 0.2) 0px 2px 16px 0px;
+  padding-left: 300px;
 }
 
 .home_dashboard > div {
@@ -289,7 +287,7 @@
 }
 
 .home_lg-textbig {
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 900;
   color: #ffb700;
 }

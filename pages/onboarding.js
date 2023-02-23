@@ -44,40 +44,18 @@ export default function Onboarding() {
             />
             <div className="section">
                 <h2 className="section_title">~ 1 minute</h2>
-                <div className="section_body">
-                    <div className="section_img section_img-mid">
-                        <img
-                        src={"/img/onboarding/pa.png"}
-                        alt=""
-                        />
-                    </div>
-                    <div className="section_text outline-gray">
-                        <div>
-                        <h2 className="margin-sm">Personality Academy</h2>
-                        <div className="margin-sm"></div>
-                        <p>
-                            Personality Academy is a community project to pave the way forward for good use of personality theory through Ojective Personality
-                        </p>
-                        <p>
-                            <strong>We are not affiliated with Objective Personality</strong><br/>
-                            We encourage good use through the use of the system. We did not come up with it.
-                        </p>
-                        </div>
-                    </div>
-                </div>
                 <div className="section_body neg-mt-20 mobile-mt-20 section_text-cards">
                     <div className="section_text outline-gray">
                         <div className="text-sm_img extra_margin-letters">
                         <img src={"/img/onboarding/safety.png"} alt="" />
                         </div>
                         <div className="text-sm_desc">
-                        <h2 className="section_subtitle margin-sm">Safety First</h2>
+                        <h2 className="section_subtitle margin-sm">Safety</h2>
                         <p>
-                        We keep our community safe and take care of our people <br/>
-                        We have the right to kick you out if you're acting improperly
+                        We keep our community safe & maintain a good environment
                         </p>
                         <p>
-                            It isn't allowed just because it isn't in the rules
+                        We reserve the right to kick out anyone who's disruptive or unfit for the server.
                         </p>
                         </div>
                     </div>

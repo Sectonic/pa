@@ -100,7 +100,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Type</h3>
               <p>
-              Use doable OPS methods to type yourself and others accurately.
+              Use OPS methods to type yourself and others accurately.
               </p>
             </div>
           </div>
@@ -128,7 +128,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Improve</h3>
               <p>
-              Turn knowledge into action, based on the core ideas of OPS.
+              Turn knowledge into action, based on the ideas of OPS.
               </p>
             </div>
           </div>
