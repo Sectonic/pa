@@ -111,7 +111,7 @@ function AcademyPlus() {
           </div>
         </div>
         <div className="section_title neg-mt-45 support_title">Our Team</div>
-        <div className="section_body neg-mt-45">
+        <div className="section_body neg-mt-45 support_body">
           <div className="section_text support_card outline-gray">
             <div>
               <img src="/img/academyplus/sect.png" />
