@@ -56,7 +56,7 @@ function Home() {
             <img src="/img/main/launch.png" className="updates_img" />
             <div className="home_lg-text">
               <div>
-              February 14 Update
+              Feb 14 Update
               </div>
               <div className="home_lg-textbig">
                 Added TypeTool!
@@ -67,7 +67,7 @@ function Home() {
       </div>
       <div className="section">
       <div className="section_body">
-      <div className="home_title_img">
+      <div className="section_img">
             <img
               src={"/img/main/logo.png"}
             />
@@ -136,7 +136,7 @@ function Home() {
       </div>
       <div className="section extra_margin_section">
       <div className="section_body">
-      <div className="home_title_img">
+      <div className="section_img">
             <img
               src={"/img/main/community.png"}
             />

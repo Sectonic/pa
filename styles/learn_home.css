@@ -109,6 +109,7 @@
     width: calc(100% - 30px);
     height: calc(100% - 90px);
     margin-left: 10px;
+    background-size: 2000px;
   }
 }
 

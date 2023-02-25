@@ -137,8 +137,22 @@
   width: 30%;
 }
 
-.neg-mt-45 {
-  margin-top: -45px;
+@media screen and (max-width: 1000px) {
+  .section-title_images-in {
+    flex-direction: column;
+    padding: 0;
+    margin: 10px 0;
+    gap: 10px;
+  }
+  .section_title-text {
+    text-align: center;
+  }
+  .section_title-img img {
+    height: 100px;
+  }
+  .section_title-desc {
+    width: 90%;
+  }
 }
 
 .typing_method_btn {
@@ -150,6 +164,12 @@
   .typing_method_btn:hover {
     background-color: #2e3346;
     transform: scale(1.1);
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .neg-mt-45 {
+    margin-top: -45px;
   }
 }
 

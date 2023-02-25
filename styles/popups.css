@@ -506,6 +506,22 @@
   width: 85%;
 }
 
+@media screen and (max-width:900px) {
+  .account_box {
+    flex-direction: column-reverse;
+  }
+  .account_image-box {
+    margin: 0 auto;
+    width: 160px;
+  }
+  .account_image-edit {
+    bottom: -1%;
+  }
+  .account_info {
+    width: 100%;
+  }
+}
+
 .account_detail input {
   background-color: var(--dark-grey);
   border: 3px solid var(--light-grey);
@@ -559,6 +575,16 @@
 
 .delete_button {
   background-color: rgb(236, 78, 78);
+}
+
+@media screen and (max-width:900px) {
+  .account_save-btn {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+  .account_save-btn img {
+    width: 15px;
+  }
 }
 
 .account_save-btn:hover {
