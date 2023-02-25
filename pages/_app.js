@@ -10,6 +10,7 @@ import '../styles/resources.css';
 import '../styles/typing.css';
 import '../styles/register.css';
 import '../styles/placeholder.css';
+import '../styles/academyplus.css';
 import "animate.css";
 import Navbar from '../components/nav';
 import { useEffect, useState, useRef } from "react";

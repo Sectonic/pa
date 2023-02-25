@@ -1,0 +1,137 @@
+
+.orange-text {
+    color: var(--vibrant-orange)
+}
+
+.academy_card h2 {
+    font-size: 31px;
+}
+
+.academy_card {
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 750px) {
+    .academy_card {
+        margin: 0 auto;
+    }
+}
+
+.academy_card > div {
+    width: 100%;
+}
+
+.academyplus_card {
+    background-color: var(--light-grey);
+    border: 3px solid rgba(var(--vibrant-orange-rgb), .6);
+}
+
+.academy_perks {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.academy_perk {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.academy_perk-invisible {
+    opacity: 0;
+    height: 30px;
+}
+
+.academy_perk img {
+    width: 30px;
+    height: 30px;
+}
+
+.academy_perks div {
+    font-size: 18px;
+}
+
+.academy_perks-btn {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    padding: 15px 0px;
+    font-size: 20px;
+    background-color: #29406d;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.academy_perks-btn-gray {
+    background-color: var(--light-grey);
+    color: white;
+    cursor: default;
+}
+
+.academy_perks-btn-purple{
+    border: 1px solid rgba(255, 255, 255, 0.212);
+}
+
+.support_card {
+    width: max-content;
+    padding: 25px;
+    text-align: center;
+}
+
+.support_card img {
+    width: 210px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--light-purple);
+}
+
+.support_card h2 {
+    margin-top: 10px;
+}
+
+.support_title {
+    font-size: 28px;
+    padding-top: 20px;
+}
+
+.blur_background {
+    background-image: linear-gradient(
+        to right,
+        rgba(var(--purple-black-rgb), .6),
+        rgba(var(--purple-black-rgb), .6)
+    ),
+    url("./backgrounds/background_blur.png");
+    background-size: 2000px;
+    background-attachment: fixed;
+}
+
+.price-text {
+    margin-top: 15px;
+    font-size: 35px;
+}
+
+.price_btn {
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: var(--light-grey);
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    width: max-content;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.price_btn:hover {
+    transform: scale(1.05);
+}
