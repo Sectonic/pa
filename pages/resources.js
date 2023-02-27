@@ -11,6 +11,51 @@ function Resources() {
         type="nav"
       />
       <div className="section typing_section">
+        <h2 className="section_title">Official Objective Personality</h2>
+        <div className="section_body top_typing">
+          <div className="section_text outline-gray m0">
+            <Link
+              href="https://www.objectivepersonalitysystem.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div>
+                <img
+                  src="/img/resources/ops.png"
+                  className="typing_img-home rounded_edges-img"
+                />
+                <h3 className="typing_title-h3 resources_title">
+                  Official OPS Class
+                </h3>
+                <p>
+                  The official objective personality site & paid class
+                </p>
+              </div>
+            </Link>
+          </div>
+          <div className="section_text outline-gray m0">
+            <Link
+              href="https://www.youtube.com/c/ObjectivePersonality"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div>
+                <img
+                  src="/img/resources/official.png"
+                  className="typing_img-home rounded_edges-img"
+                />
+                <h3 className="typing_title-h3 resources_title">
+                  Official OPS Youtube
+                </h3>
+                <p>
+                  The official objective personality youtube channel
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="section typing_section">
         <h2 className="section_title">Videos & Content</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray m0">
@@ -91,28 +136,10 @@ function Resources() {
               </div>
             </Link>
           </div>
-          <div className="section_text outline-gray m0">
-            <Link
-              href="https://www.youtube.com/c/AugmentedPersonality"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <img
-                  src="/img/resources/gray.png"
-                  className="typing_img-home rounded_edges-img"
-                />
-                <h3 className="typing_title-h3 resources_title">
-                  Augmented Personality
-                </h3>
-                <p>Videos & Streams focused mostly on OPS.</p>
-              </div>
-            </Link>
-          </div>
         </div>
       </div>
       <div className="section typing_section">
-        <h2 className="section_title">Learning Sources</h2>
+        <h2 className="section_title">Written Sources</h2>
         <div className="section_body top_typing">
           <div className="section_text outline-gray m0">
             <Link
