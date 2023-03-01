@@ -4,7 +4,7 @@
       rgba(var(--purple-black-rgb), .6),
       rgba(var(--purple-black-rgb), .6)
     ),
-    url("./backgrounds/background_blur.png");
+    url("./backgrounds/test.png");
   background-size: 3000px;
   background-attachment: fixed;
   width: calc(100% - 50px);
@@ -151,14 +151,13 @@
   border-radius: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: rgba(var(--purple-black-rgb), .7);
 }
 
 .home_dashboard > div {
   margin: 0 auto;
   border-radius: 20px;
-  height: 120px;
-  width: 75%;
+  height: 90px;
+  width: 70%;
   padding: 15px 40px;
 }
 
@@ -186,7 +185,7 @@
     padding: 20px 20px;
   }
   .home_dashboard > div {
-    background-color: rgba(var(--vibrant-purple-rgb),.175);
+    background-color: rgba(var(--vibrant-purple-rgb),.1);
     padding: 7px 40px;
   }
 }
@@ -220,7 +219,7 @@
 
 @media only screen and (min-width: 775px) {
   .home_dashboard-sm:hover {
-    background-color: var(--vibrant-purple);
+    background-color: rgba(var(--vibrant-orange-rgb),.1);
   }
 }
 
@@ -281,7 +280,7 @@
 
 
 .updates_img {
-  height: 90px;
+  height: 60px;
 }
 
 @media screen and (max-width:540px) {

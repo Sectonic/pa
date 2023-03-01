@@ -2,13 +2,13 @@
 :root {
   --black: #000;
 
-  --vibrant-purple: #121c3a;
+  --vibrant-purple: #141e36;
   --vibrant-purple-rgb: 18, 28, 58;
   
   --light-purple: #5c64f4;
   --light-purple-rgb: 92, 100, 244;
 
-  --dark-purple: #030d1e;
+  --dark-purple: #0c152a;
   --dark-purple-rgb: 3, 13, 30;
 
   --low-op-dark-purple: #030d1e8d;
@@ -20,13 +20,13 @@
   --vibrant-orange: #ffb700;
   --vibrant-orange-rgb: 255, 183, 0;
 
-  --dark-grey: #0f1c34;
+  --dark-grey: #182742;
   --dark-grey-rgb: 15, 28, 52;
 
-  --light-grey: #182a4e;
+  --light-grey: #1f324e;
   --light-grey-rgb: 24, 42, 78;
 
-  --purple-black: #040d1e;
+  --purple-black: #0c152a;
   --purple-black-rgb: 4, 13, 30;
 }
 
@@ -106,7 +106,7 @@ button {
   top: calc(1.5% + 65px);
   width: 80px;
   height: calc(97vh - 65px);
-  border-radius: 20px;
+  border-radius: 15px;
   background-color: var(--dark-purple);
   transition: 0.3s;
   overflow-y: scroll;
