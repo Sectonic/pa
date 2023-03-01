@@ -1,8 +1,9 @@
 import {useState} from 'react';
 import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
+import {useRouter} from 'next/router';
 
-export default function Register() {
+export default function Register({ getUser }) {
     const [isVisible, setVisible] = useState(false);
     const [error, setError] = useState('');
     const [verifying, setVerifying] = useState(false);
@@ -11,6 +12,7 @@ export default function Register() {
     const [auth, setAuth] = useState('');
     const [registerBody, setRegisterBody] = useState({});
     const [verificationLoading, setVerificationLoading] = useState(false);
+    const router = useRouter();
 
     const Register = async () => {
         if (auth == code) {
@@ -20,7 +22,10 @@ export default function Register() {
                 body: JSON.stringify(registerBody)
             }
             fetch(`api/create_user`, requestOptions)
-            .then(window.location.href  = '/');
+            .then(res => {
+                getUser();
+                router.back();
+            });
         }
     }
 

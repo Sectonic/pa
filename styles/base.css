@@ -226,6 +226,17 @@ h3 {
   cursor: pointer;
 }
 
+.user-profile_row-btn {
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  font-family:inherit;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: white;
+}
+
 .user-profile_row:hover {
   background-color: var(--light-grey);
 }

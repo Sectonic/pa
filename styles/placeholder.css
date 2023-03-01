@@ -27,6 +27,10 @@
     height: 74px;
 }
 
+.big_loader {
+    height: 100px;
+}
+
 .small_loader > div {
     width: 10px !important;
     height: 10px !important;

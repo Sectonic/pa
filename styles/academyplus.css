@@ -136,6 +136,7 @@
     width: max-content;
     cursor: pointer;
     transition: .3s ease;
+    color: white;
 }
 
 .price_btn:hover {

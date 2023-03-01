@@ -1,19 +1,11 @@
 import {useState, useEffect} from 'react';
 
-function AccountPopup() {
-    const [userdata, setUserData] = useState(null);
-    const [userName, setUserName] = useState(null);
+function AccountPopup({data}) {
+    const [userdata, setUserData] = useState(data);
+    const [userName, setUserName] = useState(data.username);
     const [error, setError] = useState('');
     const [deleteStart, setDeleteStart] = useState(false);
     const [renameUser, setRenameUser] = useState('');
-
-    useEffect(() => {
-      fetch(`api/get_user`).then(res => res.json()
-      .then(data => {
-        setUserData(data);
-        setUserName(data.username);
-      }));
-    }, [])
 
     const saveUser = () => {
       if (userName.length > 35) {

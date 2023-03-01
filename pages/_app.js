@@ -44,26 +44,29 @@ function App({ Component, pageProps, router }) {
     setPath(new_path);
   }, [router.pathname]); 
 
+  const getUser = async () => {
+    let request = await fetch('api/get_user');
+    let data = await request.json();
+    if (request.ok) {
+      setUser({
+        active:true,
+        username: data.username,
+        email: data.email,
+        plus: data.plus
+      })
+    } else {
+      setUser({
+        active: false,
+        username: null,
+        email: null,
+        plus: false
+      })
+    }
+    setLoading(false);
+  }
+
   useEffect(() => {
-    fetch(`api/get_user`)
-    .then(res => {
-      if (res.ok) {
-        res.json().then(data => {
-          setUser({
-            active: true,
-            username: data.username,
-            email: data.email
-          });
-        });
-      } else {
-        setUser({
-          active: false,
-          username: null,
-          email: null
-        })
-      }
-      setLoading(false);
-    });
+    getUser();
   }, [])
 
   const handlePopup = (choice, type) => {
@@ -191,6 +194,12 @@ function App({ Component, pageProps, router }) {
                                 <img src='/img/main/settings.png'/>
                                 <div>Account Settings</div>
                               </div>
+                              <form action='/api/customer_portal' method='POST'>
+                                <button className='user-profile_row user-profile_row-btn' type='submit'>
+                                  <img src='/img/main/subscription.png'/>
+                                  <div>Subscription</div>
+                                </button>
+                              </form>
                               <div className='user-profile_row' onClick={Logout}>
                                 <img src='/img/main/logout_icon.png'/>
                                 <div>Logout</div>
@@ -226,8 +235,8 @@ function App({ Component, pageProps, router }) {
           </div>
         </>
       )}
-      {popupShown && <Popup popup={handlePopup} type={popupType} />}
-      <Component {...pageProps} user={user} />
+      {popupShown && <Popup popup={handlePopup} type={popupType} data={user} />}
+      <Component {...pageProps} user={user} getUser={getUser} />
     </div>)
 }
 

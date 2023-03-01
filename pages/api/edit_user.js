@@ -5,7 +5,7 @@ export default withIronSessionApiRoute(editUser, ironOptions);
 
 async function editUser(req, res) {
     const {username} = req.query;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/delete/user?user_id=${req.session.user.id}&username=${username}`, {credentials: 'include'});
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/edit/user?user_id=${req.session.user.id}&username=${username}`, {credentials: 'include'});
     if (response.ok) {
         req.session.user.username = username;
         await req.session.save();

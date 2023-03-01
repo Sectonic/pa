@@ -49,6 +49,8 @@ class Users(db.Model):
     username = db.Column(db.String(35))
     password_hash = db.Column(db.String(length=60))
     email = db.Column(db.String(100))
+    customer_id = db.Column(db.String(100))
+    subscription_id = db.Column(db.String(100))
 
     @property
     def password(self):

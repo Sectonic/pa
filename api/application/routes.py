@@ -3,6 +3,9 @@ import os
 from application.models import Users, Types
 from application import app, db
 from application.functions import dbToDict
+import stripe
+
+stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 
 @app.after_request
 def add_header(response):
@@ -53,7 +56,8 @@ def login():
 
 @app.route('/edit/user')
 def edit_user():
-    user_id = request.arsg.get('user_id')
+    print(request.environ) 
+    user_id = request.args.get('user_id')
     user = db.session.get(Users, user_id)
     user.username = request.args.get('username')
     db.session.commit()
@@ -61,14 +65,47 @@ def edit_user():
 
 @app.route('/delete/user')
 def delete_user():
-    user_id = request.arsg.get('user_id')
+    user_id = request.args.get('user_id')
     user = db.session.get(Users, user_id)
+    if user.customer_id:
+        stripe.Customer.delete(user.customer_id)       
     db.session.delete(user)
     db.session.commit()
     return {'response': 200}, 200
 
+@app.route('/get/customer_id')
+def get_customer_id():
+    user_id = request.args.get('user_id')
+    user = db.session.get(Users, user_id)
+    return {'customer_id': user.customer_id}, 200
+
+@app.route('/get/subscription')
+def get_subscription():
+    user_id = request.args.get('user_id')
+    user = db.session.get(Users, user_id)
+    if not user.subscription_id:
+        return {'status': False}, 404
+    subscription = stripe.Subscription.retrieve(user.subscription_id)
+    if subscription['status'] == 'active':
+        return {'status': True}, 200
+    else:
+        return {'status': False}, 404
+
+@app.route('/add/subscription', methods=['POST'])
+def add_subscription():
+    data = request.get_json()
+    user = db.session.get(Users, data['user_id'])
+    if user.customer_id != None:
+        return {'response': 404}, 404
+    else:
+        checkout = stripe.checkout.Session.retrieve(data['session_id'])
+        user.customer_id = checkout["customer"]
+        user.subscription_id = checkout["subscription"]
+        return {'response': 200}, 200
+
 @app.route("/types/<int:low>to<int:high>", methods=['GET'])
-def types(low, high): 
+def types(low, high):
+    print(request.environ) 
     high_test = Types.query.filter_by(id=high).first()
     format_data = request.args.get('format')
     if format_data == 'modified':
