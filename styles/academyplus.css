@@ -76,7 +76,7 @@
 }
 
 .academy_perks-btn-purple{
-    background-color: rgba(var(--vibrant-orange-rgb));
+    background-color: var(--vibrant-orange);
     color: black;
     font-weight: 900;
 }

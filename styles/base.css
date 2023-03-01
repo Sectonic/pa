@@ -83,6 +83,10 @@ h3 {
   font-weight: 800 !important;
 }
 
+button {
+  font-family: inherit !important;
+}
+
 .margin-sm {
   padding-top: 15px;
   margin-bottom: -12.5px;
