@@ -94,6 +94,7 @@ function AcademyPlus({user}) {
             <div className="section_text academy_card">
               <div>
                 <h2 className="margin-sm">Academy</h2>
+                <h3 className="margin-sm">Free</h3>
                 <div className="academy_perks">
                   <div className="academy_perk">
                     <img src="/img/academyplus/database.png"/>
@@ -118,55 +119,38 @@ function AcademyPlus({user}) {
                 {!academyPlus && <button type="button" className="academy_perks-btn academy_perks-btn-gray">Current</button> }
               </div>
             </div>
-            <div className="section_text academy_card academyplus_card">
-              <div>
-                <h2 className="margin-sm">Academy <span className="orange-text">Plus</span></h2>
-                <div className="academy_perks">
-                  <div className="academy_perk">
-                    <img src="/img/academyplus/academyplus_database.png"/>
-                    <div>Access Full Database</div>
-                  </div>
-                  <div className="academy_perk">
-                    <img src="/img/academyplus/academyplus_tools.png"/>
-                    <div>Advanced TypeTool Features</div>
-                  </div>
-                  <div className="academy_perk">
-                    <img src="/img/academyplus/academyplus_typing.png"/>
-                    <div>Extra Typing Modes</div>
-                  </div>
-                  <div className="academy_perk">
-                    <img src="/img/academyplus/academyplus_statistics.png"/>
-                    <div>Full Typing Statistics</div>
-                  </div>
-                  <div className="academy_perk">
-                    <img src="/img/academyplus/academyplus_early.png"/>
-                    <div>Early Access To New Content</div>
-                  </div>
-                  <div className="academy_perk">
-                    <img src="/img/academyplus/academyplus_user.png"/>
-                    <div>Customizable User Profile</div>
-                  </div>
-                  <div className="academy_perk">
-                    <img src="/img/academyplus/academyplus_exclusive.png"/>
-                    <div>Exclusive Discord Perks</div>
-                  </div>
+          </div>
+          <div className="section_text academy_card academyplus_card">
+            <div>
+              <h2 className="margin-sm">Academy <span className="orange-text">Plus</span></h2>
+              <h3 className="margin-sm">5.99$ / month</h3>
+              <div className="academy_perks">
+              <div className="academy_perk">
+                  <img src="/img/academyplus/learn_plus.png"/>
+                  <div>Learning & Resources</div>
                 </div>
-                {academyPlus ? (
-                  <button type="button" className="academy_perks-btn academy_perks-btn-purple" style={{'cursor': 'default'}}>Already Subscribed</button>
-                ) : (
-                  <>
-                    {user.active ? (
-                      <form action="/api/checkout_session" method="POST">
-                        <button type="submit" role='link' className="academy_perks-btn academy_perks-btn-purple">Subscribe</button>
-                      </form>
-                    ) : (
-                      <Link href="/register">
-                        <button type="button" className="academy_perks-btn academy_perks-btn-purple">Subscribe</button>
-                      </Link>
-                    )}
-                  </>
-                )}
+                <div className="academy_perk">
+                  <img src="/img/academyplus/typesearch_plus.png"/>
+                  <div>TypeSearch</div>
+                </div>
+                <div className="academy_perk">
+                  <img src="/img/academyplus/apps_plus.png"/>
+                  <div>Advanced OPS Apps</div>
+                </div>
+                <div className="academy_perk">
+                  <img src="/img/academyplus/academyplus_early.png"/>
+                  <div>Early Access Content</div>
+                </div>
+                <div className="academy_perk">
+                  <img src="/img/academyplus/customize_plus.png"/>
+                  <div>Customizable Profile</div>
+                </div>
+                <div className="academy_perk">
+                  <img src="/img/academyplus/academyplus_exclusive.png"/>
+                  <div>Discord Perks</div>
+                </div>
               </div>
+              <button type="button" className="academy_perks-btn academy_perks-btn-purple">Get Plus</button>
             </div>
           </div>
         </div>
