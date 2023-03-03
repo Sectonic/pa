@@ -56,10 +56,10 @@ function Home() {
             <img src="/img/main/launch.png" className="updates_img" />
             <div className="home_lg-text">
               <div>
-              Feb 14 Update
+              June 1st
               </div>
               <div className="home_lg-textbig">
-                Added TypeTool!
+                Project Launched!
               </div>
             </div>
           </div>
