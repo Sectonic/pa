@@ -21,7 +21,7 @@ export default function Register({ getUser }) {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(registerBody)
             }
-            fetch(`api/create_user`, requestOptions)
+            fetch(`/api/create_user`, requestOptions)
             .then(res => {
                 getUser();
                 router.back();
@@ -41,7 +41,7 @@ export default function Register({ getUser }) {
                 confirm: e.target.confirm.value
             })
         }
-        fetch(`api/verify_user`, requestOptions)
+        fetch(`/api/verify_user`, requestOptions)
         .then(res => {
             setVerificationLoading(true);
             if (res.ok) {

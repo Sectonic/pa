@@ -272,7 +272,7 @@
         function submit_edit(person_id) {
             all_links = "|";
             $("#links_container").children().each(function() {
-                all_links += `${$(this).find('.link_name').val()}/${$(this).find('.link_url').val()}|`;
+                all_links += `${$(this).find('.link_name').val()}/*LINK*/${$(this).find('.link_url').val()}|`;
             });
             $('#link_input').val(all_links);
             $('#edit').submit();

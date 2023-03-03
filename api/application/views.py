@@ -67,7 +67,8 @@ def edit(type_id):
         current_links = [{'name': link.name, 'url': link.url} for link in person_links]
         if request.method == 'POST':
             if request.form.get('delete'):
-                db.session.delete(current_person)
+                person_links.delete()
+                Types.query.filter_by(id=type_id).delete()
                 db.session.commit()
             else:
                 data = {}

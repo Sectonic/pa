@@ -133,7 +133,7 @@ def link_update(person_id, unfiltered):
     data = []
     unfiltered_split = unfiltered.split('|')[1:-1]
     for link in unfiltered_split:
-        link_split = link.split('/')
+        link_split = link.split('/*LINK*/')
         data.append({'name': link_split[0], 'url': link_split[1]})
     if Link.query.filter_by(person=person_id):
         Link.query.filter_by(person=person_id).delete()

@@ -9,7 +9,7 @@ export default function Login({ getUser }) {
 
     const Login = async (e) => {
         e.preventDefault();
-        fetch(`api/login?email=${e.target.email.value}&password=${e.target.password.value}`)
+        fetch(`/api/login?email=${e.target.email.value}&password=${e.target.password.value}`)
         .then(res => {
             if (res.ok) {
                 getUser();

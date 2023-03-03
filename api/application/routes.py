@@ -59,15 +59,20 @@ def edit_user():
     print(request.environ) 
     user_id = request.args.get('user_id')
     user = db.session.get(Users, user_id)
+    if user is None:
+        return {'error': 'User does not exist'}, 404
     user.username = request.args.get('username')
     db.session.commit()
     return {'response': 200}, 200
 
 @app.route('/delete/user')
 def delete_user():
+    print(request.environ) 
     user_id = request.args.get('user_id')
     user = db.session.get(Users, user_id)
-    if user.customer_id:
+    if user is None:
+        return {'error': 'User does not exist'}, 404
+    if user.customer_id != None:
         stripe.Customer.delete(user.customer_id)       
     db.session.delete(user)
     db.session.commit()
@@ -77,13 +82,15 @@ def delete_user():
 def get_customer_id():
     user_id = request.args.get('user_id')
     user = db.session.get(Users, user_id)
+    if user is None:
+        return {'error': 'User does not exist'}, 404
     return {'customer_id': user.customer_id}, 200
 
 @app.route('/get/subscription')
 def get_subscription():
     user_id = request.args.get('user_id')
     user = db.session.get(Users, user_id)
-    if not user.subscription_id:
+    if user.subscription_id is None:
         return {'status': False}, 404
     subscription = stripe.Subscription.retrieve(user.subscription_id)
     if subscription['status'] == 'active':

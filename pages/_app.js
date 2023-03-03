@@ -45,7 +45,8 @@ function App({ Component, pageProps, router }) {
   }, [router.pathname]); 
 
   const getUser = async () => {
-    let request = await fetch('api/get_user');
+    setLoading(true);
+    let request = await fetch('/api/get_user');
     let data = await request.json();
     if (request.ok) {
       setUser({
@@ -89,7 +90,7 @@ function App({ Component, pageProps, router }) {
   }
 
   const Logout = () => {
-    fetch(`api/logout`).then(res => {
+    fetch(`/api/logout`).then(res => {
       window.location.reload();
     })
   }
