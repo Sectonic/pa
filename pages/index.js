@@ -87,7 +87,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Learn</h3>
               <p>
-                The original Objective Personality theory made simple to navigate.
+                Learn to objectively track personality traits through the OPS theory.
               </p>
             </div>
           </div>
@@ -115,7 +115,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Tools</h3>
               <p>
-                Navigate OPS using our easy to use Academy Tools.
+                We'll help you along the way with the best easy to use OPS tools.
               </p>
             </div>
           </div>
@@ -128,7 +128,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Improve</h3>
               <p>
-              Turn knowledge into action, based on the ideas of OPS.
+              Turn knowledge into action by taking theory into practise.
               </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ function Home() {
         </div>
         <h2 className="section_title">A Community Project</h2>
         <p className="letters_subtitle">
-        Set out to use OPS as it was intended
+        Set out to pave the way for Objective Personality
         </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-trans">
@@ -156,7 +156,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Net Positive Impact</h3>
               <p>
-                We focus on how to use OPS for good, to leave an overall positive impact.
+                We focus on how to use OPS for good, to leave a real positive impact.
               </p>
             </div>
           </div>
@@ -169,7 +169,7 @@ function Home() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">True To OPS</h3>
               <p>
-              Concepts are made simple to understand, true to the core OPS ideas.
+              Concepts are made simple to understand while staying true to OPS.
               </p>
             </div>
           </div>
