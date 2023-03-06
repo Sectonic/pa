@@ -17,6 +17,7 @@ async function Login(req, res) {
             username: data.username
         };
         await req.session.save();
+        console.log(req.session.user);
         res.status(200).json({'success': 'Successfully Logged In'});
     } else {
         res.status(response.status).json({ error: data.error });
