@@ -12,6 +12,7 @@
     "animals": {"title": "Animals", "description": "Intermediate: The result of combining needs, paves way for energy", "img": "animals"},
     "modalities": {"title": "Modalities", "description": "Intermediate: The attributes of functions and animals", "img": "modalities"},
     "extroversion": {"title": "Extroversion", "description": "Advanced: The spectrum of energy and activation", "img": "extroversion"},
+    "social": {"title": "Social Hierarchy", "description": "Advanced: The 4 Social Types", "img": "social"},
     "animal_modalities": {"title": "Animal Modalities", "description": "Advanced: Understand the modalities of animals", "img": "animal_modalities"},
     "quadras": {"title": "Quadras", "description": "Advanced: Differentiate between the 4 quadras", "img": "quadras"},
     "typing": {"title": "Typing", "description": "Learn all there is to typing yourself and others", "img": "typing"},

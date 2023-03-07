@@ -8,7 +8,7 @@ function Extroversion() {
       <div className="section">
         <h2 className="section_title">Energy Preference</h2>
         <div className="section_body section_texts-sm">
-          <div className="section_text needs-blue">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/learn/advanced/extroversion/introvert.png"}
@@ -33,7 +33,7 @@ function Extroversion() {
               </p>
             </div>
           </div>
-          <div className="section_text needs-red">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/learn/advanced/extroversion/extrovert.png"}
@@ -61,7 +61,7 @@ function Extroversion() {
       <div className="section">
         <h2 className="section_title">Energy Distribution</h2>
         <div className="section_body section_texts-sm">
-          <div className="section_text extro-yellow">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/learn/advanced/extroversion/ambivert.png"}
@@ -79,7 +79,7 @@ function Extroversion() {
               </p>
             </div>
           </div>
-          <div className="section_text extro-purple">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/learn/advanced/extroversion/omnivert.png"}
@@ -105,14 +105,14 @@ function Extroversion() {
           <img
             src={"/img/icons/Diagrams/energy_spectrum.png"}
             alt=""
-            className="spectrum_img outline-gray"
+            className="spectrum_img"
           />
         </div>
       </div>
       <div className="section">
         <h2 className="section_title">Activation & Energy</h2>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
-          <div className="section_text needs-blue">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/icons/Needs/di.png"}
@@ -129,7 +129,7 @@ function Extroversion() {
               </p>
             </div>
           </div>
-          <div className="section_text needs-red">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/icons/Needs/de.png"}
@@ -148,7 +148,7 @@ function Extroversion() {
           </div>
         </div>
         <div className="section_body section_texts-sm">
-          <div className="section_text needs-blue">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/icons/Needs/oi.png"}
@@ -167,7 +167,7 @@ function Extroversion() {
               </p>
             </div>
           </div>
-          <div className="section_text needs-red">
+          <div className="section_text">
             <div className="text-sm_img">
               <img
                 src={"/img/icons/Needs/oe.png"}
