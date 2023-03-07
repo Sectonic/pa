@@ -1,9 +1,8 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import {getSession} from '../../components/getsession';
 
-export default withIronSessionApiRoute(CreateCustomer, ironOptions);
-
-async function CreateCustomer(req, res) {
+export default async function handler(req, res) {
+    const session = await getSession(req, res);
+    const user = session.user ? JSON.parse(session.user) : undefined;
     const { session_id } = req.query;
     let requestOptions = {
         credentials: 'include',
@@ -11,7 +10,7 @@ async function CreateCustomer(req, res) {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             session_id: session_id,
-            user_id: req.session.user.id
+            user_id: user.id
         })
     }
     const request = await fetch(`${process.env.NEXT_PUBLIC_API}/add/subscription`, requestOptions);

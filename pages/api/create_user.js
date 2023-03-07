@@ -1,11 +1,9 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import {getSession} from '../../components/getsession';
 
-export default withIronSessionApiRoute(createUser, ironOptions);
-
-async function createUser(req, res) {
+export default async function handler(req, res) {
+    const session = await getSession(req, res);    
     const {email, username, password, confirm} = req.body;
-    if (req.session.user) {
+    if (session.user) {
         res.status(500).json({error: 'Already Logged In'});
     }
     let requestOptions = {
@@ -18,11 +16,9 @@ async function createUser(req, res) {
     }
     const response = await fetch(`${process.env.NEXT_PUBLIC_API}/create/user`, requestOptions);
     const data = await response.json();
-    req.session.user = {
-        id: data.user_id,
-        email: data.email,
-        username: data.username
-    };
-    await req.session.save();
+    var userObj = {id: data.user_id, email: data.email, username: data.username};
+    session.user = JSON.stringify(userObj);
+    await session.commit();
+    console.log(session.user);
     res.send({ ok: true });
 }

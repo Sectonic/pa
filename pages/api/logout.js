@@ -1,10 +1,9 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import {getSession} from '../../components/getsession';
 
-export default withIronSessionApiRoute(Logout, ironOptions);
-
-async function Logout(req, res) {
-    req.session.destroy();
-    console.log(req.session.user);
-    res.status(200).json({success: 'Successfully logged Out'});
+export default async function handler(req, res) {
+    const session = await getSession(req, res);
+    await session.destroy();
+    await session.commit();
+    console.log(session.user);
+    res.status(200).send({success: 'Successfully logged Out'});
 }

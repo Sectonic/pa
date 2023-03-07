@@ -1,12 +1,10 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import {getSession} from '../../components/getsession';
 
-export default withIronSessionApiRoute(verifyUser, ironOptions);
-
-async function verifyUser(req, res) {
+export default async function handler(req, res) {
+    const session = await getSession(req, res);
     const {email, username, password, confirm} = req.body;
-    if (req.session.user) {
-        res.status(500).json({error: 'Already Logged In'});
+    if (session.user) {
+        res.status(500).send({error: 'Already Logged In'});
     }
     let requestOptions = {
         credentials: 'include',
@@ -19,8 +17,8 @@ async function verifyUser(req, res) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API}/verify/user`, requestOptions);
     const data = await response.json();
     if (response.ok) {
-        res.status(200).json({'success': 'Information Valid'});
+        res.status(200).send({'success': 'Information Valid'});
     } else {
-        res.status(response.status).json({ error: data.error });
+        res.status(response.status).send({ error: data.error });
     }
 }
