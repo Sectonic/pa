@@ -2,7 +2,7 @@ from flask import request, jsonify
 import os
 from application.models import Users, Types
 from application import app, db
-from application.functions import dbToDict
+from application.model_commands import dbToDict
 import stripe
 
 stripe.api_key = os.getenv('STRIPE_SECRET_KEY')

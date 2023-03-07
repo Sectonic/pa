@@ -2,7 +2,7 @@ from flask import request, render_template, session, url_for, redirect, flash, g
 import datetime
 from application import app, admin_password, db
 from application.models import Types, Link
-from application.functions import getTypeData, update_type, link_update, new_type
+from application.model_commands import getTypeData, update_type, link_update, new_type
 
 type_entries = {
     'gender': ['Male', 'Female'],
