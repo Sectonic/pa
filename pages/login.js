@@ -11,7 +11,7 @@ export default function Login({ getUser }) {
 
     const Login = async (e) => {
         e.preventDefault();
-        let res = await fetch(`/api/login?email=${e.target.email.value}&password=${e.target.password.value}`);
+        let res = await fetch(`/api/login?email=${e.target.email.value}&password=${e.target.password.value}`, {credentials: 'include'});
         let data = await res.json();
         if (res.ok) {
             setCookie('hash', data.hash, cookieOptions);

@@ -21,6 +21,7 @@ export default function Register({ getUser }) {
             let requestOptions = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
+                credentials: 'include',
                 body: JSON.stringify(registerBody)
             }
             fetch(`/api/create_user`, requestOptions)

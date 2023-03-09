@@ -48,7 +48,7 @@ function App({ Component, pageProps, router }) {
 
   const getUser = async () => {
     setLoading(true);
-    let request = await fetch(`/api/get_user`);
+    let request = await fetch(`/api/get_user`, {credentials: 'include'});
     let data = await request.json();
     if (request.ok) {
       setUser({

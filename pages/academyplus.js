@@ -10,7 +10,7 @@ function AcademyPlus({user}) {
   const [customer, setCustomer] = useState(false);
   useEffect(() => {
     async function checkUser() {
-      let response = await fetch(`/api/get_customer`);
+      let response = await fetch(`/api/get_customer`, {credentials: 'include'});
       if (response.ok) {
         setCustomer(true);
       }
