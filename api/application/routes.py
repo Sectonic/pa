@@ -104,7 +104,6 @@ def get_user():
         user_id = crypt.decrypt(user_hash.encode()).decode()
     except:
         return {'error': 'Invalid Hash'}, 500
-    print(user_id)
     user = db.session.get(Users, user_id)
     subscription = False
     if user.subscription_id != None:
