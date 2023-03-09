@@ -1,16 +1,18 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import { hasCookie, getCookie } from 'cookies-next';
+import { cookieOptions } from '../../components/cookie_options';
 
-export default withIronSessionApiRoute(editUser, ironOptions);
-
-async function editUser(req, res) {
-    const {username} = req.query;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/edit/user?user_id=${req.session.user.id}&username=${username}`, {credentials: 'include'});
-    if (response.ok) {
-        req.session.user.username = username;
-        await req.session.save();
-        res.status(200).json({'success': 'Successfully Edited Account'});
+export default async function handler(req, res) {
+    const user = hasCookie('hash', {req,res,...cookieOptions});
+    if (!user) {
+        res.status(500).json({'error': 'No User'});
     } else {
-        res.status(500).json({'error': 'Could not edit user'});
+        const hash = getCookie('hash', {req,res,...cookieOptions});
+        const {username} = req.query;
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API}/edit/user?hash=${hash}&username=${username}`, {credentials: 'include'});
+        if (response.ok) {
+            res.status(200).json({'success': 'Successfully Edited Account'});
+        } else {
+            res.status(500).json({'error': 'Could not edit user'});
+        }
     }
 }

@@ -17,6 +17,7 @@
     "@types/react-dom": "18.0.10",
     "animate.css": "^4.1.1",
     "async-wait-until": "^2.0.12",
+    "cookies-next": "^2.1.1",
     "cross-env": "^7.0.3",
     "eslint": "8.31.0",
     "eslint-config-next": "^13.2.3",
@@ -34,8 +35,5 @@
     "stripe": "^11.12.0",
     "swr": "^2.0.0",
     "typescript": "4.9.4"
-  },
-  "devDependencies": {
-    "prisma": "^4.8.1"
   }
 }

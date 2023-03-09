@@ -1,11 +1,11 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import { hasCookie, getCookie } from 'cookies-next';
+import { cookieOptions } from '../../components/cookie_options';
 
-export default withIronSessionApiRoute(GetCustomer, ironOptions);
-
-async function GetCustomer(req, res) {
-    if (req.session.user) {
-        const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer_id?user_id=${req.session.user.id}`, {credentials: 'include'});
+export default async function handler(req, res) {
+    const user = hasCookie('hash', {req,res,...cookieOptions});
+    if (user) {
+        const hash = getCookie('hash', {req,res,...cookieOptions});
+        const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer_id?hash=${hash}`, {credentials: 'include'});
         const data = await request.json();
         if (data.customer_id) {
             res.status(200).json({'response': 'Previous Subscriptions'});

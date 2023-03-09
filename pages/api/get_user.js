@@ -1,14 +1,18 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import { deleteCookie, hasCookie, getCookie } from 'cookies-next';
+import { cookieOptions } from '../../components/cookie_options';
 
-export default withIronSessionApiRoute(getUser, ironOptions);
-
-async function getUser(req, res) {
-    const user = req.session.user;
-    console.log(req.session.user);
+export default async function handler(req, res) {
+    const user = hasCookie('hash', {req,res,...cookieOptions});
     if (user) {
-        const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/subscription?user_id=${user.id}`, {credentials: 'include'});
-        res.status(200).json({ username: user.username, email: user.email, plus: request.ok ? true : false });
+        const hash = getCookie('hash', {req,res,...cookieOptions});
+        const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/user?hash=${hash}`, {credentials: 'include'});
+        const data = await request.json();
+        if (request.ok) {
+            res.status(200).json({ username: data.username, email: data.email, plus: data.plus });
+        } else {
+            deleteCookie('hash', {req,res,...cookieOptions});
+            req.status(500).json({error: 'Invalid Hash'});
+        }
     } else {
         res.status(409).json({error: 'No User'});
     }

@@ -1,11 +1,10 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import { hasCookie } from 'cookies-next';
+import { cookieOptions } from '../../components/cookie_options';
 
-export default withIronSessionApiRoute(verifyUser, ironOptions);
-
-async function verifyUser(req, res) {
+export default async function handler(req, res) {
     const {email, username, password, confirm} = req.body;
-    if (req.session.user) {
+    const user = hasCookie('hash', {req,res,...cookieOptions});
+    if (user) {
         res.status(500).json({error: 'Already Logged In'});
     }
     let requestOptions = {

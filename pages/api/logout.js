@@ -1,10 +1,7 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import { deleteCookie } from 'cookies-next';
+import { cookieOptions } from '../../components/cookie_options';
 
-export default withIronSessionApiRoute(Logout, ironOptions);
-
-async function Logout(req, res) {
-    req.session.destroy();
-    console.log(req.session.user);
+export default async function handler(req, res) {
+    deleteCookie('hash', {req,res,...cookieOptions});
     res.status(200).json({success: 'Successfully logged Out'});
 }

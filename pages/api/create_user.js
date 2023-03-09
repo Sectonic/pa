@@ -1,28 +1,23 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
+import { hasCookie, setCookie } from 'cookies-next';
+import { cookieOptions } from '../../components/cookie_options';
 
-export default withIronSessionApiRoute(createUser, ironOptions);
-
-async function createUser(req, res) {
+export default async function handler(req, res) {
+    const user = hasCookie('hash', {req,res,...cookieOptions});
     const {email, username, password, confirm} = req.body;
-    if (req.session.user) {
+    if (user) {
         res.status(500).json({error: 'Already Logged In'});
+    } else {
+        let requestOptions = {
+            credentials: 'include',
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                email, username, password, confirm
+            })
+        }
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API}/create/user`, requestOptions);
+        const data = await response.json();
+        setCookie('hash', data.hash, {req,res,...cookieOptions});
+        res.send({ ok: true });
     }
-    let requestOptions = {
-        credentials: 'include',
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            email, username, password, confirm
-        })
-    }
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/create/user`, requestOptions);
-    const data = await response.json();
-    req.session.user = {
-        id: data.user_id,
-        email: data.email,
-        username: data.username
-    };
-    await req.session.save();
-    res.send({ ok: true });
 }
