@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
-    const {hash, session_id} = req.query;
-    if (hash === "undefined") {
+    const hash = req.cookies['hash'];
+    if (!hash) {
         res.status(500).json({'error': 'No User'});
     } else {
         let requestOptions = {

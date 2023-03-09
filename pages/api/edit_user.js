@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
-    const {hash} = req.query;
-    if (hash === "undefined") {
+    const hash = req.cookies['hash'];
+    if (!hash) {
         res.status(500).json({'error': 'No User'});
     } else {
         const {username} = req.query;

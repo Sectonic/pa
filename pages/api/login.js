@@ -1,6 +1,7 @@
 export default async function handler(req, res) {
-    const {email, password, hash} = req.query;
-    if (hash != "undefined") {
+    const {email, password} = req.query;
+    const hash = req.cookies['hash'];
+    if (hash) {
         res.status(500).json({error: 'Already Logged In'});
     }
     const response = await fetch(`${process.env.NEXT_PUBLIC_API}/login?email=${email}&password=${password}`, {credentials: 'include'});

@@ -48,9 +48,7 @@ function App({ Component, pageProps, router }) {
 
   const getUser = async () => {
     setLoading(true);
-    let hash = getCookie('hash', cookieOptions);
-    console.log(hash);
-    let request = await fetch(`/api/get_user?hash=${hash}`);
+    let request = await fetch(`/api/get_user`);
     let data = await request.json();
     if (request.ok) {
       setUser({
@@ -203,7 +201,6 @@ function App({ Component, pageProps, router }) {
                                 <div>Account Settings</div>
                               </div>
                               <form action='/api/customer_portal' method='POST'>
-                                <input style={{'display': 'none'}} id="hash" name="hash" value={getCookie('hash', cookieOptions)} />
                                 <button className='user-profile_row user-profile_row-btn' type='submit'>
                                   <img src='/img/main/subscription.png'/>
                                   <div>Subscription</div>

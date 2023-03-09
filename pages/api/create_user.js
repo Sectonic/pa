@@ -1,6 +1,7 @@
 export default async function handler(req, res) {
-    const {email, username, password, confirm, hash} = req.body;
-    if (hash != "undefined") {
+    const {email, username, password, confirm} = req.body;
+    const hash = req.cookies['hash'];
+    if (hash) {
         res.status(500).json({error: 'Already Logged In'});
     } else {
         let requestOptions = {

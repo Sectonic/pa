@@ -1,8 +1,8 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  const {hash} = req.body;
-  if (hash === undefined || hash === "undefined") {
+  const hash = req.cookies['hash'];
+  if (!hash) {
     res.status(500).json({'error': 'No User'});
   } else {
     if (req.method === 'POST') {

@@ -2,7 +2,7 @@ import {useState} from 'react';
 import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
 import {useRouter} from 'next/router';
-import {getCookie, setCookie} from 'cookies-next';
+import { setCookie } from 'cookies-next';
 import { cookieOptions } from '../components/cookie_options';
 
 export default function Register({ getUser }) {
@@ -14,7 +14,6 @@ export default function Register({ getUser }) {
     const [auth, setAuth] = useState('');
     const [registerBody, setRegisterBody] = useState({});
     const [verificationLoading, setVerificationLoading] = useState(false);
-    const hash = getCookie('hash', cookieOptions);
     const router = useRouter();
 
     const Register = async () => {
@@ -22,7 +21,7 @@ export default function Register({ getUser }) {
             let requestOptions = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({hash, ...registerBody})
+                body: JSON.stringify(registerBody)
             }
             fetch(`/api/create_user`, requestOptions)
             .then(res => res.json()).then(data => {
@@ -43,7 +42,6 @@ export default function Register({ getUser }) {
                 username: e.target.username.value,
                 password: e.target.password.value,
                 confirm: e.target.confirm.value,
-                hash: hash
             })
         }
         fetch(`/api/verify_user`, requestOptions)

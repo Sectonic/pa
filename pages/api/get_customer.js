@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
-    const {hash} = req.query;
-    if (hash != "undefoned") {
+    const hash = req.cookies['hash'];
+    if (hash) {
         const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer_id?hash=${hash}`, {credentials: 'include'});
         const data = await request.json();
         if (data.customer_id) {
