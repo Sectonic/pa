@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react';
+import { getCookie, deleteCookie } from 'cookies-next';
+import { cookieOptions } from '../cookie_options';
 
 function AccountPopup({data}) {
     const [userdata, setUserData] = useState(data);
@@ -6,12 +8,17 @@ function AccountPopup({data}) {
     const [error, setError] = useState('');
     const [deleteStart, setDeleteStart] = useState(false);
     const [renameUser, setRenameUser] = useState('');
+    const hash = getCookie('hash', cookieOptions);
 
     const saveUser = () => {
       if (userName.length > 35) {
         setError('Username has to be shorter than 35 characters');
       } else {
-        fetch(`api/edit_user?username=${userName}`).then(window.location.reload());
+        fetch(`api/edit_user?username=${userName}&hash=${hash}`).then(res => {
+          if (res.ok) {
+            window.location.reload();
+          }
+        });
       }
     }
 
@@ -19,7 +26,12 @@ function AccountPopup({data}) {
       if (renameUser != userdata.username) {
         setError('Input does not match your username');
       } else {
-        fetch(`api/delete_user`).then(window.location.reload());
+        fetch(`api/delete_user?hash=${hash}`).then(res => {
+          if (res.ok) {
+            deleteCookie('hash', cookieOptions);
+            window.location.reload();
+          }
+        });
       }
     }
     return (

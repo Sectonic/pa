@@ -21,6 +21,8 @@ import { Montserrat } from "@next/font/google";
 import Link from 'next/link';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { Popup } from "../components/popup_main";
+import { getCookie, deleteCookie } from 'cookies-next';
+import { cookieOptions } from '../components/cookie_options';
 
 const font = Montserrat ({ 
   weights: ['400', '500', '600', '700', '800', '900'],
@@ -46,7 +48,9 @@ function App({ Component, pageProps, router }) {
 
   const getUser = async () => {
     setLoading(true);
-    let request = await fetch('/api/get_user');
+    let hash = getCookie('hash', cookieOptions);
+    console.log(hash);
+    let request = await fetch(`/api/get_user?hash=${hash}`);
     let data = await request.json();
     if (request.ok) {
       setUser({
@@ -56,6 +60,10 @@ function App({ Component, pageProps, router }) {
         plus: data.plus
       })
     } else {
+      if (request.status === 500) {
+        deleteCookie('hash', cookieOptions);
+        window.location.reload();
+      }
       setUser({
         active: false,
         username: null,
@@ -90,9 +98,8 @@ function App({ Component, pageProps, router }) {
   }
 
   const Logout = () => {
-    fetch(`/api/logout`).then(res => {
-      window.location.reload();
-    })
+    deleteCookie('hash', cookieOptions);
+    window.location.reload();
   }
 
   const mobileMenuOut = () => {
@@ -196,6 +203,7 @@ function App({ Component, pageProps, router }) {
                                 <div>Account Settings</div>
                               </div>
                               <form action='/api/customer_portal' method='POST'>
+                                <input style={{'display': 'none'}} id="hash" name="hash" value={getCookie('hash', cookieOptions)} />
                                 <button className='user-profile_row user-profile_row-btn' type='submit'>
                                   <img src='/img/main/subscription.png'/>
                                   <div>Subscription</div>

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
+import {getCookie} from 'cookies-next';
+import { cookieOptions } from '../components/cookie_options';
 
 export default function Success() {
     const router = useRouter();
@@ -8,7 +10,8 @@ export default function Success() {
     useEffect(() => {
         if(!router.isReady) return;
         
-        fetch(`/api/create_customer?session_id=${router.query.session_id}`).then(res => {
+        let hash = getCookie('hash', cookieOptions);
+        fetch(`/api/create_customer?session_id=${router.query.session_id}&hash=${hash}`).then(res => {
             if (res.ok) {
                 setLoading(false);
             } else {

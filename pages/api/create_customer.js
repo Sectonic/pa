@@ -1,19 +1,15 @@
-import { hasCookie, getCookie } from 'cookies-next';
-import { cookieOptions } from '../../components/cookie_options';
-
 export default async function handler(req, res) {
-    const user = hasCookie('hash', {req,res,...cookieOptions});
-    if (!user) {
+    const {hash, session_id} = req.query;
+    if (hash === "undefined") {
         res.status(500).json({'error': 'No User'});
     } else {
-        const { session_id } = req.query;
         let requestOptions = {
             credentials: 'include',
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 session_id: session_id,
-                hash: getCookie('hash', {req,res,...cookieOptions})
+                hash: hash
             })
         }
         const request = await fetch(`${process.env.NEXT_PUBLIC_API}/add/subscription`, requestOptions);

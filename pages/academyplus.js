@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { waitUntil, WAIT_FOREVER } from 'async-wait-until';
 import Placeholder from '../components/placeholder';
 import {useState, useEffect} from 'react';
+import { getCookie } from 'cookies-next';
+import { cookieOptions } from "../components/cookie_options";
 
 function AcademyPlus({user}) {
   const [loading, setLoading] = useState(true);
@@ -10,7 +12,8 @@ function AcademyPlus({user}) {
   const [customer, setCustomer] = useState(false);
   useEffect(() => {
     async function checkUser() {
-      let response = await fetch('/api/get_customer');
+      let hash = getCookie('hash', cookieOptions);
+      let response = await fetch(`/api/get_customer?hash=${hash}`);
       if (response.ok) {
         setCustomer(true);
       }
@@ -48,6 +51,7 @@ function AcademyPlus({user}) {
             </p>
             <div className="section_body neg-mt-45">
               <form action="/api/customer_portal" method="POST">
+                <input style={{'display': 'none'}} id="hash" name="hash" value={getCookie('hash', cookieOptions)} />
                 <button type="submit" role="link" className="section_text price_btn">
                   <div>Manange Subscription</div>
                 </button>
