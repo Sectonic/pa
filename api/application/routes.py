@@ -1,7 +1,7 @@
 from flask import request, jsonify
 import os
 from application.models import Users, Types
-from application import app, db
+from application import app, db, crypt
 from application.functions import dbToDict
 import stripe
 
@@ -50,14 +50,18 @@ def login():
         return {'error': 'Account does not exist'}, 404
     else:
         if attempted_user.check_password_correction(attempted_password=password):
-            return {'user_id': attempted_user.id, 'email': attempted_user.email, 'username': attempted_user.username}, 200
+            encrypted_id = crypt.encrypt(str(attempted_user.id).encode())
+            return {'hash': encrypted_id.decode()}, 200
         else:
             return {'error': 'Password does not match email'}, 409
 
 @app.route('/edit/user')
 def edit_user():
-    print(request.environ) 
-    user_id = request.args.get('user_id')
+    user_hash = request.args.get('hash')
+    try:
+        user_id = crypt.decrypt(user_hash.encode()).decode()
+    except:
+        return {'error': 'Invalid Hash'}, 500
     user = db.session.get(Users, user_id)
     if user is None:
         return {'error': 'User does not exist'}, 404
@@ -67,8 +71,11 @@ def edit_user():
 
 @app.route('/delete/user')
 def delete_user():
-    print(request.environ) 
-    user_id = request.args.get('user_id')
+    user_hash = request.args.get('hash')
+    try:
+        user_id = crypt.decrypt(user_hash.encode()).decode()
+    except:
+        return {'error': 'Invalid Hash'}, 500
     user = db.session.get(Users, user_id)
     if user is None:
         return {'error': 'User does not exist'}, 404
@@ -80,28 +87,39 @@ def delete_user():
 
 @app.route('/get/customer_id')
 def get_customer_id():
-    user_id = request.args.get('user_id')
+    user_hash = request.args.get('hash')
+    try:
+        user_id = crypt.decrypt(user_hash.encode()).decode()
+    except:
+        return {'error': 'Invalid Hash'}, 500
     user = db.session.get(Users, user_id)
     if user is None:
         return {'error': 'User does not exist'}, 404
     return {'customer_id': user.customer_id}, 200
 
-@app.route('/get/subscription')
-def get_subscription():
-    user_id = request.args.get('user_id')
+@app.route('/get/user')
+def get_user():
+    user_hash = request.args.get('hash')
+    try:
+        user_id = crypt.decrypt(user_hash.encode()).decode()
+    except:
+        return {'error': 'Invalid Hash'}, 500
     user = db.session.get(Users, user_id)
-    if user.subscription_id is None:
-        return {'status': False}, 404
-    subscription = stripe.Subscription.retrieve(user.subscription_id)
-    if subscription['status'] == 'active':
-        return {'status': True}, 200
-    else:
-        return {'status': False}, 404
+    subscription = False
+    if user.subscription_id != None:
+        subscription = stripe.Subscription.retrieve(user.subscription_id)
+        if subscription['status'] == 'active':
+            subscription = True
+    return {'username': user.username, 'email': user.email, 'plus': subscription}, 200
 
 @app.route('/add/subscription', methods=['POST'])
 def add_subscription():
     data = request.get_json()
-    user = db.session.get(Users, data['user_id'])
+    try:
+        user_id = crypt.decrypt(data['hash'].encode()).decode()
+    except:
+        return {'error': 'Invalid Hash'}, 500
+    user = db.session.get(Users, user_id)
     if user.customer_id != None:
         return {'response': 404}, 404
     else:
@@ -112,7 +130,6 @@ def add_subscription():
 
 @app.route("/types/<int:low>to<int:high>", methods=['GET'])
 def types(low, high):
-    print(request.environ) 
     high_test = Types.query.filter_by(id=high).first()
     format_data = request.args.get('format')
     if format_data == 'modified':
