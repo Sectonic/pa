@@ -130,7 +130,6 @@ def add_subscription():
 
 @app.route("/types/<int:low>to<int:high>", methods=['GET'])
 def types(low, high):
-    print(request.environ) 
     high_test = Types.query.filter_by(id=high).first()
     format_data = request.args.get('format')
     if format_data == 'modified':
