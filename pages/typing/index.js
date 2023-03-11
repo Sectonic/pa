@@ -6,30 +6,53 @@ function Typing() {
   return (
     <div className="main">
       <Banner background="blue" title="Typing" section="typing" type="nav" />
-      <div className="section section_images-in">
-        <div className="section_body reverse_body">
-          <div className="section_text multiple_paragraphs">
-            <div className="multi_paragraph">
-              <h2 className="margin-sm">The Right Way</h2>
+      <div className="section extra_margin_section">
+      <div className="section_body">
+      <div className="section_img">
+            <img
+              src={"/img/typing/home/goal.png"}
+            />
+          </div>
+        </div>
+        <h2 className="section_title">A to B, Track Personality Type</h2>
+        <div className="section_body section_texts-sm extra_spacing_texts-sm">
+          <div className="section_text outline-trans">
+            <div className="text-sm_img home-top_img">
+              <img
+                src={"/img/learn/advanced/extroversion/introvert.png"}
+              />
+            </div>
+            <div className="text-sm_desc">
+              <h3 className="section_subtitle margin-sm">Learn the Method</h3>
               <p>
-              Here you can learn the best approaches for typing yourself and others based on scientific methods.
-              </p>
-              <p>
-              These will take you from A to B while making it doable with the right tools. 
-              Everything stays true to Objective Personality methodology. No reinventing the wheel required!
+                Learn how to go through typing yourself & how to type others accurately.
               </p>
             </div>
           </div>
-          <div className="section_img">
-            <img
-              src={"/img/typing/home/scope.png"}
-              alt=""
-            />
+          <div className="section_text outline-trans">
+            <div className="text-sm_img home-top_img">
+              <img
+                src={"/img/typing/home/approach.png"}
+              />
+            </div>
+            <div className="text-sm_desc">
+              <h3 className="section_subtitle margin-sm">Pick an Approach</h3>
+              <p>
+              Turn knowledge into action and start tracking your type objectively.
+              </p>
+            </div>
           </div>
         </div>
       </div>
       <div className="section typing_section">
-        <h2 className="section_title">Learn To Type</h2>
+      <div className="section_body">
+      <div className="section_img">
+            <img
+              src={"/img/typing/home/target.png"}
+            />
+          </div>
+        </div>
+        <h2 className="section_title">Learn the Method</h2>
         <p className="letters_subtitle">
         Start to finish guides on how to type yourself & others
         </p>
@@ -63,6 +86,13 @@ function Typing() {
         </div>
       </div>
       <div className="section typing_section">
+      <div className="section_body">
+      <div className="section_img">
+            <img
+              src={"/img/typing/home/tool.png"}
+            />
+          </div>
+        </div>
         <h2 className="section_title">Typing Approaches</h2>
         <p className="letters_subtitle">
         Doable methods for nailing down your own type
