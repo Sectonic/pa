@@ -7,8 +7,7 @@ export default function Success() {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         if(!router.isReady) return;
-        
-        fetch(`/api/create_customer?session_id=${router.query.session_id}`).then(res => {
+        fetch(`/api/create_customer?session_id=${router.query.session_id}`, {credentials: 'same-origin'}).then(res => {
             if (res.ok) {
                 setLoading(false);
             } else {

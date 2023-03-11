@@ -1,14 +1,13 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-import { ironOptions } from "../../components/config";
-
-export default withIronSessionApiRoute(deleteUser, ironOptions);
-
-async function deleteUser(req, res) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/delete/user?hash=${req.session.hash}`, {credentials: 'include'});
-    if (response.ok) {
-        req.session.destroy();
-        res.status(200).json({'success': 'Successfully Deleted Account'});
+export default async function handler(req, res) {
+    const hash = req.cookies['hash'];
+    if (!hash) {
+        res.status(500).json({'error': 'No User'});
     } else {
-        res.status(500).json({'error': 'Could not delete user'});
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API}/delete/user?hash=${hash}`, {credentials: 'include'});
+        if (response.ok) {
+            res.status(200).json({'success': 'Successfully Deleted Account'});
+        } else {
+            res.status(500).json({'error': 'Could not delete user'});
+        }
     }
 }

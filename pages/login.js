@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
+import { setCookie } from 'cookies-next';
+import { cookieOptions } from '../components/cookie_options';
 
 export default function Login({ getUser }) {
     const [isVisible, setVisible] = useState(false);
@@ -9,17 +11,16 @@ export default function Login({ getUser }) {
 
     const Login = async (e) => {
         e.preventDefault();
-        fetch(`/api/login?email=${e.target.email.value}&password=${e.target.password.value}`)
-        .then(res => {
-            if (res.ok) {
-                getUser();
-                router.back();
-            } else {
-                res.json().then(data => {
-                    setError(data.error);
-                })
-            }
-        });
+        let res = await fetch(`/api/login?email=${e.target.email.value}&password=${e.target.password.value}`, {credentials: 'same-origin'});
+        let data = await res.json();
+        if (res.ok) {
+            setCookie('hash', data.hash, cookieOptions);
+            console.log(data.hash);
+            getUser();
+            router.back();
+        } else {
+            setError(data.error);
+        }
     }
 
     return(

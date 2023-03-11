@@ -2,6 +2,8 @@ import {useState} from 'react';
 import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
 import {useRouter} from 'next/router';
+import { setCookie } from 'cookies-next';
+import { cookieOptions } from '../components/cookie_options';
 
 export default function Register({ getUser }) {
     const [isVisible, setVisible] = useState(false);
@@ -19,10 +21,12 @@ export default function Register({ getUser }) {
             let requestOptions = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
+                credentials: 'same-origin',
                 body: JSON.stringify(registerBody)
             }
             fetch(`/api/create_user`, requestOptions)
-            .then(res => {
+            .then(res => res.json()).then(data => {
+                setCookie('hash', data.hash, cookieOptions);
                 getUser();
                 router.back();
             });
@@ -38,7 +42,7 @@ export default function Register({ getUser }) {
                 email: e.target.email.value,
                 username: e.target.username.value,
                 password: e.target.password.value,
-                confirm: e.target.confirm.value
+                confirm: e.target.confirm.value,
             })
         }
         fetch(`/api/verify_user`, requestOptions)
