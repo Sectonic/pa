@@ -26,7 +26,8 @@ def create_user():
     db.session.add(new_user)
     db.session.flush()
     db.session.commit()
-    return {'user_id': new_user.id, 'username': new_user.username, 'email': new_user.email}, 200
+    encrypted_id = crypt.encrypt(str(new_user.id).encode())
+    return {'hash': encrypted_id.decode()}, 200
 
 @app.route('/verify/user', methods=['POST'])
 def verify_user():
@@ -105,6 +106,8 @@ def get_user():
     except:
         return {'error': 'Invalid Hash'}, 500
     user = db.session.get(Users, user_id)
+    if user is None:
+        return {'error': 'Hash has not been found'}, 404
     subscription = False
     if user.subscription_id != None:
         subscription = stripe.Subscription.retrieve(user.subscription_id)

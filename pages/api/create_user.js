@@ -5,7 +5,7 @@ export default withIronSessionApiRoute(createUser, ironOptions);
 
 async function createUser(req, res) {
     const {email, username, password, confirm} = req.body;
-    if (req.session.user) {
+    if (req.session.hash) {
         res.status(500).json({error: 'Already Logged In'});
     }
     let requestOptions = {
@@ -18,11 +18,7 @@ async function createUser(req, res) {
     }
     const response = await fetch(`${process.env.NEXT_PUBLIC_API}/create/user`, requestOptions);
     const data = await response.json();
-    req.session.user = {
-        id: data.user_id,
-        email: data.email,
-        username: data.username
-    };
+    req.session.hash = data.hash;
     await req.session.save();
     res.send({ ok: true });
 }

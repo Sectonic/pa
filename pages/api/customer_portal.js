@@ -7,7 +7,7 @@ export default withIronSessionApiRoute(CustomerPortal, ironOptions);
 async function CustomerPortal(req, res) {
   if (req.method === 'POST') {
     try {
-      const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer_id?user_id=${req.session.user.id}`, {credentials: 'include'});
+      const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer_id?hash=${req.session.hash}`, {credentials: 'include'});
       const data = await request.json();
       if (data.customer_id) {
         const session = await stripe.billingPortal.sessions.create({

@@ -5,7 +5,7 @@ export default withIronSessionApiRoute(verifyUser, ironOptions);
 
 async function verifyUser(req, res) {
     const {email, username, password, confirm} = req.body;
-    if (req.session.user) {
+    if (req.session.hash) {
         res.status(500).json({error: 'Already Logged In'});
     }
     let requestOptions = {

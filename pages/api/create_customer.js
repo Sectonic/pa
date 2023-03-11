@@ -11,7 +11,7 @@ async function CreateCustomer(req, res) {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             session_id: session_id,
-            user_id: req.session.user.id
+            hash: req.session.hash
         })
     }
     const request = await fetch(`${process.env.NEXT_PUBLIC_API}/add/subscription`, requestOptions);
