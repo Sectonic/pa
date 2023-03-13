@@ -318,7 +318,14 @@
 .animals_diagram {
   background-color: var(--dark-grey);
   border-radius: 20px;
-  height: calc(60% - 25px);
+  height: calc(80% - 25px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animals_diagram-container {
   display: flex;
   justify-content: center;
 }
@@ -327,7 +334,7 @@
   margin-top: 20px;
   background-color: var(--dark-grey);
   border-radius: 20px;
-  height: calc(40% - 15px);
+  height: calc(20% - 15px);
 }
 
 .animal_diagram-names {
@@ -349,10 +356,10 @@
     margin: 0 auto;
   }
   .animals_diagram {
-    height: 190px;
+    height: 275px;
   }
   .animals_analysis {
-    height: 150px;
+    height: 75px;
   }
   .animal_diagram-names {
     gap: 8px;
@@ -441,6 +448,11 @@
   background-color: var(--light-grey);
   width: 40px;
   border-radius: 20px;
+}
+
+.social_type {
+  margin: 0 auto;
+  width: 60px;
 }
 
 .account_box {

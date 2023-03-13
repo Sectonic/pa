@@ -32,22 +32,13 @@ def new_type(person):
         consumeModality=person['Consume Modality'],
         observerAxis=person['Observer Axis'],
         deciderAxis=person['Decider Axis'],
+        social=person['Social'],
         createdAt= int(datetime.datetime.timestamp(datetime.datetime.now())),
         updatedAt= int(datetime.datetime.timestamp(datetime.datetime.now())),
         tag=person['Tag'],
         image=person['Image'],
     )
     db.session.add(new_person)
-    db.session.flush()
-    if "Links" in person.keys():
-        if person["Links"]:
-            for link in person["Links"]:
-                new_link = Link(
-                    name=link["name"],
-                    url=link["url"],
-                    person=new_person.id
-                )
-                db.session.add(new_link)
     db.session.commit()
     return new_person.id
 
@@ -125,6 +116,7 @@ def update_type(person_id, person):
     type.consumeModality=person['Consume Modality']
     type.observerAxis=person['Observer Axis']
     type.deciderAxis=person['Decider Axis']
+    type.social=person['Social']
     type.image=person['Image']
     type.tag=person['Tag']
     db.session.commit()

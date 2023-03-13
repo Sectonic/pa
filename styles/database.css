@@ -13,6 +13,7 @@
 
 .db_card {
     width: 180px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,6 +87,20 @@
     object-fit: none;
     width: 100px;
     opacity: .1;
+}
+
+.db_card-social {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    z-index: 2;
+    background-color: var(--light-grey);
+    padding: 2px;
+    border-radius: 0 10px 0 5px;
+}
+
+.db_card-social img {
+    width: 20px;
 }
 
 .db_card-text {

@@ -235,26 +235,33 @@ function TypePopup({data}) {
         </div>
         <div className="animal_container">
             <div className="animals_diagram outline-gray">
-              <div className="animal_diagram-names">
-                {animal_stack.map((animal, i, {length}) => {
-                  if (i + 1 === length) {
-                    return <div key={i} className="names_last">{animal[0]}</div>
-                  }
-                  else {
-                    return <div key={i} >{animal[0]}{ checkDouble(animal) ? <div className="animal_double">x2</div> : null}</div>
-                  }
-                })}
-              </div>
-              <div className="animal_diagram-details">
-                {animal_details.map((detail, i) => {
-                  return (<div key={i}>
-                    <div className="animal_detail-modality">{detail.modality}</div>
-                    <div className="animal_detail-funcs">
-                      <Image src={`/img/icons/Functions/${!decider_functions.includes(detail.functions[0]) ? detail.functions[0] : detail.functions[1]}.png`} />
-                      <Image src={`/img/icons/Functions/${decider_functions.includes(detail.functions[1]) ? detail.functions[1] : detail.functions[0]}.png`} />
-                    </div>
-                    </div>)
-                })}
+              {data.social ? (
+                <img src={`/img/learn/advanced/social/${data.social}.png`} className='social_type' />
+              ) : (
+                <img src='/img/learn/advanced/social/1.png' className='social_type' />
+              )}
+              <div className='animals_diagram-container'>
+                <div className="animal_diagram-names">
+                  {animal_stack.map((animal, i, {length}) => {
+                    if (i + 1 === length) {
+                      return <div key={i} className="names_last">{animal[0]}</div>
+                    }
+                    else {
+                      return <div key={i} >{animal[0]}{ checkDouble(animal) ? <div className="animal_double">x2</div> : null}</div>
+                    }
+                  })}
+                </div>
+                <div className="animal_diagram-details">
+                  {animal_details.map((detail, i) => {
+                    return (<div key={i}>
+                      <div className="animal_detail-modality">{detail.modality}</div>
+                      <div className="animal_detail-funcs">
+                        <Image src={`/img/icons/Functions/${!decider_functions.includes(detail.functions[0]) ? detail.functions[0] : detail.functions[1]}.png`} />
+                        <Image src={`/img/icons/Functions/${decider_functions.includes(detail.functions[1]) ? detail.functions[1] : detail.functions[0]}.png`} />
+                      </div>
+                      </div>)
+                  })}
+                </div>
               </div>
             </div>
             <div className="animals_analysis outline-gray">
