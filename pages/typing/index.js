@@ -93,9 +93,9 @@ function Typing() {
             />
           </div>
         </div>
-        <h2 className="section_title">Typing Approaches</h2>
+        <h2 className="section_title">Pick an Approach</h2>
         <p className="letters_subtitle">
-        Doable methods for nailing down your own type
+        The best doable approaches to objectively track your type.
         </p>
         <div className="section_body top_typing">
           <div className="section_text outline-gray">

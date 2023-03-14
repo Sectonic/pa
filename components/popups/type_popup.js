@@ -236,9 +236,9 @@ function TypePopup({data}) {
         <div className="animal_container">
             <div className="animals_diagram outline-gray">
               {data.social ? (
-                <img src={`/img/learn/advanced/social/${data.social}.png`} className='social_type' />
+                <img src={`/img/icons/social/${data.social}.png`} className='social_type' />
               ) : (
-                <img src='/img/learn/advanced/social/1.png' className='social_type' />
+                <img src='/img/icons/social/1.png' className='social_type' />
               )}
               <div className='animals_diagram-container'>
                 <div className="animal_diagram-names">

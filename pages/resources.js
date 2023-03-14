@@ -28,7 +28,27 @@ function Resources() {
                   Official OPS Class
                 </h3>
                 <p>
-                  The official objective personality site & paid class
+                  Official site & paid class
+                </p>
+              </div>
+            </Link>
+          </div>
+          <div className="section_text outline-gray m0">
+            <Link
+              href="https://docs.google.com/document/d/1aLrwLdhvOGIF-fdouUxAxJ_5tlt6mgu_NBnXaN4N_JU"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div>
+                <img
+                  src="/img/resources/notes.png"
+                  className="typing_img-home"
+                />
+                <h3 className="typing_title-h3 resources_title">
+                  Official Class Notes
+                </h3>
+                <p>
+                  Official OPS definitions
                 </p>
               </div>
             </Link>
@@ -48,7 +68,7 @@ function Resources() {
                   Official OPS Youtube
                 </h3>
                 <p>
-                  The official objective personality youtube channel
+                  Official youtube channel
                 </p>
               </div>
             </Link>
