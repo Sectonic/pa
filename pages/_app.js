@@ -17,7 +17,7 @@ import { useEffect, useState, useRef } from "react";
 import { withRouter } from 'next/router';
 import Head from 'next/head';
 import Pages from '../public/json/pages.json';
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import Link from 'next/link';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { Popup } from "../components/popup_main";

@@ -85,9 +85,11 @@ def getTypeData(data):
         if combo in options['combos']:
             template['Extrovert/Introvert'] = options['combos'][combo]['value']
     template['Type'] = f'{data["sensoryModality"][0].upper() if "sensoryModality" in data else "x"}{data["deModality"][0].upper() if "deModality" in data else "x"} {data["function1"] if "function1" in data else "xx"}/{data["function2"] if "function2" in data else "xx"} {data["animal1"][0] if "animal1" in data else "x"}{data["animal2"][0] if "animal2" in data else "x"}/{data["animal3"][0] if "animal3" in data else "x"}({data["animal4"][0] if "animal4" in data else "x"})'
+    print(template)
     return template
 
 def update_type(person_id, person):
+    print(person)
     type = Types.query.filter_by(id=person_id).first()
     type.name=person['Name']
     type.sex=person['Sex']
@@ -123,7 +125,7 @@ def update_type(person_id, person):
 
 def link_update(person_id, unfiltered):
     data = []
-    unfiltered_split = unfiltered.split('|')[1:-1]
+    unfiltered_split = unfiltered.split('|*SECTION*|')[1:-1]
     for link in unfiltered_split:
         link_split = link.split('/*LINK*/')
         data.append({'name': link_split[0], 'url': link_split[1]})

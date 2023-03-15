@@ -10,9 +10,6 @@ function Home() {
         <div>
           <h1 className="home_title">
             <div>
-              <div className="home_title_img">
-                <img src={"/img/main/logo.png"}/>
-              </div>
               <h1 className="home_title_text">
                 <div className="home_title_top">Objective Personality</div>
                 <div >Made
@@ -28,8 +25,7 @@ function Home() {
               </h1>
             </div>
           </h1>
-        </div>
-        <div className="home_dashboard">
+          <div className="home_dashboard">
           <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/FcqsJHXCBR", '_blank').focus()}>
             <img src="/img/main/discord.png" className="updates_img" />
             <div className="home_lg-text">
@@ -63,6 +59,10 @@ function Home() {
               </div>
             </div>
           </div>
+        </div>
+        </div>
+        <div className='home_title-img'>
+          <img src="/img/main/logo.png"/>
         </div>
       </div>
       <div className="section">
