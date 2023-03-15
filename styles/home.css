@@ -12,7 +12,7 @@
   margin-top: 17px;
   height: 85vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 20px;
   gap: 100px;
@@ -38,16 +38,27 @@
 
 @media screen and (max-width: 1160px) {
   .home_banner {
-    flex-direction: column-reverse;
     padding-top: 30px;
     padding-bottom: 30px;
-    gap: 0;
   }
 }
 
 @media screen and (max-height: 800px) {
   .home_banner {
     height: max-content;
+  }
+}
+
+.home_banner > div {
+  margin-left: 15%;
+}
+
+@media screen and (max-width: 1000px) {
+  .home_banner > div {
+    margin-left: 0;
+  }
+  .home_banner {
+    justify-content: center;
   }
 }
 

@@ -61,9 +61,6 @@ function Home() {
           </div>
         </div>
         </div>
-        <div className='home_title-img'>
-          <img src="/img/main/logo.png"/>
-        </div>
       </div>
       <div className="section">
       <div className="section_body">
