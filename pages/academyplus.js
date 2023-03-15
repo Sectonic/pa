@@ -74,29 +74,21 @@ function AcademyPlus({user}) {
           </>
         )}
         <div className="section">
-          <div className="section_body">
-            <div className="section_text section-title_images-in">
-              <div className="section_title-img">
-                <img
-                  src="/img/academyplus/gain.png"
-                  alt=""
-                />
-              </div>
-              <div className="section_title-text section_title-desc">
-                <h2 className="margin-sm">Gain more with Plus</h2>
-                <p>
-                  Subscribe to Academy Plus to access early content, full capability of our tools, and extra perks & customizability!
-                </p>
-              </div>
-            </div>
+        <div className="section_body">
+      <div className="section_img">
+            <img
+              src={"/img/academyplus/one.png"}
+            />
           </div>
+        </div>
+        <h2 className="section_title neg-mt-45">Get Access to The Best</h2>
           <div className="section_body neg-mt-45">
             <div className="section_text academy_card">
               <div>
                 <h2 className="margin-sm">Academy</h2>
                 <h3 className="margin-sm">Free</h3>
                 <div className="academy_perks">
-                  <div className="academy_perk">
+                  <div className="academy_perk">  
                     <img src="/img/main/learn.png"/>
                     <div>Learning & Resources</div>
                   </div>
@@ -106,7 +98,7 @@ function AcademyPlus({user}) {
                   </div>
                   <div className="academy_perk">
                     <img src="/img/main/tools.png"/>
-                    <div>Basic OPS Apps</div>
+                    <div>Limited OPS Apps</div>
                   </div>
                   <div className="academy_perk-invisible"></div>
                   <div className="academy_perk-invisible"></div>
@@ -130,11 +122,11 @@ function AcademyPlus({user}) {
                   </div>
                   <div className="academy_perk">
                     <img src="/img/academyplus/apps_plus.png"/>
-                    <div>Advanced OPS Apps</div>
+                    <div>Extended OPS Apps</div>
                   </div>
                   <div className="academy_perk">
                     <img src="/img/academyplus/academyplus_early.png"/>
-                    <div>Early Access Content</div>
+                    <div>Exclusive Early Access Content</div>
                   </div>
                   <div className="academy_perk">
                     <img src="/img/academyplus/customize_plus.png"/>

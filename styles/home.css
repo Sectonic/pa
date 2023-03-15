@@ -1,11 +1,11 @@
 .home_banner {
   background-image: linear-gradient(
       to right,
-      rgba(var(--purple-black-rgb), .6),
-      rgba(var(--purple-black-rgb), .6)
+      rgba(var(--purple-black-rgb), .4),
+      rgba(var(--purple-black-rgb), .4)
     ),
-    url("./backgrounds/background_blur.png");
-  background-size: 3000px;
+    url("./backgrounds/test.png");
+  background-size: 1900px;
   background-attachment: fixed;
   width: calc(100% - 50px);
   margin: 0 auto;

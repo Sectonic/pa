@@ -73,7 +73,7 @@ function Home() {
             />
           </div>
         </div>
-        <h2 className="section_title">Everything OPS, In One Place</h2>
+        <h2 className="section_title neg-mt-45">Everything OPS, In One Place</h2>
         <p className="letters_subtitle">
         *We are not affiliated with Objective Personality
         </p>
@@ -142,9 +142,9 @@ function Home() {
             />
           </div>
         </div>
-        <h2 className="section_title">A Community Project</h2>
+        <h2 className="section_title neg-mt-45">All The Best, For The Community</h2>
         <p className="letters_subtitle">
-        Set out to pave the way for Objective Personality
+        Paving the way for better understanding, use and results for everyone.
         </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-trans">

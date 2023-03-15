@@ -539,7 +539,7 @@ function Database({user}) {
                                     <div key={person.id} className="db_card outline-gray db_card_hover" onClick={() => handlePopup(true, data[index])}>
                                         {person.social && (
                                         <div className='db_card-social'>
-                                                <Image src={`/img/learn/advanced/social/${person.social}.png`} />
+                                                <Image src={`/img/icons/social/${person.social}.png`} />
                                         </div>
                                         )}
                                         {
