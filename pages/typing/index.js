@@ -14,7 +14,7 @@ function Typing() {
             />
           </div>
         </div>
-        <h2 className="section_title">A to B, Track Personality Type</h2>
+        <h2 className="section_title neg-mt-45">A to B, Track Personality Type</h2>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
@@ -52,7 +52,7 @@ function Typing() {
             />
           </div>
         </div>
-        <h2 className="section_title">Learn the Method</h2>
+        <h2 className="section_title neg-mt-45">Learn the Method</h2>
         <p className="letters_subtitle">
         Start to finish guides on how to type yourself & others
         </p>
@@ -93,7 +93,7 @@ function Typing() {
             />
           </div>
         </div>
-        <h2 className="section_title">Pick an Approach</h2>
+        <h2 className="section_title neg-mt-45">Pick an Approach</h2>
         <p className="letters_subtitle">
         The best doable approaches to objectively track your type.
         </p>
