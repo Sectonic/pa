@@ -1,8 +1,8 @@
 .home_banner {
-  background-image: linear-gradient(
+  background-image:linear-gradient(
       to right,
-      rgba(var(--purple-black-rgb), .4),
-      rgba(var(--purple-black-rgb), .4)
+      rgba(var(--dark-purple-rgb), .62),
+      rgba(var(--dark-purple-rgb), .62)
     ),
     url("./backgrounds/test.png");
   background-size: 1900px;

@@ -294,9 +294,6 @@ function Database({user}) {
     const router = useRouter();
     const [data, setData] = useState([]);
     const [dataTrue, setDataTrue] = useState(false);
-    const [lowBound, setLowBound] = useState(0);
-    const [highBound, setHighBound] = useState(50);
-    const [filters, setFilters] = useState(filter_template);
     const [popupShown, setPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
     const [loading, setLoading] = useState(true);
@@ -308,16 +305,11 @@ function Database({user}) {
         var query_string, query_dict;
         if (choice) {
             if (!type_data.linked) {
-                query_string = current_query.filters ?  `${router.asPath}&popup_id=${type_data.id}` : `typesearch?popup_id=${type_data.id}`;
-                if (current_query.filters) {
-                    query_dict = {
-                        filters: current_query.filters,
-                        popup_id: type_data.id
-                    }
-                } else {
-                    query_dict = {
-                        popup_id: type_data.id
-                    }
+                query_string = `/typesearch?filters=${current_query.filters ? current_query.filters : ""}&popup_id=${type_data.id}&high=${current_query.high ? current_query.high : ""}`;
+                query_dict = {
+                    filters: current_query.filters,
+                    popup_id: type_data.id,
+                    high: current_query.high
                 }
                 router.push({
                     pathname: '/typesearch',
@@ -325,14 +317,11 @@ function Database({user}) {
                 }, query_string, {shallow: true});
             }
         } else {
-            if (current_query.filters) {
-                query_dict = {
-                    filters: current_query.filters,
-                }
-            } else {
-                query_dict = {}
+            query_dict = {
+                filters: current_query.filters,
+                high: current_query.high
             }
-            query_string = current_query.filters ? router.asPath : '/typesearch';
+            query_string = `/typesearch?filters=${current_query.filters ? current_query.filters : ""}&high=${current_query.high ? current_query.high : ""}`;
             router.push({
                 pathname: '/typesearch',
                 query: query_dict
@@ -382,7 +371,7 @@ function Database({user}) {
     }
 
     const checkDataIds = (o_data) => {
-        var checking = null;
+        var checking;
         if (router.query.popup_id) {
             o_data.some((a, index) => {
                 if (a.id === Number(router.query.popup_id)) {
@@ -402,34 +391,32 @@ function Database({user}) {
                 timeout: WAIT_FOREVER,
             });
             if (user.active) {
-                console.log(data);
                 setLoading(false);
+
                 var queryFilters = JSON.parse(router.query.filters ? router.query.filters : '[]');
                 var defaultArray = [];
                 queryFilters.forEach(filter => {
                     defaultArray.push({label: filter, value:filter});
                 })
-                var urlfilters = getFilteredResults(queryFilters);
                 setDefaultFilters(defaultArray);
-                setFilters(urlfilters);
-                let url = await fetch(`${API}/types/0to50?` + new URLSearchParams(urlfilters));
-                var original_data = await url.json();
-                setData(original_data);
+
+                var url;
+                var new_data;
+                const highBound = router.query.high ? router.query.high : "50";
+                var urlfilters = getFilteredResults(queryFilters);
+                url = await fetch(`${API}/types/0to${highBound}?` + new URLSearchParams(urlfilters));
+                new_data = await url.json();
+                setData(new_data);
                 setDataTrue(true);
-                setLowBound(lowBound + 50);
-                setHighBound(highBound + 50);
-                var popupCheck = checkDataIds(original_data);
-                if (popupCheck == null) {
+
+                var popupCheck = checkDataIds(new_data);
+                if (popupCheck) {
                     document.body.style.overflowY = "hidden";
-                    setPopupData({linked: true});
+                    setPopupData(new_data[popupCheck]);
                     setPopup(true);
-                } else if (popupCheck == false) {
+                } else {
                     setPopup(false);
                     setPopupData("");
-                } else {
-                    document.body.style.overflowY = "hidden";
-                    setPopupData(original_data[popupCheck]);
-                    setPopup(true);
                 }
             } else {
                 router.push('/login');
@@ -439,16 +426,17 @@ function Database({user}) {
     }, [user, router]);
 
     const updateData = () => {
-        let url = `${API}/types/${lowBound}to${highBound}?`;
-        fetch(url + new URLSearchParams(filters)).then(
-            res => res.json()
-        ).then(
-            newdata => {
-                setData(data.concat(newdata).unique());
-                setLowBound(lowBound + 50);
-                setHighBound(highBound + 50);
-            }
-        )
+        let curr = router.query
+        var query_dict = {
+            filters: curr.filters,
+            popup_id: curr.popup_id,
+            high: curr.high ? (Number(curr.high) + 50).toString() : "100"
+        }
+        var query_string = `/typesearch?filters=${curr.filters ? curr.filters : ""}&popup_id=${curr.popup_id ? curr.popup_id : ""}&high=${curr.high ?  (Number(curr.high) + 50).toString() : "100"}`;
+        router.push({
+            pathname: '/typesearch',
+            query: query_dict
+        }, query_string, {shallow: true});
     }
 
     const formatOptionLabel = ({label}) => (
@@ -464,8 +452,8 @@ function Database({user}) {
         });        
         router.push({
             pathname: '/typesearch',
-            query: {filters: JSON.stringify(filters_array)}
-        }, `/typesearch?filters=${JSON.stringify(filters_array)}`, {shallow: true});
+            query: {filters: JSON.stringify(filters_array), high: router.query.high}
+        }, `/typesearch?filters=${JSON.stringify(filters_array)}&high=${router.query.high ? router.query.high : ""}`, {shallow: true});
     }
       
     return (

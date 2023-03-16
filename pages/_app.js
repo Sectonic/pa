@@ -46,18 +46,6 @@ function App({ Component, pageProps, router }) {
     setPath(new_path);
   }, [router.pathname]); 
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      localStorage.setItem('previous', router.pathname);
-      console.log(localStorage.getItem('previous'));
-    }
-    router.events.on('routeChangeStart', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  }, [])
-
-
   const getUser = async () => {
     setLoading(true);
     let request = await fetch(`/api/get_user`, {credentials: 'same-origin'});
