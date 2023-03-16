@@ -285,7 +285,7 @@ const options = [
 ]
 
 const filter_template = {
-    "format": 'modified',
+    "format": 'created',
 }
 
 const API = process.env.NEXT_PUBLIC_API;
@@ -300,92 +300,47 @@ function Database({user}) {
     const [popupShown, setPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
     const [loading, setLoading] = useState(true);
+    const [defaultFilters, setDefaultFilters] = useState(null);
 
     const handlePopup = (choice, type_data) => {
         document.body.style.overflowY = "auto";
+        var current_query = router.query;
+        var query_string, query_dict;
         if (choice) {
-        document.body.style.overflowY = "hidden";
+            if (!type_data.linked) {
+                query_string = current_query.filters ?  `${router.asPath}&popup_id=${type_data.id}` : `typesearch?popup_id=${type_data.id}`;
+                if (current_query.filters) {
+                    query_dict = {
+                        filters: current_query.filters,
+                        popup_id: type_data.id
+                    }
+                } else {
+                    query_dict = {
+                        popup_id: type_data.id
+                    }
+                }
+                router.push({
+                    pathname: '/typesearch',
+                    query: query_dict
+                }, query_string, {shallow: true});
+            }
+        } else {
+            if (current_query.filters) {
+                query_dict = {
+                    filters: current_query.filters,
+                }
+            } else {
+                query_dict = {}
+            }
+            query_string = current_query.filters ? router.asPath : '/typesearch';
+            router.push({
+                pathname: '/typesearch',
+                query: query_dict
+            }, query_string, {shallow: true});
         }
-        setPopupData(type_data);
-        setPopup(choice);
     };
 
-    useEffect(() => {
-        async function checkUser() {
-            await waitUntil(() => user != null, {
-                timeout: WAIT_FOREVER,
-            });
-            if (user.active) {
-                setLoading(false);
-                let url = `${API}/types/${lowBound}to${highBound}?`;
-                fetch(url + new URLSearchParams(filters)).then(
-                    res => {
-                        if (res.ok) {
-                            res.json().then(data => {
-                                setData(data);
-                                setDataTrue(true);
-                                setLowBound(lowBound + 50);
-                                setHighBound(highBound + 50);
-                            })
-                        }
-                        else {
-                            console.log('Initial Failed. Requesting Database again.');
-                            setTimeout(() => {
-                                let url = `${API}/types/${lowBound}to${highBound}?`;
-                                fetch(url + new URLSearchParams(filters)).then(
-                                    res => res.json()
-                                ).then(
-                                    data => {
-                                        setData(data);
-                                        setDataTrue(true);
-                                        setLowBound(lowBound + 50);
-                                        setHighBound(highBound + 50);
-                                    }
-                                )
-                            }, 1000)
-                        }
-                    }
-                )   
-            } else {
-                router.push('/login');
-            }
-        }
-        checkUser();
-    }, [user]);
-
-    const updateData = () => {
-        let url = `${API}/types/${lowBound}to${highBound}?`;
-        fetch(url + new URLSearchParams(filters)).then(
-            res => res.json()
-        ).then(
-            newdata => {
-                setData(data.concat(newdata).unique());
-                setLowBound(lowBound + 50);
-                setHighBound(highBound + 50);
-            }
-        )
-    }
-
-    function updateFilters(new_filters) {
-        let url = `${API}/types/0to50?`;
-        fetch(url + new URLSearchParams(new_filters)).then(
-            res => res.json()
-        ).then(
-            newdata => {
-                setData(newdata);
-                setLowBound(50);
-                setHighBound(100);
-            }
-        )
-    }
-
-    const formatOptionLabel = ({label}) => (
-        <div>
-          <div style={{ display: "inline-block", backgroundColor: '#5c64f4', padding: '2px 5px', borderRadius: 20, fontSize: '17px' }}>{label}</div>
-        </div>
-    );
-
-    const handleSelectChange = (selectedOptions) => {
+    const getFilteredResults = (selectedOptions) => {
         var clean_filters = {
             "format": 'created',
             "tags": [],
@@ -415,7 +370,7 @@ function Database({user}) {
             "energyInfo": [],
         };
         selectedOptions.forEach(filter => {
-            var all_filters = filter_exchange[filter['value']];
+            var all_filters = filter_exchange[filter];
             all_filters.forEach(item => {
                 let filter_col = clean_filters[item['name']];
                 if (!filter_col.includes(item['value'])) {
@@ -423,10 +378,94 @@ function Database({user}) {
                 }
             });
         });
-        setFilters(clean_filters);
-        updateFilters(clean_filters);
-        var background = document.querySelector('.db_background');
-        background.scrollTop = 0;
+        return clean_filters;
+    }
+
+    const checkDataIds = (o_data) => {
+        var checking = null;
+        if (router.query.popup_id) {
+            o_data.some((a, index) => {
+                if (a.id === Number(router.query.popup_id)) {
+                    checking = index;
+                }
+            })
+        } else {
+            checking = false;
+        }
+        return checking;
+    }
+
+    useEffect(() => {
+        if(!router.isReady) return;
+        async function checkUser() {
+            await waitUntil(() => user != null, {
+                timeout: WAIT_FOREVER,
+            });
+            if (user.active) {
+                console.log(data);
+                setLoading(false);
+                var queryFilters = JSON.parse(router.query.filters ? router.query.filters : '[]');
+                var defaultArray = [];
+                queryFilters.forEach(filter => {
+                    defaultArray.push({label: filter, value:filter});
+                })
+                var urlfilters = getFilteredResults(queryFilters);
+                setDefaultFilters(defaultArray);
+                setFilters(urlfilters);
+                let url = await fetch(`${API}/types/0to50?` + new URLSearchParams(urlfilters));
+                var original_data = await url.json();
+                setData(original_data);
+                setDataTrue(true);
+                setLowBound(lowBound + 50);
+                setHighBound(highBound + 50);
+                var popupCheck = checkDataIds(original_data);
+                if (popupCheck == null) {
+                    document.body.style.overflowY = "hidden";
+                    setPopupData({linked: true});
+                    setPopup(true);
+                } else if (popupCheck == false) {
+                    setPopup(false);
+                    setPopupData("");
+                } else {
+                    document.body.style.overflowY = "hidden";
+                    setPopupData(original_data[popupCheck]);
+                    setPopup(true);
+                }
+            } else {
+                router.push('/login');
+            }
+        }
+        checkUser();
+    }, [user, router]);
+
+    const updateData = () => {
+        let url = `${API}/types/${lowBound}to${highBound}?`;
+        fetch(url + new URLSearchParams(filters)).then(
+            res => res.json()
+        ).then(
+            newdata => {
+                setData(data.concat(newdata).unique());
+                setLowBound(lowBound + 50);
+                setHighBound(highBound + 50);
+            }
+        )
+    }
+
+    const formatOptionLabel = ({label}) => (
+        <div>
+          <div style={{ display: "inline-block", backgroundColor: '#5c64f4', padding: '2px 5px', borderRadius: 20, fontSize: '17px' }}>{label}</div>
+        </div>
+    );
+
+    const handleSelectChange = (selectedOptions) => {
+        var filters_array = [];
+        selectedOptions.forEach(filter => {
+            filters_array.push(filter['value']);
+        });        
+        router.push({
+            pathname: '/typesearch',
+            query: {filters: JSON.stringify(filters_array)}
+        }, `/typesearch?filters=${JSON.stringify(filters_array)}`, {shallow: true});
     }
       
     return (
@@ -440,6 +479,7 @@ function Database({user}) {
                 <div className="db_background">
                     <div className="banner banner_blue banner_blue-outline banner-sm">
                         <div className="db_search">
+                            {defaultFilters && (
                             <Select
                                 styles={{
                                     input: (styles) => ({
@@ -529,7 +569,9 @@ function Database({user}) {
                                 classNamePrefix="select"
                                 spellcheck="false"
                                 onChange={handleSelectChange}
+                                value={defaultFilters}
                             />
+                            )}
                         </div>
                     </div>
                     {dataTrue ? (

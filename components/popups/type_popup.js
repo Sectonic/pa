@@ -1,9 +1,19 @@
 import Image from '../image';
 import Link from 'next/link';
+import {useEffect} from 'react';
 
 function TypePopup({data}) {
+
   function checkSavior(animal) {
     return [data.animal1, data.animal2].includes(animal)
+  }
+
+  if (data.linked) {
+    return (
+      <div>
+        <h2>Hello</h2>
+      </div>
+    )
   }
 
   var animal_stack = [data.animal1, data.animal2, data.animal3, data.animal4]

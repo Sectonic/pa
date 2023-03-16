@@ -131,6 +131,15 @@ def add_subscription():
         user.subscription_id = checkout["subscription"]
         return {'response': 200}, 200
 
+@app.route("/type/<id>", methods=['GET'])
+def type(id):
+    person = Types.query.filter_by(id=id).first()
+    if person: 
+        person_dict = dbToDict(person)
+        return jsonify(person_dict)
+    else:
+        return jsonify({'response': 500, 'error': 'Invalid ID Number'})
+
 @app.route("/types/<int:low>to<int:high>", methods=['GET'])
 def types(low, high):
     high_test = Types.query.filter_by(id=high).first()

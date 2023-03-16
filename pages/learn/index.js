@@ -288,7 +288,18 @@ function Learn() {
                   <div className="icon_text">Quadras</div>
                 </Link>
               </div>
-              
+              <Link
+                href="/learn/social"
+                className="icon_container link_text"
+              >
+                <div className="page_icon">
+                  <img
+                    src={"/img/learn/home/social.png"}
+                    
+                  />
+                </div>
+                <div className="icon_text">Social Hierarchy</div>
+              </Link>
             </div>
           </div>
         </div>
