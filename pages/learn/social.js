@@ -149,7 +149,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/1.png"/>
+                <img src="/img/icons/social/1.png"/>
                 <h2>Type 1 - Trailblazers</h2>
               </div>
               <h3 className="margin-sm">Ego / Responsible</h3>
@@ -167,7 +167,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/2.png"/>
+                <img src="/img/icons/social/2.png"/>
                 <h2>Type 2 - Executives</h2>
               </div>
               <h3 className="margin-sm">Responsible / Friends</h3>
@@ -187,7 +187,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/3.png"/>
+                <img src="/img/icons/social/3.png"/>
                 <h2>Type 3 - Specialists</h2>
               </div>
               <h3 className="margin-sm">Specialize / Ego</h3>
@@ -205,7 +205,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/4.png"/>
+                <img src="/img/icons/social/4.png"/>
                 <h2>Type 4 - Accomodaters</h2>
               </div>
               <h3 className="margin-sm">Friends / Specialize</h3>
