@@ -9,7 +9,8 @@ type_entries = {
     'sM': ['mS', 'fS'],
     'deM': ['mDe', 'fDe'],
     'func': ['Fi', 'Ni', 'Si', 'Ti', 'Fe', 'Ne', 'Se', 'Te', 'Dx', 'Ox', 'De', 'Oe', 'Di', 'Oi', 'Fx', 'Tx', 'Sx', 'Nx'],
-    'anim': ['Play', 'Blast', 'Consume', 'Sleep']
+    'anim': ['Play', 'Blast', 'Consume', 'Sleep'],
+    'social': ['1', '2', '3', '4']
 }
 post_loop = ['sensoryModality', 'deModality', 'function1', 'function2', 'animal1', 'animal2', 'animal3', 'animal4']
 all_functions = ['Te', 'Ti', 'Fe', 'Fi', 'Ne', 'Ni', 'Se', 'Si']
@@ -83,6 +84,7 @@ def edit(type_id):
                 type_data['Name'] = request.form.get('person_name')
                 type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
                 type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
+                type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
                 for tag in tag_options:
                     new_tag = request.form.get(tag)
                     if new_tag == 'on':
@@ -117,6 +119,7 @@ def add():
             type_data['Name'] = request.form.get('person_name')
             type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
             type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
+            type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
             for tag in tag_options:
                 new_tag = request.form.get(tag)
                 if new_tag == 'on':

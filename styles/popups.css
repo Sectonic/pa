@@ -236,7 +236,7 @@
 }
 
 .type_top-info__full .db_card-type {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
 }
 
@@ -261,14 +261,14 @@
 }
 
 .type_top-info__links::-webkit-scrollbar-thumb {
-  background-color: #5c64f4;
+  background-color: rgba(var(--dark-grey-rgb), .5);
   border: 4px solid transparent;
   border-radius: 8px;
   background-clip: padding-box;  
 }
 
 .type_top-info__links::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 .type_top-info_link {
@@ -280,10 +280,11 @@
   padding-top: 5px;
   padding-bottom: 5px;
   text-align: left;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 20px;
   cursor: pointer;
-  transition: .3s ease;
+  transition: .2s ease;
   overflow: hidden;
 }
 
@@ -293,8 +294,7 @@
 }
 
 .type_top-info_link > * {
-  font-size: 16px;
-  margin-top: 3px;
+  font-size: 14px;
 }
 
 .diagram_title {
@@ -318,7 +318,14 @@
 .animals_diagram {
   background-color: var(--dark-grey);
   border-radius: 20px;
-  height: calc(60% - 25px);
+  height: calc(80% - 25px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animals_diagram-container {
   display: flex;
   justify-content: center;
 }
@@ -327,7 +334,7 @@
   margin-top: 20px;
   background-color: var(--dark-grey);
   border-radius: 20px;
-  height: calc(40% - 15px);
+  height: calc(20% - 15px);
 }
 
 .animal_diagram-names {
@@ -349,10 +356,10 @@
     margin: 0 auto;
   }
   .animals_diagram {
-    height: 190px;
+    height: 275px;
   }
   .animals_analysis {
-    height: 150px;
+    height: 75px;
   }
   .animal_diagram-names {
     gap: 8px;
@@ -441,6 +448,11 @@
   background-color: var(--light-grey);
   width: 40px;
   border-radius: 20px;
+}
+
+.social_type {
+  margin: 0 auto;
+  width: 60px;
 }
 
 .account_box {

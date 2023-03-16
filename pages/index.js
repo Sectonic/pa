@@ -10,9 +10,6 @@ function Home() {
         <div>
           <h1 className="home_title">
             <div>
-              <div className="home_title_img">
-                <img src={"/img/main/logo.png"}/>
-              </div>
               <h1 className="home_title_text">
                 <div className="home_title_top">Objective Personality</div>
                 <div >Made
@@ -28,8 +25,7 @@ function Home() {
               </h1>
             </div>
           </h1>
-        </div>
-        <div className="home_dashboard">
+          <div className="home_dashboard">
           <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/FcqsJHXCBR", '_blank').focus()}>
             <img src="/img/main/discord.png" className="updates_img" />
             <div className="home_lg-text">
@@ -64,6 +60,7 @@ function Home() {
             </div>
           </div>
         </div>
+        </div>
       </div>
       <div className="section">
       <div className="section_body">
@@ -73,7 +70,7 @@ function Home() {
             />
           </div>
         </div>
-        <h2 className="section_title">Everything OPS, In One Place</h2>
+        <h2 className="section_title neg-mt-45">Everything OPS, In One Place</h2>
         <p className="letters_subtitle">
         *We are not affiliated with Objective Personality
         </p>
@@ -142,9 +139,9 @@ function Home() {
             />
           </div>
         </div>
-        <h2 className="section_title">A Community Project</h2>
+        <h2 className="section_title neg-mt-45">All The Best, For The Community</h2>
         <p className="letters_subtitle">
-        Set out to pave the way for Objective Personality
+        Paving the way for better understanding, use and results for everyone.
         </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-trans">

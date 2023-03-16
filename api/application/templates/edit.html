@@ -183,6 +183,21 @@
                 </div>
             </div>
         </div>
+        <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
+            <select name="social" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                {% if not current_person.social %}
+                    <option value="" selected>---</option>
+                {% endif %}
+                {% for s in type_entries['social'] %}
+                    {% if s == current_person.social %}
+                        <option value="{{s}}" selected>{{s}}</option>
+                    {% else %}
+                        <option value="{{s}}">{{s}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <label for="floatingSelect">Social</label>
+        </div>
         <div class="row mb-3" style="color: white;margin: 0 auto;width: 610px">
             <div class="col-5">
                 <div class="form-check form-switch">
@@ -270,9 +285,9 @@
             $(child).parent().parent().remove();
         }
         function submit_edit(person_id) {
-            all_links = "|";
+            all_links = "|*SECTION*|";
             $("#links_container").children().each(function() {
-                all_links += `${$(this).find('.link_name').val()}/*LINK*/${$(this).find('.link_url').val()}|`;
+                all_links += `${$(this).find('.link_name').val()}/*LINK*/${$(this).find('.link_url').val()}|*SECTION*|`;
             });
             $('#link_input').val(all_links);
             $('#edit').submit();

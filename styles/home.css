@@ -1,18 +1,18 @@
 .home_banner {
   background-image: linear-gradient(
       to right,
-      rgba(var(--purple-black-rgb), .6),
-      rgba(var(--purple-black-rgb), .6)
+      rgba(var(--purple-black-rgb), .4),
+      rgba(var(--purple-black-rgb), .4)
     ),
     url("./backgrounds/test.png");
-  background-size: 3000px;
+  background-size: 1900px;
   background-attachment: fixed;
   width: calc(100% - 50px);
   margin: 0 auto;
   margin-top: 17px;
   height: 85vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 20px;
   gap: 100px;
@@ -38,10 +38,27 @@
 
 @media screen and (max-width: 1160px) {
   .home_banner {
-    flex-direction: column;
-    height: max-content;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .home_banner {
+    height: max-content;
+  }
+}
+
+.home_banner > div {
+  margin-left: 15%;
+}
+
+@media screen and (max-width: 1000px) {
+  .home_banner > div {
+    margin-left: 0;
+  }
+  .home_banner {
+    justify-content: center;
   }
 }
 
@@ -60,10 +77,6 @@
   margin-right: 25px;
 }
 
-.home_title_img img {
-  height: 100%;
-}
-
 .home_title_text {
   font-weight: 900;
   display: flex;
@@ -75,12 +88,6 @@
 }
 
 @media only screen and (max-width: 1530px) {
-  .home_title_img {
-    float: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-  }
   .home_title_text { 
     text-align: center;
     font-size: 54px;
@@ -94,6 +101,20 @@
   }
 }
 
+.home_title-img {
+  width: 40%;
+}
+
+.home_title-img img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1160px) {
+  .home_title-img {
+    width: 60%;
+  }
+}
+
 .home_title_top {
   color: white;
   font-size: 38px;
@@ -102,16 +123,6 @@
 
 .home_subtitle {
   color: #ffb700;
-}
-
-.home_logo {
-  margin: 60px auto;
-  width: 175px;
-}
-
-.home_logo img {
-  width: 100%;
-  background-color: transparent;
 }
 
 .home_text {
@@ -147,10 +158,11 @@
   justify-content: center;
   flex-direction: column;
   gap: 10px;
-  width: 35%;
+  width: 100%;
   border-radius: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin: 0 auto;
 }
 
 .home_dashboard > div {

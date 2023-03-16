@@ -579,6 +579,11 @@ function Database({user}) {
                             {data.map((person, index) => {
                                 return(
                                     <div key={person.id} className="db_card outline-gray db_card_hover" onClick={() => handlePopup(true, data[index])}>
+                                        {person.social && (
+                                        <div className='db_card-social'>
+                                                <Image src={`/img/icons/social/${person.social}.png`} />
+                                        </div>
+                                        )}
                                         {
                                             person['image'] === null ? 
                                             <div className="db_card-img db_card-img-empty"><Image src="/pa/static/img/main/empty_img.png"/></div> :

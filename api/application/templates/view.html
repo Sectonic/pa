@@ -94,7 +94,7 @@
                         <td><div class="row_circle">{{type.image}}</div></td>
                     {% endif %}
                     <td><div class="row_circle blue">{{type.name}}</div></td>
-                    <td><div class="row_circle green">{{type.type}}</div></td>
+                    <td><div class="row_circle green">{{type.type}} {% if type.social %}SH{{type.social}}{% endif %}</div></td>
                     <td><a href="edit/{{type.id}}"><button class="btn btn-success row_edit">Edit</button></a></td>
                 </tr>
             {% endfor %}
