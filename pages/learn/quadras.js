@@ -62,7 +62,7 @@ function Quadras() {
           </div>
         </div>
       </div>
-      <div className="section functions">
+      <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
           src="/img/learn/advanced/quadras/b.png"
@@ -121,7 +121,7 @@ function Quadras() {
           </div>
         </div>
       </div>
-      <div className="section functions">
+      <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
           src="/img/learn/advanced/quadras/d.png"
@@ -181,7 +181,7 @@ function Quadras() {
           </div>
         </div>
       </div>
-      <div className="section functions">
+      <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
           src="/img/learn/advanced/quadras/g.png"

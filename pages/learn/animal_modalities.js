@@ -71,7 +71,7 @@ function animalModalities() {
           </div>
         </div>
       </div>
-      <div className="section functions">
+      <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
           src="/img/learn/basic/modalities/fem.png"

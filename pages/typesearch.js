@@ -400,6 +400,14 @@ function Database({user}) {
                 })
                 setDefaultFilters(defaultArray);
 
+                if (router.query.popup_id) {
+                    setPopupData({loading: true});
+                    setPopup(true);
+                } else {
+                    setPopup(false);
+                    setPopupData("");
+                }
+
                 var url;
                 var new_data;
                 const highBound = router.query.high ? router.query.high : "50";
@@ -410,7 +418,7 @@ function Database({user}) {
                 setDataTrue(true);
 
                 var popupCheck = checkDataIds(new_data);
-                if (popupCheck) {
+                if (popupCheck || popupCheck === 0) {
                     document.body.style.overflowY = "hidden";
                     setPopupData(new_data[popupCheck]);
                     setPopup(true);
@@ -452,8 +460,8 @@ function Database({user}) {
         });        
         router.push({
             pathname: '/typesearch',
-            query: {filters: JSON.stringify(filters_array), high: router.query.high}
-        }, `/typesearch?filters=${JSON.stringify(filters_array)}&high=${router.query.high ? router.query.high : ""}`, {shallow: true});
+            query: {filters: JSON.stringify(filters_array)}
+        }, `/typesearch?filters=${JSON.stringify(filters_array)}`, {shallow: true});
     }
       
     return (
@@ -494,7 +502,7 @@ function Database({user}) {
                                             cursor: 'pointer',
                                         },
                                     }),
-                                    menu: (styles) => ({
+                                    menu: () => ({
                                         position: 'absolute',
                                         width: '100%',
                                         marginTop: 2,

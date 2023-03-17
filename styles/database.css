@@ -92,10 +92,11 @@
 .db_card-social {
     position: absolute;
     top: 0;
-    right: -4px;
+    right: -2px;
     z-index: 2;
     background-color: var(--light-grey);
     padding: 2px;
+    padding-left: 4px;
     border-radius: 0 10px 0 10px;
 }
 
@@ -107,6 +108,7 @@
     border-radius: 18px;
     margin: 0px auto;
     margin-bottom: 2px;
+    padding: 0 3px;
 }
 
 .db_card-text h3 {

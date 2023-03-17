@@ -1,6 +1,5 @@
 import Image from '../image';
-import Link from 'next/link';
-import {useEffect} from 'react';
+import Link from 'next/link';;
 
 function TypePopup({data}) {
 
@@ -8,10 +7,14 @@ function TypePopup({data}) {
     return [data.animal1, data.animal2].includes(animal)
   }
 
-  if (data.linked) {
+  if (data.loading) {
     return (
       <div>
-        <h2>Hello</h2>
+        <div className='popup_loading'>
+            <div>
+              <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
       </div>
     )
   }

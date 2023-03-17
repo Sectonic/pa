@@ -100,7 +100,7 @@ function OPS() {
           </div>
         </div>
       </div>
-      <div className="section section_images-in">
+      <div className="section section_images-in extra_margin_section">
         <div className="section_body">
           <div className="section_img">
             <img src={"/img/learn/intro/ops/simplicity.png"} alt="" />

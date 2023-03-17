@@ -109,7 +109,7 @@ function Functions() {
           </div>
         </div>
       </div>
-      <div className="section functions">
+      <div className="section functions extra_margin_section">
         <h2 className="section_title margin-sm">Observer Functions</h2>
         <div className="section_body section_texts-sm">
           <div className="section_text section_column-title">
@@ -179,7 +179,7 @@ function Functions() {
           </div>
         </div>
       </div>
-      <div className="section section_images-in">
+      <div className="section section_images-in extra_margin_section">
         <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">

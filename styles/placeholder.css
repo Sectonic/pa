@@ -16,6 +16,22 @@
     align-items: center;
 }
 
+.popup_loading {
+    height: 75vh;
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+      ),
+      url("./backgrounds/background_blur.png");
+    background-size: 2000px;
+    background-attachment: fixed;background-color: var(--purple-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .lds-ellipsis {
     display: inline-block;
     position: relative;

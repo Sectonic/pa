@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { IconContainer, Icon, IconDropdown, DropdownItem } from '../../components/learn_icons';
 
 function give_trees() {
   return ["intro", "fundamentals" , "basic", "advanced"];
@@ -112,194 +113,71 @@ function Learn() {
           <div className="section_map-space">
             <div id="intro">
               <div className="section_top">First Steps</div>
-              <Link href="/learn/start" className="icon_container link_text">
-                <div className="page_icon">
-                  <img src={"/img/learn/home/start.png"}  />
-                </div>
-                <div className="icon_text">Start</div>
-              </Link>
-              <div className="seconds">
-                <Link
-                  href="/learn/typology_intro"
-                  className="icon_container link_text"
-                >
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/typology_intro.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Personality Theory</div>
-                </Link>
-                <Link href="/learn/ops_intro" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img src={"/img/learn/home/ops_intro.png"}  />
-                  </div>
-                  <div className="icon_text">Objective Personality</div>
-                </Link>
-              </div>
+              <IconContainer>
+                <Icon img='start' name='Start'>
+                  <IconDropdown title="Start">
+                    <DropdownItem name="I" link="savior_demon" />
+                    <DropdownItem name="II" link="savior_demon" />
+                    <DropdownItem name="III" link="savior_demon" />
+                    <DropdownItem name="IV" link="savior_demon" />
+                  </IconDropdown>
+                </Icon>
+              </IconContainer>
+              <IconContainer>
+                <Icon img='typology_intro' name='Personality Theory' />
+                <Icon img='ops_intro' name='Objective Personality' />
+              </IconContainer>
             </div>
             <div id="fundamentals">
               <div className="section_top">Fundamentals</div>
-              <Link
-                href="/learn/savior_demon"
-                className="icon_container link_text"
-              >
-                <div className="page_icon">
-                  <img
-                    src={"/img/learn/home/savior_demon.png"}
-                    
-                  />
-                </div>
-                <div className="icon_text">Savior & Demon</div>
-              </Link>
-              <div className="seconds">
-                <Link
-                  href="/learn/human_needs"
-                  className="icon_container link_text"
-                >
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/human_needs.png"}
-                    />
-                  </div>
-                  <div className="icon_text">Human Needs</div>
-                </Link>
-                <Link href="/learn/letters" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img src={"/img/learn/home/letters.png"}  />
-                  </div>
-                  <div className="icon_text">Letters</div>
-                </Link>
-              </div>
-              <Link href="/learn/functions" className="icon_container link_text">
-                <div className="page_icon">
-                  <img src={"/img/learn/home/functions.png"}  />
-                </div>
-                <div className="icon_text">Functions</div>
-              </Link>
-              <div className="seconds">
-                <Link href="#" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/function_stack.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Function Stack</div>
-                </Link>
-                <Link href="#" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/modality_combos.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Observer & Decider</div>
-                </Link>
-              </div>
-              <Link
-                href="/learn/action_trait"
-                className="icon_container link_text"
-              >
-                <div className="page_icon">
-                  <img
-                    src={"/img/learn/home/action_trait.png"}
-                    
-                  />
-                </div>
-                <div className="icon_text">Actions</div>
-              </Link>
+              <IconContainer>
+                <Icon img='savior_demon' name='Savior & Demon' />
+              </IconContainer>
+              <IconContainer>
+                <Icon img='human_needs' name='Human Needs' />
+                <Icon img='letters' name='Letters' />
+              </IconContainer>
+              <IconContainer>
+                <Icon img='functions' name='Functions'>
+                  <IconDropdown title="Functions">
+                    <DropdownItem src="icons/Functions/ne" link="functions" />
+                    <DropdownItem src="icons/Functions/se" link="functions" />
+                    <DropdownItem src="icons/Functions/ni" link="functions" />
+                    <DropdownItem src="icons/Functions/si" link="functions" />
+                  </IconDropdown>
+                </Icon>
+              </IconContainer>
+              <IconContainer>
+                <Icon img='function_stack' name='Function Stack' />
+                <Icon img='observer_decider' name='Observer & Decider' />
+              </IconContainer>
+              <IconContainer>
+                <Icon img='action_trait' name='Actions' />
+              </IconContainer>
             </div>
             <div id="basic">
               <div className="section_top">Intermediate</div>
-              <div className="seconds">
-                <Link href="/learn/animals" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img src={"/img/learn/home/animals.png"}  />
-                  </div>
-                  <div className="icon_text">Animals</div>
-                </Link>
-                <Link href="#" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/animal_stack.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Animal Stack</div>
-                </Link>
-              </div>
-              <div className="seconds">
-                <Link
-                  href="/learn/modalities"
-                  className="icon_container link_text"
-                >
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/modalities.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Modalities</div>
-                </Link>
-                <Link href="#" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/modality_combos.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Function Modalities</div>
-                </Link>
-              </div>
+              <IconContainer>
+                <Icon img='animals' name='Animals' />
+                <Icon img='animal_stack' name='Animal Stack' />
+              </IconContainer>
+              <IconContainer>
+                <Icon img='modalities' name='Modalities' />
+                <Icon img='modality_combos' name='Modality Combos' />
+              </IconContainer>
             </div>
             <div id="advanced">
               <div className="section_top">Advanced</div>
-              <Link
-                href="/learn/extroversion"
-                className="icon_container link_text"
-              >
-                <div className="page_icon">
-                  <img
-                    src={"/img/learn/home/extroversion.png"}
-                    
-                  />
-                </div>
-                <div className="icon_text">Energy Spectrum</div>
-              </Link>
-              <div className="seconds">
-                <Link
-                  href="/learn/animal_modalities"
-                  className="icon_container link_text"
-                >
-                  <div className="page_icon">
-                    <img
-                      src={"/img/learn/home/animal_modalities.png"}
-                      
-                    />
-                  </div>
-                  <div className="icon_text">Animal Modalities</div>
-                </Link>
-                <Link href="/learn/quadras" className="icon_container link_text">
-                  <div className="page_icon">
-                    <img src={"/img/learn/home/quadras.png"}  />
-                  </div>
-                  <div className="icon_text">Quadras</div>
-                </Link>
-              </div>
-              <Link
-                href="/learn/social"
-                className="icon_container link_text"
-              >
-                <div className="page_icon">
-                  <img
-                    src={"/img/learn/home/social.png"}
-                    
-                  />
-                </div>
-                <div className="icon_text">Social Hierarchy</div>
-              </Link>
+              <IconContainer>
+                <Icon img='extroversion' name='Energy Spectrum' />
+              </IconContainer>
+              <IconContainer>
+                <Icon img='animal_modalities' name='Animal Modalities' />
+                <Icon img='quadras' name='Quadras' />
+              </IconContainer>
+              <IconContainer>
+                <Icon img='social' name='Social Hierarchy' />
+              </IconContainer>
             </div>
           </div>
         </div>

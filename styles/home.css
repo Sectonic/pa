@@ -1,11 +1,11 @@
 .home_banner {
   background-image:linear-gradient(
       to right,
-      rgba(var(--dark-purple-rgb), .62),
-      rgba(var(--dark-purple-rgb), .62)
+      rgba(var(--dark-purple-rgb), .8),
+      rgba(var(--dark-purple-rgb), .8)
     ),
-    url("./backgrounds/test.png");
-  background-size: 1900px;
+    url("./backgrounds/test2.png");
+  background-size: 100%;
   background-attachment: fixed;
   width: calc(100% - 50px);
   margin: 0 auto;
@@ -33,6 +33,7 @@
 @media screen and (max-width:775px) {
   .home_banner {
     width: calc(100% - 25px);
+    background-size: 1500px;
   }
 }
 

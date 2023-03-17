@@ -192,7 +192,7 @@ function Social() {
               </div>
               <h3 className="margin-sm">Specialize / Ego</h3>
               <p>
-              Type 3's are the specialists and craftsmen of the group who become the go-to in their focused area, they will narrow in instead of expanding their social impact an thus not rise higher (Specialize above Responsible).
+              Type 3's are the specialists and craftsmen of the group who become the go-to in their focused area, they will narrow in   instead of expanding their social impact an thus not rise higher (Specialize above Responsible).
               </p>
               <p>
               They focus on becoming the number one guy in their particular craft over bringing others with them or equalizing themselves downward (Ego above Friends).

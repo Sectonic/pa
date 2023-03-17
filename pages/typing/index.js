@@ -6,7 +6,7 @@ function Typing() {
   return (
     <div className="main">
       <Banner background="blue" title="Typing" section="typing" type="nav" />
-      <div className="section extra_margin_section">
+      <div className="section">
       <div className="section_body">
       <div className="section_img">
             <img
@@ -44,7 +44,7 @@ function Typing() {
           </div>
         </div>
       </div>
-      <div className="section typing_section">
+      <div className="section typing_section extra_margin_section">
       <div className="section_body">
       <div className="section_img">
             <img
@@ -85,7 +85,7 @@ function Typing() {
           </Link>
         </div>
       </div>
-      <div className="section typing_section">
+      <div className="section typing_section extra_margin_section">
       <div className="section_body">
       <div className="section_img">
             <img
