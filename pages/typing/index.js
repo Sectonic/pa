@@ -138,7 +138,7 @@ function Typing() {
                   alt=""
                   className="typing_img-home"
                 />
-                <h3 className="typing_title-h3">D&S Typing</h3>
+                <h3 className="typing_title-h3">Official Typing</h3>
                 <p>
                   Get officially typed by D&S
                 </p>

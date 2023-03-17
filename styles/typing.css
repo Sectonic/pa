@@ -108,7 +108,7 @@
 
 @media screen and (min-width: 775px) {
   .change_page_btn:hover {
-    background-color: var(--vibrant-purple);
+    background-color: var(--light-grey);
     color: white;
   }
 }

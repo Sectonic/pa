@@ -6,7 +6,7 @@ function dsTyping() {
     <div className="main">
       <Banner
         background="blue"
-        title="D&S Typing"
+        title="Official Typing"
         section="d&s"
         type="typing"
       />
@@ -30,7 +30,7 @@ function dsTyping() {
               <h2 className="margin-sm">No Claims</h2>
               <p>
               Dave & Shan are human like anyone else, they can make mistakes and that's okay.
-              They do NOT claim any kind of accuracy. 
+              Their type is "their best guess".
               </p>
               <p>
               You are paying exclusively for their opinions in an incomplete personality system.
@@ -49,7 +49,7 @@ function dsTyping() {
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Costs +100$</h3>
               <p>
-                x4 Monthly 19$ subscription & 59$ typing payment
+                x4 Monthly 19$ subscription & 69$ typing payment
               </p>
             </div>
           </div>

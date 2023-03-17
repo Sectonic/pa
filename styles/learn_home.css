@@ -2,7 +2,7 @@
   height: 90px;
   width: 90px;
   background-color: rgba(0, 0, 0, 0.205);
-  border: 10px solid var(--vibrant-purple);
+  border: 10px solid var(--light-grey);
   border-radius: 50%;
   position: relative;
   cursor: pointer;
@@ -18,7 +18,7 @@
 
 @media only screen and (min-width: 775px) {
   .page_icon:hover {    
-    background-color: var(--vibrant-purple);
+    background-color: var(--light-gray);
     border: 10px solid var(--purple-black);
   }
 }
@@ -44,10 +44,10 @@
   right: -325px;
   top: -10px;
   width: 300px;
-  background-color: var(--dark-grey);
-  border-radius: 20px;
+  background-color: var(--light-grey);
+  border-radius: 15px;
   cursor: default;
-  --animate-duration: .25s;
+  --animate-duration: .2s;
 }
 
 @media screen and (max-width: 1000px) {
@@ -64,14 +64,16 @@
 }
 
 .icon-dropdown_links {
-  width: calc(85% - 20px);
-  margin: 10px auto;
+  margin-top: 5px;
   padding: 10px 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: var(--light-grey);
-  border-radius: 20px;
+  background-color: var(--dark-grey);
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
   gap: 10px;
 }
 
@@ -81,19 +83,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--dark-grey);
-  border-radius: 50%;
+  background-color: var(--light-grey);
+  border-radius: 10px;
   font-size: 22px;
   cursor: pointer;
-  border: 3px solid var(--light-purple);
-  transition: .3s ease;
+  border: 3px solid var(--dark-grey);
+  transition: .2s ease;
 }
 
 .icon-dropdown_img {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  transition: .3s ease;
+  transition: .2s ease;
   border: 3px solid var(--light-purple);
 }
 
@@ -103,12 +105,12 @@
 }
 
 .icon-dropdown_img:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   border: 3px solid var(--purple-black)
 }
 
 .icon-dropdown_link:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   border: 3px solid var(--purple-black)
 }
 
@@ -158,12 +160,13 @@
       rgba(0, 0, 0, 0.7),
       rgba(0, 0, 0, 0.7)
     ),
-    url(".//backgrounds/background.png");
+    url(".//backgrounds/background_blue.png");
   background-size: 2900px;
   background-position: bottom;
   background-attachment: fixed;
   overflow: hidden;
   border-radius: 20px;
+  border: 5px solid #044c7673;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -227,7 +230,7 @@
 
 .section_button {
   width: 95%;
-  background-color: var(--dark-purple);
+  background-color: var(--dark-grey);
   height: 240px;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -292,25 +295,25 @@
 .button-title {
   font-size: 20px;
   font-weight: 600;
-  border-radius: 20px 20px 0 0px;
+  border-radius: 15px 20px 0 0px;
   width: 91%;
   padding: 10px 0;
   padding-right: 9.3%;
   text-align: right;
   margin: 0 auto;
-  background-color: var(--vibrant-purple);
+  background-color: var(--light-grey);
   transition: 0.2s ease;
 }
 
 .button-title-container_small {
   font-size: 20px;
   font-weight: 600;
-  border-radius: 60px;
+  border-radius: 15px;
   width: 90%;
   height: 60px;
   text-align: right;
   padding-right: 40px;
-  background-color: var(--vibrant-purple);
+  background-color: var(--dark-grey);
   transition: 0.2s ease;
 }
 
@@ -327,7 +330,7 @@
   margin: 0 auto;
   width: 80%;
   margin-top: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 20px;
   animation: lazy_loading 1s ease;
   text-align: left;
@@ -345,18 +348,18 @@
   height: 25px;
   margin-left: 13px;
   margin-top: 10px;
-  border-radius: 50%;
+  border-radius: 10px;
   padding: 7.5px;
   padding-left: 11px;
   position: relative;
-  background-color: var(--high-op-dark-purple);
+  background-color: var(--light-grey);
   transition: 0.3s;
   transform: rotate(-180deg);
 }
 
 .button_send_small img {
   height: 100%;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .section_button_small:hover .button_send_small {
