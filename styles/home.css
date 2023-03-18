@@ -1,10 +1,10 @@
 .home_banner {
   background-image:linear-gradient(
       to right,
-      rgba(var(--dark-purple-rgb), .8),
-      rgba(var(--dark-purple-rgb), .8)
+      rgba(var(--dark-grey-rgb), .3),
+      rgba(var(--dark-grey-rgb), .3)
     ),
-    url("./backgrounds/test2.png");
+    url("./backgrounds/landing.png");
   background-size: 100%;
   background-attachment: fixed;
   width: calc(100% - 50px);
@@ -91,7 +91,7 @@
 @media only screen and (max-width: 1530px) {
   .home_title_text { 
     text-align: center;
-    font-size: 54px;
+    font-size: 64px;
   }
   .home_title_img {
     height: 200px;
@@ -118,7 +118,7 @@
 
 .home_title_top {
   color: white;
-  font-size: 38px;
+  font-size: 48px;
   font-weight: 600;
 }
 
@@ -150,7 +150,7 @@
 
 
 .home_started:hover {
-  background-color: var(--vibrant-purple);
+  background-color: var(--light-grey);
   color: white;
 }
 
@@ -168,9 +168,9 @@
 
 .home_dashboard > div {
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 15px;
   height: 90px;
-  width: 70%;
+  width: 90%;
   padding: 15px 40px;
 }
 
@@ -198,7 +198,7 @@
     padding: 20px 20px;
   }
   .home_dashboard > div {
-    background-color: rgba(var(--vibrant-purple-rgb),.1);
+    background-color: rgba(var(--light-grey-rgb),.1);
     padding: 7px 40px;
   }
 }
@@ -281,7 +281,7 @@
 }
 
 .home_lg-text {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -293,7 +293,7 @@
 
 
 .updates_img {
-  height: 60px;
+  height: 70px;
 }
 
 @media screen and (max-width:540px) {
@@ -301,7 +301,7 @@
     font-size: 18px;
   }
   .home_lg-textbig {
-    font-size: 26px;  
+    font-size: 22px;  
   }
   .updates_img {
     margin-top: 10px;
