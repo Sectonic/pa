@@ -52,16 +52,18 @@ def getTypeData(data):
     options = external_data
     template = external_data['template']
     for name, value in data.items():
-        current_values = options[name][value]
-        for coin in current_values:
-            template[coin['name']] = coin['value']
-    if 'deModality' in data:
+        if value:
+            current_values = options[name][value]
+            for coin in current_values:
+                print(coin)
+                template[coin['name']] = coin['value']
+    if data['deModality']:
         DiModality = 'M' if data['deModality'] == 'fDe' else 'F'
         DeModality = 'F' if data['deModality'] == 'fDe' else 'M'
     else:
         DiModality = 'x'
         DeModality = 'x'
-    if 'sensoryModality' in data:
+    if data['sensoryModality']:
             if template['Observer Axis'] == 'Se-Ni':
                 OiModality = 'F' if data['sensoryModality'] == 'mS' else 'M'
                 OeModality = 'M' if data['sensoryModality'] == 'mS' else 'F'
@@ -80,16 +82,14 @@ def getTypeData(data):
     template['Blast Modality'] = f'{OiModality}{DeModality}'
     template['Consume Modality'] = f'{OeModality}{DiModality}'
     template['Sleep Modality'] = f'{OiModality}{DiModality}'
-    if 'animal1' in data and 'animal2' in data:
+    if data['animal1'] and data['animal2']:
         combo = f'{data["animal1"][0]}{data["animal2"][0]}'
         if combo in options['combos']:
             template['Extrovert/Introvert'] = options['combos'][combo]['value']
-    template['Type'] = f'{data["sensoryModality"][0].upper() if "sensoryModality" in data else "x"}{data["deModality"][0].upper() if "deModality" in data else "x"} {data["function1"] if "function1" in data else "xx"}/{data["function2"] if "function2" in data else "xx"} {data["animal1"][0] if "animal1" in data else "x"}{data["animal2"][0] if "animal2" in data else "x"}/{data["animal3"][0] if "animal3" in data else "x"}({data["animal4"][0] if "animal4" in data else "x"})'
-    print(template)
+    template['Type'] = f'{data["sensoryModality"][0].upper() if data["sensoryModality"] else "x"}{data["deModality"][0].upper() if data["deModality"] else "x"} {data["function1"] if data["function1"] else "xx"}/{data["function2"] if data["function2"] else "xx"} {data["animal1"][0] if data["animal1"] else "x"}{data["animal2"][0] if data["animal2"] else "x"}/{data["animal3"][0] if data["animal3"] else "x"}({data["animal4"][0] if data["animal4"] else "x"})'
     return template
 
 def update_type(person_id, person):
-    print(person)
     type = Types.query.filter_by(id=person_id).first()
     type.name=person['Name']
     type.sex=person['Sex']

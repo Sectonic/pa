@@ -75,7 +75,9 @@ def edit(type_id):
                 data = {}
                 for post in post_loop:
                     new_post = request.form.get(post)
-                    if not new_post == '':
+                    if new_post == '':
+                        data[post] = None
+                    else:
                         data[post] = new_post
                 if request.form.get('function1') != '' and request.form.get('function2') != '':
                     if request.form.get('function1') in all_functions and request.form.get('function2') in all_functions:
@@ -110,7 +112,9 @@ def add():
             data = {}
             for post in post_loop:
                 new_post = request.form.get(post)
-                if not new_post == '':
+                if new_post == '':
+                    data[post] = None
+                else:
                     data[post] = new_post
             if request.form.get('function1') != '' and request.form.get('function2') != '':
                 if request.form.get('function1') in all_functions and request.form.get('function2') in all_functions:
