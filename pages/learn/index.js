@@ -116,10 +116,10 @@ function Learn() {
               <IconContainer>
                 <Icon img='start' name='Start'>
                   <IconDropdown title="Start">
-                    <DropdownItem name="I" link="savior_demon" />
-                    <DropdownItem name="II" link="savior_demon" />
-                    <DropdownItem name="III" link="savior_demon" />
-                    <DropdownItem name="IV" link="savior_demon" />
+                    <DropdownItem label="I" title="Start" link="start" />
+                    <DropdownItem label="II" title="Start" link="start" />
+                    <DropdownItem label="III" title="Start" link="start" />
+                    <DropdownItem label="IV" title="Start" link="start" />
                   </IconDropdown>
                 </Icon>
               </IconContainer>
@@ -140,10 +140,10 @@ function Learn() {
               <IconContainer>
                 <Icon img='functions' name='Functions'>
                   <IconDropdown title="Functions">
-                    <DropdownItem src="icons/Functions/ne" link="functions" />
-                    <DropdownItem src="icons/Functions/se" link="functions" />
-                    <DropdownItem src="icons/Functions/ni" link="functions" />
-                    <DropdownItem src="icons/Functions/si" link="functions" />
+                    <DropdownItem src="icons/Functions/ne" title="Ne" link="functions" />
+                    <DropdownItem src="icons/Functions/se" title="Se" link="functions" />
+                    <DropdownItem src="icons/Functions/ni" title="Ni" link="functions" />
+                    <DropdownItem src="icons/Functions/si" title="Si" link="functions" />
                   </IconDropdown>
                 </Icon>
               </IconContainer>
