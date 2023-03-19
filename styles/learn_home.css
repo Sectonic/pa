@@ -198,6 +198,7 @@
   .icon-dropdown_links {
     height: 200px;
     border-radius: 0;
+    padding-bottom: 75px;
   }
   .icon-dropdown_bar {
     background-color: var(--light-grey);
