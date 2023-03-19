@@ -4,7 +4,7 @@ import Banner from "../../components/banner";
 function Extroversion() {
   return (
     <div className="main">
-      <Banner background="green" title="Energy Spectrum" section="extroversion" />
+      <Banner background="green" title="Extroversion" section="extroversion" />
       <div className="section">
         <h2 className="section_title">Energy Preference</h2>
         <div className="section_body section_texts-sm">
