@@ -116,68 +116,81 @@ function Learn() {
               <IconContainer>
                 <Icon img='start' name='Start'>
                   <IconDropdown title="Start">
-                    <DropdownItem label="I" title="Start" link="start" />
-                    <DropdownItem label="II" title="Start" link="start" />
-                    <DropdownItem label="III" title="Start" link="start" />
-                    <DropdownItem label="IV" title="Start" link="start" />
-                    <DropdownItem label="V" title="Start" link="start" />
+                    <DropdownItem src="learn/home/start" title="Overview" link="start" />
+                    <DropdownItem src="learn/home/typology_intro" title="Personality Theory" link="typology_intro" />
+                    <DropdownItem src="learn/home/ops_intro" title="Objective Personality" link="ops_intro" />
                   </IconDropdown>
                 </Icon>
-              </IconContainer>
-              <IconContainer>
-                <Icon img='typology_intro' name='Personality Theory' />
-                <Icon img='ops_intro' name='Objective Personality' />
               </IconContainer>
             </div>
             <div id="fundamentals">
               <div className="section_top">Fundamentals</div>
               <IconContainer>
-                <Icon img='savior_demon' name='Savior & Demon' />
-              </IconContainer>
-              <IconContainer>
-                <Icon img='human_needs' name='Human Needs' />
-                <Icon img='letters' name='Letters' />
-              </IconContainer>
-              <IconContainer>
-                <Icon img='functions' name='Functions'>
-                  <IconDropdown title="Functions">
-                    <DropdownItem src="icons/Functions/ne" title="Ne" link="functions" />
-                    <DropdownItem src="icons/Functions/se" title="Se" link="functions" />
-                    <DropdownItem src="icons/Functions/ni" title="Ni" link="functions" />
-                    <DropdownItem src="icons/Functions/si" title="Si" link="functions" />
+                <Icon img='savior_demon' name='Savior & Demon'>
+                  <IconDropdown title="Savior & Demon">
+                    <DropdownItem src="learn/home/savior_demon" title="Overview" link="savior_demon" />
+                    <DropdownItem src="learn/home/action_trait" title="Action vs Trait" link="action_trait" />
                   </IconDropdown>
                 </Icon>
               </IconContainer>
               <IconContainer>
-                <Icon img='function_stack' name='Function Stack' />
-                <Icon img='observer_decider' name='Observer & Decider' />
+                <Icon img='human_needs' name='Human Needs'>
+                  <IconDropdown title="Human Needs">
+                    <DropdownItem src="learn/home/human_needs" title="Overview" link="human_needs" />
+                  </IconDropdown>
+                </Icon>
+                <Icon img='letters' name='Letters'>
+                  <IconDropdown title="Letters">
+                    <DropdownItem src="learn/home/letters" title="Overview" link="letters" />
+                  </IconDropdown>
+                </Icon>
               </IconContainer>
               <IconContainer>
-                <Icon img='action_trait' name='Actions' />
+                <Icon img='functions' name='Functions'>
+                  <IconDropdown title="Functions">
+                    <DropdownItem src="learn/home/savior_demon" title="Overview" link="savior_demon" />
+                  </IconDropdown>
+                </Icon>
               </IconContainer>
             </div>
             <div id="basic">
               <div className="section_top">Intermediate</div>
               <IconContainer>
-                <Icon img='animals' name='Animals' />
-                <Icon img='animal_stack' name='Animal Stack' />
+                <Icon img='animals' name='Animals'>
+                  <IconDropdown title="Animals">
+                    <DropdownItem src="learn/home/animals" title="Overview" link="animals" />
+                  </IconDropdown>
+                </Icon>
               </IconContainer>
               <IconContainer>
-                <Icon img='modalities' name='Modalities' />
-                <Icon img='modality_combos' name='Modality Combos' />
+                <Icon img='modalities' name='Modalities'>
+                  <IconDropdown title="Modalities">
+                    <DropdownItem src="learn/home/modalities" title="Masc vs Fem" link="modalities" />
+                  </IconDropdown>
+                </Icon>
               </IconContainer>
             </div>
             <div id="advanced">
               <div className="section_top">Advanced</div>
               <IconContainer>
-                <Icon img='extroversion' name='Energy Spectrum' />
+                <Icon img='extroversion' name='Energy Spectrum'>
+                  <IconDropdown title="Energy Spectrum">
+                    <DropdownItem src="learn/home/extroversion" title="Extroversion" link="extroversion" />
+                  </IconDropdown>
+                </Icon>
+                <Icon img='social' name='Social Hierarchy'>
+                  <IconDropdown title="Social Hierarchy">
+                    <DropdownItem src="learn/home/social" title="Overview" link="social" />
+                  </IconDropdown>
+                </Icon>
               </IconContainer>
               <IconContainer>
-                <Icon img='animal_modalities' name='Animal Modalities' />
-                <Icon img='quadras' name='Quadras' />
-              </IconContainer>
-              <IconContainer>
-                <Icon img='social' name='Social Hierarchy' />
+                <Icon img='advanced' name='Concept Combos'>
+                  <IconDropdown title="Concept Combos">
+                    <DropdownItem src="learn/home/animal_modalities" title="Animal Modalities" link="animal_modalities" />
+                    <DropdownItem src="learn/home/quadras" title="Quadras" link="quadras" />
+                  </IconDropdown>
+                </Icon>
               </IconContainer>
             </div>
           </div>
