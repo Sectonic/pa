@@ -85,9 +85,6 @@ function Start() {
           />
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/typology_intro" text="Typology Intro" src="typology_intro"/>
-      </div>
     </div>
   );
 }

@@ -165,9 +165,6 @@ function Letters() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/functions" text="Functions" src="functions"/>
-      </div>
     </div>
   );
 }

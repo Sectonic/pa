@@ -135,9 +135,6 @@ function animalModalities() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/quadras" text="Quadras" src="quadras" />
-      </div>
     </div>
   );
 }

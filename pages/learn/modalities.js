@@ -113,9 +113,6 @@ function Modalities() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/extroversion" text="Energy Spectrum" src="extroversion"/>
-      </div>
     </div>
   );
 }

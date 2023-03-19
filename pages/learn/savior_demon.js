@@ -188,9 +188,6 @@ function SaviorDemon() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/human_needs" text="Human Needs" src="human_needs" />
-      </div>
     </div>
   );
 }
