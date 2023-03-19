@@ -131,9 +131,6 @@ function actionTrait() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-          <ChangeSection link="/learn/animals" text="Animals" src="animals"/>
-      </div>
     </div>
   );
 }

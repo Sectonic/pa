@@ -228,9 +228,6 @@ function Functions() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/action_trait" text="Actions" src="action_trait"/>
-      </div>
     </div>
   );
 }

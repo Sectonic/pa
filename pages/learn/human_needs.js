@@ -141,9 +141,6 @@ function humanNeeds() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/letters" text="Letters" src="letters"/>
-      </div>
     </div>
   );
 }

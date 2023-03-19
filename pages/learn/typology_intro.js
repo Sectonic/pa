@@ -93,9 +93,6 @@ export default function Typology() {
           </div>
         </div>
       </div>
-      <div className="section transparent_section">
-        <ChangeSection link="/learn/ops_intro" text="OPS Intro" src="ops_intro"/>
-      </div>
     </div>
   );
 }
