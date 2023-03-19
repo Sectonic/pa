@@ -55,7 +55,6 @@ def getTypeData(data):
         if value:
             current_values = options[name][value]
             for coin in current_values:
-                print(coin)
                 template[coin['name']] = coin['value']
     if data['deModality']:
         DiModality = 'M' if data['deModality'] == 'fDe' else 'F'
