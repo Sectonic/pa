@@ -120,6 +120,7 @@ function Learn() {
                     <DropdownItem label="II" title="Start" link="start" />
                     <DropdownItem label="III" title="Start" link="start" />
                     <DropdownItem label="IV" title="Start" link="start" />
+                    <DropdownItem label="V" title="Start" link="start" />
                   </IconDropdown>
                 </Icon>
               </IconContainer>

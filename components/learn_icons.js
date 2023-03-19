@@ -68,6 +68,16 @@ export function IconDropdown({ children, title }) {
             <div className='icon-dropdown_title'>{title}</div>
             <div className='icon-dropdown_links'>
                 {children}
+                {
+                    Children.count(children) < 5 && (
+                        <>                        
+                            <div className='icon-dropdown_bar__transparent'>A</div>
+                            <div className='icon-dropdown_bar__transparent'>A</div>
+                            <div className='icon-dropdown_bar__transparent'>A</div>
+                            <div className='icon-dropdown_bar__transparent'>A</div>
+                        </>
+                    )
+                }
             </div>
         </>
     )

@@ -142,7 +142,6 @@ def type(id):
 
 @app.route("/types/<int:low>to<int:high>", methods=['GET'])
 def types(low, high):
-    high_test = Types.query.filter_by(id=high).first()
     format_data = request.args.get('format')
     if format_data == 'modified':
         original_query = Types.query.order_by(Types.updatedAt.desc())
@@ -156,7 +155,7 @@ def types(low, high):
             if v_arr[0] != '':
                 original_query = original_query.filter(getattr(Types, k).in_(v_arr))
     result_query = original_query.all()
-    bounded_query = result_query[low:high] if high_test else result_query[low:]
+    bounded_query = result_query[low:high] if result_query[high] else result_query[low:]
     all_bounds_arr = []
     for person in bounded_query:
         person_dict = dbToDict(person)
