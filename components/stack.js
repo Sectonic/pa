@@ -258,10 +258,10 @@ export default function Stack({data, need_options, functions, decider_functions,
             <div className="big-axis"></div>
             <div className="small-axis"></div>
             {[...Array(4)].map((e, i) => {
-                return (<HandleAnimals anim_num={i} />)
+                return (<HandleAnimals anim_num={i} key={i} />)
             })}
             {[...Array(4)].map((e, i) => {
-                return (<HandleFunctions func_index={i} />)
+                return (<HandleFunctions func_index={i} key={i} />)
             })}
         </div>
     )
