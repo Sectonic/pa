@@ -1,4 +1,4 @@
-function SaviorPopup() {
+function UpdatesPopup() {
   return (
     <div>
       <h2 className="popup_title">Saviors</h2>
@@ -50,4 +50,4 @@ function SaviorPopup() {
   );
 }
 
-export default SaviorPopup;
+export default UpdatesPopup;

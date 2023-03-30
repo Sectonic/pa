@@ -12,7 +12,7 @@ function Image(props) {
         alt=''
         src={props.src}
         effect='blur'
-        />
+      />
   );
 }
   
