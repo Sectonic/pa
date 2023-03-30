@@ -1,11 +1,8 @@
 import Image from '../image';
-import Link from 'next/link';;
+import Link from 'next/link';
+import Stack from '../stack';
 
 function TypePopup({data}) {
-
-  function checkSavior(animal) {
-    return [data.animal1, data.animal2].includes(animal)
-  }
 
   if (data.loading) {
     return (
@@ -20,17 +17,161 @@ function TypePopup({data}) {
   }
 
   var animal_stack = [data.animal1, data.animal2, data.animal3, data.animal4]
-  function checkStack(animal) {
-    let checkIndex = animal_stack.indexOf(animal) + 1;
-    return checkIndex
-  }
 
   var double_animal = {
-    'Blast': 'Consume',
-    'Play': 'Sleep',
-    'Consume': 'Blast',
-    'Sleep': 'Play'
+  'Blast': 'Consume',
+  'Play': 'Sleep',
+  'Consume': 'Blast',
+  'Sleep': 'Play'
   }
+
+  var decider_functions = ['fe', 'te', 'fi', 'ti'];
+  var observer_functions = ['ne', 'se', 'ni', 'si'];
+
+  var function_options = {
+  'Se': 'ni',
+  'Ni': 'se',
+  'Ne': 'si',
+  'Si': 'ne',
+  'Fi': 'te',
+  'Fe': 'ti',
+  'Ti': 'fe',
+  'Te': 'fi'
+  }
+
+  var need_options = {
+  'se': 'oe',
+  'ni': 'oi',
+  'ne': 'oe',
+  'si': 'oi',
+  'fi': 'di',
+  'fe': 'de',
+  'ti': 'di',
+  'te': 'de'
+  }
+
+  var need_opposites = {
+    'Oe': 'oi',
+    'De': 'di',
+    'Oi': 'oe',
+    'Di': 'de'
+  }
+
+  var animal_options = {
+  'oe': {
+      'de': 'Play',
+      'di': 'Consume'
+  },
+  'oi': {
+      'de': 'Blast',
+      'di': 'Sleep'
+  },
+  'de': {
+      'oe': 'Play',
+      'oi': 'Blast'
+  },
+  'di': {
+      'oe': 'Consume',
+      'oi': 'Sleep'
+  }
+  }
+
+  var animal_axis = {
+    'Blast': {
+      'Se-Ni': 'ni',
+      'Si-Ne': 'si',
+      'Fe-Ti': 'fe',
+      'Fi-Te': 'te'
+    },
+    'Play': {
+      'Se-Ni': 'se',
+      'Si-Ne': 'ne',
+      'Fe-Ti': 'fe',
+      'Fi-Te': 'te'
+    },
+    'Consume': {
+      'Se-Ni': 'se',
+      'Si-Ne': 'ne',
+      'Fe-Ti': 'ti',
+      'Fi-Te': 'fi'
+    },
+    'Sleep': {
+      'Se-Ni': 'ni',
+      'Si-Ne': 'si',
+      'Fe-Ti': 'ti',
+      'Fi-Te': 'fi'
+    }
+  }
+
+  var animal_decider_observer = {
+    'Blast': {
+      'd': 'de',
+      'o': 'oi'
+    },
+    'Play': {
+      'd': 'de',
+      'o': 'oe'
+    },
+    'Consume': {
+      'd': 'di',
+      'o': 'oe'
+    },
+    'Sleep': {
+      'd': 'di',
+      'o': 'oi'
+    }
+  }   
+
+  var function1 = data.function1 ? data.function1.toLowerCase() : null;
+  var function2 = data.function2 ? data.function2.toLowerCase() : null;
+  var function3 = data.function2 ? function_options[data.function2].toLowerCase() : null;
+  var function4 = data.function1 ? function_options[data.function1].toLowerCase() : null;
+
+  var need1, need2, need3, need4;
+  if (data.oD) {
+    let observer = data.oD == "Observer";
+    if (observer) {
+      need1 = data.observerNeed ? data.observerNeed.toLowerCase() : null;
+      need2 = data.deciderNeed ? data.deciderNeed.toLowerCase() : null;
+      need3 = data.deciderNeed ? need_opposites[data.deciderNeed] : null;
+      need4 = data.observerNeed ? need_opposites[data.observerNeed] : null;
+    } else {
+      need1 = data.deciderNeed ? data.deciderNeed.toLowerCase() : null;
+      need2 = data.observerNeed ? data.observerNeed.toLowerCase() : null;
+      need3 = data.observerNeed ? need_opposites[data.observerNeed] : null;
+      need4 = data.deciderNeed ? need_opposites[data.deciderNeed] : null;
+    }
+  }
+
+  var need_grant = [
+    [need1, need2],
+    [need2, need4],
+    [need1, need3],
+    [need3, need4]
+  ]
+
+
+
+  var jumper = false;
+  // if (function1[1] === function2[1]) {
+  //   function2 = function_options[data.function2].toLowerCase();
+  //   function3 = data.function2.toLowerCase();
+  //   jumper = true;
+  // } 
+
+  var functions = [function1, function2, function3, function4];
+
+  var grant1 = function1 && function2 ? animal_options[need_options[function1]][need_options[function2]] : null;
+  var grant2 = function2 && function4 ? animal_options[need_options[function2]][need_options[function4]] : null;
+  var grant3 = function1 && function3 ? animal_options[need_options[function1]][need_options[function3]] : null;
+  var grant4 = function3 && function4 ? animal_options[need_options[function3]][need_options[function4]] : null;
+  var grant_funcs = {
+  0: [function1, function2],
+  1: [function2, function4],
+  2: [function1, function3],
+  3: [function3, function4],
+  }
+  var grants = [grant1, grant2, grant3, grant4];
 
   function checkDouble(animal) {
     let double_anim = double_animal[data.animal4];
@@ -42,157 +183,62 @@ function TypePopup({data}) {
     }
   }
 
-  var jumper = false;
-
   var decider_functions = ['fe', 'te', 'fi', 'ti'];
-
-  var function_options = {
-    'Se': 'ni',
-    'Ni': 'se',
-    'Ne': 'si',
-    'Si': 'ne',
-    'Fi': 'te',
-    'Fe': 'ti',
-    'Ti': 'fe',
-    'Te': 'fi'
-  }
-
-  var need_options = {
-    'se': 'oe',
-    'ni': 'oi',
-    'ne': 'oe',
-    'si': 'oi',
-    'fi': 'di',
-    'fe': 'de',
-    'ti': 'di',
-    'te': 'de'
-  }
-
-  var modality_options = {
-    'm': {
-      'ne': false,
-      'ni': false,
-      'si': true,
-      'se': true,
-      'fi': false,
-      'ti': false,
-      'fe': true,
-      'te': true
-    },
-    'f': {
-      'ne': true,
-      'ni': true,
-      'si': false,
-      'se': false,
-      'fi': true,
-      'ti': true,
-      'fe': false,
-      'te': false
-    }
-  }
-
-  var double_options = {
-    'Blast': ['oe', 'di'],
-    'Play': ['oi', 'di'],
-    'Consume': ['oi', 'de'],
-    'Sleep': ['oe', 'de']
-  }
-
-  var animal_options = {
-    'oe': {
-      'de': 'Play',
-      'di': 'Consume'
-    },
-    'oi': {
-      'de': 'Blast',
-      'di': 'Sleep'
-    },
-    'de': {
-      'oe': 'Play',
-      'oi': 'Blast'
-    },
-    'di': {
-      'oe': 'Consume',
-      'oi': 'Sleep'
-    }
-  }
-
-  var stack_options = {
-    1: 'main_logo',
-    2: 'savior_logo',
-    3: 'demon_logo',
-    4: 'last_logo'
-  }
-
-  var bracket_options = {
-    1: 'first_bracket',
-    2: 'bracket',
-    3: 'demon_bracket',
-    4: 'last_demon_bracket'
-  }
-
-  var function1 = data.function1.toLowerCase();
-  var function2 = data.function2.toLowerCase();
-  var function3 = function_options[data.function2].toLowerCase();
-  var function4 = function_options[data.function1].toLowerCase();
-  // if (function1[1] === function2[1]) {
-  //   function2 = function_options[data.function2].toLowerCase();
-  //   function3 = data.function2.toLowerCase();
-  //   jumper = true;
-  // } 
-  var functions = [function1, function2, function3, function4];
-
-  var grant1 = animal_options[need_options[function1]][need_options[function2]];
-  var grant2 = animal_options[need_options[function2]][need_options[function4]];
-  var grant3 = animal_options[need_options[function1]][need_options[function3]];
-  var grant4 = animal_options[need_options[function3]][need_options[function4]];
-  var grant_funcs = {
-    0: [function1, function2],
-    1: [function2, function4],
-    2: [function1, function3],
-    3: [function3, function4],
-  }
-  var grants = [grant1, grant2, grant3, grant4];
-
-  var anim_all = [];
-  for (let i = 0; i < grants.length; i++) {
-    anim_all.push({
-      'animal': grants[i],
-      'stack': checkStack(grants[i]),
-      'savior': checkSavior(grants[i])
-    })
-  }
-
-  var double_funcs = {}
-  var doubles = double_options[data.animal4]
-  for (let i = 0; i < functions.length; i++) {
-    let func = functions[i];
-    double_funcs[i + 1] = false;
-    if (doubles.includes(need_options[func])) {
-      double_funcs[i + 1] = true;
-    }
-  }
-
-  var sensory_modality = data.sensoryModality.substring(0,1);
-  var de_modality = data.deModality.substring(0,1);
-  var masc_modality = {}
-  for (let i = 0; i < functions.length; i++) {
-    let func = functions[i];
-    if (decider_functions.includes(func)) {
-      masc_modality[i + 1] = modality_options[de_modality][func]
-    }
-    else {
-      masc_modality[i + 1] = modality_options[sensory_modality][func]
-    }
-  }
 
   var animal_details = []
   for (let i = 0; i < animal_stack.length; i++) {
     let curr_animal = animal_stack[i];
-    animal_details.push({
-      modality:data[`${curr_animal.toLowerCase()}Modality`],
-      functions: grant_funcs[grants.indexOf(curr_animal)]
-    });
+    if (curr_animal) {
+      var anim_functions = []
+      let decider_func = data.deciderAxis ? animal_axis[curr_animal][data.deciderAxis] : null;
+      let observer_func = data.observerAxis ? animal_axis[curr_animal][data.observerAxis] : null;
+      anim_functions.push(observer_func, decider_func);
+      animal_details.push({
+        modality:data[`${curr_animal.toLowerCase()}Modality`],
+        functions: anim_functions
+      });
+    } else {
+      animal_details.push(null);
+    }
+  }
+
+  var stack_props = {data, need_options, functions, grant_funcs, decider_functions, animal_stack, grants, jumper, need_grant, animal_options};
+
+  const handleAnimalFuncs = (funcs, index, animal_index) => {
+    var other_index = index == 1 ? 1 : 0;
+    let second_time = index == 1 ? true : false;
+    var decider_observer = second_time ? 'd' : 'o';
+    var decider_includes;
+    var current_letter = second_time ? data.deciderLetter : data.observerLetter;
+    if (funcs) {
+      if (!funcs[index] && funcs[other_index]) {
+        let other_decider_includes = decider_functions.includes(funcs[other_index]);
+        decider_includes = !other_decider_includes;
+      } else {
+        decider_includes = decider_functions.includes(funcs[index]);
+      }
+      var location = second_time ? decider_includes : !decider_includes;
+      var current_function = location ? funcs[index] : funcs[other_index];
+      if (current_function) {
+        return '/img/icons/Functions/' + current_function + '.png';
+      } else {
+        if (current_letter) {
+          return '/img/icons/partial/letters/' + current_letter.toLowerCase() + '.png';
+        } else if (animal_stack[animal_index]) {
+          let current_need = animal_decider_observer[animal_stack[animal_index]][decider_observer];
+          return '/img/icons/partial/needs/' + current_need + '.png';
+        } else {
+          return '/img/icons/partial/needs/' + (second_time ? 'd.png' : 'o.png');
+        }
+      }
+    } else if (current_letter) {
+      return '/img/icons/partial/letters/' + current_letter.toLowerCase() + '.png';
+    } else if (animal_stack[animal_index]) {
+      let current_need = animal_decider_observer[animal_stack[animal_index]][decider_observer];
+      return '/img/icons/partial/needs/' + current_need + '.png';
+    } else {
+      return '/img/icons/partial/needs/' + (second_time ? 'd.png' : 'o.png');
+    }
   }
 
   return (
@@ -221,30 +267,7 @@ function TypePopup({data}) {
       </div>
       <div className="diagram_container">
         <div className="stack_container outline-gray">
-          <div className="stack">
-            <div className="big-axis"></div>
-            <div className="small-axis"></div>
-            <div className={`${bracket_options[anim_all[0]['stack']]} top_bracket`}></div>
-            <div className={`bracket-logo top_logo ${stack_options[anim_all[0]['stack']]}`}>
-                <p>{anim_all[0]['stack'] === 4 ? "(" : null}{anim_all[0]['animal'][0]}{anim_all[0]['stack'] === 4 ? ")" : null}</p>
-            </div>
-            <div className={`${bracket_options[anim_all[1]['stack']]} second_bracket`}></div>
-            <div className={`bracket-logo second_logo ${stack_options[anim_all[1]['stack']]}`}>
-                <p>{anim_all[1]['stack'] === 4 ? "(" : null}{anim_all[1]['animal'][0]}{anim_all[1]['stack'] === 4 ? ")" : null}</p>
-            </div>
-            <div className={`${bracket_options[anim_all[2]['stack']]} third_bracket`}></div>
-            <div className={`bracket-logo third_logo ${stack_options[anim_all[2]['stack']]}`}>
-                <p>{anim_all[2]['stack'] === 4 ? "(" : null}{anim_all[2]['animal'][0]}{anim_all[2]['stack'] === 4 ? ")" : null}</p>
-            </div>
-            <div className={`${bracket_options[anim_all[3]['stack']]} last_bracket`}></div>
-            <div className={`bracket-logo fourth_logo ${stack_options[anim_all[3]['stack']]}`}>
-                <p>{anim_all[3]['stack'] === 4 ? "(" : null}{anim_all[3]['animal'][0]}{anim_all[3]['stack'] === 4 ? ")" : null}</p>
-            </div>
-            <div className="top border-func"><Image src={`/img/icons/Modalities/${masc_modality[1] ? "Masc/m" : "Fem/f"}_${function1}.png`}/>{ double_funcs[1] ? <div className="double_logo double_top">x2</div> : null}</div>
-            <div className={`second ${jumper ? "demon_func" : "border-func"}`}><Image src={`/img/icons/Modalities/${masc_modality[2] ? "Masc/m" : "Fem/f"}_${function2}.png`}/>{ double_funcs[2] ? <div className="double_logo double_2nd">x2</div> : null}</div>
-            <div className={`third ${jumper ? "border-func" : "demon_func"}`}><Image  src={`/img/icons/Modalities/${masc_modality[3] ? "Masc/m" : "Fem/f"}_${function3}.png`}/>{ double_funcs[3] ? <div className="double_logo double_3rd">x2</div> : null}</div>
-            <div className="last demon_func"><Image src={`/img/icons/Modalities/${masc_modality[4] ? "Masc/m" : "Fem/f"}_${function4}.png`}/>{ double_funcs[4] ? <div className="double_logo double_last">x2</div> : null}</div>
-          </div>
+          <Stack {...stack_props} />
         </div>
         <div className="animal_container">
             <div className="animals_diagram outline-gray">
@@ -257,22 +280,49 @@ function TypePopup({data}) {
                 <div className="animal_diagram-names">
                   {animal_stack.map((animal, i, {length}) => {
                     if (i + 1 === length) {
-                      return <div key={i} className="names_last">{animal[0]}</div>
+                      return <div key={i} className="names_last">{animal ? animal[0] : 'x'}</div>
                     }
                     else {
-                      return <div key={i} >{animal[0]}{ checkDouble(animal) ? <div className="animal_double">x2</div> : null}</div>
+                      return (
+                        <>
+                        {animal ? (
+                          <div key={i} >
+                            {animal[0]}
+                            { checkDouble(animal) ? <div className="animal_double">x2</div> : null}
+                          </div>
+                        ) : (
+                          <div key={i}>
+                            x
+                          </div>
+                        )}
+                        </>
+                      )
                     }
                   })}
                 </div>
                 <div className="animal_diagram-details">
                   {animal_details.map((detail, i) => {
-                    return (<div key={i}>
-                      <div className="animal_detail-modality">{detail.modality}</div>
-                      <div className="animal_detail-funcs">
-                        <Image src={`/img/icons/Functions/${!decider_functions.includes(detail.functions[0]) ? detail.functions[0] : detail.functions[1]}.png`} />
-                        <Image src={`/img/icons/Functions/${decider_functions.includes(detail.functions[1]) ? detail.functions[1] : detail.functions[0]}.png`} />
+                    return (
+                      <div key={i}>
+                        {detail ? (
+                          <>
+                            <div className="animal_detail-modality">{detail.modality}</div>
+                            <div className="animal_detail-funcs">
+                              <Image src={handleAnimalFuncs(detail.functions, 0, i)} />
+                              <Image src={handleAnimalFuncs(detail.functions, 1, i)} />
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className='animal_detail-modality'>xx</div>
+                            <div className='animal_detail-funcs'>
+                              <Image src="/img/icons/partial/needs/o.png" />
+                              <Image src="/img/icons/partial/needs/d.png" />
+                            </div>
+                          </>
+                        )}
                       </div>
-                      </div>)
+                      )
                   })}
                 </div>
               </div>

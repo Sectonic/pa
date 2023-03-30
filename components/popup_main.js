@@ -17,7 +17,7 @@ function Popup(props) {
           />
         </div>
         <div className="popup_text">
-          {props.type === "saviors" && <popups.SaviorPopup />}
+          {props.type === "updates" && <popups.UpdatesPopup />}
           {props.type === "account" && <popups.AccountPopup data={props.data} />}
           {props.type === "type" && <popups.TypePopup data={props.data} />}
         </div>

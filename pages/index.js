@@ -1,11 +1,27 @@
 import { TypeAnimation } from 'react-type-animation';
 import ChangeSection from '../components/change_section';
 import {useRouter} from 'next/router';
+import  { Popup } from '../components/popup_main';
+import { useState } from 'react';
+
 function Home() {
   const router = useRouter();
+  const [popupShown, setPopup] = useState(false);
+  const [popupType, setPopupType] = useState("");
+
+  const handlePopup = (choice, type) => {
+    document.body.style.overflowY = "auto";
+    if (choice) {
+      document.body.style.overflowY = "hidden";
+    }
+    setPopupType(type);
+    setPopup(choice);
+  };
+
   const academyPlus = () => router.push('/academyplus');
   return (
-    <div className="main">
+   <div className="main">
+      {popupShown && <Popup popup={handlePopup} type={popupType} />}
       <div className="home_banner">
         <div>
           <h1 className="home_title">
@@ -48,7 +64,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="home_dashboard-lg">
+          <div className="home_dashboard-lg" onClick={() => handlePopup(true, "updates")} >
             <img src="/img/main/launch.png" className="updates_img" />
             <div className="home_lg-text">
               <div>

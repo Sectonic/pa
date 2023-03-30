@@ -2,6 +2,7 @@ from application import db
 from application.models import Types, Link
 import datetime
 from application.options import external_data
+import copy
 
 def new_type(person):
     new_person = Types(
@@ -49,8 +50,8 @@ def dbToDict(data):
     return data_dict
 
 def getTypeData(data):
-    options = external_data
-    template = external_data['template']
+    options = copy.deepcopy(external_data)
+    template = options['template']
     for name, value in data.items():
         if value:
             current_values = options[name][value]

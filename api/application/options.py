@@ -167,11 +167,11 @@ external_data = {
         ],
         "De": [
             {"name": "O/D", "value": "Observer"},
-            {"name": "Decider", "value": "De"}
+            {"name": "Decider Need", "value": "De"}
         ],
         "Di": [
             {"name": "O/D", "value": "Observer"},
-            {"name": "Decider Need", "value": "Di"}
+            {"name": "Decider Need", "value": "Di"},
         ],
         "Nx": [
             {"name": "O/D", "value": "Decider"},
