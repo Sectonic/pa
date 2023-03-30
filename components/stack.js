@@ -48,11 +48,13 @@ export default function Stack({data, need_options, functions, decider_functions,
             let current_animal = animal_options[current_grant[0]][current_grant[1]];
             let current_stack = checkStack(current_animal);
             let current_savior = checkSavior(current_animal);
-            anim_all.push({
-                'animal': current_animal,
-                'stack': current_stack,
-                'savior': current_savior
-            })
+            if (current_stack != 0) {
+                anim_all.push({
+                    'animal': current_animal,
+                    'stack': current_stack,
+                    'savior': current_savior
+                })
+            }
         } else {
             anim_all.push(null);
         }
@@ -166,7 +168,7 @@ export default function Stack({data, need_options, functions, decider_functions,
         if (data.oD == "Observer") {
             observer = [0,3].includes(func_index) ? true : false;
         } else if (data.oD == "Decider") {
-            observer == [0,3].includes(func_index) ? false : true;
+            observer = [0,3].includes(func_index) ? false : true;
         }
         let double = double_funcs[func_index + 1] ? true : false;
         let double_placement = double_placements[func_index];
@@ -237,6 +239,7 @@ export default function Stack({data, need_options, functions, decider_functions,
                 }
 
             } else {
+                console.log(functions);
                 path_location = "/img/icons/partial/";
                 current_function = "blank";
                 masculine_feminine = "";
