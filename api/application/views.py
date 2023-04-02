@@ -1,5 +1,4 @@
 from flask import request, render_template, session, url_for, redirect, flash, get_flashed_messages
-import datetime
 from application import app, admin_password, db
 from application.models import Types, Link
 from application.functions import getTypeData, update_type, link_update, new_type
@@ -31,10 +30,6 @@ def index():
         return redirect(url_for('index'))
     return render_template('admin.html', authentication=authentication)
 
-@app.template_filter('ctime')
-def timectime(s):
-    return datetime.datetime.utcfromtimestamp(int(s)).strftime('%Y-%m-%d %I:%M %p')
-
 @app.route("/view", methods=['GET', 'POST'])
 def view():
     if 'authentication' in session:
@@ -64,6 +59,46 @@ def edit(type_id):
         authentication = False
     if authentication:
         current_person = Types.query.filter_by(id=type_id).first()
+        current_function1 = current_person.function1
+        current_function2 = current_person.function2
+        if not current_function1:
+            if current_person.oD:
+                observer = True if current_person.oD == "Observer" else False
+                if observer:
+                    if current_person.observerNeed:
+                        current_function1 = current_person.observerNeed
+                    elif current_person.observerLetter:
+                        current_function1 = current_person.observerLetter + "x"
+                    else:
+                        current_function1 = "Ox"
+                else:
+                    if current_person.deciderNeed:
+                        current_function1 = current_person.deciderNeed
+                    elif current_person.deciderLetter:
+                        current_function1 = current_person.deciderLetter + "x"
+                    else:
+                        current_function1 = "Dx"
+            else:
+                current_function1 = None
+        if not current_function2:
+            if current_person.oD:
+                observer = True if current_person.oD == "Observer" else False
+                if observer:
+                    if current_person.deciderNeed:
+                        current_function2 = current_person.deciderNeed
+                    elif current_person.deciderLetter:
+                        current_function2 = current_person.deciderLetter + "x"
+                    else:
+                        current_function2 = "Dx"
+                else:
+                    if current_person.observerNeed:
+                        current_function2 = current_person.observerNeed
+                    elif current_person.observerLetter:
+                        current_function2 = current_person.observerLetter + "x"
+                    else:
+                        current_function2 = "Ox"
+            else:
+                current_function2 = None
         person_links = Link.query.filter_by(person=type_id)
         current_links = [{'name': link.name, 'url': link.url} for link in person_links]
         if request.method == 'POST':
@@ -96,7 +131,7 @@ def edit(type_id):
                 update_type(type_id, type_data)
                 link_update(type_id, request.form.get('link_form'))
             return redirect(url_for('view'))
-        return render_template('edit.html', current_person=current_person, type_entries=type_entries, authentication=authentication, tag=current_person.tag, links=current_links)
+        return render_template('edit.html', current_person=current_person, type_entries=type_entries, authentication=authentication, tag=current_person.tag, links=current_links, current_functions=[current_function1, current_function2])
     else:
         return redirect(url_for('index'))
 
