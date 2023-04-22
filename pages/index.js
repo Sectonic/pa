@@ -24,6 +24,8 @@ function Home() {
   return (
     <div className="main">
        {popupShown && <Popup popup={handlePopup} type={popupType} />}
+
+  const academyPlus = () => router.push('/academyplus');
   return (
    <div className="main">
       {popupShown && <Popup popup={handlePopup} type={popupType} />}
