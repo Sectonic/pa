@@ -44,10 +44,10 @@
 </style>
 <div class="mt-4 text-center" style="background-color: #080b11; border: 3px solid #262e47; width: 90%;margin: 0 auto; border-radius: 20px; color: white;">
     <div class="container-sm p-1 d-flex justify-content-center mt-3">
-        <div class="input-group mb-3 w-75" style="border-radius: 20px">
+        <form class="input-group mb-3 w-75" style="border-radius: 20px" onsubmit="setName();return false">
             <input type="text" class="form-control" placeholder="Search By Name/ID" id="namestart" style="border-radius: 20px 0 0 20px" />
-            <button class="btn btn-primary" type="button" id="button-addon2" style="border-radius: 0 20px 20px 0" onclick="setName()">Search</button>
-        </div>
+            <button class="btn btn-primary" type="submit" id="button-addon2" style="border-radius: 0 20px 20px 0">Search</button>
+        </form>
     </div>
     <script>
         function setName() {

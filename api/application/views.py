@@ -1,7 +1,8 @@
-from flask import request, render_template, session, url_for, redirect, flash, get_flashed_messages
+from flask import request, render_template, session, url_for, redirect, flash, jsonify, get_flashed_messages
 from application import app, admin_password, db
 from application.models import Types, Link
 from application.functions import getTypeData, update_type, link_update, new_type
+import json
 
 type_entries = {
     'gender': ['Male', 'Female'],
@@ -50,6 +51,16 @@ def view():
         return render_template('view.html', types=types, namestart=nameStart, authentication=authentication)
     else:
         return redirect(url_for('index'))
+    
+@app.route('/get/similar', methods=['GET'])
+def get_similar():
+    type_data = json.loads(request.args.get('checking'))
+    base = Types.query.filter(Types.name.startswith(type_data['name']))
+    for k,v in type_data['type'].items():
+        base = base.filter(getattr(Types, k) == v)
+    base = base.all()
+    people_list = [{'name': person.name, 'img': person.image} for person in base]
+    return jsonify(people_list)
 
 @app.route("/edit/<type_id>", methods=['GET', 'POST'])
 def edit(type_id):

@@ -146,8 +146,8 @@ function App({ Component, pageProps, router }) {
                         <img src='/img/main/typing.png'/>
                       </div>
                     </Link>
-                    <Link href='/academyapps'>
-                      <div className={`mobile_menu-link ${path[1] == 'academyapps' && 'mobile_menu-link--selected'}`}>
+                    <Link href='/apps'>
+                      <div className={`mobile_menu-link ${path[1] == 'apps' && 'mobile_menu-link--selected'}`}>
                         <div>Apps</div>
                         <img src='/img/main/tools.png'/>
                       </div>

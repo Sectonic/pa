@@ -1,8 +1,8 @@
 import Select from 'react-select';
-import { Popup } from "../components/popup_main";
-import Image from '../components/image';
+import { Popup } from "@/components/popup_main";
+import Image from '@/components/image';
 import { useState, useEffect } from "react";
-import Placeholder from '../components/placeholder';
+import Placeholder from '@/components/placeholder';
 import { useRouter } from 'next/router';
 import { waitUntil, WAIT_FOREVER } from 'async-wait-until';
 
@@ -305,7 +305,7 @@ function Database({user}) {
         var query_string, query_dict;
         if (choice) {
             if (!type_data.linked) {
-                query_string = `/typesearch?filters=${current_query.filters ? current_query.filters : ""}&popup_id=${type_data.id}&high=${current_query.high ? current_query.high : ""}`;
+                query_string = `/apps/typesearch?filters=${current_query.filters ? current_query.filters : ""}&popup_id=${type_data.id}&high=${current_query.high ? current_query.high : ""}`;
                 query_dict = {
                     filters: current_query.filters,
                     popup_id: type_data.id,
@@ -321,7 +321,7 @@ function Database({user}) {
                 filters: current_query.filters,
                 high: current_query.high
             }
-            query_string = `/typesearch?filters=${current_query.filters ? current_query.filters : ""}&high=${current_query.high ? current_query.high : ""}`;
+            query_string = `/apps/typesearch?filters=${current_query.filters ? current_query.filters : ""}&high=${current_query.high ? current_query.high : ""}`;
             router.push({
                 pathname: '/typesearch',
                 query: query_dict
@@ -440,7 +440,7 @@ function Database({user}) {
             popup_id: curr.popup_id,
             high: curr.high ? (Number(curr.high) + 50).toString() : "100"
         }
-        var query_string = `/typesearch?filters=${curr.filters ? curr.filters : ""}&popup_id=${curr.popup_id ? curr.popup_id : ""}&high=${curr.high ?  (Number(curr.high) + 50).toString() : "100"}`;
+        var query_string = `/apps/typesearch?filters=${curr.filters ? curr.filters : ""}&popup_id=${curr.popup_id ? curr.popup_id : ""}&high=${curr.high ?  (Number(curr.high) + 50).toString() : "100"}`;
         router.push({
             pathname: '/typesearch',
             query: query_dict
@@ -461,7 +461,7 @@ function Database({user}) {
         router.push({
             pathname: '/typesearch',
             query: {filters: JSON.stringify(filters_array)}
-        }, `/typesearch?filters=${JSON.stringify(filters_array)}`, {shallow: true});
+        }, `/apps/typesearch?filters=${JSON.stringify(filters_array)}`, {shallow: true});
     }
       
     return (

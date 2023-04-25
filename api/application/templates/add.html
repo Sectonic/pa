@@ -1,196 +1,270 @@
 {% extends "base.html" %}
 {% block title %} Database New Entry {% endblock %}
 {% block content %}
-<div class="mt-4 container-sm" style="background-color: #080b11; border: 2px solid #262e47; width: 650px;margin: 0 auto; border-radius: 20px; color: white;">
-    <form method="POST" id="edit">
-        <h1 class="text-left mt-1" style="padding-left:20px; margin-bottom: -10px">New Entry <span style="font-size: 22px">({{next_id}})</span></h1>
-        <hr>
-        <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
-            <input name="person_name" type="text" class="form-control" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-            <label for="floatingInput">Name</label>
-        </div>
-        <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
-            <select name="sex" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                <option value="" selected>---</option>
-                {% for g in type_entries['gender'] %}
-                        <option value="{{g}}">{{g}}</option>
-                {% endfor %}
-            </select>
-            <label for="floatingSelect">Sex</label>
-        </div>
-        <h5 class="text-center mb-3">Type Selection</h5>
-        <div class="mb-3" style="display: flex;justify-content: center;">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="change_select('full_type', 'incomplete')">
-                <label class="btn btn-outline-primary" for="btnradio1">Full Type</label>
+<style>
+    th {
+background-color: #192030 !important;
+text-align: center;
+}
+td {
+background-color: #192030 !important;
+text-align: center;
+}
+.row_circle {
+width: max-content;
+border-radius: 20px;
+padding: 2px 15px;
+display: block;
+margin: 0 auto;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.row_edit {
+border-radius: 20px;
+padding: 2px 20px;
+}
+.row_img {
+width: 45px;
+height: 45px;
+object-fit:cover;
+border-radius: 50%;
+display: block;
+margin: 0 auto;
+}
+.red {
+background-color: #ff88a686;
+}
+.cyan {
+background-color: #81ffe280;
+}
+.green {
+background-color:#bfffa165;
+}
+.blue {
+background-color:#cfdfff56;
+}
+.center_divs {
+    display: flex;
+    justify-content: center;
+}
+.table-dark::-webkit-scrollbar {
+  width: 3px;
+}
+
+.table-dark::-webkit-scrollbar-thumb {
+  background: #106cfc;
+}
+</style>
+<div class="center_divs">
+    <div style="width: max-content; display: flex;gap: 20px;">
+        <div class="my-4 container-sm" style="background-color: #080b11; border: 2px solid #262e47; width: 650px;border-radius: 20px; color: white;">
+            <form method="POST" id="edit">
+                <h1 class="text-left mt-1" style="padding-left:20px; margin-bottom: -10px">New Entry <span style="font-size: 22px">({{next_id}})</span></h1>
+                <hr>
+                <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+                    <input name="person_name" type="text" class="form-control" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                    <label for="floatingInput">Name</label>
+                </div>
+                <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
+                    <select name="sex" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <option value="" selected>---</option>
+                        {% for g in type_entries['gender'] %}
+                                <option value="{{g}}">{{g}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">Sex</label>
+                </div>
+                <h5 class="text-center mb-3">Type Selection</h5>
+                <div class="mb-3" style="display: flex;justify-content: center;">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="change_select('full_type', 'incomplete')">
+                        <label class="btn btn-outline-primary" for="btnradio1">Full Type</label>
 
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="change_select('incomplete', 'full_type')">
-                <label class="btn btn-outline-primary" for="btnradio3">Incomplete</label>
-            </div>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="change_select('incomplete', 'full_type')">
+                        <label class="btn btn-outline-primary" for="btnradio3">Incomplete</label>
+                    </div>
+                </div>
+                <div id="full_type">
+                    <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+                        <input id="type_input" type="text" class="form-control" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <label for="floatingInput">Type</label>
+                    </div>
+                </div>
+                <div id="incomplete" style="display: none;">
+                    <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="sensoryModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                        <option value="" selected>None</option>
+                                    {% for m in type_entries['sM'] %}
+                                            <option value="{{m}}">{{m}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">Sensory Modality</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="deModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                        <option value="" selected>None</option>
+                                    {% for m in type_entries['deM'] %}
+                                        <option value="{{m}}">{{m}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">De Modality</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="function1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                        <option value="" selected>None</option>
+                                    {% for func in type_entries['func'] %}
+                                        <option value="{{func}}" >{{func}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">1st Function</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="function2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                        <option value="" selected>None</option>
+                                    {% for func in type_entries['func'] %}
+                                            <option value="{{func}}" >{{func}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">2nd Function</label>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Animals</h6>
+                    <div class="row" style="color: white;margin: 0 auto;width: 615px;">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="animal1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                    <option value="" selected>None</option>
+                                    {% for anim in type_entries['anim'] %}
+                                        <option value="{{anim}}">{{anim}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">1st</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="animal2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                    <option value="" selected>None</option>
+                                    {% for anim in type_entries['anim'] %}
+                                        <option value="{{anim}}">{{anim}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">2nd</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="animal3" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                    <option value="" selected>None</option>
+                                    {% for anim in type_entries['anim'] %}
+                                        <option value="{{anim}}">{{anim}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">3rd</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select name="animal4" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                    <option value="" selected>None</option>
+                                    {% for anim in type_entries['anim'] %}
+                                        <option value="{{anim}}">{{anim}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="floatingSelect">4th</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
+                    <select name="Social" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                        <option value="" selected>---</option>
+                        {% for s in type_entries['social'] %}
+                                <option value="{{s}}">{{s}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">Social</label>
+                </div>
+                <div class="row mb-3" style="color: white;margin: 0 auto;width: 610px">
+                    <div class="col-5">
+                        <div class="form-check form-switch">
+                            <input name="Community Member" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Community Member" in tags %} checked {% endif %}>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Community Member</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check form-switch">
+                            <input name="Class Typing" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Class Typing" in tags %} checked {% endif %}>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Class Typing</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check form-switch">
+                            <input name="Speculation" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Speculation" in tags %} checked {% endif %}>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Speculation</label>
+                        </div>
+                    </div>
+                </div>
+                <template id="link_template">
+                    <div class="row align-items-center mb-3 mt-3 link_row" style="color: white;width: 610px;margin: 0 auto;">
+                        <div class="col-1" style="cursor:pointer;">
+                            <button onclick="delete_link(this)" class="btn btn-danger" type="button" role='button' style="margin-top: 2px;"><i class="bi bi-trash" style="font-size: 26px;"></i></button>
+                        </div>
+                        <div class="col" style="margin-left: 25px;">
+                            <div class="form-floating">
+                                <input type="text" class="form-control link_name" placeholder="Name"  style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                <label for="floatingInput">Name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <input type="text" class="form-control link_url" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                                <label for="floatingInput">URL</label>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Links</h6>
+                <button id="add_link" class="btn btn-primary mb-3" type="button" style="margin-top: 1px;display:block;margin: 0 auto;"><i class="bi bi-plus-lg" style="font-size:25px"></i></button>
+                <div id="links_container">
+                </div>
+                <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
+                    <input name="image" class="form-control" id="floatingPassword" placeholder="Image URL" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                    <label for="floatingPassword">Image URL</label>
+                </div>
+                <input type="text" id="link_input" class="d-none" name="link_form" >
+                <button class="btn btn-primary mb-3" style="width: 590px;margin: 0 auto;display: block;" onclick="submit_edit('{{next_id}}')" type="button">Add</button>
+            </form>
         </div>
-        <div id="full_type">
-            <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
-                <input id="type_input" type="text" class="form-control" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                <label for="floatingInput">Type</label>
+        <div id="similar_table" class="mt-4 mb-4" style="border-radius: 20px; overflow: hidden;width: 300px; border: 2px solid #262e47;background-color: #262e4759;">
+            <div class="table-dark" style="color: white; margin-bottom: 0;overflow-y: scroll; height: 650px; display: block;">
+                <style>
+                    .similar_tab {
+                        display: flex;
+                        justify-content: center;
+                        padding-bottom: 10px;
+                        padding-top: 10px;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.185);
+                    }
+                </style>
+                <div id="similar_body">
+                </div>
             </div>
+            <button class="btn btn-primary mt-3 mb-0" type="button" style="margin: 0 auto; display: block;" onclick="submit_edit(`check_type`)">Check Duplicates</button>
         </div>
-        <div id="incomplete" style="display: none;">
-            <div class="row" style="color: white;margin: 0 auto;width: 615px;">
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="sensoryModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                                <option value="" selected>None</option>
-                            {% for m in type_entries['sM'] %}
-                                    <option value="{{m}}">{{m}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">Sensory Modality</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="deModality" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                                <option value="" selected>None</option>
-                            {% for m in type_entries['deM'] %}
-                                <option value="{{m}}">{{m}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">De Modality</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="color: white;margin: 0 auto;width: 615px;">
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="function1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                                <option value="" selected>None</option>
-                            {% for func in type_entries['func'] %}
-                                <option value="{{func}}" >{{func}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">1st Function</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="function2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                                <option value="" selected>None</option>
-                            {% for func in type_entries['func'] %}
-                                    <option value="{{func}}" >{{func}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">2nd Function</label>
-                    </div>
-                </div>
-            </div>
-            <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Animals</h6>
-            <div class="row" style="color: white;margin: 0 auto;width: 615px;">
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="animal1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                            <option value="" selected>None</option>
-                            {% for anim in type_entries['anim'] %}
-                                <option value="{{anim}}">{{anim}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">1st</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="animal2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                            <option value="" selected>None</option>
-                            {% for anim in type_entries['anim'] %}
-                                <option value="{{anim}}">{{anim}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">2nd</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="animal3" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                            <option value="" selected>None</option>
-                            {% for anim in type_entries['anim'] %}
-                                <option value="{{anim}}">{{anim}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">3rd</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select name="animal4" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                            <option value="" selected>None</option>
-                            {% for anim in type_entries['anim'] %}
-                                <option value="{{anim}}">{{anim}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="floatingSelect">4th</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
-            <select name="Social" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                <option value="" selected>---</option>
-                {% for s in type_entries['social'] %}
-                        <option value="{{s}}">{{s}}</option>
-                {% endfor %}
-            </select>
-            <label for="floatingSelect">Social</label>
-        </div>
-        <div class="row mb-3" style="color: white;margin: 0 auto;width: 610px">
-            <div class="col-5">
-                <div class="form-check form-switch">
-                    <input name="Community Member" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Community Member" in tags %} checked {% endif %}>
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Community Member</label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-check form-switch">
-                    <input name="Class Typing" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Class Typing" in tags %} checked {% endif %}>
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Class Typing</label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-check form-switch">
-                    <input name="Speculation" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor:pointer;" {% if "Speculation" in tags %} checked {% endif %}>
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Speculation</label>
-                </div>
-            </div>
-        </div>
-        <template id="link_template">
-            <div class="row align-items-center mb-3 mt-3 link_row" style="color: white;width: 610px;margin: 0 auto;">
-                <div class="col-1" style="cursor:pointer;">
-                    <button onclick="delete_link(this)" class="btn btn-danger" type="button" role='button' style="margin-top: 2px;"><i class="bi bi-trash" style="font-size: 26px;"></i></button>
-                </div>
-                <div class="col" style="margin-left: 25px;">
-                    <div class="form-floating">
-                        <input type="text" class="form-control link_name" placeholder="Name"  style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                        <label for="floatingInput">Name</label>
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating">
-                        <input type="text" class="form-control link_url" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                        <label for="floatingInput">URL</label>
-                      </div>
-                </div>
-            </div>
-        </template>
-        <h6 class="text-center" style="margin-top: -10px;margin-bottom: 10px;">Links</h6>
-        <button id="add_link" class="btn btn-primary mb-3" type="button" style="margin-top: 1px;display:block;margin: 0 auto;"><i class="bi bi-plus-lg" style="font-size:25px"></i></button>
-        <div id="links_container">
-        </div>
-        <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
-            <input name="image" class="form-control" id="floatingPassword" placeholder="Image URL" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-            <label for="floatingPassword">Image URL</label>
-        </div>
-        <input type="text" id="link_input" class="d-none" name="link_form" >
-        <button class="btn btn-primary mb-3" style="width: 590px;margin: 0 auto;display: block;" onclick="submit_edit('{{next_id}}')" type="button">Add</button>
-    </form>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         function capitalizeFirstLetter(string) {
@@ -213,6 +287,13 @@
             $(child).parent().parent().remove();
         }
         function submit_edit(person_id) {
+            var checktype;
+            if (person_id == "check_type") {
+                checktype = true;
+            } else {
+                checktype = false;
+            }
+            console.log('hi');
             if ($('#btnradio1').is( ":checked" )) {
                 var animal_options = {
                     'P': 'Play',
@@ -246,7 +327,33 @@
                 all_links += `${$(this).find('.link_name').val()}/*LINK*/${$(this).find('.link_url').val()}|*SECTION*|`;
             });
             $('#link_input').val(all_links);
-            $('#edit').submit();
+            if (checktype) {
+                checking_arr = ['person_name', 'sensoryModality', 'deModality', 'function1', 'function2', 'animal1', 'animal2', 'animal3', 'animal4']
+                checking_dict = {'type': {}};
+                checking_arr.forEach((check) => {
+                    let value = $(`[name=${check}]`).val();
+                    if (check == "person_name") {
+                        checking_dict['name'] = value != '' ? value.substring(0,1) : null;
+                    } else {
+                        checking_dict['type'][check] = value != '' ? value : null;
+                    }
+                })
+                $.get(`/get/similar?checking=${JSON.stringify(checking_dict)}`, (data) => {
+                    var body = $('#similar_body');
+                    body.empty();
+                    data.forEach((person) => {
+                        console.log(person);
+                        let container = $("<div class='similar_tab'></div>");
+                        let image = $('<img class="row_img">');
+                        image.attr('src', person['img']);
+                        container.append(image);
+                        container.append($('<div class="row_circle green">').html(person['name']));
+                        body.append(container);
+                    });
+                });
+            } else {
+                $('#edit').submit();
+            }
         }
     </script>
 </div>

@@ -1,6 +1,6 @@
-import Banner from "../components/banner";
+import Banner from "@/components/banner";
 import Link from 'next/link';
-import Placeholder from '../components/placeholder';
+import Placeholder from '@/components/placeholder';
 import { useState, useEffect } from 'react';
 import {useRouter} from 'next/router';
 import { waitUntil, WAIT_FOREVER } from 'async-wait-until';
@@ -52,7 +52,7 @@ function AcademyApps({user}) {
               </Link>
             </div>
             <div className="section_text outline-gray">
-              <Link href="/typesearch">
+              <Link href="/apps/typesearch">
                 <div>
                   <img
                     src="/img/main/database.png"
