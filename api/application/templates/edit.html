@@ -68,16 +68,16 @@
             <div class="col">
                 <div class="form-floating mb-3">
                     <select name="function1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                        {% if not current_person.function1 %}
+                        {% if not current_functions[0] %}
                             <option value="" selected>None</option>
                         {% else %}
                             <option value="">None</option>
                         {% endif %}
                         {% for func in type_entries['func'] %}
-                            {% if func == current_person.function1 %}
+                            {% if func == current_functions[0] %}
                                 <option value="{{func}}" selected>{{func}}</option>
                             {% else %}
-                                <option value="{{func}}" >{{func}}</option>
+                                <option value="{{func}}">{{func}}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
@@ -87,16 +87,16 @@
             <div class="col">
                 <div class="form-floating mb-3">
                     <select name="function2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                        {% if not current_person.function2 %}
+                        {% if not current_functions[1] %}
                             <option value="" selected>None</option>
                         {% else %}
                             <option value="">None</option>
                         {% endif %}
                         {% for func in type_entries['func'] %}
-                            {% if func == current_person.function2 %}
+                            {% if func == current_functions[1] %}
                                 <option value="{{func}}" selected>{{func}}</option>
                             {% else %}
-                                <option value="{{func}}" >{{func}}</option>
+                                <option value="{{func}}">{{func}}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
