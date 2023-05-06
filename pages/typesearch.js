@@ -1,3 +1,4 @@
+import Banner from "../components/banner";
 import Select from 'react-select';
 import { Popup } from "../components/popup_main";
 import Image from '../components/image';
