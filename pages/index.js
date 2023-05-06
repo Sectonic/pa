@@ -2,7 +2,6 @@ import { TypeAnimation } from 'react-type-animation';
 import ChangeSection from '../components/change_section';
 import {useRouter} from 'next/router';
 import Link from 'next/link';
-import { Main } from 'next/document';
 import { Popup } from '../components/popup_main';
 import { useState } from 'react';
 
