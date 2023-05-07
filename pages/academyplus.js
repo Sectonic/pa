@@ -110,7 +110,7 @@ function AcademyPlus({user}) {
             <div className="section_text academy_card academyplus_card">
               <div>
                 <h2 className="margin-sm">Academy <span className="orange-text">Plus</span></h2>
-                <h3 className="margin-sm">5.99$ / month</h3>
+                <h3 className="margin-sm">9$ / month</h3>
                 <div className="academy_perks">
                 <div className="academy_perk">
                     <img src="/img/academyplus/learn_plus.png"/>
@@ -156,41 +156,76 @@ function AcademyPlus({user}) {
             </div>
           </div>
         </div>
-        <div className="section">
+        <div className="section blur_background">
+          <div className="section_title">What you get with Plus</div>
           <div className="section_body">
-            <div className="section_text section-title_images-in">
-              <div className="section_title-img">
-                <img
-                  src="/img/academyplus/support.png"
-                  alt=""
-                />
-              </div>
-              <div className="section_title-text section_title-desc">
-                <h2 className="margin-sm">Support Us</h2>
-                <p>
-                  Help us build and maintain our efforts on developing this website with your support. We've spent countless hours perfecting it just for you.
-                </p>
-              </div>
-            </div>
+          <div className="section_img">
+            <img
+              src={"/img/academyplus/apps.png"}
+              alt=""
+            />
           </div>
-          <div className="section_title neg-mt-45 support_title">Our Team</div>
+          <div className="section_img">
+            <img
+              src={"/img/academyplus/early.png"}
+              alt=""
+            />
+          </div>
+          </div>
+          <div className="section_body">
+          <div className="section_img">
+            <img
+              src={"/img/academyplus/typechart.png"}
+              alt=""
+            />
+          </div>
+          <div className="section_img">
+            <img
+              src={"/img/academyplus/typing.png"}
+              alt=""
+            />
+          </div>
+          <div className="section_img">
+            <img
+              src={"/img/academyplus/customize.png"}
+              alt=""
+            />
+          </div>
+          </div>
+          <div className="section_title">And always more in the works...</div>
+        </div>
+        <div className="section extra_margin_section">
+      <div className="section_body">
+      <div className="section_img">
+            <img
+              src={"/img/academyplus/support.png"}
+            />
+          </div>
+        </div>
+        <h2 className="section_title neg-mt-45">Help us keep it running</h2>
+        <p className="letters_subtitle">
+        All these things cost a lot of money to keep running over time,
+        <br/> By buying Plus you make us able to keep doing more of what we do.
+        <br/>If you like what we do, the support would mean the world to us, genuinely. 
+        </p>
+        <div className="section_title support_title">Our Team</div>
           <div className="section_body neg-mt-45 support_body">
             <div className="section_text support_card outline-gray">
               <div>
                 <img src="/img/academyplus/sect.png" />
-                <h2>Sujal Dhakal</h2>
+                <h2>Sujal D</h2>
               </div>
             </div>
             <div className="section_text support_card outline-gray">
               <div>
                 <img src="/img/academyplus/aze.png" />
-                <h2>Alex Privalov</h2>
+                <h2>Alex C</h2>
               </div>
             </div>
           </div>
-        </div>
+      </div>
         <div className="section blur_background">
-          <div className="section_title">Gain more & Support us for<br/><span className="orange-text price-text">$5.99 / Month</span></div>
+          <div className="section_title">Gain more & Support us for<br/><span className="orange-text price-text">$9 / Month</span></div>
           <div className="section_body neg-mt-45">
             {academyPlus ? (
               <button type="button" className="section_text price_btn" style={{'cursor': 'default'}}>
