@@ -11,6 +11,7 @@ import '../styles/typing.css';
 import '../styles/register.css';
 import '../styles/placeholder.css';
 import '../styles/academyplus.css';
+import '../styles/typetool.css';
 import "animate.css";
 import Navbar from '../components/nav';
 import { useEffect, useState, useRef } from "react";

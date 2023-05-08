@@ -58,9 +58,15 @@ background-color:#cfdfff56;
 <div class="center_divs">
     <div style="width: max-content; display: flex;gap: 20px;">
         <div class="my-4 container-sm" style="background-color: #080b11; border: 2px solid #262e47; width: 650px;border-radius: 20px; color: white;">
-            <form method="POST" id="edit">
+            <form enctype="multipart/form-data" method="POST" id="edit">
                 <h1 class="text-left mt-1" style="padding-left:20px; margin-bottom: -10px">New Entry <span style="font-size: 22px">({{next_id}})</span></h1>
                 <hr>
+                <div class="row" style="color: white;margin: 0 auto;width: 615px;display: flex; justify-content: center; align-items: center;">
+                    <div class="mb-3" style="color: white;margin: 0 auto;">
+                        <label for="floatingPassword" class="form-label">Add Image</label>
+                        <input name="file" type="file" class="form-control" id="fileUpload" placeholder="Image URL" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                    </div>
+                </div>
                 <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
                     <input name="person_name" type="text" class="form-control" placeholder="Name" style="color: white;border: 2px solid #262e47;background-color: #192030;">
                     <label for="floatingInput">Name</label>
@@ -189,7 +195,7 @@ background-color:#cfdfff56;
                     </div>
                 </div>
                 <div class="form-floating mb-3" style="width: 590px;margin: 0 auto;">
-                    <select name="Social" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+                    <select name="social" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
                         <option value="" selected>---</option>
                         {% for s in type_entries['social'] %}
                                 <option value="{{s}}">{{s}}</option>
@@ -240,10 +246,6 @@ background-color:#cfdfff56;
                 <button id="add_link" class="btn btn-primary mb-3" type="button" style="margin-top: 1px;display:block;margin: 0 auto;"><i class="bi bi-plus-lg" style="font-size:25px"></i></button>
                 <div id="links_container">
                 </div>
-                <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
-                    <input name="image" class="form-control" id="floatingPassword" placeholder="Image URL" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                    <label for="floatingPassword">Image URL</label>
-                </div>
                 <input type="text" id="link_input" class="d-none" name="link_form" >
                 <button class="btn btn-primary mb-3" style="width: 590px;margin: 0 auto;display: block;" onclick="submit_edit('{{next_id}}')" type="button">Add</button>
             </form>
@@ -267,6 +269,12 @@ background-color:#cfdfff56;
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
+        window.addEventListener('paste', (e) => {
+            if ($('#fileUpload:hover').length != 0) {
+                console.log('change');
+                document.getElementById('fileUpload').files = e.clipboardData.files;
+            }
+        });
         function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
         }

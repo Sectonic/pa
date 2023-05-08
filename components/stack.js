@@ -61,7 +61,7 @@ export default function Stack({data, need_options, functions, decider_functions,
     })
 
     var double_funcs = {}
-    var doubles = data.animal ? double_options[data.animal4] : null;
+    var doubles = double_options[data.animal4];
     for (let i = 1; i < functions.length + 1; i++) {
         let func = functions[i - 1];
         double_funcs[i] = false;

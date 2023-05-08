@@ -1,8 +1,11 @@
 from flask import request, render_template, session, url_for, redirect, flash, jsonify, get_flashed_messages
-from application import app, admin_password, db
+from application import app, admin_password, db, imagekit
 from application.models import Types, Link
 from application.functions import getTypeData, update_type, link_update, new_type
 import json
+import os
+import base64
+from imagekitio.models.UploadFileRequestOptions import UploadFileRequestOptions
 
 type_entries = {
     'gender': ['Male', 'Female'],
@@ -29,6 +32,7 @@ def index():
         if request.form.get('logout') == 'true':
             session['authentication'] = False
         return redirect(url_for('index'))
+
     return render_template('admin.html', authentication=authentication)
 
 @app.route("/view", methods=['GET', 'POST'])
@@ -116,6 +120,8 @@ def edit(type_id):
             if request.form.get('delete'):
                 person_links.delete()
                 Types.query.filter_by(id=type_id).delete()
+                if os.getenv('PRODUCTION'):
+                    imagekit.delete_file(file_id=current_person.file_id)
                 db.session.commit()
             else:
                 data = {}
@@ -131,7 +137,23 @@ def edit(type_id):
                 type_data = getTypeData(data)
                 type_data['Name'] = request.form.get('person_name')
                 type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
-                type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
+                img = request.files.get('file')
+                if img:
+                    if os.getenv('PRODUCTION'):
+                        file_type = img.filename.split('.')[-1]
+                        base64_img  = base64.b64encode(img.read())
+                        result = imagekit.upload_file(file=base64_img, file_name=f'{type_id}.{file_type}', options=UploadFileRequestOptions(
+                            use_unique_file_name=False,
+                            folder='/types/',
+                            is_private_file=False,
+                            overwrite_file=True,
+                        ))
+                        type_data['Image'] = result.url
+                    else:
+                        flash('Cannot change image locally', category='danger')
+                        return redirect(url_for('view'))
+                else:
+                    type_data['Image'] = current_person.image
                 type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
                 for tag in tag_options:
                     new_tag = request.form.get(tag)
@@ -168,8 +190,24 @@ def add():
             type_data = getTypeData(data)
             type_data['Name'] = request.form.get('person_name')
             type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
-            type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
             type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
+            img = request.files.get('file')
+            if img:
+                if os.getenv('PRODUCTION'):
+                    file_type = img.filename.split('.')[-1]
+                    base64_img  = base64.b64encode(img.read())
+                    result = imagekit.upload_file(file=base64_img, file_name=f'{next_id}.{file_type}', options=UploadFileRequestOptions(
+                        use_unique_file_name=False,
+                        folder='/types/',
+                        is_private_file=False,
+                        overwrite_file=True,
+                    ))
+                    type_data['Image'] = result.url
+                else:
+                    flash('Cannot add image locally', category='danger')
+                    return redirect(url_for('index'))
+            else:
+                type_data['Image'] = None
             for tag in tag_options:
                 new_tag = request.form.get(tag)
                 if new_tag == 'on':

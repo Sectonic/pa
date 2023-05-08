@@ -155,7 +155,7 @@ def types(low, high):
             if v_arr[0] != '':
                 original_query = original_query.filter(getattr(Types, k).in_(v_arr))
     result_query = original_query.all()
-    bounded_query = result_query[low:high] if result_query[high] else result_query[low:]
+    bounded_query = result_query[low:high] if high < len(result_query) else result_query[low:]
     all_bounds_arr = []
     for person in bounded_query:
         person_dict = dbToDict(person)
