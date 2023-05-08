@@ -61,7 +61,7 @@ export default function Stack({data, need_options, functions, decider_functions,
     })
 
     var double_funcs = {}
-    var doubles = data.animal ? double_options[data.animal4] : null;
+    var doubles = double_options[data.animal4];
     for (let i = 1; i < functions.length + 1; i++) {
         let func = functions[i - 1];
         double_funcs[i] = false;
@@ -214,6 +214,7 @@ export default function Stack({data, need_options, functions, decider_functions,
                             }
                             path_location = 'img/icons/partial/needs/';
                         } else if (data.deciderLetter) {
+                            masculine_feminine = "";
                             current_function = savior_demon == 'border-func' ? data.deciderLetter.toLowerCase() : opposites.letters[data.deciderLetter];
                             path_location = 'img/icons/partial/letters/';
                         } else {
@@ -239,7 +240,6 @@ export default function Stack({data, need_options, functions, decider_functions,
                 }
 
             } else {
-                console.log(functions);
                 path_location = "/img/icons/partial/";
                 current_function = "blank";
                 masculine_feminine = "";

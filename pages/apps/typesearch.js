@@ -1,10 +1,10 @@
+import Banner from "../../components/banner";
 import Select from 'react-select';
-import { Popup } from "../components/popup_main";
-import Image from '../components/image';
+import { Popup } from "../../components/popup_main";
+import Image from '../../components/image';
 import { useState, useEffect } from "react";
-import Placeholder from '../components/placeholder';
+import Placeholder from '../../components/placeholder';
 import { useRouter } from 'next/router';
-import { waitUntil, WAIT_FOREVER } from 'async-wait-until';
 
 Array.prototype.unique = function() {
     var a = this.concat();
@@ -297,22 +297,22 @@ function Database({user}) {
     const [popupShown, setPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
     const [loading, setLoading] = useState(true);
+    const [more, setMore] = useState(true);
     const [defaultFilters, setDefaultFilters] = useState(null);
 
     const handlePopup = (choice, type_data) => {
-        document.body.style.overflowY = "auto";
         var current_query = router.query;
         var query_string, query_dict;
         if (choice) {
             if (!type_data.linked) {
-                query_string = `/typesearch?filters=${current_query.filters ? current_query.filters : ""}&popup_id=${type_data.id}&high=${current_query.high ? current_query.high : ""}`;
+                query_string = `/apps/typesearch?filters=${current_query.filters ? current_query.filters : ""}&popup_id=${type_data.id}&high=${current_query.high ? current_query.high : ""}`;
                 query_dict = {
                     filters: current_query.filters,
                     popup_id: type_data.id,
                     high: current_query.high
                 }
                 router.push({
-                    pathname: '/typesearch',
+                    pathname: '/apps/typesearch',
                     query: query_dict
                 }, query_string, {shallow: true});
             }
@@ -321,9 +321,9 @@ function Database({user}) {
                 filters: current_query.filters,
                 high: current_query.high
             }
-            query_string = `/typesearch?filters=${current_query.filters ? current_query.filters : ""}&high=${current_query.high ? current_query.high : ""}`;
+            query_string = `/apps/typesearch?filters=${current_query.filters ? current_query.filters : ""}&high=${current_query.high ? current_query.high : ""}`;
             router.push({
-                pathname: '/typesearch',
+                pathname: '/apps/typesearch',
                 query: query_dict
             }, query_string, {shallow: true});
         }
@@ -370,79 +370,91 @@ function Database({user}) {
         return clean_filters;
     }
 
-    const checkDataIds = (o_data) => {
-        var checking;
-        if (router.query.popup_id) {
-            o_data.some((a, index) => {
-                if (a.id === Number(router.query.popup_id)) {
-                    checking = index;
-                }
-            })
+    useEffect(() => {
+        if (!user) return;
+        if (user.active) {
+            setLoading(false);
         } else {
-            checking = false;
+            router.push('/login');
         }
-        return checking;
-    }
+    }, [user]);
 
     useEffect(() => {
-        if(!router.isReady) return;
-        async function checkUser() {
-            await waitUntil(() => user != null, {
-                timeout: WAIT_FOREVER,
-            });
-            if (user.active) {
-                setLoading(false);
+        if (!router.isReady) return;
+        async function changeSearch() {
 
-                var queryFilters = JSON.parse(router.query.filters ? router.query.filters : '[]');
-                var defaultArray = [];
-                queryFilters.forEach(filter => {
-                    defaultArray.push({label: filter, value:filter});
-                })
-                setDefaultFilters(defaultArray);
-
-                if (router.query.popup_id) {
-                    setPopupData({loading: true});
-                    setPopup(true);
+            var queryFilters = JSON.parse(router.query.filters ? router.query.filters : '[]');
+            var defaultArray = [];
+            queryFilters.forEach(filter => {
+                defaultArray.push({label: filter, value:filter});
+            })
+            setDefaultFilters(defaultArray);
+    
+            var url;
+            var new_data;
+            const highBound = router.query.high ? router.query.high : "50";
+            const lowBound = data.length == 0 ? '0' : (Number(highBound) - 50).toString();
+            var urlfilters = getFilteredResults(queryFilters);
+            url = await fetch(`${API}/types/${lowBound}to${highBound}?` + new URLSearchParams(urlfilters));
+            new_data = await url.json();
+            
+            if (data.length == 0) {
+                if (new_data.length < Number(highBound)) {
+                    setMore(false);
                 } else {
-                    setPopup(false);
-                    setPopupData("");
+                    setMore(true);
                 }
-
-                var url;
-                var new_data;
-                const highBound = router.query.high ? router.query.high : "50";
-                var urlfilters = getFilteredResults(queryFilters);
-                url = await fetch(`${API}/types/0to${highBound}?` + new URLSearchParams(urlfilters));
-                new_data = await url.json();
                 setData(new_data);
-                setDataTrue(true);
-
-                var popupCheck = checkDataIds(new_data);
-                if (popupCheck || popupCheck === 0) {
-                    document.body.style.overflowY = "hidden";
-                    setPopupData(new_data[popupCheck]);
-                    setPopup(true);
-                } else {
-                    setPopup(false);
-                    setPopupData("");
-                }
             } else {
-                router.push('/login');
+                if (highBound != '50') {
+                    if (new_data.length < (Number(highBound) - Number(lowBound))) {
+                        setMore(false);
+                    } else {
+                        setMore(true);
+                    }
+                    setData([...data, ...new_data]);
+                } else {
+                    if (new_data.length < 50) {
+                        setMore(false);
+                    } else {
+                        setMore(true);
+                    }
+                    setData(new_data);
+                }
             }
+            setDataTrue(true);
+
         }
-        checkUser();
-    }, [user, router]);
+        changeSearch();
+    }, [router.query.filters, router.query.high]);
+
+    useEffect(() => {
+        async function getPopupData() {
+            setPopupData({loading: true});
+            setPopup(true);
+            let popupReq = await fetch(`${API}/type/${router.query.popup_id}`);
+            let popupData = await popupReq.json();
+            setPopupData(popupData);
+        }
+        if (!router.query.popup_id) {
+            document.body.style.overflowY = "auto";
+            setPopup(false);
+            setPopupData("");
+        } else {
+            document.body.style.overflowY = "hidden";
+            getPopupData();
+        }
+    }, [router.query.popup_id])
 
     const updateData = () => {
         let curr = router.query
         var query_dict = {
             filters: curr.filters,
-            popup_id: curr.popup_id,
             high: curr.high ? (Number(curr.high) + 50).toString() : "100"
         }
-        var query_string = `/typesearch?filters=${curr.filters ? curr.filters : ""}&popup_id=${curr.popup_id ? curr.popup_id : ""}&high=${curr.high ?  (Number(curr.high) + 50).toString() : "100"}`;
+        var query_string = `/apps/typesearch?filters=${curr.filters ? curr.filters : ""}&high=${curr.high ?  (Number(curr.high) + 50).toString() : "100"}`;
         router.push({
-            pathname: '/typesearch',
+            pathname: '/apps/typesearch',
             query: query_dict
         }, query_string, {shallow: true});
     }
@@ -459,9 +471,9 @@ function Database({user}) {
             filters_array.push(filter['value']);
         });        
         router.push({
-            pathname: '/typesearch',
-            query: {filters: JSON.stringify(filters_array)}
-        }, `/typesearch?filters=${JSON.stringify(filters_array)}`, {shallow: true});
+            pathname: '/apps/typesearch',
+            query: {filters: JSON.stringify(filters_array), high: '50'}
+        }, `/apps/typesearch?filters=${JSON.stringify(filters_array)}&high=50`, {shallow: true});
     }
       
     return (
@@ -595,11 +607,16 @@ function Database({user}) {
                                     </div>
                                 )
                             })}
-                            <div className="db_update-btn-container" onClick={updateData}>
-                                <button className="db_update-btn">
-                                    Load More
-                                </button>
-                            </div>
+                            {more ? (
+                                <div className="db_update-btn-container" onClick={updateData}>
+                                    <button className="db_update-btn">
+                                        Load More
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="db_update-btn-container">
+                                </div>
+                            )}
                         </div>
                     ) : (
                         <div className="db_card-container">

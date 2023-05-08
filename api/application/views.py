@@ -1,8 +1,11 @@
-from flask import request, render_template, session, url_for, redirect, flash, get_flashed_messages
-import datetime
-from application import app, admin_password, db
+from flask import request, render_template, session, url_for, redirect, flash, jsonify, get_flashed_messages
+from application import app, admin_password, db, imagekit
 from application.models import Types, Link
 from application.functions import getTypeData, update_type, link_update, new_type
+import json
+import os
+import base64
+from imagekitio.models.UploadFileRequestOptions import UploadFileRequestOptions
 
 type_entries = {
     'gender': ['Male', 'Female'],
@@ -29,11 +32,8 @@ def index():
         if request.form.get('logout') == 'true':
             session['authentication'] = False
         return redirect(url_for('index'))
-    return render_template('admin.html', authentication=authentication)
 
-@app.template_filter('ctime')
-def timectime(s):
-    return datetime.datetime.utcfromtimestamp(int(s)).strftime('%Y-%m-%d %I:%M %p')
+    return render_template('admin.html', authentication=authentication)
 
 @app.route("/view", methods=['GET', 'POST'])
 def view():
@@ -55,6 +55,16 @@ def view():
         return render_template('view.html', types=types, namestart=nameStart, authentication=authentication)
     else:
         return redirect(url_for('index'))
+    
+@app.route('/get/similar', methods=['GET'])
+def get_similar():
+    type_data = json.loads(request.args.get('checking'))
+    base = Types.query.filter(Types.name.startswith(type_data['name']))
+    for k,v in type_data['type'].items():
+        base = base.filter(getattr(Types, k) == v)
+    base = base.all()
+    people_list = [{'name': person.name, 'img': person.image} for person in base]
+    return jsonify(people_list)
 
 @app.route("/edit/<type_id>", methods=['GET', 'POST'])
 def edit(type_id):
@@ -64,12 +74,54 @@ def edit(type_id):
         authentication = False
     if authentication:
         current_person = Types.query.filter_by(id=type_id).first()
+        current_function1 = current_person.function1
+        current_function2 = current_person.function2
+        if not current_function1:
+            if current_person.oD:
+                observer = True if current_person.oD == "Observer" else False
+                if observer:
+                    if current_person.observerNeed:
+                        current_function1 = current_person.observerNeed
+                    elif current_person.observerLetter:
+                        current_function1 = current_person.observerLetter + "x"
+                    else:
+                        current_function1 = "Ox"
+                else:
+                    if current_person.deciderNeed:
+                        current_function1 = current_person.deciderNeed
+                    elif current_person.deciderLetter:
+                        current_function1 = current_person.deciderLetter + "x"
+                    else:
+                        current_function1 = "Dx"
+            else:
+                current_function1 = None
+        if not current_function2:
+            if current_person.oD:
+                observer = True if current_person.oD == "Observer" else False
+                if observer:
+                    if current_person.deciderNeed:
+                        current_function2 = current_person.deciderNeed
+                    elif current_person.deciderLetter:
+                        current_function2 = current_person.deciderLetter + "x"
+                    else:
+                        current_function2 = "Dx"
+                else:
+                    if current_person.observerNeed:
+                        current_function2 = current_person.observerNeed
+                    elif current_person.observerLetter:
+                        current_function2 = current_person.observerLetter + "x"
+                    else:
+                        current_function2 = "Ox"
+            else:
+                current_function2 = None
         person_links = Link.query.filter_by(person=type_id)
         current_links = [{'name': link.name, 'url': link.url} for link in person_links]
         if request.method == 'POST':
             if request.form.get('delete'):
                 person_links.delete()
                 Types.query.filter_by(id=type_id).delete()
+                if os.getenv('PRODUCTION'):
+                    imagekit.delete_file(file_id=current_person.file_id)
                 db.session.commit()
             else:
                 data = {}
@@ -85,7 +137,23 @@ def edit(type_id):
                 type_data = getTypeData(data)
                 type_data['Name'] = request.form.get('person_name')
                 type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
-                type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
+                img = request.files.get('file')
+                if img:
+                    if os.getenv('PRODUCTION'):
+                        file_type = img.filename.split('.')[-1]
+                        base64_img  = base64.b64encode(img.read())
+                        result = imagekit.upload_file(file=base64_img, file_name=f'{type_id}.{file_type}', options=UploadFileRequestOptions(
+                            use_unique_file_name=False,
+                            folder='/types/',
+                            is_private_file=False,
+                            overwrite_file=True,
+                        ))
+                        type_data['Image'] = result.url
+                    else:
+                        flash('Cannot change image locally', category='danger')
+                        return redirect(url_for('view'))
+                else:
+                    type_data['Image'] = current_person.image
                 type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
                 for tag in tag_options:
                     new_tag = request.form.get(tag)
@@ -96,7 +164,7 @@ def edit(type_id):
                 update_type(type_id, type_data)
                 link_update(type_id, request.form.get('link_form'))
             return redirect(url_for('view'))
-        return render_template('edit.html', current_person=current_person, type_entries=type_entries, authentication=authentication, tag=current_person.tag, links=current_links)
+        return render_template('edit.html', current_person=current_person, type_entries=type_entries, authentication=authentication, tag=current_person.tag, links=current_links, current_functions=[current_function1, current_function2])
     else:
         return redirect(url_for('index'))
 
@@ -122,8 +190,24 @@ def add():
             type_data = getTypeData(data)
             type_data['Name'] = request.form.get('person_name')
             type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
-            type_data['Image'] = request.form.get('image') if request.form.get('image') != "None" else None
             type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
+            img = request.files.get('file')
+            if img:
+                if os.getenv('PRODUCTION'):
+                    file_type = img.filename.split('.')[-1]
+                    base64_img  = base64.b64encode(img.read())
+                    result = imagekit.upload_file(file=base64_img, file_name=f'{next_id}.{file_type}', options=UploadFileRequestOptions(
+                        use_unique_file_name=False,
+                        folder='/types/',
+                        is_private_file=False,
+                        overwrite_file=True,
+                    ))
+                    type_data['Image'] = result.url
+                else:
+                    flash('Cannot add image locally', category='danger')
+                    return redirect(url_for('index'))
+            else:
+                type_data['Image'] = None
             for tag in tag_options:
                 new_tag = request.form.get(tag)
                 if new_tag == 'on':

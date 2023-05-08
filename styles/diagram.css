@@ -3,30 +3,7 @@
 .border-func img {
     border-radius: 50%;
     background-color: white;
-    outline: 4px solid white;
-}
-
-.border-logo {
-    outline: 4.5px solid white;
-}
-
-.border-logo-main {
-    outline: 4.5px solid white;
-}
-
-.border-logo-third {
-    outline: 4.5px dashed white !important;
-}
-
-.border-logo-third {
-    background-color: var(--dark-grey) !important;
-    outline: 4.5px solid #3333cc !important;
-}
-
-.border-logo-last {
-    background-color: var(--dark-grey) !important;
-    outline: 4.5px dashed #3333cc !important;
-    transform: translate(-50%, -50%) rotate(-1deg) !important;
+    border: 4px solid white;
 }
 
 .bracket {
@@ -112,7 +89,7 @@
         width: 100px;
         right: -3%;
         bottom: 3%;
-        transform: translate(-50%, -50%) rotate(130deg);
+        transform: translate(-50%, -50%) rotate(110deg);
     }
     .third_bracket {
         width: 120px;
@@ -257,7 +234,7 @@
 
 .top {
     position: absolute;
-    left: 30.5%;
+    left: 27.5%;
     top: 33.5%;
     width: 45%;
     transform: translate(-50%, -50%);
@@ -318,8 +295,8 @@
 }
 
 .double_top {
-    top:20px;
-    left:17.5px;
+    top:23px;
+    left:20.5px;
 }
 
 .double_2nd {

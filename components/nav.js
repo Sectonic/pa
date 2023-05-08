@@ -28,8 +28,8 @@ function Navbar(props) {
                 <div className='tool_tip'>Typing</div>
             </li>
           </Link>
-          <Link href="/academyapps">
-            <li className={props.section === "academyapps" ? "selected_nav" : undefined}>
+          <Link href="/apps">
+            <li className={props.section === "apps" ? "selected_nav" : undefined}>
                 <img
                   src={"/img/main/tools.png"}
                   alt="tools icon"
@@ -52,7 +52,7 @@ function Navbar(props) {
                   src={"/img/main/support.png"}
                   alt="tools icon"
                 />
-                <div className='tool_tip'>Academy+</div>
+                <div className='tool_tip'>Plus</div>
             </li>
           </Link>
         </div>

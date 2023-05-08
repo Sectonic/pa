@@ -2,9 +2,16 @@
 {% block title %} {{current_person.name}} Edit {% endblock %}
 {% block content %}
 <div class="mt-4  mb-4 container-sm" style="background-color: #080b11; border: 2px solid #262e47; width: 650px;margin: 0 auto; border-radius: 20px; color: white;">
-    <form method="POST" id="edit">
+    <form method="POST" id="edit" enctype="multipart/form-data">
         <h1 class="text-left mt-1" style="padding-left:20px; margin-bottom: -10px">{{current_person.name}} <span style="font-size: 22px">({{current_person.id}})</span></h1>
         <hr>
+        <div class="row " style="color: white;margin: 0 auto;width: 615px;display: flex; justify-content: center; align-items: center;">
+            <img src="{{current_person.image}}" style="width: 200px;border-radius: 20px;">
+            <div class="mb-3" style="color: white;margin: 0 auto;">
+                <label for="floatingPassword" class="form-label">Change Image</label>
+                <input name="file" type="file" class="form-control" id="fileUpload" placeholder="Image URL" style="color: white;border: 2px solid #262e47;background-color: #192030;">
+            </div>
+        </div>
         <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
             <input name="person_name" type="text" class="form-control" placeholder="Name" value="{{current_person.name}}" style="color: white;border: 2px solid #262e47;background-color: #192030;">
             <label for="floatingInput">Name</label>
@@ -68,16 +75,16 @@
             <div class="col">
                 <div class="form-floating mb-3">
                     <select name="function1" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                        {% if not current_person.function1 %}
+                        {% if not current_functions[0] %}
                             <option value="" selected>None</option>
                         {% else %}
                             <option value="">None</option>
                         {% endif %}
                         {% for func in type_entries['func'] %}
-                            {% if func == current_person.function1 %}
+                            {% if func == current_functions[0] %}
                                 <option value="{{func}}" selected>{{func}}</option>
                             {% else %}
-                                <option value="{{func}}" >{{func}}</option>
+                                <option value="{{func}}">{{func}}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
@@ -87,16 +94,16 @@
             <div class="col">
                 <div class="form-floating mb-3">
                     <select name="function2" class="form-select" id="floatingSelect" aria-label="Floating label select example" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-                        {% if not current_person.function2 %}
+                        {% if not current_functions[1] %}
                             <option value="" selected>None</option>
                         {% else %}
                             <option value="">None</option>
                         {% endif %}
                         {% for func in type_entries['func'] %}
-                            {% if func == current_person.function2 %}
+                            {% if func == current_functions[1] %}
                                 <option value="{{func}}" selected>{{func}}</option>
                             {% else %}
-                                <option value="{{func}}" >{{func}}</option>
+                                <option value="{{func}}">{{func}}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
@@ -260,10 +267,6 @@
             </div>
             {% endfor %}
         </div>
-        <div class="form-floating mb-3" style="color: white;margin: 0 auto;width: 590px;">
-            <input name="image" class="form-control" id="floatingPassword" placeholder="Image URL" value="{{current_person.image}}" style="color: white;border: 2px solid #262e47;background-color: #192030;">
-            <label for="floatingPassword">Image URL</label>
-        </div>
         <input type="text" id="link_input" class="d-none" name="link_form" >
         <button class="btn btn-primary mb-3" style="width: 590px;margin: 0 auto;display: block;" onclick="submit_edit('{{current_person.id}}')" type="button">Save</button>
     </form>
@@ -272,6 +275,14 @@
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
+
+        window.addEventListener('paste', (e) => {
+            if ($('#fileUpload:hover').length != 0) {
+                console.log('change');
+                document.getElementById('fileUpload').files = e.clipboardData.files;
+            }
+        });
+
         $('.form-check-input').click(function() {
             $('.form-check-input').not(this).prop('checked', false);
         });

@@ -12,7 +12,7 @@
 }
 
 .db_card {
-    width: 180px;
+    width: 160px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -101,7 +101,7 @@
 }
 
 .db_card-social img {
-    width: 35px;
+    width: 30px;
 }
 
 .db_card-text {
@@ -217,6 +217,7 @@
 
 .db_search {
     width: 35%;
+    margin-top: 250px;
     border-radius: 50px;
     background-color: var(--dark-grey);
     border: 5px solid var(--light-grey);

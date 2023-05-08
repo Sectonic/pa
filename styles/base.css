@@ -2,13 +2,13 @@
 :root {
   --black: #000;
 
-  --vibrant-purple: #1f3762;
+  --vibrant-purple: #193460;
   --vibrant-purple-rgb: 18, 28, 58;
   
-  --light-purple: #1b2e50;
+  --light-purple: #2c4060;
   --light-purple-rgb: 92, 100, 244;
 
-  --dark-purple: #0f223e;
+  --dark-purple: #122444;
   --dark-purple-rgb: 3, 13, 30;
 
   --low-op-dark-purple: #030d1e8d;
@@ -20,13 +20,13 @@
   --vibrant-orange: #ffb700;
   --vibrant-orange-rgb: 255, 183, 0;
 
-  --dark-grey: #182742;
+  --dark-grey: #122444;
   --dark-grey-rgb: 15, 28, 52;
 
-  --light-grey: #1f3762;
+  --light-grey: #193460;
   --light-grey-rgb: 24, 42, 78;
 
-  --purple-black: #0c152a;
+  --purple-black: #0a142c;
   --purple-black-rgb: 4, 13, 30;
 }
 
@@ -97,7 +97,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--vibrant-purple);
+  background: var(--light-grey);
 }
 
 .nav {
@@ -297,7 +297,7 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 25;

@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 import os
 from cryptography.fernet import Fernet
+from imagekitio import ImageKit
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL') if os.getenv('DATABASE_URL') else 'sqlite:///database.db'
@@ -20,7 +21,16 @@ admin_password = os.getenv('PASSWORD') if os.getenv('PASSWORD') else 'password'
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, command='migrate')
-crypt = Fernet(open("crypt.key", "rb").read())
+back_path = os.path.dirname(os.path.dirname(__file__))
+crypt = Fernet(open(os.path.join(back_path, 'crypt.key'), "rb").read())
+if os.getenv('PRODUCTION'):
+    imagekit = ImageKit(
+        private_key=os.getenv('IMAGEKIT_PRIVATE'),
+        public_key=os.getenv('IMAGEKIT_PUBLIC'),
+        url_endpoint='https://ik.imagekit.io/dnegvhe1j'
+    )
+else:
+    imagekit = None
 
 from application import routes
 from application import views

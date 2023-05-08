@@ -386,11 +386,10 @@
 
 .animal_double {
   position: absolute;
-  top:-5px;
-  right:-5px;
-  font-size: 12px;
-  border-radius: 50%;
-  background-color: #5c64f4;
+  top:-6px;
+  right:-8px;
+  font-size: 14px;
+  color: white;
   padding: 2px;
 }
 

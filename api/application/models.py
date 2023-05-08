@@ -42,6 +42,7 @@ class Types(db.Model):
     updatedAt = db.Column(db.Integer())
     image = db.Column(db.String(500))
     tag = db.Column(db.String(100))
+    file_id = db.Column(db.String(100))
     links = db.relationship('Link', backref='related_links', lazy=True, passive_deletes=True)
 
 class Users(db.Model):

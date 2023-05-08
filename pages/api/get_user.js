@@ -1,6 +1,5 @@
 export default async function handler(req, res) {
     const hash = req.cookies['hash'];
-    console.log(hash);
     if (hash) {
         const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/user?hash=${hash}`, {credentials: 'include'});
         const data = await request.json();

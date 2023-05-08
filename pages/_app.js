@@ -11,6 +11,7 @@ import '../styles/typing.css';
 import '../styles/register.css';
 import '../styles/placeholder.css';
 import '../styles/academyplus.css';
+import '../styles/typetool.css';
 import "animate.css";
 import Navbar from '../components/nav';
 import { useEffect, useState, useRef } from "react";
@@ -146,8 +147,8 @@ function App({ Component, pageProps, router }) {
                         <img src='/img/main/typing.png'/>
                       </div>
                     </Link>
-                    <Link href='/academyapps'>
-                      <div className={`mobile_menu-link ${path[1] == 'academyapps' && 'mobile_menu-link--selected'}`}>
+                    <Link href='/apps'>
+                      <div className={`mobile_menu-link ${path[1] == 'apps' && 'mobile_menu-link--selected'}`}>
                         <div>Apps</div>
                         <img src='/img/main/tools.png'/>
                       </div>

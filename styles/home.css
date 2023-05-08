@@ -1,8 +1,8 @@
 .home_banner {
   background-image:linear-gradient(
       to right,
-      rgba(var(--dark-grey-rgb), .5),
-      rgba(var(--dark-grey-rgb), .5)
+      rgba(var(--dark-grey-rgb), .7),
+      rgba(var(--dark-grey-rgb), .7)
     ),
     url("./backgrounds/landing.png");
   background-size: 110% 110%;
@@ -51,10 +51,10 @@
 }
 
 .home_banner > div {
-  margin-left: 15%;
+  margin-left: 23%;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1540px) {
   .home_banner > div {
     margin-left: 0;
   }
@@ -65,7 +65,7 @@
 
 .home_title {
   margin: 0 auto;
-  font-weight: 900;
+  font-weight: 700;
   text-align: left;
   display: flex;
   justify-content: center;
@@ -79,26 +79,28 @@
 }
 
 .home_title_text {
-  font-weight: 900;
+  font-weight: 600;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   height: 200px;
-  font-size: 54px;
+  width: 1100px;
+  font-size: 28px;
   margin-top: 30px;
 }
 
-@media only screen and (max-width: 1530px) {
+@media only screen and (max-width: 1540px) {
   .home_title_text { 
     text-align: center;
     font-size: 64px;
+    width: 75vw;
   }
   .home_title_img {
     height: 200px;
   }
   .home_title_text { 
     height: 150px;
-    font-size: 47px;
+    font-size: 27px;
   }
 }
 
@@ -119,7 +121,7 @@
 .home_title_top {
   color: white;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .home_subtitle {
@@ -167,14 +169,18 @@
 }
 
 .home_dashboard > div {
-  margin: 0 auto;
   border-radius: 15px;
   height: 90px;
-  width: 90%;
   padding: 15px 40px;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (min-width: 1540px) {
+  .home_dashboard > div {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 1540px) {
   .home_dashboard{
     width: 500px;
   }
@@ -196,6 +202,7 @@
   .home_dashboard {
     width: 80%;
     padding: 20px 20px;
+    margin-top: 40px;
   }
   .home_dashboard > div {
     background-color: rgba(var(--light-grey-rgb),.1);
@@ -217,7 +224,6 @@
 }
 
 .home_dashboard-sm {
-  margin: 0 auto;
   cursor: pointer;
   display: flex;
   gap: 35px;
@@ -267,7 +273,6 @@
   gap: 35px;
   justify-content: flex-start;
   align-items: center;
-  width: calc(42% - 50px);
 }
 
 
@@ -286,7 +291,7 @@
 }
 
 .home_lg-textbig {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 900;
   color: #ffb700;
 }

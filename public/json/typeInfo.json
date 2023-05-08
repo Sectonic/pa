@@ -1,0 +1,434 @@
+{
+    "template": {
+        "mbti": null,
+        "quadra": null,
+        "function1": null,
+        "function2": null,
+        "oD": null,
+        "temperament": null,
+        "observerAxis": null,
+        "observerLetter": null,
+        "observerNeed": null,
+        "deciderAxis": null,
+        "deciderNeed": null,
+        "deciderLetter": null,
+        "animal1": null,
+        "animal2": null,
+        "animal3": null,
+        "animal4": null,
+        "extrovertIntrovert": null,
+        "energyInfo": null
+    },
+    "sensoryModality": {
+        "mS": [
+            {"name": "Sensory Modality", "value": "mS"}
+        ],
+        "fS": [
+            {"name": "Sensory Modality", "value": "fS"}
+        ]
+    },
+    "deModality": {
+        "fDe": [
+            {"name": "De Modality", "value": "fDe"}
+        ],
+        "mDe": [
+            {"name": "De Modality", "value": "mDe"}
+        ]
+    },
+    "function1": {
+        "Ox": [
+            {"name": "oD", "value": "Observer"}
+        ],
+        "Dx": [
+            {"name": "oD", "value": "Decider"}
+        ],
+        "Oe": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "EP"},
+            {"name": "observerNeed", "value": "Oe"}
+        ],
+        "Oi": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "IJ"},
+            {"name": "observerNeed", "value": "Oi"}
+        ],
+        "De": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "temperament", "value": "EJ"},
+            {"name": "deciderNeed", "value": "De"}
+        ],
+        "Di": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "temperament", "value": "IP"},
+            {"name": "deciderNeed", "value": "Di"}
+        ],
+        "Nx": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "observerLetter", "value": "N"}
+        ],
+        "Sx": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "observerLetter", "value": "S"}
+        ],
+        "Fx": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "deciderLetter", "value": "F"}
+        ],
+        "Tx": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "deciderLetter", "value": "T"}
+        ],
+        "Ne": [
+            {"name": "function1", "value": "Ne"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "EP"},
+            {"name": "observerAxis", "value": "Si-Ne"},
+            {"name": "observerLetter", "value": "N"},
+            {"name": "observerNeed", "value": "Oe"}
+        ],
+        "Se": [
+            {"name": "function1", "value": "Se"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "EP"},
+            {"name": "observerAxis", "value": "Se-Ni"},
+            {"name": "observerLetter", "value": "S"},
+            {"name": "observerNeed", "value": "Oe"}
+        ],
+        "Ni": [
+            {"name": "function1", "value": "Ni"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "IJ"},
+            {"name": "observerAxis", "value": "Se-Ni"},
+            {"name": "observerLetter", "value": "N"},
+            {"name": "observerNeed", "value": "Oi"}
+        ],
+        "Si": [
+            {"name": "function1", "value": "Si"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "IJ"},
+            {"name": "observerAxis", "value": "Si-Ne"},
+            {"name": "observerLetter", "value": "S"},
+            {"name": "observerNeed", "value": "Oi"}
+        ],
+        "Te": [
+            {"name": "function1", "value": "Te"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "temperament", "value": "EJ"},
+            {"name": "deciderAxis", "value": "Fi-Te"},
+            {"name": "deciderLetter", "value": "T"},
+            {"name": "deciderNeed", "value": "De"}
+        ],
+        "Fe": [
+            {"name": "function1", "value": "Fe"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "temperament", "value": "EJ"},
+            {"name": "deciderAxis", "value": "Fe-Ti"},
+            {"name": "deciderLetter", "value": "F"},
+            {"name": "deciderNeed", "value": "De"}
+        ],
+        "Ti": [
+            {"name": "function1", "value": "Ti"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "temperament", "value": "IP"},
+            {"name": "deciderAxis", "value": "Fe-Ti"},
+            {"name": "deciderLetter", "value": "T"},
+            {"name": "deciderNeed", "value": "Di"}
+        ],
+        "Fi": [
+            {"name": "function1", "value": "Fi"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "temperament", "value": "IP"},
+            {"name": "deciderAxis", "value": "Fi-Te"},
+            {"name": "deciderLetter", "value": "F"},
+            {"name": "deciderNeed", "value": "Di"}
+        ]
+    },
+    "function2": {
+        "Ox": [
+            {"name": "oD", "value": "Decider"}
+        ],
+        "Dx": [
+            {"name": "oD", "value": "Observer"}
+        ],
+        "Oe": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerNeed", "value": "Oe"}
+        ],
+        "Oi": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerNeed", "value": "Oi"}
+        ],
+        "De": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "deciderNeed", "value": "De"}
+        ],
+        "Di": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "deciderNeed", "value": "Di"}
+        ],
+        "Nx": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerLetter", "value": "N"}
+        ],
+        "Sx": [
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerLetter", "value": "S"}
+        ],
+        "Fx": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "deciderLetter", "value": "F"}
+        ],
+        "Tx": [
+            {"name": "oD", "value": "Observer"},
+            {"name": "deciderLetter", "value": "T"}
+        ],
+        "Ne": [
+            {"name": "function2", "value": "Ne"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerAxis", "value": "Si-Ne"},
+            {"name": "observerLetter", "value": "N"},
+            {"name": "observerNeed", "value": "Oe"}
+        ],
+        "Se": [
+            {"name": "function2", "value": "Se"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerAxis", "value": "Se-Ni"},
+            {"name": "observerLetter", "value": "S"},
+            {"name": "observerNeed", "value": "Oe"}
+        ],
+        "Ni": [
+            {"name": "function2", "value": "Ni"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerAxis", "value": "Se-Ni"},
+            {"name": "observerLetter", "value": "N"},
+            {"name": "observerNeed", "value": "Oi"}
+        ],
+        "Si": [
+            {"name": "function2", "value": "Si"},
+            {"name": "oD", "value": "Decider"},
+            {"name": "observerAxis", "value": "Si-Ne"},
+            {"name": "observerLetter", "value": "S"},
+            {"name": "observerNeed", "value": "Oi"}
+        ],
+        "Te": [
+            {"name": "function2", "value": "Te"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "EJ"},
+            {"name": "deciderAxis", "value": "Fi-Te"},
+            {"name": "deciderLetter", "value": "T"},
+            {"name": "deciderNeed", "value": "De"}
+        ],
+        "Fe": [
+            {"name": "function2", "value": "Fe"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "temperament", "value": "EJ"},
+            {"name": "deciderAxis", "value": "Fe-Ti"},
+            {"name": "deciderLetter", "value": "F"},
+            {"name": "deciderNeed", "value": "De"}
+        ],
+        "Ti": [
+            {"name": "function2", "value": "Ti"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "deciderAxis", "value": "Fe-Ti"},
+            {"name": "deciderLetter", "value": "T"},
+            {"name": "deciderNeed", "value": "Di"}
+        ],
+        "Fi": [
+            {"name": "function2", "value": "Fi"},
+            {"name": "oD", "value": "Observer"},
+            {"name": "deciderAxis", "value": "Fi-Te"},
+            {"name": "deciderLetter", "value": "F"},
+            {"name": "deciderNeed", "value": "Di"}
+        ]
+    },
+    "animal1": {
+        "Play": [
+            {"name": "animal1", "value": "Play"}
+        ],
+        "Blast": [
+            {"name": "animal1", "value": "Blast"}
+        ],
+        "Consume": [
+            {"name": "animal1", "value": "Consume"}
+        ],
+        "Sleep": [
+            {"name": "animal1", "value": "Sleep"}
+        ]
+    },
+    "animal2": {
+        "Play": [
+            {"name": "animal2", "value": "Play"}
+        ],
+        "Blast": [
+            {"name": "animal2", "value": "Blast"}
+        ],
+        "Consume": [
+            {"name": "animal2", "value": "Consume"}
+        ],
+        "Sleep": [
+            {"name": "animal2", "value": "Sleep"}
+        ]
+    },
+    "animal3": {
+        "Play": [
+            {"name": "animal3", "value": "Play"}
+        ],
+        "Blast": [
+            {"name": "animal3", "value": "Blast"}
+        ],
+        "Consume": [
+            {"name": "animal3", "value": "Consume"}
+        ],
+        "Sleep": [
+            {"name": "animal3", "value": "Sleep"}
+        ]
+    },
+    "animal4": {
+        "Sleep": [
+            {"name": "animal4", "value": "Sleep"},
+            {"name": "extrovertIntrovert", "value": "Extrovert"},
+            {"name": "energyInfo", "value": "Info"}
+        ],
+        "Consume": [
+            {"name": "animal4", "value": "Consume"},
+            {"name": "extrovertIntrovert", "value": "Extrovert"},
+            {"name": "energyInfo", "value": "Energy"}
+        ],
+        "Blast": [
+            {"name": "animal4", "value": "Blast"},
+            {"name": "extrovertIntrovert", "value": "Introvert"},
+            {"name": "energyInfo", "value": "Energy"}
+        ],
+        "Play": [
+            {"name": "animal4", "value": "Play"},
+            {"name": "extrovertIntrovert", "value": "Introvert"},
+            {"name": "energyInfo", "value": "Info"}
+        ]
+    },
+    "mbti": {
+        "Fi/Ni": [
+            {"name": "mbti", "value": "Jumper ISFP"}
+        ],
+        "Fi/Se": [
+            {"name": "mbti", "value": "Standard ISFP"}
+        ],
+        "Fi/Si": [
+            {"name": "mbti", "value": "Jumper INFP"}
+        ],
+        "Fi/Ne": [
+            {"name": "mbti", "value": "Standard INFP"}
+        ],
+        "Ti/Ni": [
+            {"name": "mbti", "value": "Jumper ISTP"}
+        ],
+        "Ti/Se": [
+            {"name": "mbti", "value": "Standard ISTP"}
+        ],
+        "Ti/Si": [
+            {"name": "mbti", "value": "Jumper INTP"}
+        ],
+        "Ti/Ne": [
+            {"name": "mbti", "value": "Standard INTP"}
+        ],
+        "Fe/Ni": [
+            {"name": "mbti", "value": "Standard ENFJ"}
+        ],
+        "Fe/Se": [
+            {"name": "mbti", "value": "Jumper ENFJ"}
+        ],
+        "Fe/Si": [
+            {"name": "mbti", "value": "Standard ESFJ"}
+        ],
+        "Fe/Ne": [
+            {"name": "mbti", "value": "Jumper ESFJ"}
+        ],
+        "Te/Ni": [
+            {"name": "mbti", "value": "Standard ENTJ"}
+        ],
+        "Te/Se": [
+            {"name": "mbti", "value": "Jumper ENTJ"}
+        ],
+        "Te/Si": [
+            {"name": "mbti", "value": "Standard ESTJ"}
+        ],
+        "Te/Ne": [
+            {"name": "mbti", "value": "Jumper ESTJ"}
+        ],
+        "Ni/Fi": [
+            {"name": "mbti", "value": "Jumper INTJ"}
+        ],
+        "Ni/Fe": [
+            {"name": "mbti", "value": "Standard INFJ"}
+        ],
+        "Ni/Ti": [
+            {"name": "mbti", "value": "Jumper INFJ"}
+        ],
+        "Ni/Te": [
+            {"name": "mbti", "value": "Standard INTJ"}
+        ],
+        "Si/Fi": [
+            {"name": "mbti", "value": "Jumper ISTJ"}
+        ],
+        "Si/Fe": [
+            {"name": "mbti", "value": "Standard ISFJ"}
+        ],
+        "Si/Ti": [
+            {"name": "mbti", "value": "Jumper ISFJ"}
+        ],
+        "Si/Te": [
+            {"name": "mbti", "value": "Standard ISTJ"}
+        ],
+        "Ne/Fi": [
+            {"name": "mbti", "value": "Standard ENFP"}
+        ],
+        "Ne/Fe": [
+            {"name": "mbti", "value": "Jumper ENTP"}
+        ],
+        "Ne/Ti": [
+            {"name": "mbti", "value": "Standard ENTP"}
+        ],
+        "Ne/Te": [
+            {"name": "mbti", "value": "Jumper ENFP"}
+        ],
+        "Se/Fi": [
+            {"name": "mbti", "value": "Standard ESFP"}
+        ],
+        "Se/Fe": [
+            {"name": "mbti", "value": "Jumper ESTP"}
+        ],
+        "Se/Ti": [
+            {"name": "mbti", "value": "Standard ESTP"}
+        ],
+        "Se/Te": [
+            {"name": "mbti", "value": "Jumper ESFP"}
+        ]
+    },
+    "quadra": {
+        "Se-Ni": {
+            "Fe-Ti": {
+                "name": "quadra",
+                "value": "Beta"
+            },
+            "Fi-Te": {
+                "name": "quadra",
+                "value": "Gamma"
+            }
+        },
+        "Si-Ne": {
+            "Fe-Ti": {
+                "name": "quadra",
+                "value": "Alpha"
+            },
+            "Fi-Te": {
+                "name": "quadra",
+                "value": "Delta"
+            }
+        }
+    },
+    "combos": {
+        "PB": {"name": "extrovertIntrovert", "value": "Extrovert"},
+        "BP": {"name": "extrovertIntrovert", "value": "Extrovert"},
+        "CS": {"name": "extrovertIntrovert", "value": "Introvert"},
+        "SC": {"name": "extrovertIntrovert", "value": "Introvert"}
+    }
+}

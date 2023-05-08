@@ -1,6 +1,6 @@
-import Banner from "../components/banner";
+import Banner from "../../components/banner";
 import Link from 'next/link';
-import Placeholder from '../components/placeholder';
+import Placeholder from '../../components/placeholder';
 import { useState, useEffect } from 'react';
 import {useRouter} from 'next/router';
 import { waitUntil, WAIT_FOREVER } from 'async-wait-until';
@@ -37,7 +37,7 @@ function AcademyApps({user}) {
           <h2 className="section_title">Objective Personality Apps</h2>
           <div className="section_body top_typing">
             <div className="section_text outline-gray">
-              <Link href="/typing/triangulation">
+              <Link href="/apps/typetool">
                 <div>
                   <img
                     src="/img/main/type_tool.png"
@@ -52,7 +52,7 @@ function AcademyApps({user}) {
               </Link>
             </div>
             <div className="section_text outline-gray">
-              <Link href="/typesearch">
+              <Link href="/apps/typesearch">
                 <div>
                   <img
                     src="/img/main/database.png"
