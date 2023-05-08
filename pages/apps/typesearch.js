@@ -1,6 +1,6 @@
-import Banner from "../components/banner";
+import Banner from "../../components/banner";
 import Select from 'react-select';
-import { Popup } from "/components/popup_main";
+import { Popup } from "../../components/popup_main";
 import Image from '../../components/image';
 import { useState, useEffect } from "react";
 import Placeholder from '../../components/placeholder';

@@ -89,12 +89,12 @@
 .support_card {
     margin: 0 !important;
     width: max-content;
-    padding: 25px;
+    padding: 15px;
     text-align: center;
 }
 
 .support_card img {
-    width: 110px;
+    width: 160px;
     height: 160px;
     object-fit: cover;
     border-radius: 15px;

@@ -52,7 +52,7 @@ function Navbar(props) {
                   src={"/img/main/support.png"}
                   alt="tools icon"
                 />
-                <div className='tool_tip'>Academy+</div>
+                <div className='tool_tip'>Plus</div>
             </li>
           </Link>
         </div>
