@@ -28,15 +28,15 @@ function Home() {
           <h1 className="home_title">
             <div>
               <h1 className="home_title_text">
-                <div className="home_title_top">Personality Academy</div>
-                <div >Objective personality made
+                <div className="home_title_top">Personality Academy </div>
+                <div >Objective Personality Made
                 <TypeAnimation
-                  sequence={['Simple.', 2250, 'Useful.', 2250, 'Doable.', 2250]}
+                  sequence={['Simple.', 2250, 'Doable.', 2250]}
                   repeat={Infinity}
-                  style={{ marginLeft: '20px'}}
+                  style={{ marginLeft: '10px'}}
                   wrapper="span"
                   className="home_subtitle"
-                  speed={20} 
+                  speed={10} 
                 />
               </div>
               </h1>
@@ -149,42 +149,17 @@ function Home() {
       <div className="section_body">
       <div className="section_img">
             <img
-              src={"/img/main/science.png"}
+              src={"/img/main/o.png"}
             />
           </div>
         </div>
         <h2 className="section_title neg-mt-45">Objective Personality Theory</h2>
         <p className="letters_subtitle">
-        *We are not affiliated with OPS, all credit goes to the original creators.
+        *We are not affiliated, and do not take credit for the theory itself.
+        <br/> We base our knowledge on the Objective Personality System (OPS).
+        <br/> All credit goes to the original creators, Dave Powers & Shannon Renee. 
+        <br/> For original content, check out the official sources below.
         </p>
-        <div className="section_body section_texts-sm extra_spacing_texts-sm">
-          <div className="section_text outline-trans">
-            <div className="text-sm_img home-top_img">
-              <img
-                src={"/img/main/target.png"}
-              />
-            </div>
-            <div className="text-sm_desc">
-              <h3 className="section_subtitle margin-sm">Objective Trackability</h3>
-              <p>
-                An objective spectrum of personality that actually makes sense.
-              </p>
-            </div>
-          </div>
-          <div className="section_text outline-trans">
-            <div className="text-sm_img home-top_img">
-              <img
-                src={"/img/main/earth.png"}
-              />
-            </div>
-            <div className="text-sm_desc">
-              <h3 className="section_subtitle margin-sm">Down to Earth</h3>
-              <p>
-              Tracks things we see and hear every day, it's really nothing new.
-              </p>
-            </div>
-          </div>
-        </div>
         <ChangeSection link="/resources" text="Official Source" src="tools" />
       </div>
       <div className="section extra_margin_section">
@@ -197,7 +172,7 @@ function Home() {
         </div>
         <h2 className="section_title neg-mt-45">All The Best, For The Community</h2>
         <p className="letters_subtitle">
-        A community project lead by Aze
+        A community project lead by Aze.
         </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-trans">
@@ -210,19 +185,6 @@ function Home() {
               <h3 className="section_subtitle margin-sm">Net Positive Impact</h3>
               <p>
                 Pushing OPS forward by pioneering the best platform for knowledge.
-              </p>
-            </div>
-          </div>
-          <div className="section_text outline-trans">
-            <div className="text-sm_img home-top_img">
-              <img
-                src={"/img/main/original.png"}
-              />
-            </div>
-            <div className="text-sm_desc">
-              <h3 className="section_subtitle margin-sm">True To OPS</h3>
-              <p>
-              Concepts are made simple to understand while staying true to OPS.
               </p>
             </div>
           </div>
@@ -241,7 +203,7 @@ function Home() {
                 />
                 <h3 className="typing_title-h3">Take a Peek</h3>
                 <p>
-                Read about Personality Theory
+                Read what personality theory is all about
                 </p>
               </div>
             </Link>
@@ -256,7 +218,7 @@ function Home() {
                 />
                 <h3 className="typing_title-h3">Sign Up</h3>
                 <p>
-                  Access for free with an account
+                  Access stuff for free with an account
                 </p>
               </div>
             </Link>

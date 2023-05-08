@@ -1,48 +1,26 @@
 function UpdatesPopup() {
   return (
     <div>
-      <h2 className="popup_title">Saviors</h2>
+      <h2 className="popup_title">Updates</h2>
       <div className="popup_section">
         <div className="popup_section-img">
-          <img src="/img/learn/basic/savior_demon/s-d_states.png" />
+          <img src="/img/main/launch.png" />
         </div>
         <div className="popup_section-text">
-          <h3 className="popup_subtitle margin-sm">Title</h3>
+          <h3 className="popup_subtitle margin-sm">Official Project Launch</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue ut
-            lectus arcu bibendum at varius vel pharetra vel. Vitae aliquet nec
-            ullamcorper sit amet risus.
+            Hi, I'm Alex, you may already know me as Aze. I'm proud to finally announce that Personality Academy has officially launched! 
           </p>
-        </div>
-      </div>
-      <div className="popup_section">
-        <div className="popup_section-text">
-          <h3 className="popup_subtitle margin-sm">Title</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue ut
-            lectus arcu bibendum at varius vel pharetra vel. Vitae aliquet nec
-            ullamcorper sit amet risus.
+            Almost a year ago, this all started as a vision to make the best project, for the community. 
+            A place that ties OPS together with the best resources and tools, to make tracking personality type objectively, the best it can be.
           </p>
-        </div>
-        <div className="popup_section-img">
-          <img src="/img/learn/basic/savior_demon/s-d_opposites.png" />
-        </div>
-      </div>
-      <div className="popup_section">
-        <div className="popup_section-img">
-          <img src="/img/learn/basic/savior_demon/tidalwave.png" />
-        </div>
-        <div className="popup_section-text">
-          <h3 className="popup_subtitle margin-sm">Title</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue ut
-            lectus arcu bibendum at varius vel pharetra vel. Vitae aliquet nec
-            ullamcorper sit amet risus. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
+            At last, we can't wait to finally share everything we've been working on.
+            Me and Sujal have worked tirelessly on this for more than half a year.
+          </p>
+          <p>
+            And now, it's all yours.
           </p>
         </div>
       </div>

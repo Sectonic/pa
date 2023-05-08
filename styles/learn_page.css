@@ -35,7 +35,7 @@ background-position-y: 500px;
 
 .banner-sm {
   position: relative;
-  height: auto;
+  height: 350px;
   padding: 30px 0;
   width: calc(100% - 10px);
   margin-top: -10px;

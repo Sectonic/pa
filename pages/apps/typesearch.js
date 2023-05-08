@@ -1,10 +1,10 @@
+import Banner from "../components/banner";
 import Select from 'react-select';
 import { Popup } from "/components/popup_main";
 import Image from '../../components/image';
 import { useState, useEffect } from "react";
 import Placeholder from '../../components/placeholder';
 import { useRouter } from 'next/router';
-import { waitUntil, WAIT_FOREVER } from 'async-wait-until';
 
 Array.prototype.unique = function() {
     var a = this.concat();
