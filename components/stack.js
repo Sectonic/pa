@@ -187,13 +187,13 @@ export default function Stack({data, need_options, functions, decider_functions,
                     } else {
                         masculine_feminine = "";
                         if (current_function) {
-                            path_location = 'img/icons/Functions/';
+                            path_location = '/img/icons/Functions/';
                         } else if (data.observerNeed) {
                             current_function = savior_demon == 'border-func' ? data.observerNeed.toLowerCase() : opposites.needs[data.observerNeed];
-                            path_location = 'img/icons/partial/needs/';
+                            path_location = '/img/icons/partial/needs/';
                         } else if (data.observerLetter) {
                             current_function = savior_demon == 'border-func' ? data.observerLetter.toLowerCase() : opposites.letters[data.observerLetter];
-                            path_location = 'img/icons/partial/letters/';
+                            path_location = '/img/icons/partial/letters/';
                         } else {
                             path_location = "/img/icons/partial/";
                             current_function = "blank";
@@ -212,11 +212,11 @@ export default function Stack({data, need_options, functions, decider_functions,
                             } else {
                                 masculine_feminine = current_function.substring(1, 2) == "e" ? 'f_' : 'm_';
                             }
-                            path_location = 'img/icons/partial/needs/';
+                            path_location = '/img/icons/partial/needs/';
                         } else if (data.deciderLetter) {
                             masculine_feminine = "";
                             current_function = savior_demon == 'border-func' ? data.deciderLetter.toLowerCase() : opposites.letters[data.deciderLetter];
-                            path_location = 'img/icons/partial/letters/';
+                            path_location = '/img/icons/partial/letters/';
                         } else {
                             path_location = "/img/icons/partial/";
                             current_function = "blank";
@@ -225,13 +225,13 @@ export default function Stack({data, need_options, functions, decider_functions,
                     } else {
                         masculine_feminine = "";
                         if (current_function) {
-                            path_location = 'img/icons/Functions/';
+                            path_location = '/img/icons/Functions/';
                         } else if (data.deciderNeed) {
                             current_function = savior_demon == 'border-func' ? data.deciderNeed.toLowerCase() : opposites.needs[data.deciderNeed];
-                            path_location = 'img/icons/partial/needs/';
+                            path_location = '/img/icons/partial/needs/';
                         } else if (data.deciderLetter) {
                             current_function = savior_demon == 'border-func' ? data.deciderLetter.toLowerCase() : opposites.letters[data.deciderLetter];
-                            path_location = 'img/icons/partial/letters/';
+                            path_location = '/img/icons/partial/letters/';
                         } else {
                             path_location = "/img/icons/partial/";
                             current_function = "blank";
