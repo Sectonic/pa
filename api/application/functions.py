@@ -1,44 +1,13 @@
 from application import db
 from application.models import Types, Link
 import datetime
-from application.options import external_data
-import copy
+import json
+import os
 
 def new_type(person):
-    new_person = Types(
-        name=person['Name'],
-        sex=person['Sex'],
-        type=person['Type'],
-        mbti=person['MBTI'],
-        extrovertIntrovert=person['Extrovert/Introvert'],
-        temperment=person['Temperament'],
-        quadra=person['Quadra'],
-        sensoryModality=person['Sensory Modality'],
-        deModality=person['De Modality'],
-        oD=person['O/D'],
-        energyInfo=person['Energy/Info'],
-        function1=person['1st Function'],
-        function2=person['2nd Function'],
-        deciderNeed=person['Decider Need'],
-        deciderLetter=person['Decider Letter'],
-        observerNeed=person['Observer Need'],
-        observerLetter=person['Observer Letter'],
-        animal1=person['1st Animal'],
-        animal2=person['2nd Animal'],
-        animal3=person['3rd Animal'],
-        animal4=person['4th Animal'],
-        playModality=person['Play Modality'],
-        sleepModality=person['Sleep Modality'],
-        blastModality=person['Blast Modality'],
-        consumeModality=person['Consume Modality'],
-        observerAxis=person['Observer Axis'],
-        deciderAxis=person['Decider Axis'],
-        social=person['Social'],
-        createdAt= int(datetime.datetime.timestamp(datetime.datetime.now())),
-        updatedAt= int(datetime.datetime.timestamp(datetime.datetime.now())),
-        tag=person['Tag'],
-        image=person['Image'],
-    )
+    person['createdAt'] = int(datetime.datetime.timestamp(datetime.datetime.now()))
+    person['updatedAt'] = int(datetime.datetime.timestamp(datetime.datetime.now()))
+    new_person = Types(**person)
     db.session.add(new_person)
     db.session.commit()
     return new_person.id
@@ -50,7 +19,7 @@ def dbToDict(data):
     return data_dict
 
 def getTypeData(data):
-    options = copy.deepcopy(external_data)
+    options = json.load(open(os.path.join(os.path.dirname(__file__), 'static', 'options.json')))
     template = options['template']
     for name, value in data.items():
         if value:
@@ -64,10 +33,10 @@ def getTypeData(data):
         DiModality = 'x'
         DeModality = 'x'
     if data['sensoryModality']:
-            if template['Observer Axis'] == 'Se-Ni':
+            if template['observerAxis'] == 'Se-Ni':
                 OiModality = 'F' if data['sensoryModality'] == 'mS' else 'M'
                 OeModality = 'M' if data['sensoryModality'] == 'mS' else 'F'
-            elif  template['Observer Axis'] == 'Si-Ne':
+            elif  template['observerAxis'] == 'Si-Ne':
                 OiModality = 'M' if data['sensoryModality'] == 'mS' else 'F'
                 OeModality = 'F' if data['sensoryModality'] == 'mS' else 'M'
             else:
@@ -76,51 +45,23 @@ def getTypeData(data):
     else:
         OiModality = 'x'
         OeModality = 'x'
-    if template['Observer Axis'] and template['Decider Axis']:
-        template['Quadra'] = options['quadra'][template['Observer Axis']][template['Decider Axis']]['value']
-    template['Play Modality'] = f'{OeModality}{DeModality}'
-    template['Blast Modality'] = f'{OiModality}{DeModality}'
-    template['Consume Modality'] = f'{OeModality}{DiModality}'
-    template['Sleep Modality'] = f'{OiModality}{DiModality}'
+    if template['observerAxis'] and template['deciderAxis']:
+        template['quadra'] = options['quadra'][template['observerAxis']][template['deciderAxis']]['value']
+    template['playModality'] = f'{OeModality}{DeModality}'
+    template['blastModality'] = f'{OiModality}{DeModality}'
+    template['consumeModality'] = f'{OeModality}{DiModality}'
+    template['sleepModality'] = f'{OiModality}{DiModality}'
     if data['animal1'] and data['animal2']:
         combo = f'{data["animal1"][0]}{data["animal2"][0]}'
         if combo in options['combos']:
-            template['Extrovert/Introvert'] = options['combos'][combo]['value']
-    template['Type'] = f'{data["sensoryModality"][0].upper() if data["sensoryModality"] else "x"}{data["deModality"][0].upper() if data["deModality"] else "x"} {data["function1"] if data["function1"] else "xx"}/{data["function2"] if data["function2"] else "xx"} {data["animal1"][0] if data["animal1"] else "x"}{data["animal2"][0] if data["animal2"] else "x"}/{data["animal3"][0] if data["animal3"] else "x"}({data["animal4"][0] if data["animal4"] else "x"})'
+            template['extrovertIntrovert'] = options['combos'][combo]['value']
+    template['type'] = f'{data["sensoryModality"][0].upper() if data["sensoryModality"] else "x"}{data["deModality"][0].upper() if data["deModality"] else "x"} {data["function1"] if data["function1"] else "xx"}/{data["function2"] if data["function2"] else "xx"} {data["animal1"][0] if data["animal1"] else "x"}{data["animal2"][0] if data["animal2"] else "x"}/{data["animal3"][0] if data["animal3"] else "x"}({data["animal4"][0] if data["animal4"] else "x"})'
     return template
 
 def update_type(person_id, person):
     type = Types.query.filter_by(id=person_id).first()
-    type.name=person['Name']
-    type.sex=person['Sex']
-    type.type=person['Type']
-    type.mbti=person['MBTI']
-    type.extrovertIntrovert=person['Extrovert/Introvert']
-    type.temperment=person['Temperament']
-    type.quadra=person['Quadra']
-    type.sensoryModality=person['Sensory Modality']
-    type.deModality=person['De Modality']
-    type.oD=person['O/D']
-    type.energyInfo=person['Energy/Info']
-    type.function1=person['1st Function']
-    type.function2=person['2nd Function']
-    type.deciderNeed=person['Decider Need']
-    type.deciderLetter=person['Decider Letter']
-    type.observerNeed=person['Observer Need']
-    type.observerLetter=person['Observer Letter']
-    type.animal1=person['1st Animal']
-    type.animal2=person['2nd Animal']
-    type.animal3=person['3rd Animal']
-    type.animal4=person['4th Animal']
-    type.playModality=person['Play Modality']
-    type.sleepModality=person['Sleep Modality']
-    type.blastModality=person['Blast Modality']
-    type.consumeModality=person['Consume Modality']
-    type.observerAxis=person['Observer Axis']
-    type.deciderAxis=person['Decider Axis']
-    type.social=person['Social']
-    type.image=person['Image']
-    type.tag=person['Tag']
+    for key, value in person.items():
+        setattr(type, key, value)
     db.session.commit()
 
 def link_update(person_id, unfiltered):

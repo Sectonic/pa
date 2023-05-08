@@ -121,7 +121,8 @@ def edit(type_id):
                 person_links.delete()
                 Types.query.filter_by(id=type_id).delete()
                 if os.getenv('PRODUCTION'):
-                    imagekit.delete_file(file_id=current_person.file_id)
+                    if current_person.file_id:
+                        imagekit.delete_file(file_id=current_person.file_id)
                 db.session.commit()
             else:
                 data = {}
@@ -135,8 +136,8 @@ def edit(type_id):
                     if request.form.get('function1') in all_functions and request.form.get('function2') in all_functions:
                         data['mbti'] = f'{request.form.get("function1")}/{request.form.get("function2")}'
                 type_data = getTypeData(data)
-                type_data['Name'] = request.form.get('person_name')
-                type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
+                type_data['name'] = request.form.get('person_name')
+                type_data['sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
                 img = request.files.get('file')
                 if img:
                     if os.getenv('PRODUCTION'):
@@ -148,18 +149,19 @@ def edit(type_id):
                             is_private_file=False,
                             overwrite_file=True,
                         ))
-                        type_data['Image'] = result.url
+                        type_data['image'] = result.url
+                        type_data['file_id'] = result.file_id
                     else:
                         flash('Cannot change image locally', category='danger')
                         return redirect(url_for('view'))
                 else:
-                    type_data['Image'] = current_person.image
-                type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
+                    type_data['image'] = current_person.image
+                type_data['social'] = request.form.get('social') if request.form.get('social') != "" else None
                 for tag in tag_options:
                     new_tag = request.form.get(tag)
                     if new_tag == 'on':
-                        type_data['Tag'] = tag
-                flash(f'Successfully changed {type_data["Name"]}',
+                        type_data['tag'] = tag
+                flash(f'Successfully changed {type_data["name"]}',
                   category='success')
                 update_type(type_id, type_data)
                 link_update(type_id, request.form.get('link_form'))
@@ -188,9 +190,9 @@ def add():
                 if request.form.get('function1') in all_functions and request.form.get('function2') in all_functions:
                     data['mbti'] = f'{request.form.get("function1")}/{request.form.get("function2")}'
             type_data = getTypeData(data)
-            type_data['Name'] = request.form.get('person_name')
-            type_data['Sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
-            type_data['Social'] = request.form.get('social') if request.form.get('social') != "" else None
+            type_data['name'] = request.form.get('person_name')
+            type_data['sex'] = request.form.get('sex') if request.form.get('sex') != "" else None
+            type_data['social'] = request.form.get('social') if request.form.get('social') != "" else None
             img = request.files.get('file')
             if img:
                 if os.getenv('PRODUCTION'):
@@ -202,26 +204,27 @@ def add():
                         is_private_file=False,
                         overwrite_file=True,
                     ))
-                    type_data['Image'] = result.url
+                    type_data['image'] = result.url
+                    type_data['file_id'] = result.file_id
                 else:
                     flash('Cannot add image locally', category='danger')
                     return redirect(url_for('index'))
             else:
-                type_data['Image'] = None
+                type_data['image'] = None
             for tag in tag_options:
                 new_tag = request.form.get(tag)
                 if new_tag == 'on':
-                    type_data['Tag'] = tag
-            similar_types = Types.query.filter_by(type=type_data['Type']).all()
+                    type_data['tag'] = tag
+            similar_types = Types.query.filter_by(type=type_data['type']).all()
             add_type = True
             if similar_types:
                 for similar_type in similar_types:
-                    if similar_type.name == type_data['Name']:
+                    if similar_type.name == type_data['name']:
                         add_type = False
             if add_type:
                 person_id = new_type(type_data)
                 link_update(person_id, request.form.get('link_form'))
-                flash(f'Successfully added {type_data["Name"]} as {type_data["Type"]}',
+                flash(f'Successfully added {type_data["name"]} as {type_data["type"]}',
                   category='success')
             else:
                 flash('This entry has already been created',
