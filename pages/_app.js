@@ -185,7 +185,7 @@ function App({ Component, pageProps, router }) {
               </Link>
               {loading ? (
                 <div className='user-box'>
-                  <div class="lds-ellipsis small_loader"><div></div><div></div><div></div><div></div></div>
+                  <div className="lds-ellipsis small_loader"><div></div><div></div><div></div><div></div></div>
                 </div>
               ) : (
                 <>

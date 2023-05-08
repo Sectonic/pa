@@ -17,14 +17,14 @@ export default function TypeTool() {
                 <div className="spreadsheet">
                     { [...Array(16).keys()].map(i => {
                         return (
-                            <div className="spreadsheet_col">
+                            <div className="spreadsheet_col" key={i}>
                                 <div className="spreadsheet_anim">{animals[i]}</div>
                                 <div className="spreadsheet_types">
-                                    { sheet.matchFilters(filters).slice((8*i), (8*i)+8).map(type => {
+                                    { sheet.matchFilters(filters).slice((8*i), (8*i)+8).map((type, index) => {
                                         return type.invisible ? (
-                                            <div className="spreadsheet_type invisible_type">{type.functions}</div>
+                                            <div className="spreadsheet_type invisible_type" key={index}>{type.functions}</div>
                                         ) : (
-                                            <div className="spreadsheet_type">{type.functions}</div>
+                                            <div className="spreadsheet_type" key={index}>{type.functions}</div>
                                         )
                                     })}
                                 </div>
