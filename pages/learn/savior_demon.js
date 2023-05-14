@@ -1,19 +1,6 @@
-import { useState } from "react";
-import ChangeSection from "../../components/change_section";
 import Banner from "../../components/banner";
-import { Popup } from "../../components/popup_main";
 
 function SaviorDemon() {
-  const [popupShown, setPopup] = useState(false);
-  const [popupType, setPopupType] = useState("");
-  const handlePopup = (choice, type) => {
-    document.body.style.overflowY = "auto";
-    if (choice) {
-      document.body.style.overflowY = "hidden";
-    }
-    setPopupType(type);
-    setPopup(choice);
-  };
   return (
     <div className="main">
       <Banner
@@ -21,7 +8,6 @@ function SaviorDemon() {
         title="Savior & Demon"
         section="savior_demon"
       />
-      {popupShown && <Popup popup={handlePopup} type={popupType} />}
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">

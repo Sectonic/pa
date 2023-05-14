@@ -13,12 +13,12 @@ function Start() {
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
-              <h2 className="margin-sm">One Step At A Time</h2>
+              <h2 className="margin-sm">What's This?</h2>
               <p>
-              The course is built up so every new concept builds on previous ones. Make sure to understand a topic before moving on.
+                This is the start of a course on the system of Objective Personality. It is built to teach you concepts and build upon them as you go. Understand the concept before you go to the next concept!
               </p>
               <p>
-              If you skip ahead and try to grasp it all at once, you'll confuse yourself to bits. (You heard it here first!)
+                If you skip ahead and try to grasp it all at once, you'll confuse yourself to bits. (You heard it here first)
               </p>
             </div>
           </div>

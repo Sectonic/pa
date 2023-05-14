@@ -1,4 +1,7 @@
-import * as popups from "./popups/popup_links";
+import AccountPopup from "./account_popup";
+import UpdatesPopup from "./updates_popup";
+import TypePopup from "./type_popup";
+
 import "animate.css";
 
 function Popup(props) {
@@ -17,9 +20,9 @@ function Popup(props) {
           />
         </div>
         <div className="popup_text">
-          {props.type === "updates" && <popups.UpdatesPopup />}
-          {props.type === "account" && <popups.AccountPopup data={props.data} />}
-          {props.type === "type" && <popups.TypePopup data={props.data} />}
+          {props.type === "updates" && <UpdatesPopup />}
+          {props.type === "account" && <AccountPopup data={props.data} />}
+          {props.type === "type" && <TypePopup data={props.data} />}
         </div>
       </div>
     </div>

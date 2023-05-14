@@ -29,5 +29,5 @@
     "register": {"title": "Register", "description": "Register an account", "img": "home"},
     "login": {"title": "Login", "description": "Login to an account", "img": "home"},
     "onboarding": {"title": "Onboarding", "description": "Quick onboarding process to the PA discord server", "img": "home"},
-    "success": {"title": "Success", "description": "Successfully Purchased Academy Plus", "img": "home"}
+    "success": {"title": "Success", "description": "", "img": ""}
 }

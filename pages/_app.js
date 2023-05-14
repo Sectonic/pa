@@ -21,7 +21,7 @@ import Pages from '../public/json/pages.json';
 import { Montserrat } from "next/font/google";
 import Link from 'next/link';
 import OutsideClickHandler from 'react-outside-click-handler';
-import { Popup } from "../components/popup_main";
+import { Popup } from "../components/popups/popup_main";
 import { deleteCookie } from 'cookies-next';
 import { cookieOptions } from '../components/cookie_options';
 
