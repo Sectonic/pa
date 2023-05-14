@@ -39,7 +39,9 @@ function AcademyPlus({user}) {
           title="Academy Plus"
           section="support"
           type="nav"
-        />
+        >
+          This is a description for the banner of academy plus. Its a pretty cool thing obviously. You like, get shit and stuff.
+        </Banner>
         {academyPlus ? (
           <div className="section blur_background">
             <div className="section_title price-text">You are subscribed to <span className="orange-text">Academy Plus</span></div>
