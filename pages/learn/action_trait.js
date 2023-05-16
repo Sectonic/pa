@@ -13,7 +13,7 @@ function actionTrait() {
         <div className="section_body">
           <div className="section_img">
             <img
-              src={"/img/learn/basic/action_trait/top.png"}
+              src={"/img/learn/typology/action_trait/top.png"}
               alt=""
             />
           </div>
@@ -80,7 +80,7 @@ function actionTrait() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/basic/action_trait/patterns.png"}
+              src={"/img/learn/typology/action_trait/patterns.png"}
               alt=""
             />
           </div>
@@ -90,7 +90,7 @@ function actionTrait() {
         <div className="section_body">
           <div className="section_img">
             <img
-              src={"/img/learn/basic/action_trait/peacock.png"}
+              src={"/img/learn/typology/action_trait/peacock.png"}
               alt=""
             />
           </div>

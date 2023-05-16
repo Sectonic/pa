@@ -22,7 +22,7 @@ export default function Typology() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/intro/typology/why.png"}
+              src={"/img/learn/typology/typology/why.png"}
               alt=""
             />
           </div>
@@ -31,7 +31,7 @@ export default function Typology() {
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src={"/img/learn/intro/typology/game.png"} alt="" />
+            <img src={"/img/learn/typology/typology/game.png"} alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
           <div className="multi_paragraph">
@@ -65,7 +65,7 @@ export default function Typology() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/intro/typology/map.png"}
+              src={"/img/learn/typology/typology/map.png"}
               alt=""
             />
           </div>
@@ -74,7 +74,7 @@ export default function Typology() {
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src={"/img/learn/intro/typology/start.png"} alt="" />
+            <img src={"/img/learn/typology/typology/start.png"} alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">

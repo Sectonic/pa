@@ -9,7 +9,7 @@ function Start() {
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src={"/img/learn/intro/start/steps.png"} alt="" />
+            <img src={"/img/learn/typology/start/steps.png"} alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -29,7 +29,7 @@ function Start() {
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-s">
             <div className="text-sm_img">
-              <img src={"/img/learn/home/start.png"} alt="" />
+              <img src={"/img/learn/ops/home/start.png"} alt="" />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">First Steps</h3>
@@ -40,7 +40,7 @@ function Start() {
           </div>
           <div className="section_text outline-i">
             <div className="text-sm_img">
-              <img src={"/img/learn/home/fundamentals.png"} alt="" />
+              <img src={"/img/learn/ops/home/fundamentals.png"} alt="" />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Fundamentals</h3>
@@ -53,7 +53,7 @@ function Start() {
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-f">
             <div className="text-sm_img">
-              <img src={"/img/learn/home/letters.png"} alt="" />
+              <img src={"/img/learn/ops/home/letters.png"} alt="" />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Intermediate</h3>
@@ -64,7 +64,7 @@ function Start() {
           </div>
           <div className="section_text outline-t">
             <div className="text-sm_img">
-              <img src={"/img/learn/home/advanced.png"} alt="" />
+              <img src={"/img/learn/ops/home/advanced.png"} alt="" />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Advanced</h3>
@@ -79,7 +79,7 @@ function Start() {
         <h1 className="section_title">Sections of the Course</h1>
         <div className="section_body">
           <img
-            src={"/img/learn/intro/start/overview.png"}
+            src={"/img/learn/typology/start/overview.png"}
             alt=""
             className="spectrum_img outline-gray"
           />
