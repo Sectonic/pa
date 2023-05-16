@@ -43,8 +43,8 @@ export function Icon({img, name, children}) {
     return (
         <div className='icon_container link_text'>
             <div>
-                <div className='page_icon'>
-                    <img src={`/img/learn/home/${img}.png`} onClick={dropdownShow} />
+                <div className='page_icon' onClick={dropdownShow}>
+                    <img src={`/img/learn/${img}.png`} />
                     {clicked && (
                         <div className='page_icon-dropdown__bg' ref={dropdownBG}>
                             <OutsideClickHandler onOutsideClick={dropdownHide}>
@@ -78,7 +78,7 @@ export function IconDropdown({ children, title }) {
 export function DropdownItem({ label, src, link, title }) {
     if (label) {
         return (
-            <Link href={`/learn/${link}`}>
+            <Link href={link}>
                 <div className='icon-dropdown_bar'>
                     <div className='icon-dropdown_link'>
                         <div>{label}</div>
@@ -91,7 +91,7 @@ export function DropdownItem({ label, src, link, title }) {
         )
     } else {
         return (
-            <Link href={`/learn/${link}`}>
+            <Link href={link}>
                 <div className='icon-dropdown_bar'>
                     <div className='icon-dropdown_img'>
                         <img src={`/img/${src}.png`} />

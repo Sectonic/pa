@@ -4,7 +4,7 @@ import Banner from "../../components/banner";
 function Letters() {
   return (
     <div className="main">
-      <Banner background="pink" title="Letters" section="letters" />
+      <Banner background="pink" title="Letters" section="ops/home/letters" />
       <div className="section">
         <div className="section_body">
           <div className="section_text outline-gray">
@@ -26,7 +26,7 @@ function Letters() {
           <div className="section_text section-title_images-in">
             <div className="section_title-img">
               <img
-                src="/img/learn/basic/human_needs/decider.png"
+                src="/img/learn/ops/basic/human_needs/decider.png"
                 alt=""
               />
             </div>
@@ -69,7 +69,7 @@ function Letters() {
           <div className="section_text section-title_images-in">
             <div className="section_title-img">
               <img
-                src="/img/learn/basic/human_needs/observer.png"
+                src="/img/learn/ops/basic/human_needs/observer.png"
                 alt=""
               />
             </div>

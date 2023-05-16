@@ -257,17 +257,19 @@
 
 .learn_section {
   background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7)
-    ),
-    url(".//backgrounds/background_blue.png");
-  background-size: 2900px;
-  background-position: bottom;
+    to bottom,
+    rgba(var(--purple-black-rgb), .4),
+    rgba(var(--dark-grey-rgb), .2)
+  ),linear-gradient(
+    to bottom,
+    rgba(0,0,0, .8),
+    rgba(0,0,0, .6)
+  ), url(".//backgrounds/background_blue.png") ;
+  background-size: cover;
   background-attachment: fixed;
   border-radius: 20px;
+  border: 3px solid rgba(var(--light-grey-rgb), .8);
   width: calc(100% - 405px);
-  border: 5px solid rgba(var(--dark-grey-rgb), 0.6);
 }
 
 @media only screen and (max-width: 1400px) {
@@ -552,6 +554,7 @@
     rgba(var(--dark-grey-rgb), .5)
   ), url(".//backgrounds/background_blue.png");
   background-size: 1500px;
+  transition: .5s ease;
   border-radius: 20px;
   padding: 20px;
   position: relative;
@@ -588,6 +591,7 @@
     rgba(var(--light-grey-rgb), 1),
     rgba(var(--dark-grey-rgb), .7)
   ), url(".//backgrounds/background_blue.png");
+  background-size: 1650px;
 }
 
 .learn_system-green:hover {
@@ -691,7 +695,7 @@
   background-image: linear-gradient(
     to top,
     rgba(var(--purple-black-rgb), .9),
-    rgba(var(--dark-grey-rgb), .6)
+    rgba(var(--dark-grey-rgb), .5)
   ), url(".//backgrounds/background_blue.png") ;
   background-size: 100%;
 }

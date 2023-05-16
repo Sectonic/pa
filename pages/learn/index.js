@@ -39,7 +39,7 @@ function Learn() {
             <Link href="">
               <IntroCourse color="green" title="Intro to Typology">
                 What is Typology? Get introduced to why people categorize personality and what are the benefits.
-                <img src='/img/learn/home/intro_logo.png' />
+                <img src='/img/learn/intro_logo.png' />
               </IntroCourse>
             </Link>
             <Link href="">
@@ -51,13 +51,16 @@ function Learn() {
             <Link href="/ops/learn">
               <TypologySystem title="Objective Personality" extraTags={['ops', 'op']}>
                 A system of over 2048 combinations of personality. It aims to uncover default wirings for growth.
-                <img src='/img/learn/home/ops_logo.webp' />
+                <img src='/img/learn/ops_logo.webp' />
               </TypologySystem>
             </Link>
             <Link href="">
-              <TypologySystem color="pink" title="ByCognition Direct">
-                Known as "Bycog," its refined terms aims for accessibility and comprehension. 
-                <img src='/img/main/logo.png' />
+              <TypologySystem color="pink" title="BYCOG Direct">
+                <span>
+                Each person has an impulsive process they use all the time. <br/><br/>
+                BYCOG Direct is a project to learn about these processes and grow a community exploring this topic.
+                </span>
+                <img src='/img/learn/bycog_logo.png' />
               </TypologySystem>
             </Link>
           </SearchContainer>

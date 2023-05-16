@@ -4,11 +4,11 @@ import Banner from "../../components/banner";
 function Functions() {
   return (
     <div className="main">
-      <Banner background="blue" title="Functions" section="functions" />
+      <Banner background="blue" title="Functions" section="ops/home/functions" />
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src={"/img/learn/basic/functions/top.png"} alt="" />
+            <img src={"/img/learn/ops/basic/functions/top.png"} alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -200,7 +200,7 @@ function Functions() {
             </div>
           </div>
           <div className="section_img">
-            <img src={"/img/learn/basic/functions/pair.png"} alt="" />
+            <img src={"/img/learn/ops/basic/functions/pair.png"} alt="" />
           </div>
         </div>
       </div>

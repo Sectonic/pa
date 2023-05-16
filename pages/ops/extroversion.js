@@ -4,14 +4,14 @@ import Banner from "../../components/banner";
 function Extroversion() {
   return (
     <div className="main">
-      <Banner background="green" title="Extroversion" section="extroversion" />
+      <Banner background="green" title="Extroversion" section="ops/home/extroversion" />
       <div className="section">
         <h2 className="section_title">Energy Preference</h2>
         <div className="section_body section_texts-sm">
           <div className="section_text">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/advanced/extroversion/introvert.png"}
+                src={"/img/learn/ops/advanced/extroversion/introvert.png"}
                 alt=""
               />
             </div>
@@ -36,7 +36,7 @@ function Extroversion() {
           <div className="section_text">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/advanced/extroversion/extrovert.png"}
+                src={"/img/learn/ops/advanced/extroversion/extrovert.png"}
                 alt=""
               />
             </div>
@@ -64,7 +64,7 @@ function Extroversion() {
           <div className="section_text">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/advanced/extroversion/ambivert.png"}
+                src={"/img/learn/ops/advanced/extroversion/ambivert.png"}
                 alt=""
               />
             </div>
@@ -82,7 +82,7 @@ function Extroversion() {
           <div className="section_text">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/advanced/extroversion/omnivert.png"}
+                src={"/img/learn/ops/advanced/extroversion/omnivert.png"}
                 alt=""
               />
             </div>

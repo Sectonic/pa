@@ -29,7 +29,7 @@ function Home() {
             <div>
               <h1 className="home_title_text">
                 <div className="home_title_top">Personality Academy </div>
-                <div >Objective Personality Made
+                <div >Personality Theory Made
                 <TypeAnimation
                   sequence={['Simple.', 2250, 'Doable.', 2250]}
                   repeat={Infinity}
@@ -189,52 +189,6 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="section typing_section extra_margin_section">
-        <h2 className="section_title">Get Started</h2>
-        <div className="section_body top_typing">
-          <div className="section_text outline-gray">
-            <Link href="/typing/triangulation">
-              <div>
-                <img
-                  src="/img/main/look.png"
-                  alt=""
-                  className="typing_img-home"
-                />
-                <h3 className="typing_title-h3">Take a Peek</h3>
-                <p>
-                Read what personality theory is all about
-                </p>
-              </div>
-            </Link>
-          </div>
-          <div className="section_text outline-gray">
-            <Link href="/typing/d&s_typing">
-              <div>
-                <img
-                  src="/img/main/user.png"
-                  alt=""
-                  className="typing_img-home"
-                />
-                <h3 className="typing_title-h3">Sign Up</h3>
-                <p>
-                  Access stuff for free with an account
-                </p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="section extra_margin_section">
-      <div className="section_body">
-      <div className="section_img">
-            <img
-              src={"/img/main/science.png"}
-            />
-          </div>
-        </div>
-        <h2 className="section_title neg-mt-45">Free Stuff With an Account</h2>
-        <ChangeSection link="/resources" text="Make an Account" src="tools" />
       </div>
     </div>
      );

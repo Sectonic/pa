@@ -4,11 +4,11 @@ import Banner from "../../components/banner";
 function Quadras() {
   return (
     <div className="main">
-      <Banner background="pink" title="Quadras" section="quadras" />
+      <Banner background="pink" title="Quadras" section="ops/home/quadras" />
       <div className="section functions">
         <img
           className="quadra_top"
-          src="/img/learn/advanced/quadras/a.png"
+          src="/img/learn/ops/advanced/quadras/a.png"
           alt=""
         />
         <h2 className="section_title">Alpha Quadra</h2>
@@ -65,7 +65,7 @@ function Quadras() {
       <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
-          src="/img/learn/advanced/quadras/b.png"
+          src="/img/learn/ops/advanced/quadras/b.png"
           alt=""
         />
         <h2 className="section_title">Beta Quadra</h2>
@@ -124,7 +124,7 @@ function Quadras() {
       <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
-          src="/img/learn/advanced/quadras/d.png"
+          src="/img/learn/ops/advanced/quadras/d.png"
           alt=""
         />
         <h2 className="section_title">Delta Quadra</h2>
@@ -184,7 +184,7 @@ function Quadras() {
       <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
-          src="/img/learn/advanced/quadras/g.png"
+          src="/img/learn/ops/advanced/quadras/g.png"
           alt=""
         />
         <h2 className="section_title">Gamma Quadra</h2>

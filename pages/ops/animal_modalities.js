@@ -7,12 +7,12 @@ function animalModalities() {
       <Banner
         background="pink"
         title="Animal Modalities"
-        section="animal_modalities"
+        section="ops/home/animal_modalities"
       />
       <div className="section functions">
         <img
           className="quadra_top"
-          src="/img/learn/basic/modalities/masc.png"
+          src="/img/learn/ops/basic/modalities/masc.png"
           alt=""
         />
         <h2 className="section_title">Masculine Animals</h2>
@@ -74,7 +74,7 @@ function animalModalities() {
       <div className="section functions extra_margin_section">
         <img
           className="quadra_top"
-          src="/img/learn/basic/modalities/fem.png"
+          src="/img/learn/ops/basic/modalities/fem.png"
           alt=""
         />
         <h2 className="section_title">Feminine Animals</h2>

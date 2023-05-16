@@ -4,12 +4,12 @@ import Banner from "../../components/banner";
 function Modalities() {
   return (
     <div className="main">
-      <Banner background="pink" title="Modalities" section="modalities" />
+      <Banner background="pink" title="Modalities" section="ops/home/modalities" />
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
             <img
-              src={"/img/learn/basic/modalities/attribute.png"}
+              src={"/img/learn/ops/basic/modalities/attribute.png"}
               alt=""
             />
           </div>
@@ -38,7 +38,7 @@ function Modalities() {
           <div className="section_text modalities-masc">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/basic/modalities/masc.png"}
+                src={"/img/learn/ops/basic/modalities/masc.png"}
                 alt=""
               />
             </div>
@@ -58,7 +58,7 @@ function Modalities() {
           <div className="section_text modalities-fem">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/basic/modalities/fem.png"}
+                src={"/img/learn/ops/basic/modalities/fem.png"}
                 alt=""
               />
             </div>
@@ -107,7 +107,7 @@ function Modalities() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/basic/modalities/code.png"}
+              src={"/img/learn/ops/basic/modalities/code.png"}
               alt=""
             />
           </div>

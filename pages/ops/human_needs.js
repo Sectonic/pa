@@ -4,12 +4,12 @@ import Banner from "../../components/banner";
 function humanNeeds() {
   return (
     <div className="main">
-      <Banner background="pink" title="Human Needs" section="human_needs" />
+      <Banner background="pink" title="Human Needs" section="ops/home/human_needs" />
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
             <img
-              src={"/img/learn/basic/human_needs/needs.png"}
+              src={"/img/learn/ops/basic/human_needs/needs.png"}
               alt=""
             />
           </div>

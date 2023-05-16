@@ -8,14 +8,11 @@
   margin: 17px auto;
   background-color: white;
   background-image: linear-gradient(
-      to right,
-      rgba(7, 7, 0, 0.7),
-      rgba(7, 7, 0, 0.7)
-    ),
-    url("./backgrounds/background_yellow.png");
-  background-size: 2500px;
-  background-position-y: 500px;
-  background-attachment:fixed;
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ), url(".//backgrounds/background_yellow.png") ;
+  background-size: 100%;
   background-color: black;
   border-radius: 20px;
   display: flex;
@@ -62,46 +59,41 @@
 
 .banner_purple {
   background-image: linear-gradient(
-      to right,
-      rgba(7, 7, 0, 0.7),
-      rgba(7, 7, 0, 0.7)
-    ),
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
     url("./backgrounds/background_blue.png");
 }
 
 .banner_pink {
   background-image: linear-gradient(
-      to right,
-      rgba(7, 7, 0, 0.7),
-      rgba(7, 7, 0, 0.7)
-    ),
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
     url("./backgrounds/background_pink.png");
 }
 
 .banner_blue {
   background-image: linear-gradient(
-      to right,
-      rgba(7, 7, 0, 0.7),
-      rgba(7, 7, 0, 0.7)
-    ),
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
     url("./backgrounds/background_blue.png");
 }
 
 .banner_green {
   background-image: linear-gradient(
-      to right,
-      rgba(7, 7, 0, 0.7),
-      rgba(7, 7, 0, 0.7)
-    ),
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
     url("./backgrounds/background_green.png");
 }
 
 .banner_logo {
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(var(--light-grey-rgb), 0.9),
-    rgba(var(--dark-grey-rgb), 0.4)
-  );
   padding: 20px 50px;
   border-radius: 20px;
   display: flex;

@@ -4,12 +4,12 @@ import Banner from "../../components/banner";
 function Animals() {
   return (
     <div className="main">
-      <Banner background="pink" title="Animals" section="animals" />
+      <Banner background="pink" title="Animals" section="ops/home/animals" />
       <div className="section section_images-in-sm">
         <h1 className="section_title">Animals Are 2 Needs</h1>
         <div className="section_body">
           <div className="section_img section_img-sm">
-            <img src={"/img/learn/basic/animals/top.png"} alt="" />
+            <img src={"/img/learn/ops/basic/animals/top.png"} alt="" />
           </div>
           <div className="section_text outline-gray">
             <div>
@@ -44,7 +44,7 @@ function Animals() {
             </div>
           </div>
           <div className="section_img section_img-sm">
-            <img src={"/img/learn/basic/animals/energy.png"} alt="" />
+            <img src={"/img/learn/ops/basic/animals/energy.png"} alt="" />
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ function Animals() {
           <div className="section_text">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/basic/animals/energy.png"}
+                src={"/img/learn/ops/basic/animals/energy.png"}
                 alt=""
               />
             </div>
@@ -146,7 +146,7 @@ function Animals() {
           <div className="section_text">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/basic/animals/light.png"}
+                src={"/img/learn/ops/basic/animals/light.png"}
                 alt=""
               />
             </div>

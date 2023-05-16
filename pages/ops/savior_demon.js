@@ -6,13 +6,13 @@ function SaviorDemon() {
       <Banner
         background="yellow"
         title="Savior & Demon"
-        section="savior_demon"
+        section="ops/home/savior_demon"
       />
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
             <img
-              src={"/img/learn/basic/savior_demon/state.png"}
+              src={"/img/learn/ops/basic/savior_demon/state.png"}
               alt=""
             />
           </div>
@@ -68,7 +68,7 @@ function SaviorDemon() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/basic/savior_demon/narrative.png"}
+              src={"/img/learn/ops/basic/savior_demon/narrative.png"}
               alt=""
             />
           </div>
@@ -78,7 +78,7 @@ function SaviorDemon() {
         <div className="section_body">
         <div className="section_img">
             <img
-              src={"/img/learn/basic/savior_demon/hammer.png"}
+              src={"/img/learn/ops/basic/savior_demon/hammer.png"}
               alt=""
             />
           </div>
@@ -131,7 +131,7 @@ function SaviorDemon() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/basic/savior_demon/loud.png"}
+              src={"/img/learn/ops/basic/savior_demon/loud.png"}
               alt=""
             />
           </div>
@@ -168,7 +168,7 @@ function SaviorDemon() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/basic/savior_demon/binary_coin.png"}
+              src={"/img/learn/ops/basic/savior_demon/binary_coin.png"}
               alt=""
             />
           </div>

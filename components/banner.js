@@ -8,7 +8,7 @@ function Banner(props) {
       directory = "typing/home/";
     }
   } else {
-    directory = "learn/home/";
+    directory = "learn/";
   }
   return (
     <div

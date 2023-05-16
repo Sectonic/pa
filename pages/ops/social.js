@@ -4,7 +4,7 @@ import Banner from "../../components/banner";
 function Social() {
   return (
     <div className="main">
-      <Banner background="yellow" title="Social Hierarchy" section="social" />
+      <Banner background="yellow" title="Social Hierarchy" section="ops/home/social" />
       <div className="section section_images-in">
         <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
@@ -20,14 +20,14 @@ function Social() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/learn/advanced/social/people.png" alt="" />
+            <img src="/img/learn/ops/advanced/social/people.png" alt="" />
           </div>
         </div>
       </div>
       <div className="section section_images-in">
         <div className="section_body">
         <div className="section_img">
-            <img src="/img/learn/basic/savior_demon/savior.png" alt="" />
+            <img src="/img/learn/ops/basic/savior_demon/savior.png" alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -45,7 +45,7 @@ function Social() {
       <div className="section extra_margin_section">
         <div className="section_body">
           <div className="section_img">
-            <img src="/img/learn/advanced/social/motivations.png" alt="" />
+            <img src="/img/learn/ops/advanced/social/motivations.png" alt="" />
           </div>
         </div>
         <h2 className="section_title">The 4 Social Motivations</h2>
@@ -53,7 +53,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/ego.png"/>
+                <img src="/img/learn/ops/advanced/social/ego.png"/>
                 <div>
                   <h2>Ego</h2>
                   <p style={{margin: '5px auto'}}>Superiority, competition, being the best. Steps on others to climb up.</p>
@@ -74,7 +74,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/friends.png"/>
+                <img src="/img/learn/ops/advanced/social/friends.png"/>
                 <div>
                   <h2>Friends</h2>
                   <p style={{margin: '5px auto'}}>Even playing field, we're all here to vibe, doesn't climb to be the best.</p>
@@ -97,7 +97,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/responsible.png"/>
+                <img src="/img/learn/ops/advanced/social/responsible.png"/>
                 <div>
                   <h2>Responsibility</h2>
                   <p style={{margin: '5px auto'}}>Ownership, expansion, opportunities, responsible for impact on the social structure.</p>
@@ -118,7 +118,7 @@ function Social() {
           <div className="section_text text_aligned-top">
             <div>
               <div className="text_title-box">
-                <img src="/img/learn/advanced/social/specialized.png"/>
+                <img src="/img/learn/ops/advanced/social/specialized.png"/>
                 <div>
                   <h2>Specialize</h2>
                   <p style={{margin: '5px auto'}}>Specialized in one area, responsible for their own corner of the social structure.</p>
@@ -141,7 +141,7 @@ function Social() {
       <div className="section extra_margin_section">
         <div className="section_body">
           <div className="section_img">
-            <img src="/img/learn/advanced/social/pyramid.png" alt="" />
+            <img src="/img/learn/ops/advanced/social/pyramid.png" alt="" />
           </div>
         </div>
         <h2 className="section_title">The 4 Social Types</h2>

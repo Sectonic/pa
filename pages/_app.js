@@ -42,9 +42,9 @@ function App({ Component, pageProps, router }) {
   const navMobile = useRef(null);
 
   useEffect(() => {
-    let new_path = router.pathname.split('/');
+    console.log(router.pathname);
     setMobileMenu(false);
-    setPath(new_path);
+    setPath(router.pathname);
   }, [router.pathname]); 
 
   const getUser = async () => {
@@ -114,14 +114,14 @@ function App({ Component, pageProps, router }) {
   return (
     <div className={font.className}>
       <Head>
-        <title>{path && Pages[path[path.length - 1]]["title"]} | Personality Academy</title>
-        <meta content={`${path && Pages[path[path.length - 1]]['title']} | Personality Academy`} property="og:title" />
-        <meta content={`${path && Pages[path[path.length - 1]]['description']}`} property="og:description" />
+        <title>{path && Pages[path]['title']} | Personality Academy</title>
+        <meta content={`${path && Pages[path]['title']} | Personality Academy`} property="og:title" />
+        <meta content={`${path && Pages[path]['description']}`} property="og:description" />
         <meta content={`https://personalityacademy.netlify.app/${router.pathname}`} property="og:url" />
-        <meta content={`https://personalityacademy.netlify.app/img/embed/${path && Pages[path[path.length - 1]]["img"]}.png`} property="og:image" />
+        <meta content={`https://personalityacademy.netlify.app/img/embed/${path && Pages[path]["img"]}.png`} property="og:image" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      { !['register', 'login'].includes(path[path.length - 1]) && (
+      { !['/register', '/login'].includes(path) && (
         <>
           <Navbar section={path[1]} />
           {mobileMenu && (

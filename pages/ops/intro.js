@@ -4,15 +4,15 @@ import Banner from "../../components/banner";
 function OPS() {
   return (
     <div className="main">
-      <Banner background="blue" title="Objective Personality" section="ops_intro" />
+      <Banner background="blue" title="Objective Personality" section="ops/home/intro" />
       <div className="section section_images-in">
         <div className="section_body reverse_body">
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
               <h2 className="margin-sm">What Is OPS?</h2>
               <p>
-              Objective Personality or "OPS" is a cognitive theory which has been under development by Dave and Shan for upwards of 7 years.
-              While OPS utilizes scientific methods, it has still yet to be classified as science.
+              The Objective Personality System or "OPS" is a cognitive theory which has been under development by Dave and Shan for upwards of 10 years.
+              OPS utilizes the scientific methods to categorize personality.
               </p>
               <p>
               OPS was developed with the aim of making personality objectively trackable through proper methods, as well as rectifying many of the shortcomings found in other theories.
@@ -21,7 +21,7 @@ function OPS() {
             <div className="multi_paragraph">
               <h2 className="margin-sm">Objectively Trackable</h2>
               <p>
-              Where other theories fell short, was to call it quits after theorizing. MBTI has been studied and proven about as accurate as a coin flip.
+              Where other theories fell short, was having something provable and trackable. MBTI and other theories quit after theorizing and have been studied to be as accurate as a coin flip.
               </p>
               <p>
               This is where OPS differs. Objective Personality is based on years of hypothesizing, testing and adapting based on the results.
@@ -31,7 +31,7 @@ function OPS() {
           </div>
           <div className="section_img">
             <img
-              src={"/img/learn/intro/ops/top.png"}
+              src={"/img/learn/ops/intro/ops/top.png"}
               alt=""
             />
           </div>
@@ -43,7 +43,7 @@ function OPS() {
           <div className="section_text savior_outline-nopad">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/intro/ops/objective.png"}
+                src={"/img/learn/ops/intro/ops/objective.png"}
                 alt=""
               />
             </div>
@@ -57,7 +57,7 @@ function OPS() {
           <div className="section_text demon_outline-nopad">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/intro/ops/subjective.png"}
+                src={"/img/learn/ops/intro/ops/subjective.png"}
                 alt=""
               />
             </div>
@@ -73,7 +73,7 @@ function OPS() {
           <div className="section_text savior_outline-nopad">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/intro/ops/512.png"}
+                src={"/img/learn/ops/intro/ops/512.png"}
                 alt=""
               />
             </div>
@@ -87,7 +87,7 @@ function OPS() {
           <div className="section_text demon_outline-nopad">
             <div className="text-sm_img">
               <img
-                src={"/img/learn/intro/ops/16.png"}
+                src={"/img/learn/ops/intro/ops/16.png"}
                 alt=""
               />
             </div>
@@ -103,7 +103,7 @@ function OPS() {
       <div className="section section_images-in extra_margin_section">
         <div className="section_body">
           <div className="section_img">
-            <img src={"/img/learn/intro/ops/simplicity.png"} alt="" />
+            <img src={"/img/learn/ops/intro/ops/simplicity.png"} alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -112,7 +112,7 @@ function OPS() {
               Objective Personality has a whole 512 types, and at first glance that may sound overwhelmingly complex.
               </p>
               <p>
-              This is where the paradoxical simplicity of OPS comes in.
+              This is where the paradoxical simplicity of OPS comes in:
               Everything is built up of smaller interconnected parts that make it extremely simple to navigate. 
               </p>
             </div>
