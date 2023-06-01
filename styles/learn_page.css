@@ -20,7 +20,7 @@
   justify-content: center;
 }
 
-@media screen and (max-width:775px) {
+@media screen and (max-width:900px) {
   .banner {
     width: calc(100% - 25px);
     height: max-content;
@@ -32,14 +32,28 @@
 
 .banner-sm {
   position: relative;
-  height: 350px;
   padding: 30px 0;
-  width: calc(100% - 10px);
+  width: 100%;
   margin-top: -10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   z-index: 10;
+  flex-direction: column;
+  gap:20px;
 }
+
+.banner_subtitle {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width:1200px) {
+  .banner_subtitle {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
 /* 
  .banner_yellow-outline {
   border: 5px solid #6d55006e;

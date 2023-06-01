@@ -292,6 +292,7 @@ const API = process.env.NEXT_PUBLIC_API;
 function Database({user}) {
     const router = useRouter();
     const [data, setData] = useState([]);
+    const [entries, setEntries] = useState(0);
     const [dataTrue, setDataTrue] = useState(false);
     const [popupShown, setPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
@@ -398,29 +399,30 @@ function Database({user}) {
             new_data = await url.json();
             
             if (data.length == 0) {
-                if (new_data.length < Number(highBound)) {
+                if (new_data.types.length < Number(highBound)) {
                     setMore(false);
                 } else {
                     setMore(true);
                 }
-                setData(new_data);
+                setData(new_data.types);
             } else {
                 if (highBound != '50') {
-                    if (new_data.length < (Number(highBound) - Number(lowBound))) {
+                    if (new_data.types.length < (Number(highBound) - Number(lowBound))) {
                         setMore(false);
                     } else {
                         setMore(true);
                     }
-                    setData([...data, ...new_data]);
+                    setData([...data, ...new_data.types]);
                 } else {
-                    if (new_data.length < 50) {
+                    if (new_data.types.length < 50) {
                         setMore(false);
                     } else {
                         setMore(true);
                     }
-                    setData(new_data);
+                    setData(new_data.types);
                 }
             }
+            setEntries(new_data.count);
             setDataTrue(true);
 
         }
@@ -484,7 +486,18 @@ function Database({user}) {
                 {popupShown && <Popup popup={handlePopup} type="type" data={popupData} />}
                 <div className="db_background-exterior">
                 <div className="db_background">
-                    <div className="banner banner_blue banner_blue-outline banner-sm">
+                    <div className="banner banner_blue banner-sm">
+                        <div className='banner_logo'>
+                            <div className="banner_icon">
+                            <img
+                                src='/img/main/database.png'
+                            />
+                            </div>
+                            <div>
+                                <h1 className='banner_text blue'>TypeSearch</h1>
+                                <h3 className='banner_subtitle'>{entries !== 0 ? entries : '---'} entries</h3>
+                            </div>
+                        </div>
                         <div className="db_search">
                             {defaultFilters && (
                             <Select

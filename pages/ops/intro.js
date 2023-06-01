@@ -119,10 +119,10 @@ function OPS() {
             <div className="multi_paragraph">
               <h2 className="margin-sm">Binary To Spectrum</h2>
               <p>
-              Every part of OPS is structured into 2 option choices known as Binary Coins. By determining one coin you can split the spectrum of possible types in half.
+                Every part of OPS is structured into 2 option choices known as Binary Coins. A binary coin represents a single aspect of a personality in which one side of the coin is the polar opposite to the other. 
               </p>
               <p>
-              Using this approach, OPS can encompass the whole spectrum of 512 personality types by only dealing with 2 options at a time. It's simple.
+                By adding more coins, you essentially double the amount of types possible each time. Using this approach, OPS can encompass a large spectrum of 512 personality types through 9 total coins. It's simple.
               </p>
             </div>
           </div>

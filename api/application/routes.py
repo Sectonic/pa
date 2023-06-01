@@ -4,6 +4,7 @@ from application.models import Users, Types
 from application import app, db, crypt
 from application.functions import dbToDict
 import stripe
+from sqlalchemy import func
 
 stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 
@@ -155,9 +156,10 @@ def types(low, high):
             if v_arr[0] != '':
                 original_query = original_query.filter(getattr(Types, k).in_(v_arr))
     result_query = original_query.all()
+    count = db.session.query(func.count(Types.id)).scalar()
     bounded_query = result_query[low:high] if high < len(result_query) else result_query[low:]
     all_bounds_arr = []
     for person in bounded_query:
         person_dict = dbToDict(person)
         all_bounds_arr.append(person_dict)
-    return jsonify(all_bounds_arr)
+    return jsonify({'types': all_bounds_arr, 'count': count})

@@ -19,7 +19,7 @@ function Typing() {
           <div className="section_text outline-trans">
             <div className="text-sm_img home-top_img">
               <img
-                src={"/img/learn/advanced/extroversion/introvert.png"}
+                src={"/img/learn/ops/advanced/extroversion/introvert.png"}
               />
             </div>
             <div className="text-sm_desc">

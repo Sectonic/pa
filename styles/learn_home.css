@@ -41,7 +41,6 @@
 
 .page_icon-dropdown {
   position: absolute;
-  right: -325px;
   top: -40px;
   width: 300px;
   background-color: var(--light-grey);
@@ -50,6 +49,14 @@
   --animate-duration: .2s;
   overflow: hidden;
   z-index: 3;
+}
+
+.page_icon-dropdown__right {
+  right: -325px;
+}
+
+.page_icon-dropdown__left {
+  left: -325px;
 }
 
 .icon-dropdown_title {
@@ -134,11 +141,15 @@
 
 @media screen and (max-width: 1000px) {
   .page_icon-dropdown {
-    left: 100px;
-    width: 200px;
+    width: 250px;
     top: -35px;
   }
-
+  .page_icon-dropdown__right {
+    right: -275px;
+  }
+  .page_icon-dropdown__left {
+    left: -275px;
+  }
   .icon-dropdown_links {
     height: 100px;
   }
@@ -174,6 +185,7 @@
 @media screen and (max-width: 750px) {
   .page_icon-dropdown__bg {
     position: fixed;
+    cursor: default;
     top: 0;
     left: 0;
     width: 100%;

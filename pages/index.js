@@ -29,7 +29,7 @@ function Home() {
             <div>
               <h1 className="home_title_text">
                 <div className="home_title_top">Personality Academy </div>
-                <div >Personality Theory Made
+                <div className='home_title_bottom'>Personality Theory Made
                 <TypeAnimation
                   sequence={['Simple.', 2250, 'Doable.', 2250]}
                   repeat={Infinity}
@@ -160,7 +160,7 @@ function Home() {
         <br/> All credit goes to the original creators, Dave Powers & Shannon Renee. 
         <br/> For original content, check out the official sources below.
         </p>
-        <ChangeSection link="/resources" text="Official Source" src="tools" />
+        <ChangeSection link="/resources" text="Official Source" src="/img/learn/ops/home/tools.png" />
       </div>
       <div className="section extra_margin_section">
       <div className="section_body">
@@ -172,7 +172,7 @@ function Home() {
         </div>
         <h2 className="section_title neg-mt-45">All The Best, For The Community</h2>
         <p className="letters_subtitle">
-        A community project lead by Aze.
+        A community project lead by Aze and Sectonic.
         </p>
         <div className="section_body section_texts-sm extra_spacing_texts-sm">
           <div className="section_text outline-trans">

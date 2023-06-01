@@ -5,14 +5,14 @@
     justify-content: center;
     gap: 30px;
     margin: 0 auto;
-    width: 100%;
+    width: calc(100% - 40px);
     padding-top: 20px;
-    padding-left: 2.5px;
-    padding-right: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .db_card {
-    width: 160px;
+    width: 175px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -30,6 +30,9 @@
 .db_card-container {
     gap:13px;
     padding-top: 0px;
+    width: calc(100% - 10px);
+    padding-left: 5px;
+    padding-right: 5px;
 }
 }
 
@@ -113,6 +116,10 @@
 
 .db_card-text h3 {
     font-size: 14px;
+    width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .db_card-type {
@@ -147,6 +154,9 @@
     }
     .db_card-type {
         font-size: 14px;
+    }
+    .db_card-text h3 {
+        width: 32vw;
     }
 }
 
@@ -217,7 +227,6 @@
 
 .db_search {
     width: 35%;
-    margin-top: 250px;
     border-radius: 50px;
     background-color: var(--dark-grey);
     border: 5px solid var(--light-grey);

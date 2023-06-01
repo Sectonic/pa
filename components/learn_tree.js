@@ -18,7 +18,7 @@ export function IconContainer({children}) {
     )
 }
 
-export function Icon({img, name, children}) {
+export function Icon({img, name, children, direction}) {
     const [clicked, setClicked] = useState(false);
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
@@ -48,7 +48,7 @@ export function Icon({img, name, children}) {
                     {clicked && (
                         <div className='page_icon-dropdown__bg' ref={dropdownBG}>
                             <OutsideClickHandler onOutsideClick={dropdownHide}>
-                                <div className='page_icon-dropdown animate__animated' ref={dropdownContainer}>
+                                <div className={`page_icon-dropdown page_icon-dropdown__${direction} animate__animated`} ref={dropdownContainer}>
                                     {children}
                                 </div>
                             </OutsideClickHandler>
