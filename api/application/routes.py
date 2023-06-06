@@ -43,6 +43,14 @@ def verify_user():
         return {'error': 'Your confirm password does not match your password'}, 409
     return {'success': 'Information Valid'}, 200
 
+@app.route('/verify/<hash>', methods=['GET'])
+def verify_hash(hash):
+    try:
+        user_id = crypt.decrypt(hash.encode()).decode();
+        return {'success': 'Valid Hash'}, 200
+    except:
+        return {'error': 'Invalid Hash'}, 500
+
 @app.route('/login', methods=['GET'])
 def login():
     email = request.args.get('email')
@@ -87,18 +95,6 @@ def delete_user():
     db.session.commit()
     return {'response': 200}, 200
 
-@app.route('/get/customer_id')
-def get_customer_id():
-    user_hash = request.args.get('hash')
-    try:
-        user_id = crypt.decrypt(user_hash.encode()).decode()
-    except:
-        return {'error': 'Invalid Hash'}, 500
-    user = db.session.get(Users, user_id)
-    if user is None:
-        return {'error': 'User does not exist'}, 404
-    return {'customer_id': user.customer_id}, 200
-
 @app.route('/get/user')
 def get_user():
     user_hash = request.args.get('hash')
@@ -109,12 +105,26 @@ def get_user():
     user = db.session.get(Users, user_id)
     if user is None:
         return {'error': 'Hash has not been found'}, 404
+    return {'username': user.username, 'email': user.email}, 200
+
+@app.route('/get/customer')
+def get_customer():
+    user_hash = request.args.get('hash')
+    try:
+        user_id = crypt.decrypt(user_hash.encode()).decode()
+    except:
+        return {'error': 'Invalid Hash'}, 500
+    user = db.session.get(Users, user_id)  
     subscription = False
+    customer = False
+    if user.customer_id != None:
+        customer = True
     if user.subscription_id != None:
         subscription = stripe.Subscription.retrieve(user.subscription_id)
         if subscription['status'] == 'active':
             subscription = True
-    return {'username': user.username, 'email': user.email, 'plus': subscription}, 200
+    return {'subscription': subscription, 'customer': customer}, 200
+    
 
 @app.route('/add/subscription', methods=['POST'])
 def add_subscription():
@@ -141,6 +151,11 @@ def type(id):
     else:
         return jsonify({'response': 500, 'error': 'Invalid ID Number'})
 
+@app.route("/get_entries", methods=['GET'])
+def get_entries():
+    count = db.session.query(func.count(Types.id)).scalar()
+    return jsonify({'count': count})
+
 @app.route("/types/<int:low>to<int:high>", methods=['GET'])
 def types(low, high):
     format_data = request.args.get('format')
@@ -155,11 +170,17 @@ def types(low, high):
             v_arr = v.split(',')
             if v_arr[0] != '':
                 original_query = original_query.filter(getattr(Types, k).in_(v_arr))
-    result_query = original_query.all()
-    count = db.session.query(func.count(Types.id)).scalar()
+    result_query = original_query.with_entities(Types.id, Types.name, Types.type, Types.tag, Types.image, Types.social).all()
     bounded_query = result_query[low:high] if high < len(result_query) else result_query[low:]
     all_bounds_arr = []
     for person in bounded_query:
-        person_dict = dbToDict(person)
+        person_dict = {
+            'id': person.id,
+            'name': person.name,
+            'type': person.type,
+            'tag': person.tag,
+            'image': person.image,
+            'social': person.social
+        }
         all_bounds_arr.append(person_dict)
-    return jsonify({'types': all_bounds_arr, 'count': count})
+    return jsonify(all_bounds_arr)
