@@ -36,14 +36,13 @@ export default function Register() {
 
         if (databaseVerification.error) {
             setError(databaseVerification.error);
-            return;
+        } else {
+            setVerificationLoading(true);
+            await useEmailVerification(data.email, code);
+            setVerificationLoading(false);
+            setVerifying(true);
+            setRegisterBody(data);
         }
-
-        setVerificationLoading(true);
-        await useEmailVerification(data.email, code);
-        setVerificationLoading(false);
-        setVerifying(true);
-        setRegisterBody(data);
 
     }
 
