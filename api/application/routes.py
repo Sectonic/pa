@@ -124,7 +124,16 @@ def get_customer():
         if subscription['status'] == 'active':
             subscription = True
     return {'subscription': subscription, 'customer': customer}, 200
-    
+
+@app.route('/get/customer_id')
+def get_customer():
+    user_hash = request.args.get('hash')
+    try:
+        user_id = crypt.decrypt(user_hash.encode()).decode()
+    except:
+        return {'error': 'Invalid Hash'}, 500
+    user = db.session.get(Users, user_id)  
+    return {'customer_id': user.customer_id}, 200
 
 @app.route('/add/subscription', methods=['POST'])
 def add_subscription():
