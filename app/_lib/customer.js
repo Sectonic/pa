@@ -31,7 +31,7 @@ export const createCustomer = async (session_id) => {
 
 }
 
-export const useSubscription = async () => {
+export const getPortal = async () => {
 
     const hash = cookies().get('hash');
     if (!hash) {

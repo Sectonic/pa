@@ -7,7 +7,7 @@ import { useState, useRef } from "react";
 import { usePathname, useRouter } from 'next/navigation';
 import AccountPopup from './accountPopup';
 import { cookieOptions } from '@components/config';
-import { useSubscription } from '@lib/customer';
+import { getPortal } from '@lib/customer';
 
 function SideNav(props) {
   return (
@@ -127,9 +127,9 @@ function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutside, menu, user 
     window.location.href = '/';
   }
 
-  const subscriptionHandler = async (e) => {
+  const useSubscription = async (e) => {
     e.preventDefault();
-    const url = await useSubscription();
+    const url = await getPortal();
     if (url) {
       router.push(url);
     }
@@ -161,7 +161,7 @@ function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutside, menu, user 
                             <img src='/img/main/settings.png'/>
                             <div>Account Settings</div>
                         </div>
-                        <form method='POST' onSubmit={subscriptionHandler}>
+                        <form method='POST' onSubmit={useSubscription}>
                             <button className='user-profile_row user-profile_row-btn' type='submit'>
                             <img src='/img/main/subscription.png'/>
                             <div>Subscription</div>
