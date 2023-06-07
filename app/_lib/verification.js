@@ -3,7 +3,11 @@
 import { createTransport } from "nodemailer";
 import { cookies } from "next/headers";
 
-export const useEmailVerification = async (email, code) => {
+export const useEmailVerification = async (email, code, error) => {
+
+    if (error) {
+        return false;
+    }
  
     const user = process.env.NEXT_PUBLIC_MAIL
     const pass = process.env.NEXT_PUBLIC_MAIL_PASSWORD
@@ -153,6 +157,7 @@ export const useEmailVerification = async (email, code) => {
     };
     
     await transport.sendMail({...mailOptions});
+    return true;
 }
 
 export const useDatabaseVerification = async (userBody) => {

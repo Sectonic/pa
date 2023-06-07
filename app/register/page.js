@@ -33,13 +33,16 @@ export default function Register() {
         }
 
         const databaseVerification = await useDatabaseVerification(data);
-
-        if (databaseVerification.error) {
+        const dbError = !!databaseVerification.error;
+        if (dbError) {
             setError(databaseVerification.error);
-        } else {
-            setVerificationLoading(true);
-            await useEmailVerification(data.email, code);
-            setVerificationLoading(false);
+        }
+        
+        setVerificationLoading(true);
+        const emailVerification = await useEmailVerification(data.email, code, dbError);
+        setVerificationLoading(false);
+
+        if (emailVerification) {
             setVerifying(true);
             setRegisterBody(data);
         }
