@@ -126,7 +126,7 @@ def get_customer():
     return {'subscription': subscription, 'customer': customer}, 200
 
 @app.route('/get/customer_id')
-def get_customer():
+def get_customer_id():
     user_hash = request.args.get('hash')
     try:
         user_id = crypt.decrypt(user_hash.encode()).decode()
