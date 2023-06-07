@@ -1,27 +1,26 @@
 import { Children } from "react"
 
 export const SearchContainer = ({children, query}) => {
+
+    if (!query) {
+        return children;
+    }
+
     return (
         <>
-            {query == "" ? (
-                children
-            ): (
-                <>  
-                {Children.map(children, child => {
-                    var newChild = Children.toArray(child.props.children)[0];
-                    if (newChild.props.tag.toLowerCase().includes(query.toLowerCase()) || newChild.props.title.toLowerCase().includes(query.toLowerCase())) {
+            {Children.map(children, child => {
+                var newChild = Children.toArray(child.props.children)[0];
+                if (newChild.props.tag.toLowerCase().includes(query.toLowerCase()) || newChild.props.title.toLowerCase().includes(query.toLowerCase())) {
+                    return child;
+                }
+
+                for (let i = 0; i < newChild.props.extraTags.length; i++) {
+                    const tag = newChild.props.extraTags[i];
+                    if (tag.toLowerCase().includes(query.toLowerCase())) {
                         return child;
                     }
-
-                    for (let i = 0; i < newChild.props.extraTags.length; i++) {
-                        const tag = newChild.props.extraTags[i];
-                        if (tag.toLowerCase().includes(query.toLowerCase())) {
-                            return child;
-                        }
-                    }
-                })}
-                </>
-            )}
+                }
+            })}
         </>
     )
 }

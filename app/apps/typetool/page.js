@@ -1,7 +1,5 @@
-"use client";
 
 import sheet from "./type_spreadsheet";
-import { useState } from "react";
 import { createMetaData } from "@lib/metadata";
 
 export const metadata = createMetaData({
@@ -11,15 +9,16 @@ export const metadata = createMetaData({
   url: '/apps/typetool',
 });
 
-export default function TypeTool() {
-    const [ filters, setFilters ] = useState({}); 
+export default async function TypeTool() {
+    // const [ filters, setFilters ] = useState({}); 
+    const filters = {};
     const animals = ['SC/B(P)', 'SC/P(B)', 'SB/C(P)', 'SB/P(C)', 'CS/B(P)', 'CS/P(B)', 'CP/S(B)', 'CP/B(S)', 'BS/C(P)', 'BS/P(C)', 'BP/S(C)', 'BP/C(S)', 'PC/S(B)', 'PC/B(S)', 'PB/S(C)', 'PB/C(S)'];
     
-    useState(() => {
-        setFilters({
+    // useState(() => {
+    //     setFilters({
 
-        })
-    }, [])
+    //     })
+    // }, [])
 
     return (
         <div className="main">

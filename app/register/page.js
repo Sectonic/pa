@@ -5,12 +5,6 @@ import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
 import { createUser } from '@lib/register';
 import { useDatabaseVerification, useEmailVerification } from '@lib/verification';
-import { createMetaData } from "@lib/metadata";
-
-export const metadata = createMetaData({
-  title: 'Register',
-  url: '/register'
-});
 
 export default function Register() {
     const [isVisible, setVisible] = useState(false);

@@ -1,9 +1,7 @@
-"use client";
-
 import Banner from '@components/banner';
 import "animate.css";
-import {useState} from 'react';
 import { createMetaData } from "@lib/metadata";
+import { OnboardingButton } from './onboardingButton';
 
 export const metadata = createMetaData({
   title: 'Onboarding',
@@ -11,37 +9,7 @@ export const metadata = createMetaData({
   url: '/onboarding'
 });
 
-export default function Onboarding() {
-    const [first, setFirst] = useState(false);
-    const [second, setSecond] = useState(false);
-    const [third, setThird] = useState(false);
-
-    const firstTravel = () => {
-        setFirst(true);
-        setTimeout(() => {
-            document.getElementById('first').scrollIntoView({
-                behavior: 'smooth'
-            });   
-        }, 100)       
-    }
-
-    const secondTravel = () => {
-        setSecond(true);
-        setTimeout(() => {
-            document.getElementById('second').scrollIntoView({
-                behavior: 'smooth'
-            });   
-        }, 100)  
-    }
-
-    const thirdTravel = () => {
-        setThird(true);
-        setTimeout(() => {
-            document.getElementById('third').scrollIntoView({
-                behavior: 'smooth'
-            });   
-        }, 100)  
-    }
+export default function Onboarding({ searchParams }) {
 
     return (
         <div className="main">
@@ -85,22 +53,13 @@ export default function Onboarding() {
                         </div>
                     </div>
                 </div>
-                {!first && (
-                    <div className='button_body section_body section_texts-sm neg-mt-20'>
-                        <div className='multi_paragraph page_btn' onClick={firstTravel}>
-                            <div className="text-sm_img page_btn-img page_btn-img-sm">
-                            <img
-                                src='/img/onboarding/check.png'
-                            />
-                            </div>
-                            <div className="page_btn-text">
-                            <h3 className="section_subtitle text-center">Understood</h3>
-                            </div>
-                        </div>
-                    </div>
+                {!searchParams.section && (
+                    <OnboardingButton endpoint="/onboarding?section=first#first">
+                        Understood
+                    </OnboardingButton>
                 )}
             </div>
-            {first && (
+            {['first', 'second', 'third'].includes(searchParams.section) && (
                 <div className="section" id='first'>
                     <div className="section_body">
                         <div className="section_text outline-gray">
@@ -116,23 +75,14 @@ export default function Onboarding() {
                             </div>
                         </div>
                     </div>
-                    {!second && (
-                        <div className='button_body section_body section_texts-sm neg-mt-20'>
-                            <div className='multi_paragraph page_btn' onClick={secondTravel}>
-                                <div className="text-sm_img page_btn-img page_btn-img-sm">
-                                <img
-                                    src='/img/onboarding/check.png'
-                                />
-                                </div>
-                                <div className="page_btn-text">
-                                <h3 className="section_subtitle text-center">I am 16+</h3>
-                                </div>
-                            </div>
-                        </div>  
+                    {searchParams.section === 'first' && (
+                        <OnboardingButton endpoint="/onboarding?section=second#second">
+                            I am 16+
+                        </OnboardingButton>
                     )}
                 </div>
             )}
-            {second && (
+            {['second', 'third'].includes(searchParams.section) && (
                 <div className="section" id='second'>
                     <div className="section_body neg-mt-20 mobile-mt-20 section_text-cards">
                         <div className="section_text outline-gray">
@@ -166,23 +116,14 @@ export default function Onboarding() {
                             </div>
                         </div>
                     </div>
-                    {!third && (
-                        <div className='button_body section_body section_texts-sm neg-mt-20'>
-                            <div className='multi_paragraph page_btn' onClick={thirdTravel}>
-                                <div className="text-sm_img page_btn-img page_btn-img-sm">
-                                <img
-                                    src='/img/onboarding/check.png'
-                                />
-                                </div>
-                                <div className="page_btn-text">
-                                <h3 className="section_subtitle text-center">Join Server</h3>
-                                </div>
-                            </div>
-                        </div>  
+                    {searchParams.section === 'second' && (
+                        <OnboardingButton endpoint="/onboarding?section=third#third">
+                            I am 16+
+                        </OnboardingButton> 
                     )}
                 </div>
             )}
-            {third && (
+            {searchParams.section === 'third' && (
                 <div className="section" id='third'>
                     <div className="section_body">
                         <div className="section_text section-title_images-in">

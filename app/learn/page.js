@@ -1,9 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import { SearchContainer, IntroCourse, TypologySystem } from "@components/search";
-import { useState, useRef } from 'react';
 import { createMetaData } from "@lib/metadata";
+import { LearnSearch } from "./learnSearch";
 
 export const metadata = createMetaData({
   title: 'Learn',
@@ -11,16 +9,7 @@ export const metadata = createMetaData({
   url: '/learn'
 });
 
-export default function Learn() {
-  const search = useRef(null);
-  const [query, setQuery] = useState("")
-
-  const checkReset = (e) => {
-    if (e.target.value == "") {
-      setQuery("")
-    }
-  }
-
+export default function Learn({ searchParams }) {
   return (
     <div className="main min-box">
       <div className="search_banner">
@@ -30,21 +19,16 @@ export default function Learn() {
         <div className="search_banner-subtitle">
           Explore the courses and systems below made to be feasible and comprehensive for your learning experience.
         </div>
-        <div className="search_banner-input">
-          <input className="search_input" placeholder="Search catalog" ref={search} onChange={checkReset} />
-          <div className="search_input-btn" onClick={() => setQuery(search.current.value)}>
-            Find
-          </div>
-        </div>
+        <LearnSearch />
       </div>
       <div className='learn_systems'>
-        {query == "" ? (
+        {!searchParams.query ? (
           <div className="learn_systems-title">Featured</div>
         ) : (
-          <div className="learn_systems-result">Result for "{query}"</div>
+          <div className="learn_systems-result">Result for "{searchParams.query}"</div>
         )}
         <div className="learn_systems-container">
-          <SearchContainer query={query}>
+          <SearchContainer query={searchParams.query}>
             <Link href="/learn">
               <IntroCourse color="green" title="Intro to Typology">
                 What is Typology? Get introduced to why people categorize personality and what are the benefits.

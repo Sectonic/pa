@@ -3,12 +3,6 @@
 import {useState} from 'react';
 import Link from 'next/link';
 import { useLogin } from '@lib/login';
-import { createMetaData } from '@lib/metadata';
-
-export const metadata = createMetaData({
-  title: 'Login',
-  url: '/login'
-});
 
 export default function Login() {
     const [isVisible, setVisible] = useState(false);
