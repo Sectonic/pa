@@ -1,4 +1,4 @@
-import Popup from "./_components/popup";
+import Popup from "@components/popup";
 
 function UpdatesPopup({ onClose }) {
     return (

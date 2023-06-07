@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { createCustomer } from '../_lib/customer';
+import { createCustomer } from '@lib/customer';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Success',
+  url: '/success',
+});
 
 export default async function Success({ searchParams }) {
     const res = await createCustomer(searchParams.session_id);

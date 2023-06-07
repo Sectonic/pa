@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Human Needs',
+  description: 'Fundamental: The 4 human needs',
+  image: '/embed/human_needs.png',
+  url: '/ops/human_needs',
+});
 
 function humanNeeds() {
   return (

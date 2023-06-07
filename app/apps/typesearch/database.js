@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { createQueryString } from "../../_lib/params";
+import { createQueryString } from "@lib/params";
 // import Image from "../../_components/image";
 
 export default function Database({ data, more }) {

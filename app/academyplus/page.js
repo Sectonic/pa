@@ -1,7 +1,15 @@
-import Banner from '../_components/banner';
+import Banner from '@components/banner';
 import Link from 'next/link';
-import { getCustomer } from '../_lib/customer';
+import { getCustomer } from '@lib/customer';
 import { cookies } from 'next/headers';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Academy Plus',
+  description: 'Support Personality Academy and get extra perks',
+  image: '/embed/support.png',
+  url: '/academyplus',
+});
 
 export default async function AcademyPlus() {
 

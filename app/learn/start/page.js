@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Start',
+  description: 'A start point for the course overview',
+  image: '/embed/intro.png',
+  url: '/learn/start'
+});
 
 export default function Start() {
   return (

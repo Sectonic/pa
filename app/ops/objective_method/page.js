@@ -1,4 +1,11 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Objective Method',
+  description: 'Intro: The Objective Method behind OPS',
+  url: '/ops/objective_method',
+});
 
 export default function ObjectiveMethod() {
     return (

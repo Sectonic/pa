@@ -1,5 +1,13 @@
-import ChangeSection from "../../_components/change_section";
-import Banner from "../../_components/banner";
+import ChangeSection from "@components/change_section";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'D&S Typing',
+  description: 'The official way of typing by Dave & Shan',
+  image: '/embed/d&s_typing.png',
+  url: '/typing/d&s_typing',
+});
 
 function dsTyping() {
   return (

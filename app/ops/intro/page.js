@@ -1,4 +1,11 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'OPS Intro',
+  description: 'Intro: How OPS Differs from other typologies',
+  url: '/ops/intro',
+});
 
 function OPS() {
   return (

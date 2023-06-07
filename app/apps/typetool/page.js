@@ -2,6 +2,14 @@
 
 import sheet from "./type_spreadsheet";
 import { useState } from "react";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'TypeTool',
+  description: 'A type analyzer',
+  image: '/embed/tools.png',
+  url: '/apps/typetool',
+});
 
 export default function TypeTool() {
     const [ filters, setFilters ] = useState({}); 

@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Functions',
+  description: 'Fundamental: The combining of needs and letters: the 8 functions',
+  image: '/embed/functions.png',
+  url: '/ops/functions',
+});
 
 function Functions() {
   return (

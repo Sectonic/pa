@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Social Hierarchy',
+  description: 'Advanced: The 4 Social Types',
+  image: '/embed/social.png',
+  url: '/ops/social',
+});
 
 function Social() {
   return (

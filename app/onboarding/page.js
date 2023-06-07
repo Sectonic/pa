@@ -1,8 +1,15 @@
 "use client";
 
-import Banner from '../_components/banner';
+import Banner from '@components/banner';
 import "animate.css";
 import {useState} from 'react';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Onboarding',
+  description: 'Quick onboarding process to the PA discord server',
+  url: '/onboarding'
+});
 
 export default function Onboarding() {
     const [first, setFirst] = useState(false);

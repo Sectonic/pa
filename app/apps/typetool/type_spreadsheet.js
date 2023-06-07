@@ -1,4 +1,4 @@
-import TypeInfo from '../../../public/json/typeInfo.json';
+import TypeInfo from '@public/json/typeInfo.json';
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

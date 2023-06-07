@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Letters',
+  description: 'Fundamental: The 4 directions a human need can go, letters',
+  image: '/embed/letters.png',
+  url: '/ops/letters',
+});
 
 function Letters() {
   return (

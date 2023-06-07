@@ -1,8 +1,15 @@
-import Banner from "../_components/banner";
+import Banner from "@components/banner";
 import Link from 'next/link';
-import { verifyUser } from "../_lib/user";
+import { verifyUser } from "@lib/user";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Academy Apps',
+  description: 'Our own easy to use OPS tools',
+  url: '/apps',
+});
 
 async function AcademyApps() {
 

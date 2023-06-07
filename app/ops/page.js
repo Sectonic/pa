@@ -1,4 +1,12 @@
-import { LearnLayout, LearnButtons, LearnButton, LearnTree, TreeSection, IconContainer, Icon, IconDropdown, DropdownItem } from '../_components/learn_tree';
+import { LearnLayout, LearnButtons, LearnButton, LearnTree, TreeSection, IconContainer, Icon, IconDropdown, DropdownItem } from '@components/learn_tree';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Learn OPS',
+  description: 'Learn OPS through this course from beginner to advanced',
+  image: '/embed/learn.png',
+  url: '/ops',
+});
 
 export default function OPS() {
 

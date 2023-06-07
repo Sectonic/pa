@@ -1,5 +1,13 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
 import Link from 'next/link';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Typing Method',
+  description: 'How to properly type another person',
+  image: '/embed/typing_method.png',
+  url: '/typing/typing_method',
+});
 
 function typingMethod() {
   return (

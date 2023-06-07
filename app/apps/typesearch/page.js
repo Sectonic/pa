@@ -4,11 +4,19 @@ import { TypePopup, PopupLoading } from './typePopup';
 import { Entries, EntriesLoading } from './entries';
 import { filter_exchange } from './filters';
 import DatabaseSearch from './databaseSearch';
-import { DatabaseContainer, DatabaseLoading } from './DatabaseContainer';
+import { DatabaseContainer, DatabaseLoading } from './databaseContainer';
 import { Suspense } from 'react';
-import { verifyUser } from '../../_lib/user';
+import { verifyUser } from '@lib/user';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'TypeSearch',
+  description: 'A searchable database of the officially typed',
+  image: '/embed/tools.png',
+  url: '/apps/typesearch',
+});
 
 const getFilteredResults = (selectedOptions) => {
     var clean_filters = {

@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Actions',
+  description: 'The difference between a trait and a pattern',
+  image: '/embed/action_vs_trait.png',
+  url: '/learn/action_trait'
+});
 
 export default function actionTrait() {
   return (

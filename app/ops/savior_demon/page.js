@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Savior & Demon',
+  description: 'Fundamental: How OPS differentiates through the 9 coins',
+  image: '/embed/savior_demon.png',
+  url: '/ops/savior_demon',
+});
 
 function SaviorDemon() {
   return (

@@ -1,8 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { SearchContainer, IntroCourse, TypologySystem } from "../_components/search";
+import { SearchContainer, IntroCourse, TypologySystem } from "@components/search";
 import { useState, useRef } from 'react';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Learn',
+  image: '/embed/learn.png',
+  url: '/learn'
+});
 
 export default function Learn() {
   const search = useRef(null);

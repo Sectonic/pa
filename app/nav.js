@@ -6,7 +6,7 @@ import { deleteCookie } from 'cookies-next';
 import { useState, useRef } from "react";
 import { usePathname } from 'next/navigation';
 import AccountPopup from './accountPopup';
-import { cookieOptions } from './_components/config';
+import { cookieOptions } from '@components/config';
 
 function SideNav(props) {
   return (

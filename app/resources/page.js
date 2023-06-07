@@ -1,5 +1,13 @@
-import Banner from '../_components/banner';
+import Banner from '@components/banner';
 import Link from 'next/link';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Resources',
+  description: 'Typology related resources for finding more info',
+  url: '/resources',
+  image: '/embed/resources.png'
+});
 
 export default function Resources() {
   return (

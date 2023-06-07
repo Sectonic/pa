@@ -2,7 +2,7 @@
 
 import Select from 'react-select';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { createQueryString } from '../../_lib/params';
+import { createQueryString } from '@lib/params';
 import { options } from './filters';
 
 export default function DatabaseSearch({ filters }) {

@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Animals',
+  description: 'Intermediate: The result of combining needs, paves way for energy',
+  image: '/embed/animals.png',
+  url: '/ops/animals',
+});
 
 function Animals() {
   return (

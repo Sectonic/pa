@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Animal Modalities',
+  description: 'Advanced: Understand the modalities of animals',
+  image: '/embed/animal_modalities.png',
+  url: '/ops/animal_modalities',
+});
 
 function animalModalities() {
   return (

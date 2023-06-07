@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-import { createQueryString } from "../../_lib/params";
+import { createQueryString } from "@lib/params";
 
 export const TypePopupClose = ({ person_id }) => {
     const router = useRouter();

@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Triangulation',
+  description: 'A staple method of tracking your type',
+  image: '/embed/triangulation.png',
+  url: '/typing/triangulation',
+});
 
 function Triangulation() {
   return (

@@ -1,5 +1,13 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
 import Link from 'next/link';
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Typing Teams',
+  description: 'An alternative approach to official typing, teams',
+  image: '/embed/typing_teams.png',
+  url: '/typing/typing_teams',
+});
 
 function typingTeams() {
   return (

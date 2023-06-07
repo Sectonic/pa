@@ -1,4 +1,11 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Typology Intro',
+  description: 'The utility of personality theory and why',
+  url: '/learn/typology_intro'
+});
 
 export default function Typology() {
   return (

@@ -1,4 +1,12 @@
 import Banner from "../../_components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Your Type',
+  description: 'Understand what it takes to type yourself',
+  image: '/embed/your_type.png',
+  url: '/typing/your_type',
+});
 
 function yourType() {
   return (

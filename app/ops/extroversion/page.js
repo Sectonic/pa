@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Extroversion',
+  description: 'Advanced: The spectrum of energy and activation',
+  image: '/embed/extroversion.png',
+  url: '/ops/extroversion',
+});
 
 function Extroversion() {
   return (

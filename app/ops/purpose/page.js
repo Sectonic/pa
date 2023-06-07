@@ -1,4 +1,11 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Purpose of OPS',
+  description: 'Intro: What OPS Strives toward',
+  url: '/ops/purpose',
+});
 
 export default function Purpose() {
     return (

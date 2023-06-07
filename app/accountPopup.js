@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Popup from './_components/popup';
-import { editUser, deleteUser } from './_lib/user';
+import Popup from '@components/popup';
+import { editUser, deleteUser } from '@lib/user';
 
 function AccountPopup({ onClose, user }) {
     const [userName, setUserName] = useState(user.username);

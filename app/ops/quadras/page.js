@@ -1,4 +1,12 @@
-import Banner from "../../_components/banner";
+import Banner from "@components/banner";
+import { createMetaData } from "@lib/metadata";
+
+export const metadata = createMetaData({
+  title: 'Quadras',
+  description: 'Advanced: Differentiate between the 4 quadras',
+  image: '/embed/quadras.png',
+  url: '/ops/quadras',
+});
 
 function Quadras() {
   return (
