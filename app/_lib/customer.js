@@ -1,6 +1,8 @@
 "use server";
 
 import { cookies } from 'next/headers';
+import Stripe from 'stripe';
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const createCustomer = async (session_id) => {
 
@@ -25,6 +27,31 @@ export const createCustomer = async (session_id) => {
         return 'Successfully Purchased Academy Plus'
     } else {
         return;
+    }
+
+}
+
+export const useSubscription = async () => {
+
+    const hash = cookies().get('hash');
+    if (!hash) {
+        return '/academyplus';
+    }
+
+    try {
+        const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer_id?hash=${hash.value}`, {credentials: 'include'});
+        const data = await request.json();
+        if (data.customer_id) {
+          const session = await stripe.billingPortal.sessions.create({
+              customer: data.customer_id,
+              return_url: `${req.headers.origin}`,
+          });        
+          return session.url;
+        } else {
+          return '/academyplus';
+        }
+    } catch {
+        return '/academyplus';
     }
 
 }
