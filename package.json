@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^4.29.5-appdir.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@stripe/stripe-js": "^1.47.0",
     "@types/node": "18.11.18",
