@@ -1,5 +1,3 @@
-"use server";
-
 import { TypePopup, PopupLoading } from './typePopup';
 import { Entries, EntriesLoading } from './entries';
 import { filter_exchange } from './filters';
