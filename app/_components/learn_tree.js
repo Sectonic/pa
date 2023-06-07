@@ -165,7 +165,7 @@ export const LearnTree = ({ children, setSelected, setSticky }) => {
 
         window.addEventListener('scroll', scrollingHandler);
         return () => window.removeEventListener('scroll', scrollingHandler);
-    }, [tree]);
+    }, [tree, children_arr, setSelected, setSticky]);
 
     return (
         <div className='learn_section'>
@@ -224,6 +224,7 @@ export const LearnButtons = ({ children, selected, sticky, selections }) => {
 export const LearnLayout = ({ children }) => {
     const [selected, setSelected] = useState("");
     const [sticky, setSticky] = useState(false);
+
     const children_arr = Children.toArray(children);
     const overviewClass = sticky ? 'learn_overview learn_overview-sticky' : 'learn_overview';
     const selections = Children.map(children_arr[0].props.children, child => {
