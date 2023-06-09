@@ -1,84 +1,116 @@
 "use server";
 
-import { cookies } from 'next/headers';
+import { headers } from 'next/headers';
 import Stripe from 'stripe';
+import db from '@db/client';
+import { getSession } from './session';
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const createCustomer = async (session_id) => {
 
-    const hash = cookies().get('hash');
-    if (!hash) {
+    const session = getSession();
+    if (!session) {
         return;
     }
 
-    const options = {
-        credentials: 'include',
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            session_id: session_id,
-            hash: hash
-        })
+    const user = await db.user.findUnique({
+        where: { id: session },
+        select: {
+            customerId: true
+        }
+    })
+    if (!user.customerId) {
+        return;
     }
 
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API}/add/subscription`, options);
+    const checkout = await stripe.checkout.sessions.retrieve(session_id);
 
-    if (req.ok) {
-        return 'Successfully Purchased Academy Plus'
+    await db.user.update({
+        where: { id: session },
+        data: {
+            customerId: checkout.customer,
+            subscriptionId: checkout.subscription.id
+        }
+    });
+
+    return 'Successfully Purchased Academy Plus';
+
+}
+
+export const getCustomer = async () => {
+
+    const session = getSession();
+    if (!session) {
+        return {
+            academyPlus: false,
+            customer: false,
+            active: false
+        }
+    }
+
+    const user = await db.user.findUnique({
+        where: { id: session },
+        select: {
+            customerId: true,
+            subscriptionId: true
+        }
+    });
+
+    var subscription;
+    if (user.subscriptionId) {
+        subscription = stripe.subscriptions.retrieve(user.subscriptionId);
     } else {
-        return;
+        subscription = {status: 'not-found'};
     }
 
+    return {
+        academyPlus: subscription.status === 'active' ? true: false,
+        customer: user.customerId ? true : false,
+        active: true
+    }
 }
 
 export const getPortal = async () => {
 
-    const hash = cookies().get('hash');
-    if (!hash) {
+    const session = getSession();
+    if (!session) {
         return '/academyplus';
     }
 
     try {
-        const request = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer_id?hash=${hash.value}`, {credentials: 'include'});
-        const data = await request.json();
-        if (data.customer_id) {
-          const session = await stripe.billingPortal.sessions.create({
-              customer: data.customer_id,
-              return_url: `${req.headers.origin}`,
-          });        
-          return session.url;
-        } else {
-          return '/academyplus';
+        const user = await db.user.findUnique({
+            where: {
+                id: session
+            },
+            select: {
+                customerId: true
+            }
+        })
+        if (!user.customerId) {
+            return '/academyplus';
         }
+        const session = await stripe.billingPortal.sessions.create({
+            customer: user.customerId,
+            return_url: headers().get('origin'),
+        });        
+        return session.url;
     } catch {
         return '/academyplus';
     }
 
 }
 
-export const getCustomer = async (hash) => {
-
-    if (!hash) {
-        return {
-            academyPlus: false,
-            customer: false,
-            active: false
-        }
-    }
-
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API}/get/customer?hash=${hash.value}`);
-    const data = await req.json();
-    if (req.ok) {
-        return {
-            academyPlus: data.subscription,
-            customer: data.customer,
-            active: true
-        }
-    } else {
-        return {
-            academyPlus: false,
-            customer: false,
-            active: false
-        }
-    }
+export const getCheckout = async () => {
+    const session = await stripe.checkout.sessions.create({
+        line_items: [
+        {
+            price: process.env.STRIPE_PRICE_KEY,
+            quantity: 1,
+        },
+        ],
+        mode: 'subscription',
+        success_url: `${headers().get('origin')}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${headers().get('origin')}/academyplus`,
+    });
+    return session.url;
 }

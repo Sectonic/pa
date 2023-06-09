@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Popup from '@components/popup';
 import { editUser, deleteUser } from '@lib/user';
+import { deleteCookie } from 'cookies-next';
+import { cookieOptions } from '@components/config';
 
 function AccountPopup({ onClose, user }) {
     const [userName, setUserName] = useState(user.username);
@@ -22,6 +24,7 @@ function AccountPopup({ onClose, user }) {
         setError('Input does not match your username');
       } else {
         await deleteUser();
+        deleteCookie('PAsession', cookieOptions);
         window.location.href = '/';
       }
     }

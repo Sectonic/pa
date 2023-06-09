@@ -4,9 +4,8 @@ import { filter_exchange } from './filters';
 import DatabaseSearch from './databaseSearch';
 import { DatabaseContainer, DatabaseLoading } from './databaseContainer';
 import { Suspense } from 'react';
-import { verifyUser } from '@lib/user';
+import { getSession } from '@lib/session';
 import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
 import { createMetaData } from "@lib/metadata";
 
 export const metadata = createMetaData({
@@ -53,8 +52,8 @@ const getTypeSearchParams = async (params) => {
 
 export default async function Page({ searchParams }) {
 
-    const verified = await verifyUser(cookies().get('hash'));
-    if (!verified) {
+    const session = await getSession();
+    if (!session) {
       redirect('/login');
     }
 

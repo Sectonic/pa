@@ -6,7 +6,7 @@
   --vibrant-purple-rgb: 18, 28, 58;
   
   --light-purple: #2c4060;
-  --light-purple-rgb: 92, 100, 244;
+  --light-purple-rgb: 44, 64, 96;
 
   --dark-purple: #122444;
   --dark-purple-rgb: 3, 13, 30;
@@ -24,7 +24,7 @@
   --dark-grey-rgb: 18, 36, 68;
 
   --light-grey: #193460;
-  --light-grey-rgb: 24, 42, 78;
+  --light-grey-rgb: 25, 52, 96;
 
   --purple-black: #0a142c;
   --purple-black-rgb: 4, 13, 30;
@@ -183,6 +183,15 @@ button {
   .logo-box {
     margin-left: 15px;
   }
+  .admin_menu_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.admin_username {
+  display: block !important;
 }
 
 .user-box_img {

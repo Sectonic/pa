@@ -1,28 +1,29 @@
 'use server';
 
-import { cookieOptions } from '../_components/config';
-import { cookies } from 'next/headers';
+import { getSession, setSession } from './session';
+import db from "@db/client";
+import bcrypt from 'bcryptjs';
 
 export const useLogin = async (email, password) => {
     
-    const hash = cookies().get('hash');
-    if (hash) {
+    const session = getSession();
+    if (session) {
         return {error: 'Already Logged In'};
     }
 
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API}/login?email=${email}&password=${password}`, {credentials: 'include'});
-    const data = await req.json();
-    
-    if (req.ok) {
+    const emailExists = await db.user.findUnique({
+        where: {
+            email
+        }
+    })
+    if (!emailExists) {
+        return {error: 'Account does not exist'}
+    }
 
-        cookies().set({
-            name: 'hash',
-            value: data.hash,
-            ...cookieOptions
-        });
-
-        return {status: 200};
+    const samePassword = await bcrypt.compare(password, emailExists.password);
+    if (samePassword) {
+        setSession(emailExists.id);
     } else {
-        return {error: data.error};
+        return {error: 'Password does not match email'};
     }
 }

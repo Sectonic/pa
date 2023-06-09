@@ -1,9 +1,8 @@
 import Banner from "@components/banner";
 import Link from 'next/link';
-import { verifyUser } from "@lib/user";
 import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
 import { createMetaData } from "@lib/metadata";
+import { getSession } from "@lib/session";
 
 export const metadata = createMetaData({
   title: 'Academy Apps',
@@ -13,8 +12,8 @@ export const metadata = createMetaData({
 
 async function AcademyApps() {
 
-  const verified = await verifyUser(cookies().get('hash'));
-  if (!verified) {
+  const session = await getSession();
+  if (!session) {
     redirect('/login');
   }
 

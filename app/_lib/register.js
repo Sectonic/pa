@@ -1,24 +1,18 @@
 'use server';
 
-import { cookieOptions } from '../_components/config';
-import { cookies } from 'next/headers';
+import bcrypt from 'bcryptjs';
+import { setSession } from './session';
+import db from "@db/client";
 
-export const createUser = async (userBody) => {
+export const createUser = async ({ email, username, password }) => {
 
-    const options = {
-        credentials: 'include',
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(userBody)
-    }
-
-    const req= await fetch(`${process.env.NEXT_PUBLIC_API}/create/user`, options);
-    const data = await req.json();
-
-    cookies().set({
-        name: 'hash',
-        value: data.hash,
-        ...cookieOptions
+    const hash = await bcrypt.hash(password, 10);
+    const user = await db.user.create({
+        data: {
+            username, email,
+            password: hash
+        }
     });
+    setSession(user.id);
 
 }

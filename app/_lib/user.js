@@ -1,47 +1,58 @@
 "use server";
 
-import { cookies } from 'next/headers';
+import { getSession } from './session';
+import db from '@db/client';
 
 export const useUser = async () => {
 
-    const hash = cookies().get('hash');
-    if (!hash) {
+    const session = getSession();
+    if (!session) {
         return;
     }
 
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API}/get/user?hash=${hash.value}`, {credentials: 'include'});
-    const data = await req.json();
-    if (req.ok) {
-        return {...data, active: true}
+    const user = await db.user.findUnique({
+        where: {
+            id: session
+        },
+        select: {
+            id: true,
+            username: true,
+            email: true
+        }
+    });
+
+    if (user) {
+        return {...user, active: true}
     } else {
         return;
     }
 }
 
-export const verifyUser = async (hash) => {
-    if (!hash) {
-        return false;
-    }
-    const verify = await fetch(`${process.env.NEXT_PUBLIC_API}/verify/${hash.value}`);
-    if (verify.ok) {
-        return true;
-    }
-    return false;
-}
-
 export const deleteUser = async () => {
 
-    const hash = cookies().get('hash');
-    if (hash) {
-        await fetch(`${process.env.NEXT_PUBLIC_API}/delete/user?hash=${hash.value}`, {credentials: 'include'});
+    const session = getSession();
+    if (session) {
+        await db.user.delete({
+            where: {
+                id: session
+            }
+        })
     }
 
 }
 
 export const editUser = async (username) => {
 
-    const hash = cookies().get('hash');
-    if (hash) {
-        await fetch(`${process.env.NEXT_PUBLIC_API}/edit/user?hash=${hash.value}&username=${username}`, {credentials: 'include'});
+    const session = getSession();
+    if (session) {
+        await db.user.update({
+            where: {
+                id: session
+            },
+            data: {
+                username
+            }
+        })
     }
+
 }

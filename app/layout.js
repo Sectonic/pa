@@ -12,12 +12,14 @@ import '@css/register.css';
 import '@css/placeholder.css';
 import '@css/academyplus.css';
 import '@css/typetool.css';
+import '@css/admin.css';
 import "animate.css";
 
 import { Montserrat } from "next/font/google";
-import Navigation from './nav';
+import NavContainer from './navContainer';
 import { useUser } from '@lib/user';
 import { createMetaData } from '@lib/metadata';
+import { getSession } from '@lib/session';
 
 const font = Montserrat ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
@@ -29,11 +31,12 @@ export const metadata = createMetaData({});
 export default async function RootLayout({ children }) {
 
     const user = await useUser();
+    const admin = getSession('PAadmin');
 
     return (
       <html lang="en">
         <body className={font.className}>
-          <Navigation user={user} />
+          <NavContainer user={user} admin={admin} />
           {children}
         </body>
       </html>

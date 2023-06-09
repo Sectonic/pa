@@ -6,6 +6,7 @@
         "@lib/*": ["app/_lib/*"],
         "@css/*": ["styles//*"],
         "@public/*": ["public/*"],
+        "@db/*": ["app/_lib/prisma/*"],
       }
     }
   }

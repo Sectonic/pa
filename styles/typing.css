@@ -33,8 +33,11 @@
 }
 
 .typing_section .section_body {
-  cursor: pointer;
   margin-top: -20px;
+}
+
+.typing_section .section_body .section_text {
+  cursor: pointer;
 }
 
 .typing_section img {

@@ -1,0 +1,287 @@
+
+.unauthorized_container {
+    width: calc(100% - 25px);
+    border-radius: 20px;
+    height: calc(100vh - 92px);
+    margin: 0 auto;
+    margin-top: 77px;
+    margin-bottom: 15px;
+    background-image: linear-gradient(
+      to right,
+      rgba(var(--purple-black-rgb), .8),
+      rgba(var(--purple-black-rgb), .8)
+    ),
+    url("./backgrounds/background_blur.png");
+    background-size: 3000px;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unauthorized_container .register_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.unauthorized_container .register_section .register_inputs {
+    widtH: 100%;
+}
+
+.admin_authorized {
+    display: flex;
+    min-height: calc(100vh - 90px);
+    width: calc(100% - 25px);
+    margin: 0 auto;
+    margin-top: 77px;
+}
+
+.admin_authorized .section {
+    margin: 0 auto;
+    flex-grow: 1;   
+}
+
+.typeform_container {
+    margin-top: 92px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.typeform {
+    width: 575px;
+    border-radius: 20px;
+    background-color: var(--purple-black);
+    border: 5px solid rgba(var(--dark-grey-rgb), .7);
+    padding: 20px;
+}
+
+.typeform h3 {
+    margin: 15px auto;
+}
+
+.option_container {
+    position: relative;
+}
+
+.option_container input {
+    font-family: inherit;
+    cursor: pointer !important;
+}
+
+.option-dropdown {
+    top: 65px;
+    z-index: 5;
+    position: absolute;
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: var(--light-grey);
+    border: 2px solid var(--purple-black);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    --animate-duration: .3s;
+}
+
+.option-dropdown > option{
+    background-color: rgba(var(--dark-grey-rgb), .5);
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.option-dropdown > option:hover {
+    background-color: rgba(var(--dark-grey-rgb), .9);
+}
+
+.link_input {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: row !important;
+    gap: 15px !important;
+}
+
+.link_input .link_input-entry {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45%;
+}
+
+.link_input-delete {
+    flex-basis: 10%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.link_input-delete > div {
+    background-color: rgba(196, 49, 49, .9);
+    border-radius: 5px;
+    height: 37px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.link_input-delete img {
+    width: 25px;
+}
+
+.typeform_image {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.typeform_image input[type="file"] {
+    display: none;
+}
+
+.typeform_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    background-color: var(--light-grey);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: .3s ease;
+}
+
+.typeform_btn:hover {
+    background-color: rgba(var(--light-grey-rgb), .7);
+}
+
+.typeform_btn img {
+    width: 20px;
+}
+
+.typeform_image-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typeform_image-display div {
+    width: 100px;
+    height: 100px;
+    background-color: var(--dark-grey);
+    border-radius: 10px;
+    border: 3px solid var(--light-grey);
+}
+
+.typeform_image-display img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid var(--light-grey);
+}
+
+.functions_input {
+    margin: 0 auto;
+    display: flex;
+    gap: 35px;
+    font-size: 30px;
+}
+
+.functions_input-section {
+    display: flex;
+    gap: 10px;
+}
+
+.functions_input-short {
+    width: 12px;
+}
+
+.functions_input-long {
+    width: 30px;
+}
+
+.functions_input-medium {
+    width: 22px;
+}
+
+.typeform_submit {
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 7px;
+    text-align: center;
+    background-color: var(--light-purple);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .3s ease;
+    font-size: 17px;
+    color: white;
+    font-weight: 700;
+    flex-basis: 65%;
+}
+
+.typeform_submit:hover {
+    background-color: rgba(var(--light-purple-rgb),.7);
+}
+
+.typeform_submit-container {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.typeform_duplicates-btn {
+    flex-basis: 35%;
+}
+
+.typeform_duplicates {
+    width: 200px;
+    height: 710px;
+    background-color: var(--purple-black);
+    border: 5px solid rgba(var(--dark-grey-rgb), .7);
+    padding: 30px;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+
+.typeform_duplicates::-webkit-scrollbar {
+    width: 0px;
+}
+
+.typeform_duplicates-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.duplicate_container {
+    background-color: var(--dark-grey);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.duplicate_container img {
+    width: 50px;
+    border-radius: 10px;
+}

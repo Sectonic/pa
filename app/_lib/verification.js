@@ -1,7 +1,8 @@
 "use server";
 
 import { createTransport } from "nodemailer";
-import { cookies } from "next/headers";
+import { getSession } from "./session";
+import db from "@db/client";
 
 export const useEmailVerification = async (email, code, error) => {
 
@@ -9,19 +10,19 @@ export const useEmailVerification = async (email, code, error) => {
         return false;
     }
  
-    const user = process.env.NEXT_PUBLIC_MAIL
+    const account = process.env.NEXT_PUBLIC_MAIL
     const pass = process.env.NEXT_PUBLIC_MAIL_PASSWORD
     
     const transport = createTransport({
         service: "gmail",
         auth: {
-            user: user,
+            user: account,
             pass: pass
         }
     });
 
     const mailOptions = {
-        from: user,
+        from: account,
         to: email,
         subject: "Personality Academy Verification Code",
         html:   `
@@ -160,25 +161,33 @@ export const useEmailVerification = async (email, code, error) => {
     return true;
 }
 
-export const useDatabaseVerification = async (userBody) => {
-    const hash = cookies().get('hash');
-    if (hash) {
+export const useDatabaseVerification = async ({username, email, password, confirm}) => {
+    const session = getSession();
+    if (session) {
         return {error: 'Already Logged In'};
     }
 
-    const options = {
-        credentials: 'include',
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(userBody)
+    if (password != confirm) {
+        return {error: 'Your confirm password does not match your password'};
     }
 
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API}/verify/user`, options);
-    if (req.ok) {
-        return {status: 200};
-    } else {
-        const data = await req.json();
-        return {error: data.error};
+    const sameUser = await db.user.findUnique({
+        where: {
+            username
+        }
+    });
+    if (sameUser) {
+        return {error: 'The username is already in use'};
     }
 
+    const sameEmail = await db.user.findUnique({
+        where: {
+            email
+        }
+    });
+    if (sameEmail) {
+        return {error: 'The email is already in use'};
+    }
+
+    return {status: 200}; 
 }

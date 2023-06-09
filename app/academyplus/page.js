@@ -1,8 +1,9 @@
 import Banner from '@components/banner';
 import Link from 'next/link';
 import { getCustomer } from '@lib/customer';
-import { cookies } from 'next/headers';
 import { createMetaData } from "@lib/metadata";
+import { CheckoutBtn } from './checkoutBtn';
+import { PortalBtn } from './portalBtn';
 
 export const metadata = createMetaData({
   title: 'Academy Plus',
@@ -13,7 +14,7 @@ export const metadata = createMetaData({
 
 export default async function AcademyPlus() {
 
-    const  { academyPlus, customer, active } = await getCustomer(cookies().get('hash'));
+    const  { academyPlus, customer, active } = await getCustomer();
 
     return (
       <div className="main">
@@ -32,11 +33,7 @@ export default async function AcademyPlus() {
               Click below or "subscription" in your account popup to manage it
             </p>
             <div className="section_body neg-mt-45">
-              <form action="/api/customer_portal" method="POST">
-                <button type="submit" role="link" className="section_text price_btn">
-                  <div>Manange Subscription</div>
-                </button>
-              </form>
+              <PortalBtn />
             </div>
           </div>
         ) : (
@@ -48,11 +45,7 @@ export default async function AcademyPlus() {
                 Want to activate it again? Click below to manage it
               </p>
               <div className="section_body neg-mt-45">
-                <form action="/api/customer_portal" method="POST">
-                  <button type="submit" role="link" className="section_text price_btn">
-                    <div>Manange Subscription</div>
-                  </button>
-                </form>
+              <PortalBtn />
               </div>
             </div>
           )}
@@ -127,9 +120,7 @@ export default async function AcademyPlus() {
                 ) : (
                   <>
                     {active ? (
-                      <form action="/api/checkout_session" method="POST">
-                        <button type="submit" className="academy_perks-btn academy_perks-btn-purple">Get Plus</button>
-                      </form>
+                      <CheckoutBtn className="academy_perks-btn academy_perks-btn-purple">Get Plus</CheckoutBtn>
                     ) : (
                       <Link href='/register'>
                         <button type="button" className="academy_perks-btn academy_perks-btn-purple">Get Plus</button>
@@ -219,11 +210,7 @@ export default async function AcademyPlus() {
             ) : (
               <>
                 {active ? (
-                  <form action="/api/checkout_session" method="POST">
-                    <button type="submit" role="link" className="section_text price_btn">
-                      <div>Subscribe</div>
-                    </button>
-                  </form>
+                  <CheckoutBtn className="section_text price_btn">Subscribe</CheckoutBtn>
                 ) : ( 
                   <Link href="/register">
                     <button type="button" className="section_text price_btn">
