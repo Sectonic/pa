@@ -3,21 +3,47 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL_PRISMA")
+  provider = "mysql"
+  url = env("DATABASE_URL_PRISMA")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Type {
   id Int @id @default(autoincrement())
   name String
   sex String?
+  tag String?
   type String
+  mbti String?
+  extrovertIntrovert String?
+  temperment String?
+  quadra String?
+  sensoryModality String?
+  deModality String?
+  oD String?
+  energyInfo String?
+  function1 String?
+  function2 String?
+  deciderNeed String?
+  deciderLetter String?
+  observerLetter String?
+  observerNeed String?
+  animal1 String?
+  animal2 String?
+  animal3 String?
+  animal4 String?
+  playModality String?
+  sleepModality String?
+  blastModality String?
+  consumeModality String?
+  observerAxis String?
+  deciderAxis String?
   social String?
-  createdAt DateTime
-  updatedAt DateTime
   image String?
   fileId String?
   links Link[]
@@ -29,6 +55,8 @@ model Link {
   url String
   person Type @relation(fields: [personId], references: [id], onDelete: Cascade)
   personId Int
+
+  @@index([personId])
 }
 
 model User {

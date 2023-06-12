@@ -59,6 +59,10 @@
     padding: 20px;
 }
 
+.typeform .register_error {
+    text-align: center;
+}
+
 .typeform h3 {
     margin: 15px auto;
 }
@@ -231,6 +235,10 @@
     flex-basis: 65%;
 }
 
+.typeform_addimage_btn {
+    flex-basis: 80%;
+}
+
 .typeform_submit:hover {
     background-color: rgba(var(--light-purple-rgb),.7);
 }
@@ -243,6 +251,16 @@
 
 .typeform_duplicates-btn {
     flex-basis: 35%;
+}
+
+.typeform_delete-btn {
+    flex-basis: 35%;
+    background-color: rgba(196, 49, 49, .9);
+    transition: .3s ease;
+}
+
+.typeform_delete-btn:hover {
+    background-color: rgba(196, 49, 49, .6);
 }
 
 .typeform_duplicates {
@@ -284,4 +302,105 @@
 .duplicate_container img {
     width: 50px;
     border-radius: 10px;
+}
+
+.adminview_container {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 92px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    background-color: var(--purple-black);
+    border: 5px solid rgba(var(--dark-grey-rgb), .7);
+    padding: 20px;
+}
+
+.adminview-input {
+    margin: 20px auto;
+    margin-bottom: 30px;
+}
+
+.adminview-input input {
+    width: 400px;
+}
+
+.adminview_db {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    font-size: 17px;
+}
+
+.adminview_db_row {
+    background-color: var(--dark-grey);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.adminview_db_row-id {
+    flex-basis: 10%;
+}
+
+.adminview_db_row-image {
+    flex-basis: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adminview_db_row-image img {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.adminview_db_row-name {
+    flex-basis: 30%;
+}
+
+.adminview_db_row-type {
+    flex-basis: 30%;
+}
+
+.adminview_db_row-edit {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adminview_db_row-edit a {
+    width: 50%;
+    background-color: var(--light-grey);
+    padding: 5px 0;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.adminview_db_row-edit a:hover {
+    background-color: var(--light-purple);
+}
+
+.adminview_top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.adminview_add-btn {
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: var(--light-grey);
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.adminview_add-btn:hover {
+    background-color: var(--light-purple);
 }

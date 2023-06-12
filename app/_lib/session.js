@@ -22,7 +22,6 @@ export const getSession = (name) => {
 }
 
 export const setSession = (value, name) => {
-    console.log(value);
     const encrypted = crypt.encrypt(String(value), key);
     cookies().set({
         name: typeof name === "undefined" ? "PAsession" : name,

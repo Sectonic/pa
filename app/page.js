@@ -4,16 +4,17 @@ import { TypeAnimation } from 'react-type-animation';
 import ChangeSection from '@components/change_section';
 import UpdatesPopup from './updatesPopup';
 import { useState } from 'react';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
+    const router = useRouter();
     const [popup, setPopup] = useState(false);
 
     const openPopup = () => {
         setPopup(true);
     }
 
-    const academyPlus = () => redirect('/academyplus');
+    const academyPlus = () => router.push('/academyplus');
 
     return (
         <div className="main">

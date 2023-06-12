@@ -160,7 +160,7 @@
     }
 }
 
-.db_update-btn {
+.db_update {
     display: block;
     margin: 0 auto;
     border: none;
@@ -172,20 +172,74 @@
     padding: 5px 20px;
     cursor: pointer;
     transition: .3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
 }
 
-.db_update-btn-container {
+.db_update-btn {
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.db_update-btn__selected {
+    background-color: var(--light-grey);
+}
+
+.db_update-btn__edges {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: .2s ease;
+}
+
+.edges_name {
+    display: none;
+}
+
+@media screen and (min-width: 470px) {
+    .edges_name {
+        display: inline;
+    }
+}
+
+.db_update-btn__edges:hover {
+    background-color: var(--light-purple);
+}
+
+.db_update_btn__disabled {
+    color: var(--light-purple);
+    cursor: default;
+}
+
+.db_update_btn__disabled:hover {
+    background-color: var(--dark-grey);
+}
+
+.db_update-container {
     display: block; 
     width: 100%;
-    margin: 30px auto;
-    margin-top: 0;
+    margin: 25px auto;
+    margin-top: 5px;
+}
+
+.db_update-container__top {
+    margin-bottom: 5px !important;
+}
+
+.db_update-btn-nohover {
+    cursor: default;
 }
 
 @media screen and (min-width: 775px) {
     .db_update-btn:hover {
-        transform: scale(1.1);
         background-color: var(--light-grey);
         color: white;
+    }
+    .db_update-btn-nohover:hover {
+        background-color: var(--dark-grey);
     }
 }
 

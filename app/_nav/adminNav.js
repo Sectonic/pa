@@ -10,7 +10,7 @@ export default function AdminNav({ admin }) {
 
     const AdminLogout = () => {
         deleteCookie('PAadmin', cookieOptions);
-        router.push('/admin');
+        router.refresh();
     }
 
     return (

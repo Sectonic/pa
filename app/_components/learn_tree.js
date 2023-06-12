@@ -180,13 +180,12 @@ export const LearnButton = ({children, title, selected, selections}) => {
     const className = selected ? 'section_button-selected' : 'section_button';
 
     const scrollToSelect = () => {
-        console.log()
         if (selections.indexOf(title) === 0) {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (selections.indexOf(title) === selections.length - 1) {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         } else {
-            var elDistanceToTop = window.pageYOffset + document.getElementById(title).getBoundingClientRect().top - 100;
+            var elDistanceToTop = window.scrollY + document.getElementById(title).getBoundingClientRect().top - 100;
             window.scrollTo({ top: elDistanceToTop, behavior: 'smooth' });
         }
     }

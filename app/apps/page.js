@@ -12,11 +12,6 @@ export const metadata = createMetaData({
 
 async function AcademyApps() {
 
-  const session = await getSession();
-  if (!session) {
-    redirect('/login');
-  }
-
   return (
     <div className="main">
         <Banner

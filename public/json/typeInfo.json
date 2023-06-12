@@ -1,11 +1,14 @@
 {
     "template": {
+        "type": null,
         "mbti": null,
         "quadra": null,
+        "sensoryModality": null,
+        "deModality": null,
         "function1": null,
         "function2": null,
         "oD": null,
-        "temperament": null,
+        "temperment": null,
         "observerAxis": null,
         "observerLetter": null,
         "observerNeed": null,
@@ -17,22 +20,26 @@
         "animal3": null,
         "animal4": null,
         "extrovertIntrovert": null,
-        "energyInfo": null
+        "energyInfo": null,
+        "playModality": null,
+        "blastModality": null,
+        "consumeModality": null,
+        "sleepModality": null
     },
     "sensoryModality": {
         "mS": [
-            {"name": "Sensory Modality", "value": "mS"}
+            {"name": "sensoryModality", "value": "mS"}
         ],
         "fS": [
-            {"name": "Sensory Modality", "value": "fS"}
+            {"name": "sensoryModality", "value": "fS"}
         ]
     },
     "deModality": {
         "fDe": [
-            {"name": "De Modality", "value": "fDe"}
+            {"name": "deModality", "value": "fDe"}
         ],
         "mDe": [
-            {"name": "De Modality", "value": "mDe"}
+            {"name": "deModality", "value": "mDe"}
         ]
     },
     "function1": {
@@ -44,22 +51,22 @@
         ],
         "Oe": [
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "EP"},
+            {"name": "temperment", "value": "EP"},
             {"name": "observerNeed", "value": "Oe"}
         ],
         "Oi": [
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "IJ"},
+            {"name": "temperment", "value": "IJ"},
             {"name": "observerNeed", "value": "Oi"}
         ],
         "De": [
             {"name": "oD", "value": "Decider"},
-            {"name": "temperament", "value": "EJ"},
+            {"name": "temperment", "value": "EJ"},
             {"name": "deciderNeed", "value": "De"}
         ],
         "Di": [
             {"name": "oD", "value": "Decider"},
-            {"name": "temperament", "value": "IP"},
+            {"name": "temperment", "value": "IP"},
             {"name": "deciderNeed", "value": "Di"}
         ],
         "Nx": [
@@ -81,7 +88,7 @@
         "Ne": [
             {"name": "function1", "value": "Ne"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "EP"},
+            {"name": "temperment", "value": "EP"},
             {"name": "observerAxis", "value": "Si-Ne"},
             {"name": "observerLetter", "value": "N"},
             {"name": "observerNeed", "value": "Oe"}
@@ -89,7 +96,7 @@
         "Se": [
             {"name": "function1", "value": "Se"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "EP"},
+            {"name": "temperment", "value": "EP"},
             {"name": "observerAxis", "value": "Se-Ni"},
             {"name": "observerLetter", "value": "S"},
             {"name": "observerNeed", "value": "Oe"}
@@ -97,7 +104,7 @@
         "Ni": [
             {"name": "function1", "value": "Ni"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "IJ"},
+            {"name": "temperment", "value": "IJ"},
             {"name": "observerAxis", "value": "Se-Ni"},
             {"name": "observerLetter", "value": "N"},
             {"name": "observerNeed", "value": "Oi"}
@@ -105,7 +112,7 @@
         "Si": [
             {"name": "function1", "value": "Si"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "IJ"},
+            {"name": "temperment", "value": "IJ"},
             {"name": "observerAxis", "value": "Si-Ne"},
             {"name": "observerLetter", "value": "S"},
             {"name": "observerNeed", "value": "Oi"}
@@ -113,7 +120,7 @@
         "Te": [
             {"name": "function1", "value": "Te"},
             {"name": "oD", "value": "Decider"},
-            {"name": "temperament", "value": "EJ"},
+            {"name": "temperment", "value": "EJ"},
             {"name": "deciderAxis", "value": "Fi-Te"},
             {"name": "deciderLetter", "value": "T"},
             {"name": "deciderNeed", "value": "De"}
@@ -121,7 +128,7 @@
         "Fe": [
             {"name": "function1", "value": "Fe"},
             {"name": "oD", "value": "Decider"},
-            {"name": "temperament", "value": "EJ"},
+            {"name": "temperment", "value": "EJ"},
             {"name": "deciderAxis", "value": "Fe-Ti"},
             {"name": "deciderLetter", "value": "F"},
             {"name": "deciderNeed", "value": "De"}
@@ -129,7 +136,7 @@
         "Ti": [
             {"name": "function1", "value": "Ti"},
             {"name": "oD", "value": "Decider"},
-            {"name": "temperament", "value": "IP"},
+            {"name": "temperment", "value": "IP"},
             {"name": "deciderAxis", "value": "Fe-Ti"},
             {"name": "deciderLetter", "value": "T"},
             {"name": "deciderNeed", "value": "Di"}
@@ -137,7 +144,7 @@
         "Fi": [
             {"name": "function1", "value": "Fi"},
             {"name": "oD", "value": "Decider"},
-            {"name": "temperament", "value": "IP"},
+            {"name": "temperment", "value": "IP"},
             {"name": "deciderAxis", "value": "Fi-Te"},
             {"name": "deciderLetter", "value": "F"},
             {"name": "deciderNeed", "value": "Di"}
@@ -160,7 +167,7 @@
         ],
         "De": [
             {"name": "oD", "value": "Observer"},
-            {"name": "deciderNeed", "value": "De"}
+            {"name": "Decider", "value": "De"}
         ],
         "Di": [
             {"name": "oD", "value": "Observer"},
@@ -213,7 +220,7 @@
         "Te": [
             {"name": "function2", "value": "Te"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "EJ"},
+            {"name": "temperment", "value": "EJ"},
             {"name": "deciderAxis", "value": "Fi-Te"},
             {"name": "deciderLetter", "value": "T"},
             {"name": "deciderNeed", "value": "De"}
@@ -221,7 +228,7 @@
         "Fe": [
             {"name": "function2", "value": "Fe"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperament", "value": "EJ"},
+            {"name": "temperment", "value": "EJ"},
             {"name": "deciderAxis", "value": "Fe-Ti"},
             {"name": "deciderLetter", "value": "F"},
             {"name": "deciderNeed", "value": "De"}
