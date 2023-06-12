@@ -184,7 +184,7 @@ export default function Page() {
                 <h3>Links</h3>
                 <div className="register_inputs">
                     {links.map((link, i) => (
-                        <div className="link_input">
+                        <div className="link_input" key={i}>
                             <div className="link_input-entry">
                                 <label className="register_label">Name</label>
                                 <input type="text" required value={link.name} onChange={(e) => changeLink(i, 'name', e.target.value)} />
@@ -217,8 +217,8 @@ export default function Page() {
             </form>
             <div className="typeform_duplicates">
                 <h3>Duplicates</h3>
-                {similar.map(person => (
-                    <div className="typeform_duplicates-list">
+                {similar.map((person, i) => (
+                    <div className="typeform_duplicates-list" key={i}>
                         <div className="duplicate_container">
                             <img src={person.image} />
                             <div>{person.name}</div>
