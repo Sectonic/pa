@@ -19,8 +19,8 @@ export default async function Page({ searchParams }) {
                 <h4>Most Recent 20 Entries</h4>
             )}
             <div className="adminview_db">
-                {data.map(entry => (
-                    <div className="adminview_db_row">
+                {data.map((entry, i) => (
+                    <div className="adminview_db_row" key={i}>
                         <div className="adminview_db_row-id"># {entry.id}</div>
                         <div className="adminview_db_row-image">
                             <img src={entry.image}/>
