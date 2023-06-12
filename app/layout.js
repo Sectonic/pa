@@ -20,6 +20,7 @@ import NavContainer from './navContainer';
 import { useUser } from '@lib/user';
 import { createMetaData } from '@lib/metadata';
 import { getSession } from '@lib/session';
+import { Analytics } from '@vercel/analytics/react';
 
 const font = Montserrat ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
@@ -38,6 +39,7 @@ export default async function RootLayout({ children }) {
         <body className={font.className}>
           <NavContainer user={user} admin={admin} />
           {children}
+          <Analytics/>
         </body>
       </html>
     );
