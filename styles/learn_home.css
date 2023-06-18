@@ -550,6 +550,7 @@
   text-align: center;
 }
 
+
 .learn_systems-result {
   font-size: 18px;
   font-weight: 500;
@@ -571,6 +572,13 @@
   padding: 20px;
   position: relative;
   cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  .learn_system {
+    width: calc(100% - 40px);
+    height: 275px;
+  }
 }
 
 .learn_system-green {
@@ -699,6 +707,26 @@
   width: 100px;
 }
 
+@media screen and (max-width: 450px) {
+  .learn_system-title {
+    margin-top: 20px;
+    font-size: 26px;
+    width: 70%;
+  }
+  .learn_system-image {
+    bottom: 15px;
+    right: 20px;
+    width: 25%;
+  }
+  .learn_system-image img {
+    width: 70px;
+  }
+  .learn_system-description {
+    font-size: 11px;
+    width: 70%;
+  }
+}
+
 .search_banner {
   width: calc(100% - 150px);
   padding: 50px;
@@ -761,6 +789,12 @@
   font-size: 16px;
   font-weight: 400;
   font-family: inherit !important;
+}
+
+@media screen and (max-width: 430px) {
+  .search_input {
+    width: 140px;
+  }
 }
 
 .search_input::placeholder {

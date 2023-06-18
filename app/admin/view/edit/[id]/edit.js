@@ -76,14 +76,16 @@ export default function Edit({ type }) {
             id: type.id
         };
 
-        if (imageB64 != null && process.env.PRODUCTION === 'true') {
+        if (imageB64 != null && process.env.NEXT_PUBLIC_PRODUCTION === 'true') {
             if (imageB64 != type.image) {
-                deleteFile(oldFileId);
+                if (type.fileId) {
+                    deleteFile(type.fileId);
+                }
                 if (imageB64 === '') {
                     data.fileId = null;
                     data.image = null;
                 } else {
-                    var { fileId, image } = await uploadFile(name.split(' ').join('_').toLowerCase(), imageB64.split('base64,')[1]);
+                    var { fileId, image } = await uploadFile(e.target.name.value.split(' ').join('_').toLowerCase(), imageB64.split('base64,')[1]);
                     data.fileId = fileId;
                     data.image = image;
                 }

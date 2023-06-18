@@ -5,6 +5,8 @@ import DatabaseSearch from './databaseSearch';
 import { DatabaseContainer, DatabaseLoading } from './databaseContainer';
 import { Suspense } from 'react';
 import { createMetaData } from "@lib/metadata";
+import { getSession } from '@lib/session';
+import { redirect } from 'next/navigation';
 
 export const metadata = createMetaData({
   title: 'TypeSearch',
@@ -41,7 +43,7 @@ const getFilteredResults = (selectedOptions) => {
 
 const getTypeSearchParams = async (params) => {
 
-    const queryFilters = JSON.parse(params.filters ? params.filters : '[]');
+    const queryFilters = JSON.parse(params.filters ? decodeURIComponent(params.filters) : '[]');
     const preFilters = queryFilters.map(filter => ({label: filter, value:filter}));
     const filters = getFilteredResults(queryFilters);
     const page = params.page ? Number(params.page) : 1;
@@ -56,6 +58,11 @@ const getTypeSearchParams = async (params) => {
 }
 
 export default async function Page({ searchParams }) {
+
+    const session = getSession();
+    if (!session) {
+      redirect('/login?' + new URLSearchParams({callback: '/apps/typesearch?' + new URLSearchParams(searchParams)}));
+    }
 
     const { page, searchFilters, queryFilters, popup } = await getTypeSearchParams(searchParams);
       

@@ -59,8 +59,8 @@ export default function Page() {
         setError('');
 
         var fileId, image;
-        if (imageB64 && process.env.PRODUCTION === 'true') {
-            var { fileId, image } = await uploadFile(name.split(' ').join('_').toLowerCase(),  imageB64.split('base64,')[1]);
+        if (imageB64 && process.env.NEXT_PUBLIC_PRODUCTION === 'true') {
+            var { fileId, image } = await uploadFile(e.target.name.value.split(' ').join('_').toLowerCase(),  imageB64.split('base64,')[1]);
         }
 
         const data = {
