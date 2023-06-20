@@ -39,3 +39,6 @@ next-env.d.ts
 .netlify
 api/crypt.key
 api/client_secrets.json
+
+#Local DB Script
+app/_lib/prisma/local.js 

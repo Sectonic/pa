@@ -14,10 +14,7 @@ export default function Learn({ searchParams }) {
     <div className="main min-box">
       <div className="search_banner">
         <div className="search_banner-title">
-          Learn Typology
-        </div>
-        <div className="search_banner-subtitle">
-          Explore the courses and systems below made to be feasible and comprehensive for your learning experience.
+          Academy Courses
         </div>
         <LearnSearch />
       </div>
@@ -30,28 +27,27 @@ export default function Learn({ searchParams }) {
         <div className="learn_systems-container">
           <SearchContainer query={searchParams.query}>
             <Link href="/learn">
-              <IntroCourse color="green" title="Intro to Typology">
-                What is Typology? Get introduced to why people categorize personality and what are the benefits.
+              <IntroCourse color="green" title="What is Personality?">
+                Unfold the meaning of personality & how it impacts everything in your life.
                 <img src='/img/learn/intro_logo.png' />
               </IntroCourse>
             </Link>
             <Link href="/learn">
-              <IntroCourse color="yellow" title="Intro to Typing">
-                "Typing" is how you find someone's personality type. Get introduced to how you type accurately and efficiently.
-                <img src='/img/typing/home/target.png' />
+              <IntroCourse color="yellow" title="Learn to Type Objectively">
+                Learn to the best methods for objectively tracking personality type.
+                <img src='/img/learn/objective_typing.png' />
               </IntroCourse>
             </Link>
             <Link href="/ops">
               <TypologySystem title="Objective Personality" extraTags={['ops', 'op']}>
-                A system of over 2048 combinations of personality. It aims to uncover default wirings for growth.
-                <img src='/img/learn/ops_logo.webp' />
+                Uncover your default wiring through a spectrum of up to 2048 personality codes. 
+                <img src='/img/learn/ops_logo.png' />
               </TypologySystem>
             </Link>
             <Link href="/learn">
-              <TypologySystem color="pink" title="BYCOG Direct">
+              <TypologySystem color="pink" title="Bycognition Direct">
                 <span>
-                Each person has an impulsive process they use all the time. <br/><br/>
-                BYCOG Direct is a project to learn about these processes and grow a community exploring this topic.
+                  A project to learn about the impulsive processes which form personality.
                 </span>
                 <img src='/img/learn/bycog_logo.png' />
               </TypologySystem>
