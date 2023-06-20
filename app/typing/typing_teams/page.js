@@ -22,7 +22,7 @@ function typingTeams() {
         <div className="section_body">
           <div className="section_img">
             <img
-              src="/img/typing/d&s/accurate.png"
+              src="/img/learn/typing/d&s/accurate.png"
               alt=""
             />
           </div>
@@ -61,7 +61,7 @@ function typingTeams() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/typing/teams/combine.png" alt="" />
+            <img src="/img/learn/typing/teams/combine.png" alt="" />
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ function typingTeams() {
             >
               <div>
                 <img
-                  src="/img/typing/teams/crg.png"
+                  src="/img/learn/typing/teams/crg.png"
                   alt=""
                   className="typing_img-home rounded_edges-img"
                 />
@@ -97,7 +97,7 @@ function typingTeams() {
             >
               <div>
                 <img
-                  src="/img/typing/teams/pa.png"
+                  src="/img/learn/typing/teams/pa.png"
                   alt=""
                   className="typing_img-home rounded_edges-img"
                 />

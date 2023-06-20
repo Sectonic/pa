@@ -22,7 +22,7 @@ function dsTyping() {
         <div className="section_body">
           <div className="section_img">
             <img
-              src="/img/typing/d&s/accurate.png"
+              src="/img/learn/typing/d&s/accurate.png"
               alt=""
             />
           </div>
@@ -52,7 +52,7 @@ function dsTyping() {
         <div className="section_body section_texts-sm">
           <div className="section_text outline-grey">
             <div className="text-sm_img">
-              <img src={"/img/typing/d&s/money.png"} alt="" />
+              <img src={"/img/learn/typing/d&s/money.png"} alt="" />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Costs +100$</h3>
@@ -63,7 +63,7 @@ function dsTyping() {
           </div>
           <div className="section_text outline-grey">
             <div className="text-sm_img">
-              <img src={"/img/typing/d&s/time.png"} alt="" />
+              <img src={"/img/learn/typing/d&s/time.png"} alt="" />
             </div>
             <div className="text-sm_desc">
               <h3 className="section_subtitle margin-sm">Takes 4 Months</h3>
@@ -99,14 +99,14 @@ function dsTyping() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/typing/d&s/choice.png" alt="" />
+            <img src="/img/learn/typing/d&s/choice.png" alt="" />
           </div>
         </div>
       </div>
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src="/img/typing/d&s/signup.png" alt="" />
+            <img src="/img/learn/typing/d&s/signup.png" alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -116,7 +116,7 @@ function dsTyping() {
                 In practise this means paying for 4 months which is around 76$.
               </p>
             </div>
-            <ChangeSection link="https://www.objectivepersonalitysystem.com/signup" text="Join the Class" src="/img/typing/d&s/signup_btn.png" type="multi" />
+            <ChangeSection link="https://www.objectivepersonalitysystem.com/signup" text="Join the Class" src="/img/learn/typing/d&s/signup_btn.png" type="multi" />
           </div>
         </div>
       </div>
@@ -142,17 +142,17 @@ function dsTyping() {
                 
               </p>
             </div>
-            <ChangeSection link="https://www.objectivepersonalitysystem.com/videotyping" text="Apply for Typing" src="/img/typing/d&s/apply.png" type="multi"/>
+            <ChangeSection link="https://www.objectivepersonalitysystem.com/videotyping" text="Apply for Typing" src="/img/learn/typing/d&s/apply.png" type="multi"/>
           </div>
           <div className="section_img">
-            <img src="/img/typing/d&s/submit.png" alt="" />
+            <img src="/img/learn/typing/d&s/submit.png" alt="" />
           </div>
         </div>
       </div>
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src="/img/typing/d&s/receive.png" alt="" />
+            <img src="/img/learn/typing/d&s/receive.png" alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -169,7 +169,7 @@ function dsTyping() {
               You may have some luck with asking simple questions however, they do tend to respond.
               </p>
             </div>
-            <ChangeSection link="https://www.objectivepersonalitysystem.com/" text="The Official Website" src="/img/typing/d&s/website.png" type="multi"/>
+            <ChangeSection link="https://www.objectivepersonalitysystem.com/" text="The Official Website" src="/img/learn/typing/d&s/website.png" type="multi"/>
           </div>
         </div>
       </div>
@@ -188,7 +188,7 @@ function dsTyping() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/typing/d&s/retype.png" alt="" />
+            <img src="/img/learn/typing/d&s/retype.png" alt="" />
           </div>
         </div>
       </div>
@@ -213,7 +213,7 @@ function dsTyping() {
               If your type was changed, be sure to send in an application for us so we can correct your type in our database as well!
               </p>
             </div>
-            <ChangeSection link="https://docs.google.com/forms/d/e/1FAIpQLSfJj8DJiqCg5AGLov3oiEn3P8WTOTyUkxjh4hkLZsVAbAQihw/viewform" text="Join our Database" src="/img/typing/d&s/typesearch_btn.png" type="multi"/>
+            <ChangeSection link="https://docs.google.com/forms/d/e/1FAIpQLSfJj8DJiqCg5AGLov3oiEn3P8WTOTyUkxjh4hkLZsVAbAQihw/viewform" text="Join our Database" src="/img/learn/typing/d&s/typesearch_btn.png" type="multi"/>
           </div>
         </div>
       </div>

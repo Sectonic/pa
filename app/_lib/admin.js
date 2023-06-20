@@ -2,7 +2,6 @@
 
 import db from "./prisma/client";
 import { getTypeData } from "./getTypeData";
-import { deleteFile } from "./imagekit";
 
 export const getSimilar = async (name, type) => {
     const similar = await db.type.findMany({
@@ -75,7 +74,7 @@ export const updateType = async ({ id, name, type, links, ...data }) => {
 
 }
 
-export const deleteType = async (id, fileId) => {
+export const deleteType = async (id) => {
 
     await db.link.deleteMany({
         where: {
@@ -84,10 +83,6 @@ export const deleteType = async (id, fileId) => {
             }
         }
     });
-
-    if (fileId) {
-        deleteFile(fileId);
-    }
 
     await db.type.delete({
         where: {id}

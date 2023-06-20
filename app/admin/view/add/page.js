@@ -6,7 +6,6 @@ import { Type512Input } from "../type512Input";
 import { addType } from "@lib/admin";
 import { useRouter } from "next/navigation";
 import { getSimilar } from "@lib/admin";
-import { uploadFile } from "@lib/imagekit";
 
 export default function Page() {
     const [links, setLinks] = useState([]);
@@ -60,7 +59,18 @@ export default function Page() {
 
         var fileId, image;
         if (imageB64 && process.env.NEXT_PUBLIC_PRODUCTION === 'true') {
-            var { fileId, image } = await uploadFile(e.target.name.value.split(' ').join('_').toLowerCase(),  imageB64.split('base64,')[1]);
+            const imageOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    imageName: e.target.name.value.split(' ').join('_').toLowerCase(),
+                    imageBase64: imageB64.split('base64,')[1],
+                })
+            }
+            const imageReq = await fetch('/api/typesearch_add', imageOptions)
+            var { fileId, image } = await imageReq.json();
         }
 
         const data = {

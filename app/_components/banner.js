@@ -5,7 +5,7 @@ function Banner(props) {
     if (props.type === "nav") {
       directory = "main/";
     } else if (props.type === "typing") {
-      directory = "typing/home/";
+      directory = "/learn/typing/home/";
     }
   } else {
     directory = "learn/";

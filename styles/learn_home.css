@@ -642,11 +642,6 @@
   width: calc(100% - 50px);
   margin-bottom: 20px;
   cursor: default;
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(var(--light-grey-rgb), .9),
-    rgba(var(--dark-grey-rgb), .5)
-  ), url(".//backgrounds/background_blue.png");
 }
 
 .learn_system-fake {

@@ -35,10 +35,10 @@ export default function Learn({ searchParams }) {
                 <img src='/img/learn/intro_logo.png' />
               </IntroCourse>
             </Link>
-            <Link href="/learn">
+            <Link href="/typing">
               <IntroCourse color="yellow" title="Intro to Typing">
                 "Typing" is how you find someone's personality type. Get introduced to how you type accurately and efficiently.
-                <img src='/img/typing/home/target.png' />
+                <img src='/img/learn/typing/home/target.png' />
               </IntroCourse>
             </Link>
             <Link href="/ops">

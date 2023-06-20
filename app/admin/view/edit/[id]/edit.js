@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { OptionDropdown, Option } from "../../optionDropdown";
 import { Type512Input } from "../../type512Input";
 import { updateType, deleteType } from "@lib/admin";
-import { deleteFile, uploadFile } from "@lib/imagekit";
 
 export default function Edit({ type }) {
     const [links, setLinks] = useState(type.links.map(link => {
@@ -79,13 +78,33 @@ export default function Edit({ type }) {
         if (imageB64 != null && process.env.NEXT_PUBLIC_PRODUCTION === 'true') {
             if (imageB64 != type.image) {
                 if (type.fileId) {
-                    deleteFile(type.fileId);
+                    const deleteOptions = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            fileId: type.fileId
+                        })
+                    }
+                    await fetch('/api/typesearch_delete', deleteOptions);
                 }
                 if (imageB64 === '') {
                     data.fileId = null;
                     data.image = null;
                 } else {
-                    var { fileId, image } = await uploadFile(e.target.name.value.split(' ').join('_').toLowerCase(), imageB64.split('base64,')[1]);
+                    const imageOptions = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            imageName: e.target.name.value.split(' ').join('_').toLowerCase(),
+                            imageBase64: imageB64.split('base64,')[1],
+                        })
+                    }
+                    const imageReq = await fetch('/api/typesearch_add', imageOptions)
+                    var { fileId, image } = await imageReq.json();
                     data.fileId = fileId;
                     data.image = image;
                 }
@@ -97,7 +116,17 @@ export default function Edit({ type }) {
     }
 
     const deleteHandler = async () => {
-        await deleteType(type.id, type.fileId);
+        const deleteOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fileId: type.fileId
+            })
+        }
+        await fetch('/api/typesearch_delete', deleteOptions);
+        await deleteType(type.id);
         window.location = '/admin/view';
     }
 
