@@ -20,7 +20,7 @@ function AccountPopup({ onClose, user }) {
     }
 
     const deleteHandler = async () => {
-      if (renameUser != data.username) {
+      if (renameUser != userName) {
         setError('Input does not match your username');
       } else {
         await deleteUser();

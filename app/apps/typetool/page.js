@@ -11,7 +11,7 @@ export const metadata = createMetaData({
 
 export default async function TypeTool() {
     // const [ filters, setFilters ] = useState({}); 
-    const filters = {};
+    const filters = {observerLetter: 'N'};
     const animals = ['SC/B(P)', 'SC/P(B)', 'SB/C(P)', 'SB/P(C)', 'CS/B(P)', 'CS/P(B)', 'CP/S(B)', 'CP/B(S)', 'BS/C(P)', 'BS/P(C)', 'BP/S(C)', 'BP/C(S)', 'PC/S(B)', 'PC/B(S)', 'PB/S(C)', 'PB/C(S)'];
     
     // useState(() => {
@@ -30,11 +30,17 @@ export default async function TypeTool() {
                                 <div className="spreadsheet_anim">{animals[i]}</div>
                                 <div className="spreadsheet_types">
                                     { sheet.matchFilters(filters).slice((8*i), (8*i)+8).map((type, index) => {
-                                        return type.invisible ? (
-                                            <div className="spreadsheet_type invisible_type" key={index}>{type.functions}</div>
-                                        ) : (
-                                            <div className="spreadsheet_type" key={index}>{type.functions}</div>
-                                        )
+                                        const giveCurve = () => {
+                                            var returnedClass = `spreadsheet_type ${type.invisible ? 'invisible_type' : ''}`;
+                                            if (index === 0) {
+                                                return returnedClass + ' spreadsheet_type-top';
+                                            } else if (index === 7) {
+                                                return returnedClass + ' spreadsheet_type-bottom';
+                                            } else {
+                                                return returnedClass;
+                                            }
+                                        }
+                                        return <div className={giveCurve()} key={index}>{type.functions}</div>
                                     })}
                                 </div>
                             </div>

@@ -1,11 +1,15 @@
 
 export const createQueryString = (name, value, params) => {
     const newParams = new URLSearchParams(params);
-    newParams.set(name, value);
+    if (value === '') {
+        newParams.delete(name);
+    } else {
+        newParams.set(name, value);
+    }
     if (name === 'filters') {
-        newParams.set('high', '50');
-        newParams.set('popup_id', '');
+        newParams.set('page', '1');
+        newParams.delete('popup_id');
     }
  
-      return newParams.toString();
+    return newParams.toString();
 }

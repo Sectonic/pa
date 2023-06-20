@@ -32,14 +32,14 @@ function yourType() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/typing/your_type/direction.png" alt="" />
+            <img src="/img/learn/typing/your_type/direction.png" alt="" />
           </div>
         </div>
       </div>
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src="/img/typing/your_type/goal.png" alt="" />
+            <img src="/img/learn/typing/your_type/goal.png" alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -90,14 +90,14 @@ function yourType() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/typing/your_type/hole.png" alt="" />
+            <img src="/img/learn/typing/your_type/hole.png" alt="" />
           </div>
         </div>
       </div>
       <div className="section section_images-in">
         <div className="section_body">
           <div className="section_img">
-            <img src="/img/typing/your_type/dark.png" alt="" />
+            <img src="/img/learn/typing/your_type/dark.png" alt="" />
           </div>
           <div className="section_text multiple_paragraphs">
             <div className="multi_paragraph">
@@ -132,7 +132,7 @@ function yourType() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/typing/your_type/hard.png" alt="" />
+            <img src="/img/learn/typing/your_type/hard.png" alt="" />
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ function yourType() {
             </div>
           </div>
           <div className="section_img">
-            <img src="/img/typing/your_type/pick.png" alt="" />
+            <img src="/img/learn/typing/your_type/pick.png" alt="" />
           </div>
         </div>
       </div>

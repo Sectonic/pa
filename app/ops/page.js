@@ -94,30 +94,30 @@ export default function OPS() {
             </TreeSection>
             </LearnTree>
             <LearnButtons>
-            <div className='learn_system learn_system-learnbtn'>
-                <div className='learn_system-tag'>Typology System</div>
-                <div className='learn_system-title'>Objective Personality</div>
-                <div className='learn_system-description'>A system of over 2048 combinations of personality. It aims to uncover default wirings for growth.</div>
-                <div className='learn_system-image'>
-                <img src='/img/learn/ops_logo.webp' />
+                <div className='learn_system learn_system-learnbtn'>
+                    <div className='learn_system-tag'>Typology System</div>
+                    <div className='learn_system-title'>Objective Personality</div>
+                    <div className='learn_system-description'>A system of over 2048 combinations of personality. It aims to uncover default wirings for growth.</div>
+                    <div className='learn_system-image'>
+                    <img src='/img/learn/ops_logo.webp' />
+                    </div>
                 </div>
-            </div>
-            <LearnButton title="First-Steps">
-                New to OPS or personality theory as a whole? 
-                Here you'll find the first few pieces to the puzzle.
-            </LearnButton>
-            <LearnButton title="Fundamentals">
-                The first pillars of OPS. Here you'll find the basic concepts the entire system stands on.
-                The spectrum of personality is split into 32 types.
-            </LearnButton>
-            <LearnButton title="Intermediate">
-                Concepts that layer on top of the fundamentals to unfold the type code to track 
-                personality on a spectrum of 512 types.
-            </LearnButton>
-            <LearnButton title="Advanced">
-                Concepts that tie multiple aspects of OPS together to further unfold the personality spectrum 
-                through all the binary coins.
-            </LearnButton>
+                <LearnButton title="First-Steps">
+                    New to OPS or personality theory as a whole? 
+                    Here you'll find the first few pieces to the puzzle.
+                </LearnButton>
+                <LearnButton title="Fundamentals">
+                    The first pillars of OPS. Here you'll find the basic concepts the entire system stands on.
+                    The spectrum of personality is split into 32 types.
+                </LearnButton>
+                <LearnButton title="Intermediate">
+                    Concepts that layer on top of the fundamentals to unfold the type code to track 
+                    personality on a spectrum of 512 types.
+                </LearnButton>
+                <LearnButton title="Advanced">
+                    Concepts that tie multiple aspects of OPS together to further unfold the personality spectrum 
+                    through all the binary coins.
+                </LearnButton>
             </LearnButtons>
         </LearnLayout>
         </div>

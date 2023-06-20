@@ -1,10 +1,13 @@
 "use client";
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
-import { createUser } from '@lib/register';
+import { createUser, createUserEmail } from '@lib/register';
 import { useDatabaseVerification, useEmailVerification } from '@lib/verification';
+import { useGoogleLogin, googleLogout } from '@react-oauth/google';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { getDiscordAuth } from '@lib/discord';
 
 export default function Register() {
     const [isVisible, setVisible] = useState(false);
@@ -14,11 +17,49 @@ export default function Register() {
     const [registerBody, setRegisterBody] = useState({});
     const [verificationLoading, setVerificationLoading] = useState(false);
     const [code, setCode] = useState(Math.random().toString().substring(2, 6));
+    const params = useSearchParams();
+    const router = useRouter();
+
+    useEffect(() => {
+        if (params.get('error')) {
+            setError(params.get('error'));
+        }
+    }, [params]);
+
+    const googleRegister = useGoogleLogin({
+        onSuccess: async res => {
+            const googleResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+                headers:{
+                'Authorization': 'Bearer ' + res.access_token
+            }});
+            const googleData = await googleResponse.json();
+            const { name, email } = googleData;
+            const { error } = await createUserEmail({
+                username: name, email,
+                provider: 'google'
+            });
+            googleLogout();
+            if (error) {
+                setError(error);
+            } else {
+                window.location.href = params.get('callback') || '/';
+            }
+        }
+    })
+
+    const discordRegister = async () => {
+        const { error, url } = await getDiscordAuth('register', (params.get('callback') || ''));
+        if (error) {
+            setError(error)
+        } else {
+            router.push(url);
+        }
+    }
 
     const Register = async () => {
         if (auth == code) {
             await createUser(registerBody);
-            window.location.href = '/';
+            window.location.href = params.get('callback') || '/';
         }
     }
 
@@ -59,7 +100,7 @@ export default function Register() {
                     <Link href='/'><div className='register_back'>Go Back</div></Link>
                     <img className="register_img" src="/img/main/logo.png"/>
                     <div className="register_title">Register an Account</div>
-                    <div className="register_subtitle">Or <Link className="register_link" href="/login">login</Link> if you have one already</div>
+                    <div className="register_subtitle">Or <Link className="register_link" href={`/login?` + new URLSearchParams({callback: params.get('callback') || ''})}>login</Link> if you have one already</div>
                     {error !== '' && <div className='register_error'>{error}</div>}
                     <div className="register_inputs">
                         <div>
@@ -98,6 +139,15 @@ export default function Register() {
                         </>
                     )}
                     {!verifying ? <button type="submit" className="register_btn">Continue</button> : <button type="button" className={`register_btn ${auth != code && 'register_unverified'}`} onClick={Register}>Create Account</button> }
+                    <div className='register_line'><span>or</span></div>
+                    <div className='register_providers'>
+                        <div onClick={() => googleRegister()}>
+                            <img src="/img/main/google_logo.svg" style={{padding: 1}} />
+                        </div>
+                        <div onClick={discordRegister}>
+                            <img src="/img/main/discord_logo.svg" style={{width: 24}}/>
+                        </div>
+                    </div>
                 </form>
         </div>
     )

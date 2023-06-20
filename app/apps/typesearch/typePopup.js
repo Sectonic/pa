@@ -4,6 +4,7 @@ import Stack from "./stack";
 import Link from "next/link";
 // import Image from "../../_components/image";
 import { TypePopupClose } from "./typePopupClose";
+import { getType } from "@lib/typesearch";
 
 const TypePopupTemplate = ({ children }) => (
   <div className="popup_bg animate__animated animate__fadeIn">
@@ -26,8 +27,7 @@ export const PopupLoading = () => (
 
 export async function TypePopup({ popup_id }) {
 
-  const req = await fetch(`${process.env.NEXT_PUBLIC_API}/type/${popup_id}`);
-  const data = await req.json();
+  const data = await getType(Number(popup_id));
 
   var animal_stack = [data.animal1, data.animal2, data.animal3, data.animal4]
 

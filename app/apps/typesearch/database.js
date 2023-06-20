@@ -3,9 +3,10 @@
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { createQueryString } from "@lib/params";
+import { Pagination } from "./pagination";
 // import Image from "../../_components/image";
 
-export default function Database({ data, more }) {
+export default function Database({ data, count }) {
     const router = useRouter();
     const params = useSearchParams();
 
@@ -13,13 +14,9 @@ export default function Database({ data, more }) {
         router.push('/apps/typesearch?' + createQueryString('popup_id', String(person_id), params) + `#${person_id}`);
     }
 
-    const updateData = () => {
-        const highNum = params.get('high') ? (Number(params.get('high')) + 50).toString() : "100";
-        router.push('/apps/typesearch?' + createQueryString('high', highNum) + '#' + data.at(-1).id);
-    }
-
     return (
-        <>
+        <>  
+            <Pagination currentPage={Number(params.get('page'))} top={true} count={count} />
             {data.map(person => {
                 return(
                     <div id={person.id} key={person.id} className="db_card outline-gray db_card_hover" onClick={() => handlePopup(person.id)}>
@@ -43,16 +40,7 @@ export default function Database({ data, more }) {
                     </div>
                 )
             })}
-            {more ? (
-                <div className="db_update-btn-container" onClick={updateData}>
-                    <button className="db_update-btn">
-                        Load More
-                    </button>
-                </div>
-            ) : (
-                <div className="db_update-btn-container">
-                </div>
-            )}
+            <Pagination currentPage={Number(params.get('page'))} count={count} />
         </>
     )
 }

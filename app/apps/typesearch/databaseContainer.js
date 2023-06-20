@@ -1,6 +1,7 @@
+import { getTypes } from '@lib/typesearch';
 import Database from './database';
 
-export const DatabaseLoading = ({ count }) => (
+export const DatabaseLoading = () => (
     <>
         {[...Array(50)].map((index) =>
             <div key={index} className="db_card outline-gray">
@@ -16,19 +17,11 @@ export const DatabaseLoading = ({ count }) => (
     </>
 )
 
-const getData = async (url) => {
-    const req = await fetch (url);
-    const data = await req.json();
-    const more = data.length < 50 ? false : true;
-    
-    return {data, more};
-}
+export async function DatabaseContainer({ page, filters }) {
 
-export async function DatabaseContainer({ url }) {
-
-    const { data, more} = await getData(url);
+    const {types, count} = await getTypes(page, filters);
 
     return (
-        <Database data={data} more={more} />
+        <Database data={types} count={Math.ceil(count/50)} />
     )
 }

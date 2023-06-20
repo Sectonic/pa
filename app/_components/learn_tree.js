@@ -4,6 +4,7 @@ import Link from "next/link";
 import OutsideClickHandler from 'react-outside-click-handler';
 import {useState, useRef, Children, cloneElement, useEffect} from 'react';
 import "animate.css";
+import { usePathname } from "next/navigation";
 
 export function IconContainer({children}) {
     if (Children.count(children) > 1) {
@@ -20,10 +21,11 @@ export function IconContainer({children}) {
     )
 }
 
-export function Icon({img, name, children, direction}) {
+export function Icon({img, name, children, direction, href}) {
     const [clicked, setClicked] = useState(false);
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
+    const pathname = usePathname();
 
     const dropdownShow = () => {
         setClicked(true);
@@ -44,7 +46,7 @@ export function Icon({img, name, children, direction}) {
 
     return (
         <div className='icon_container link_text'>
-            <div>
+            <Link href={href || pathname}>
                 <div className='page_icon' onClick={dropdownShow}>
                     <img src={`/img/learn/${img}.png`} />
                     {clicked && (
@@ -57,7 +59,7 @@ export function Icon({img, name, children, direction}) {
                         </div>
                     )}
                 </div>
-            </div>
+            </Link>
             <div className='icon_text' >{name}</div>
         </div>
     )
@@ -127,7 +129,7 @@ export const LearnTree = ({ children, setSelected, setSticky }) => {
         const scrollingHandler = () => {
             if (tree.current) {
                 const top = tree.current.offsetTop + 315;
-                const buttonsAbove = window.pageYOffset >= top;
+                const buttonsAbove = window.scrollY >= top;
     
                 if (!buttonsAbove) {
                     setSticky(false);
@@ -176,23 +178,22 @@ export const LearnTree = ({ children, setSelected, setSticky }) => {
     )
 }
 
-export const LearnButton = ({children, title, selected, selections}) => {
-    const className = selected ? 'section_button-selected' : 'section_button';
+export const LearnButton = ({children, title, selected, selections }) => {
+    const className = selected ? 'section_button-selected' : 'section_button'
 
     const scrollToSelect = () => {
-        console.log()
         if (selections.indexOf(title) === 0) {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (selections.indexOf(title) === selections.length - 1) {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         } else {
-            var elDistanceToTop = window.pageYOffset + document.getElementById(title).getBoundingClientRect().top - 100;
+            var elDistanceToTop = window.scrollY + document.getElementById(title).getBoundingClientRect().top - 100;
             window.scrollTo({ top: elDistanceToTop, behavior: 'smooth' });
         }
     }
 
     return (
-        <li className={className} onClick={scrollToSelect}>
+        <li className={className} id={title + '-btn'} onClick={scrollToSelect}>
             <div className="button-title-container">
             <div className="button_send">
                 <img src={"/img/main/section_btn.png"} alt=""  />
@@ -208,13 +209,14 @@ export const LearnButton = ({children, title, selected, selections}) => {
 
 export const LearnButtons = ({ children, selected, sticky, selections }) => {
     const stickyClass = sticky ? 'section_buttons section_buttons-sticky' : 'section_buttons';
+
     return (
         <ul className={stickyClass}>
-            {Children.map(children, child => {
+            {Children.map(children, (child, i) => {
                 if (child.props.title == selected) {
-                    return cloneElement(child, {selected: true, selections:selections})
+                    return cloneElement(child, {selected: true, selections:selections })
                 } else {
-                    return cloneElement(child, {selected: false, selections:selections})
+                    return cloneElement(child, {selected: false, selections:selections })
                 }
             })}
         </ul>
@@ -230,6 +232,17 @@ export const LearnLayout = ({ children }) => {
     const selections = Children.map(children_arr[0].props.children, child => {
         return child.props.title;
     })
+
+    useEffect(() => {
+        const firstSectionId = selections[0] + '-btn';
+        const firstSection = document.getElementById(firstSectionId);
+        if (window.scrollY === 0) {
+            firstSection.className = 'section_button-selected';
+        } else {
+            const firstSectionSelection = Children.toArray(children_arr[1].props.children)[0].props.selected;
+            firstSection.className = firstSectionSelection ? 'section_button-selected' : 'section_button'
+        }
+    });
 
     return (
         <div className={overviewClass}>

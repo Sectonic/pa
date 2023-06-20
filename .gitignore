@@ -40,5 +40,5 @@ next-env.d.ts
 api/crypt.key
 api/client_secrets.json
 
-#Local DB Script
-app/_lib/prisma/local.js 
+# Local DB Script
+app/_lib/prisma/local.js

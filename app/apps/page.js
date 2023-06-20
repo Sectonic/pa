@@ -12,9 +12,9 @@ export const metadata = createMetaData({
 
 async function AcademyApps() {
 
-  const session = await getSession();
+  const session = getSession();
   if (!session) {
-    redirect('/login');
+    redirect('/login?' + new URLSearchParams({callback: '/apps'}));
   }
 
   return (

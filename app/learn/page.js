@@ -33,9 +33,9 @@ export default function Learn({ searchParams }) {
               </IntroCourse>
             </Link>
             <Link href="/learn">
-              <IntroCourse color="yellow" title="Learn to Type Objectively">
-                Learn to the best methods for objectively tracking personality type.
-                <img src='/img/learn/objective_typing.png' />
+              <IntroCourse color="yellow" title="Intro to Typing">
+                "Typing" is how you find someone's personality type. Get introduced to how you type accurately and efficiently.
+                <img src='/img/typing/home/target.png' />
               </IntroCourse>
             </Link>
             <Link href="/ops">

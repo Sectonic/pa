@@ -44,8 +44,6 @@ model Type {
   observerAxis String?
   deciderAxis String?
   social String?
-  createdAt DateTime
-  updatedAt DateTime
   image String?
   fileId String?
   links Link[]
@@ -64,8 +62,9 @@ model Link {
 model User {
   id Int @id @default(autoincrement())
   username String @unique
-  password String
+  password String?
   email String @unique
+  provider String?
   customerId String?
   subscriptionId String?
 }

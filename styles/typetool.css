@@ -26,11 +26,32 @@
     margin-top: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+}
+
+.spreadsheet_type {
+    padding: 5px 0;
+    font-size: 17px;
+    font-weight: 400;
+    background-color: rgba(var(--light-grey-rgb), .4);
+}
+
+.spreadsheet_type-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.spreadsheet_type-bottom {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.spreadsheet_anim {
+    font-weight: 600;
+    font-size: 17px;
 }
 
 .invisible_type {
-    background-color: transparent;
+    background-color: rgba(var(--light-grey-rgb), .4);
     color: transparent;
     pointer-events: none;
     user-select: none;

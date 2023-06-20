@@ -167,6 +167,23 @@ export const useDatabaseVerification = async ({username, email, password, confir
         return {error: 'Already Logged In'};
     }
 
+    const checkProvider = await db.user.findUnique({
+        where: {
+            email
+        },
+        select: {
+            provider: true
+        }
+    })
+
+    if (checkProvider) {
+        if (checkProvider.provider) {
+            return {error: 'This email already has an account with ' + checkProvider.provider + ', please login'}
+        } else {
+            return {error: 'The email is already in use'};
+        }
+    }
+
     if (password != confirm) {
         return {error: 'Your confirm password does not match your password'};
     }
@@ -178,15 +195,6 @@ export const useDatabaseVerification = async ({username, email, password, confir
     });
     if (sameUser) {
         return {error: 'The username is already in use'};
-    }
-
-    const sameEmail = await db.user.findUnique({
-        where: {
-            email
-        }
-    });
-    if (sameEmail) {
-        return {error: 'The email is already in use'};
     }
 
     return {status: 200}; 

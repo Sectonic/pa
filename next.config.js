@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: false,
   experimental: {
-    serverActions: true
-  }
+    serverActions: true,
+  },
 }
 
 module.exports = nextConfig

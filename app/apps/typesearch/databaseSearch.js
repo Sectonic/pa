@@ -10,12 +10,12 @@ export default function DatabaseSearch({ filters }) {
     const params = useSearchParams();
 
     const handleSelectChange = (selectedOptions) => {
-        // redux remove state
         var filters_array = [];
         selectedOptions.forEach(filter => {
             filters_array.push(filter['value']);
-        });        
-        router.push('/apps/typesearch?' + createQueryString('filters', JSON.stringify(filters_array), params));
+        });     
+        const filter_string = filters_array.length === 0 ? '' : encodeURIComponent(JSON.stringify(filters_array));    
+        router.push('/apps/typesearch?' + createQueryString('filters', filter_string, params));
     }
 
     const formatOptionLabel = ({label}) => (

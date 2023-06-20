@@ -22,7 +22,7 @@ function typingMethod() {
         <div className="section_body">
           <div className="section_img section_img-sm">
             <img
-              src="/img/typing/typing_method/standard.png"
+              src="/img/learn/typing/typing_method/standard.png"
               alt=""
             />
           </div>
@@ -48,7 +48,7 @@ function typingMethod() {
           <div className="section_text section-title_images-in">
             <div className="section_title-img">
               <img
-                src="/img/typing/typing_method/principles.png"
+                src="/img/learn/typing/typing_method/principles.png"
                 alt=""
               />
             </div>
@@ -99,7 +99,7 @@ function typingMethod() {
           <div className="section_text section-title_images-in">
             <div className="section_title-img">
               <img
-                src="/img/typing/typing_method/material.png"
+                src="/img/learn/typing/typing_method/material.png"
                 alt=""
               />
             </div>
@@ -170,7 +170,7 @@ function typingMethod() {
           <div className="section_text section-title_images-in">
             <div className="section_title-img">
               <img
-                src="/img/typing/typing_method/process.png"
+                src="/img/learn/typing/typing_method/process.png"
                 alt=""
               />
             </div>
@@ -236,7 +236,7 @@ function typingMethod() {
             >
               <div>
                 <img
-                  src="/img/typing/typing_method/roqb.png"
+                  src="/img/learn/typing/typing_method/roqb.png"
                   alt=""
                   className="typing_img-home"
                 />
@@ -255,7 +255,7 @@ function typingMethod() {
             >
               <div>
                 <img
-                  src="/img/typing/typing_method/ryan.png"
+                  src="/img/learn/typing/typing_method/ryan.png"
                   alt=""
                   className="typing_img-home"
                 />

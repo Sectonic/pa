@@ -22,7 +22,7 @@ function Triangulation() {
         <div className="section_body">
           <div className="section_img">
             <img
-              src="/img/typing/triangulation/principle.png"
+              src="/img/learn/typing/triangulation/principle.png"
               alt=""
             />
           </div>
@@ -71,7 +71,7 @@ function Triangulation() {
             </div>
           </div>
           <div className="section_img section_img-mid">
-            <img src="/img/typing/triangulation/sample.png" alt="" />
+            <img src="/img/learn/typing/triangulation/sample.png" alt="" />
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@ function Triangulation() {
         <div className="section_body">
           <div className="section_img section_img-mid">
             <img
-              src="/img/typing/triangulation/percentage.png"
+              src="/img/learn/typing/triangulation/percentage.png"
               alt=""
             />
           </div>
@@ -109,7 +109,7 @@ function Triangulation() {
         <div className="section_body">
           <div className="section_text section-title_images-in">
             <div className="section_title-img">
-              <img src="/img/typing/triangulation/data.png" alt="" />
+              <img src="/img/learn/typing/triangulation/data.png" alt="" />
             </div>
             <div className="section_title-text">
               <h2>Where Do I Get Data?</h2>

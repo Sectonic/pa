@@ -4,7 +4,8 @@ import '@css/database.css';
 import '@css/diagram.css';
 import '@css/home.css';
 import '@css/learn_home.css';
-import '@css/learn_page.css';
+import '@css/learn_page/banner.css';
+import '@css/learn_page/section.css';
 import '@css/popups.css';
 import '@css/resources.css';
 import '@css/typing.css';
@@ -20,6 +21,8 @@ import NavContainer from './navContainer';
 import { useUser } from '@lib/user';
 import { createMetaData } from '@lib/metadata';
 import { getSession } from '@lib/session';
+import { Analytics } from '@vercel/analytics/react';
+import Provider from './provider';
 
 const font = Montserrat ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
@@ -36,8 +39,11 @@ export default async function RootLayout({ children }) {
     return (
       <html lang="en">
         <body className={font.className}>
-          <NavContainer user={user} admin={admin} />
-          {children}
+          <Provider>
+              <NavContainer user={user} admin={admin} />
+              {children}
+            <Analytics/>
+          </Provider>
         </body>
       </html>
     );
