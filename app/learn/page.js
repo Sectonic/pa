@@ -12,12 +12,17 @@ export const metadata = createMetaData({
 export default function Learn({ searchParams }) {
   return (
     <div className="main min-box">
-      <div className="search_banner">
-        <div className="search_banner-title">
-          Learn Typology
-        </div>
-        <div className="search_banner-subtitle">
-          Explore the courses and systems below made to be feasible and comprehensive for your learning experience.
+      <div className="banner banner_blue banner_search">
+        <div className='banner_logo'>
+            <div className="banner_icon">
+            <img
+                src='/img/main/learn.png'
+            />
+            </div>
+            <div>
+                <h1 className='banner_text blue'>Learn Typology</h1>
+                <h3 className='banner_subtitle'>Explore courses & systems below</h3>
+            </div>
         </div>
         <LearnSearch />
       </div>

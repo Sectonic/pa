@@ -12,17 +12,16 @@ import '@css/typing.css';
 import '@css/register.css';
 import '@css/placeholder.css';
 import '@css/academyplus.css';
-import '@css/typetool.css';
+import '@css/typechart.css';
 import '@css/admin.css';
 import "animate.css";
 
 import { Montserrat } from "next/font/google";
-import NavContainer from './navContainer';
-import { useUser } from '@lib/user';
+import {NavContainer, NavLoading} from './navContainer';
 import { createMetaData } from '@lib/metadata';
-import { getSession } from '@lib/session';
 import { Analytics } from '@vercel/analytics/react';
 import Provider from './provider';
+import { Suspense } from 'react';
 
 const font = Montserrat ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
@@ -33,14 +32,13 @@ export const metadata = createMetaData({});
 
 export default async function RootLayout({ children }) {
 
-    const user = await useUser();
-    const admin = getSession('PAadmin');
-
     return (
       <html lang="en">
         <body className={font.className}>
           <Provider>
-              <NavContainer user={user} admin={admin} />
+              <Suspense fallback={<NavLoading />}>
+                <NavContainer />
+              </Suspense>
               {children}
             <Analytics/>
           </Provider>

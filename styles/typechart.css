@@ -1,0 +1,137 @@
+.spreadsheet_container {
+    width: calc(100% - 50px);
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: var(--purple-black);
+    padding: 30px 0;
+}
+
+.spreadsheet {
+    width: max-content;
+    margin: 0 auto;
+    background-color: var(--dark-grey);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.spreadsheet_col {
+    text-align: center;
+}
+
+.spreadsheet_types {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.spreadsheet_type {
+    padding: 5px 0;
+    font-size: 17px;
+    font-weight: 400;
+    background-color: rgba(var(--light-grey-rgb), .4);
+}
+
+.spreadsheet_type-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.spreadsheet_type-bottom {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.spreadsheet_anim {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.invisible_type {
+    background-color: rgba(var(--light-grey-rgb), .4);
+    color: transparent;
+    pointer-events: none;
+    user-select: none;
+}
+
+.typechart_search_container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.typechart_search-btn_container {
+    display: flex;
+    justify-content: center;
+}
+
+.typechart_search-btn {
+    background-color: var(--dark-grey);
+    padding: 7px 15px;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s ease;
+    font-size: 16px;
+}
+
+.typechart_search-btn:hover {
+    background-color: var(--light-grey);
+}
+
+.typechart_search-btn.active {
+    background-color: var(--light-grey);
+}
+
+.typechart_search-btn:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.typechart_search-btn:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.typechart_search {
+    background-color: var(--purple-black);
+    border: 3px solid var(--light-grey);
+    padding: 20px;    
+    border-radius: 20px;
+}
+
+.typechart_search input {
+    background-color: var(--dark-grey);
+    border: 3px solid var(--light-grey);
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    padding: 6px 10px;
+    font-family: inherit;
+}
+
+.typechart_search-submit {
+    background-color: var(--light-grey);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 7px;
+    padding: 7px 12px;
+    width: max-content;
+    margin: 0 auto;
+    font-size: 15px;
+    border-radius: 20px;
+    transition: .2s ease;
+    cursor: pointer;
+}
+
+.typechart_search-submit:hover {
+    background-color: var(--light-purple);
+}
+
+.typechart_search-submit img {
+    width: 20px;
+}

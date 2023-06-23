@@ -16,6 +16,10 @@
     justify-content: center;
 }
 
+.banner_search {
+    flex-direction: column;
+}
+
 @media screen and (max-width:900px) {
     .banner {
         width: calc(100% - 25px);

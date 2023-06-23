@@ -20,7 +20,10 @@ function Banner(props) {
             src={`/img/${directory}/${props.section}.png`}
           />
         </div>
-        <h1 className={`banner_text ${props.background} ${props.title_size && "banner_text-sm"}`}>{props.title}</h1>
+        <div>
+            <h1 className={`banner_text ${props.background} ${props.title_size && "banner_text-sm"}`}>{props.title}</h1>
+            {props.subtitle && <h3 className='banner_subtitle'>{props.subtitle}</h3>}
+        </div>
       </div>
     </div>
   );

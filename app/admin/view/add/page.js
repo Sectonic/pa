@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { OptionDropdown, Option } from "../optionDropdown";
-import { Type512Input } from "../type512Input";
+import { Type512Input } from "@components/type512Input";
 import { addType } from "@lib/admin";
 import { useRouter } from "next/navigation";
 import { getSimilar } from "@lib/admin";
