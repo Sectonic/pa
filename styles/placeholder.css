@@ -2,7 +2,7 @@
     width: calc(100% - 50px);
     margin: 0 auto;
     height: calc(100vh - 97px);
-    border-radius: 20px;
+    border-radius: 15px;
     background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.4),

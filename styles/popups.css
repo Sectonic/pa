@@ -42,7 +42,7 @@
   width: 700px;
   background-color: var(--purple-black);
   border: 2px solid var(--light-grey) !important;
-  border-radius: 20px;
+  border-radius: 15px;
   z-index: 12;
   text-align: center;
   overflow: hidden;
@@ -126,7 +126,7 @@
   margin: 20px auto;
   border: 5px solid var(--light-grey);
   background-color: var(--dark-grey);
-  border-radius: 20px;
+  border-radius: 15px;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -179,7 +179,7 @@
   width: 279px !important;
   height: 279px !important;
   border: 5px solid var(--light-grey);
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .type_top-img span[style] {
@@ -191,7 +191,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 @media screen and (max-width:900px) {
@@ -230,7 +230,7 @@
 
 .type_top-info__full {
   background-color: var(--dark-grey);
-  border-radius: 20px;
+  border-radius: 15px;
   border: 5px solid var(--light-grey);
   padding: 10px;
 }
@@ -249,7 +249,7 @@
   height: 152px; 
   margin-top: 20px;
   background-color: var(--dark-grey);
-  border-radius: 20px;
+  border-radius: 15px;
   border: 5px solid var(--light-grey);
   overflow-y: scroll;
   padding-bottom: 10px;
@@ -317,7 +317,7 @@
 
 .animals_diagram {
   background-color: var(--dark-grey);
-  border-radius: 20px;
+  border-radius: 15px;
   height: calc(80% - 25px);
   display: flex;
   justify-content: center;
@@ -333,7 +333,7 @@
 .animals_analysis {
   margin-top: 20px;
   background-color: var(--dark-grey);
-  border-radius: 20px;
+  border-radius: 15px;
   height: calc(20% - 15px);
 }
 
@@ -446,7 +446,7 @@
 .animal_detail-modality {
   background-color: var(--light-grey);
   width: 40px;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .social_type {

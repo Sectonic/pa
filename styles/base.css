@@ -269,7 +269,7 @@ button {
 
 .register-box_btn {
   font-size: 14px;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 6px 10px;
   display: flex;
   justify-content: center;
@@ -423,7 +423,7 @@ button {
   color: white;
   background-color: #5c64f4;
   padding: 2px 5px;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .nav_title {
@@ -526,7 +526,7 @@ button {
   width: 55px;
   height: 55px;
   margin: auto 15px;
-  border-radius: 20px;
+  border-radius: 15px;
   position: relative;
   cursor: pointer;
   transition: 0.3s ease;
@@ -623,5 +623,5 @@ button {
   padding: 20px 0;
   background-color: var(--dark-purple);
   font-size: 15px;
-  border-radius: 20px;
+  border-radius: 15px;
 }

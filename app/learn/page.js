@@ -20,22 +20,22 @@ export default function Learn({ searchParams }) {
       </div>
       <div className='learn_systems'>
         {!searchParams.query ? (
-          <div className="learn_systems-title">Featured</div>
+          <div className="section_title">Course Catalog</div>
         ) : (
           <div className="learn_systems-result">Result for "{searchParams.query}"</div>
         )}
         <div className="learn_systems-container">
           <SearchContainer query={searchParams.query}>
             <Link href="/learn">
-              <IntroCourse color="green" title="What is Personality?">
+              <IntroCourse color="green" title="Discover Personality">
                 Unfold the meaning of personality & how it impacts everything in your life.
                 <img src='/img/learn/intro_logo.png' />
               </IntroCourse>
             </Link>
             <Link href="/learn">
-              <IntroCourse color="yellow" title="Intro to Typing">
-                "Typing" is how you find someone's personality type. Get introduced to how you type accurately and efficiently.
-                <img src='/img/typing/home/target.png' />
+              <IntroCourse color="yellow" title="Type Objectively">
+                Disover how to objectively track personality type with scientific principles!
+                <img src='/img/learn/objective_typing.png' />
               </IntroCourse>
             </Link>
             <Link href="/ops">
@@ -44,6 +44,10 @@ export default function Learn({ searchParams }) {
                 <img src='/img/learn/ops_logo.png' />
               </TypologySystem>
             </Link>
+            <IntroCourse color="yellow" title="Improve With Type!">
+                Turn knowledge into action by learning to leverage the OP Code in your life!
+                <img src='/img/learn/improve.png' />
+              </IntroCourse>
             <Link href="/learn">
               <TypologySystem color="pink" title="Bycognition Direct">
                 <span>
