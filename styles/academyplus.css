@@ -25,10 +25,11 @@
     background-color: var(--light-grey);
     background-image: linear-gradient(
         to bottom right,
-        rgba(var(--light-grey-rgb), .9),
-        rgba(var(--dark-grey-rgb), .5)
+        rgba(var(--light-grey-rgb), .7),
+        rgba(var(--dark-grey-rgb), .2)
     ), url(".//backgrounds/background_yellow.png");
-    background-size: 1500px;
+    background-size: 2000px;
+    background-position-x: -100px;
     border: 3px solid rgba(var(--vibrant-orange-rgb), .6);
 }
 
