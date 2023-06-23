@@ -4,7 +4,6 @@ import Link from "next/link";
 import OutsideClickHandler from 'react-outside-click-handler';
 import {useState, useRef, Children, cloneElement, useEffect} from 'react';
 import "animate.css";
-import { usePathname } from "next/navigation";
 
 export function IconContainer({children}) {
     if (Children.count(children) > 1) {
@@ -25,7 +24,6 @@ export function Icon({img, name, children, direction, href}) {
     const [clicked, setClicked] = useState(false);
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
-    const pathname = usePathname();
 
     const dropdownShow = () => {
         setClicked(true);
@@ -44,9 +42,17 @@ export function Icon({img, name, children, direction, href}) {
         }
     }
 
+    const CheckHref = ({ children }) => {
+        if (href) {
+            return <Link href={href}>{children}</Link>
+        } else {
+            return <div>{children}</div>
+        }
+    }
+
     return (
         <div className='icon_container link_text'>
-            <Link href={href || pathname}>
+            <CheckHref>
                 <div className='page_icon' onClick={dropdownShow}>
                     <img src={`/img/learn/${img}.png`} />
                     {clicked && (
@@ -59,7 +65,7 @@ export function Icon({img, name, children, direction, href}) {
                         </div>
                     )}
                 </div>
-            </Link>
+            </CheckHref>
             <div className='icon_text' >{name}</div>
         </div>
     )

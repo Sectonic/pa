@@ -17,6 +17,11 @@
   }
 }
 
+.section_container {
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
 .section {
   background-color: var(--purple-black);
   width: calc(100% - 50px);
@@ -25,6 +30,16 @@
   border-radius: 15px;
   padding: 20px 0;
   font-size: 18px !important;
+}
+
+.section:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.section:last-child {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { OptionDropdown, Option } from "../../optionDropdown";
-import { Type512Input } from "../../type512Input";
+import { Type512Input } from "@components/type512Input";
 import { updateType, deleteType } from "@lib/admin";
 
 export default function Edit({ type }) {

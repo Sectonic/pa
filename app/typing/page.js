@@ -35,7 +35,7 @@ function Typing() {
               <div className='learn_system-title'>Intro to Typing</div>
               <div className='learn_system-description'>Typing" is how you find someone's personality type. Get introduced to how you type accurately and efficiently.</div>
               <div className='learn_system-image'>
-              <img src='/img/learn/typing/home/target.png' />
+              <img src='/img/learn/objective_typing.png' />
               </div>
           </div>
           <LearnButton title="Learn-the-Method">

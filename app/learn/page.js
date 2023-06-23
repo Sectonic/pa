@@ -12,9 +12,17 @@ export const metadata = createMetaData({
 export default function Learn({ searchParams }) {
   return (
     <div className="main min-box">
-      <div className="search_banner">
-        <div className="search_banner-title">
-          Academy Courses
+      <div className="banner banner_blue banner_search">
+        <div className='banner_logo'>
+            <div className="banner_icon">
+            <img
+                src='/img/main/learn.png'
+            />
+            </div>
+            <div>
+                <h1 className='banner_text blue'>Academy Courses</h1>
+                <h3 className='banner_subtitle'>Learn About Personality theory & Self Growth!</h3>
+            </div>
         </div>
         <LearnSearch />
       </div>
@@ -32,7 +40,7 @@ export default function Learn({ searchParams }) {
                 <img src='/img/learn/intro_logo.png' />
               </IntroCourse>
             </Link>
-            <Link href="/learn">
+            <Link href="/typing">
               <IntroCourse color="yellow" title="Type Objectively">
                 Disover how to objectively track personality type with scientific principles!
                 <img src='/img/learn/objective_typing.png' />

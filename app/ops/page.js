@@ -99,7 +99,7 @@ export default function OPS() {
                     <div className='learn_system-title'>Objective Personality</div>
                     <div className='learn_system-description'>A system of over 2048 combinations of personality. It aims to uncover default wirings for growth.</div>
                     <div className='learn_system-image'>
-                    <img src='/img/learn/ops_logo.webp' />
+                    <img src='/img/learn/ops_logo.png' />
                     </div>
                 </div>
                 <LearnButton title="First-Steps">
