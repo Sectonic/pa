@@ -1,3 +1,200 @@
+:root {
+  --section-bg: #06002ec7;
+}
+
+.banner {
+  padding: 50px 0;
+  width: calc(100% - 50px);
+  margin: 17px auto;
+  background-color: white;
+  background-image: linear-gradient(
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ), url(".//backgrounds/background_yellow.png") ;
+  background-size: 100%;
+  background-color: black;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width:900px) {
+  .banner {
+    width: calc(100% - 25px);
+    height: max-content;
+    padding: 30px 0;
+    background-size: 1800px;
+    background-position-x: 900px;
+  }
+}
+
+.banner-sm {
+  position: relative;
+  padding: 30px 0;
+  width: 100%;
+  margin-top: -10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 10;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.banner_subtitle {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width:1200px) {
+  .banner_subtitle {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/* 
+ .banner_yellow-outline {
+  border: 5px solid #6d55006e;
+}
+
+.banner_blue-outline {
+  border: 5px solid #044c7673;
+}
+
+.banner_pink-outline {
+  border: 5px solid #78036873;
+}
+
+.banner_green-outline {
+  border: 5px solid #036f1a6c;
+}  */
+
+.banner_purple {
+  background-image: linear-gradient(
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
+    url("./backgrounds/background_blue.png");
+}
+
+.banner_pink {
+  background-image: linear-gradient(
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
+    url("./backgrounds/background_pink.png");
+}
+
+.banner_blue {
+  background-image: linear-gradient(
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
+    url("./backgrounds/background_blue.png");
+}
+
+.banner_green {
+  background-image: linear-gradient(
+    to top,
+    rgba(var(--purple-black-rgb), .9),
+    rgba(var(--dark-grey-rgb), .5)
+  ),
+    url("./backgrounds/background_green.png");
+}
+
+.banner_logo {
+  padding: 20px 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.banner_icon {
+  height: 150px;
+}
+
+.banner_icon span {
+  height: 150px;
+}
+
+.banner_icon img {
+  height: 100%;
+}
+
+.banner_text {
+  font-weight: 900;
+  font-size: 72px;
+}
+
+@media screen and (max-width:1200px) {
+  .banner_logo {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .banner_icon {
+    height: 90px;
+  }
+  .banner_text {
+    font-size: 60px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:775px) {
+  .banner_logo {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    width: calc(100% - 50px);
+  }
+  .banner {
+    padding: 15px 0;
+  }
+  .banner_icon {
+    height: 75px;
+  }
+  .banner_text {
+    font-size: 40px;
+  }
+}
+
+.yellow {
+  background: linear-gradient(to bottom, #fffa50, #ffce33, #ffa65c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.purple {
+  background: linear-gradient(to bottom, #ff95ff, #d580ff, #9966ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pink {
+  background: linear-gradient(to bottom, #ff8de4, #ff4db3, #ff0068);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.green {
+  background: linear-gradient(to bottom, #c8fa64, #4de600, #00cc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue {
+  background: linear-gradient(to bottom, #80eaff, #4db5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .text-center_title {
   text-align: center;
@@ -17,29 +214,13 @@
   }
 }
 
-.section_container {
-  margin-top: 20px;
-  border-radius: 20px;
-}
-
 .section {
   background-color: var(--purple-black);
   width: calc(100% - 50px);
   margin: 0 auto;
   margin-top: 20px;
   border-radius: 15px;
-  padding: 20px 0;
   font-size: 18px !important;
-}
-
-.section:first-child {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.section:last-child {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
 }
 
 
@@ -561,6 +742,7 @@
 
 @media screen and (max-width:1250px) {
   .section_texts-sm .section_text {
+    border: 5px solid var(--light-grey);
     width: 37.5%;
   }
 }
@@ -891,3 +1073,4 @@
   font-size: 60px;
   text-align: center;
 }
+

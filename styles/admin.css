@@ -1,7 +1,7 @@
 
 .unauthorized_container {
     width: calc(100% - 25px);
-    border-radius: 20px;
+    border-radius: 15px;
     height: calc(100vh - 92px);
     margin: 0 auto;
     margin-top: 77px;
@@ -53,7 +53,7 @@
 
 .typeform {
     width: 575px;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: var(--purple-black);
     border: 5px solid rgba(var(--dark-grey-rgb), .7);
     padding: 20px;
@@ -84,7 +84,7 @@
     padding: 10px;
     background-color: var(--light-grey);
     border: 2px solid var(--purple-black);
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -96,7 +96,7 @@
 .option-dropdown > option{
     background-color: rgba(var(--dark-grey-rgb), .5);
     padding: 5px 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
 }
 
@@ -183,7 +183,7 @@
     width: 100px;
     height: 100px;
     background-color: var(--dark-grey);
-    border-radius: 10px;
+    border-radius: 15px;
     border: 3px solid var(--light-grey);
 }
 
@@ -191,14 +191,14 @@
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 3px solid var(--light-grey);
 }
 
 .functions_input {
     margin: 0 auto;
     display: flex;
-    gap: 35px;
+    gap: 5px;
     font-size: 30px;
 }
 
@@ -208,11 +208,11 @@
 }
 
 .functions_input-short {
-    width: 12px;
+    width: 10px;
 }
 
 .functions_input-long {
-    width: 30px;
+    width: 22px;
 }
 
 .functions_input-medium {
@@ -269,7 +269,7 @@
     background-color: var(--purple-black);
     border: 5px solid rgba(var(--dark-grey-rgb), .7);
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow-y: auto;
 }
 
@@ -288,7 +288,7 @@
 
 .duplicate_container {
     background-color: var(--dark-grey);
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -301,7 +301,7 @@
 
 .duplicate_container img {
     width: 50px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .adminview_container {
@@ -309,7 +309,7 @@
     margin: 0 auto;
     margin-top: 92px;
     margin-bottom: 60px;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: var(--purple-black);
     border: 5px solid rgba(var(--dark-grey-rgb), .7);
     padding: 20px;
@@ -336,7 +336,7 @@
 .adminview_db_row {
     background-color: var(--dark-grey);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -378,7 +378,7 @@
     width: 50%;
     background-color: var(--light-grey);
     padding: 5px 0;
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: 17px;
     cursor: pointer;
     transition: .2s ease;
@@ -395,7 +395,7 @@
 
 .adminview_add-btn {
     padding: 10px 30px;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: var(--light-grey);
     cursor: pointer;
     transition: .2s ease;

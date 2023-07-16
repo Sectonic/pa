@@ -20,43 +20,46 @@ export default function Learn({ searchParams }) {
             />
             </div>
             <div>
-                <h1 className='banner_text blue'>Learn Typology</h1>
-                <h3 className='banner_subtitle'>Explore courses & systems below</h3>
+                <h1 className='banner_text blue'>Academy Courses</h1>
+                <h3 className='banner_subtitle'>Learn About Personality theory & Self Growth!</h3>
             </div>
         </div>
         <LearnSearch />
       </div>
       <div className='learn_systems'>
         {!searchParams.query ? (
-          <div className="learn_systems-title">Featured</div>
+          <div className="section_title">Course Catalog</div>
         ) : (
           <div className="learn_systems-result">Result for "{searchParams.query}"</div>
         )}
         <div className="learn_systems-container">
           <SearchContainer query={searchParams.query}>
             <Link href="/learn">
-              <IntroCourse color="green" title="Intro to Typology">
-                What is Typology? Get introduced to why people categorize personality and what are the benefits.
+              <IntroCourse color="green" title="Discover Personality">
+                Unfold the meaning of personality & how it impacts everything in your life.
                 <img src='/img/learn/intro_logo.png' />
               </IntroCourse>
             </Link>
             <Link href="/typing">
-              <IntroCourse color="yellow" title="Intro to Typing">
-                "Typing" is how you find someone's personality type. Get introduced to how you type accurately and efficiently.
-                <img src='/img/learn/typing/home/target.png' />
+              <IntroCourse color="yellow" title="Type Objectively">
+                Disover how to objectively track personality type with scientific principles!
+                <img src='/img/learn/objective_typing.png' />
               </IntroCourse>
             </Link>
             <Link href="/ops">
               <TypologySystem title="Objective Personality" extraTags={['ops', 'op']}>
-                A system of over 2048 combinations of personality. It aims to uncover default wirings for growth.
-                <img src='/img/learn/ops_logo.webp' />
+                Uncover your default wiring through a spectrum of up to 2048 personality codes. 
+                <img src='/img/learn/ops_logo.png' />
               </TypologySystem>
             </Link>
+            <IntroCourse color="yellow" title="Improve With Type!">
+                Turn knowledge into action by learning to leverage the OP Code in your life!
+                <img src='/img/learn/improve.png' />
+              </IntroCourse>
             <Link href="/learn">
-              <TypologySystem color="pink" title="BYCOG Direct">
+              <TypologySystem color="pink" title="Bycognition Direct">
                 <span>
-                Each person has an impulsive process they use all the time. <br/><br/>
-                BYCOG Direct is a project to learn about these processes and grow a community exploring this topic.
+                  A project to learn about the impulsive processes which form personality.
                 </span>
                 <img src='/img/learn/bycog_logo.png' />
               </TypologySystem>
