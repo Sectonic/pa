@@ -1,6 +1,6 @@
 // import Image from "../../_components/image";
 
-export default function Stack({data, need_options, functions, decider_functions, animal_stack, jumper, need_grant, animal_options}) {
+export default function Stack({ data }) {
 
     function checkSavior(animal) {
         return [data.animal1, data.animal2].includes(animal);
@@ -38,6 +38,148 @@ export default function Stack({data, need_options, functions, decider_functions,
           'ti': true,
           'fe': false,
           'te': false
+        }
+    }
+
+    var animal_stack = [data.animal1, data.animal2, data.animal3, data.animal4]
+
+    var decider_functions = ['fe', 'te', 'fi', 'ti'];
+
+    var function_options = {
+        'Se': 'ni',
+        'Ni': 'se',
+        'Ne': 'si',
+        'Si': 'ne',
+        'Fi': 'te',
+        'Fe': 'ti',
+        'Ti': 'fe',
+        'Te': 'fi'
+    }
+
+    var need_options = {
+        'se': 'oe',
+        'ni': 'oi',
+        'ne': 'oe',
+        'si': 'oi',
+        'fi': 'di',
+        'fe': 'de',
+        'ti': 'di',
+        'te': 'de'
+    }
+
+    var need_opposites = {
+        'Oe': 'oi',
+        'De': 'di',
+        'Oi': 'oe',
+        'Di': 'de'
+    }
+
+    var animal_options = {
+        'oe': {
+            'de': 'Play',
+            'di': 'Consume'
+        },
+        'oi': {
+            'de': 'Blast',
+            'di': 'Sleep'
+        },
+        'de': {
+            'oe': 'Play',
+            'oi': 'Blast'
+        },
+        'di': {
+            'oe': 'Consume',
+            'oi': 'Sleep'
+        }
+    }
+
+    var animal_axis = {
+        'Blast': {
+        'Se-Ni': 'ni',
+        'Si-Ne': 'si',
+        'Fe-Ti': 'fe',
+        'Fi-Te': 'te'
+        },
+        'Play': {
+        'Se-Ni': 'se',
+        'Si-Ne': 'ne',
+        'Fe-Ti': 'fe',
+        'Fi-Te': 'te'
+        },
+        'Consume': {
+        'Se-Ni': 'se',
+        'Si-Ne': 'ne',
+        'Fe-Ti': 'ti',
+        'Fi-Te': 'fi'
+        },
+        'Sleep': {
+        'Se-Ni': 'ni',
+        'Si-Ne': 'si',
+        'Fe-Ti': 'ti',
+        'Fi-Te': 'fi'
+        }
+    } 
+
+    var function1 = data.function1 ? data.function1.toLowerCase() : null;
+    var function2 = data.function2 ? data.function2.toLowerCase() : null;
+    var function3 = data.function2 ? function_options[data.function2].toLowerCase() : null;
+    var function4 = data.function1 ? function_options[data.function1].toLowerCase() : null;
+
+    var need1, need2, need3, need4;
+    if (data.oD) {
+        let observer = data.oD == "Observer";
+        if (observer) {
+        need1 = data.observerNeed ? data.observerNeed.toLowerCase() : null;
+        need2 = data.deciderNeed ? data.deciderNeed.toLowerCase() : null;
+        need3 = data.deciderNeed ? need_opposites[data.deciderNeed] : null;
+        need4 = data.observerNeed ? need_opposites[data.observerNeed] : null;
+        } else {
+        need1 = data.deciderNeed ? data.deciderNeed.toLowerCase() : null;
+        need2 = data.observerNeed ? data.observerNeed.toLowerCase() : null;
+        need3 = data.observerNeed ? need_opposites[data.observerNeed] : null;
+        need4 = data.deciderNeed ? need_opposites[data.deciderNeed] : null;
+        }
+    }
+
+    var need_grant = [
+        [need1, need2],
+        [need2, need4],
+        [need1, need3],
+        [need3, need4]
+    ]
+
+    var jumper = false;
+
+    var functions = [function1, function2, function3, function4];
+
+    // var grant1 = function1 && function2 ? animal_options[need_options[function1]][need_options[function2]] : null;
+    // var grant2 = function2 && function4 ? animal_options[need_options[function2]][need_options[function4]] : null;
+    // var grant3 = function1 && function3 ? animal_options[need_options[function1]][need_options[function3]] : null;
+    // var grant4 = function3 && function4 ? animal_options[need_options[function3]][need_options[function4]] : null;
+    // var grant_funcs = {
+    //     0: [function1, function2],
+    //     1: [function2, function4],
+    //     2: [function1, function3],
+    //     3: [function3, function4],
+    // }
+    // var grants = [grant1, grant2, grant3, grant4];
+
+    var decider_functions = ['fe', 'te', 'fi', 'ti'];
+
+    var animal_details = []
+    for (let i = 0; i < animal_stack.length; i++) {
+        let curr_animal = animal_stack[i];
+        if (curr_animal) {
+        var anim_functions = []
+        let decider_func = data.deciderAxis ? animal_axis[curr_animal][data.deciderAxis] : null;
+        let observer_func = data.observerAxis ? animal_axis[curr_animal][data.observerAxis] : null;
+        anim_functions.push(observer_func, decider_func);
+        animal_details.push({
+            modality:data[`${curr_animal.toLowerCase()}Modality`],
+            functions: anim_functions
+        });
+        } else {
+        animal_details.push(null);
         }
     }
 

@@ -42,3 +42,14 @@ export const getEntries = async () => {
     const entries = await db.type.count();
     return entries;
 }
+
+export const getExamples = async (typeData) => {
+    const types = await db.type.findMany({
+        where: {...typeData},
+        orderBy: {
+            id: 'desc'
+        },
+        take: 6,
+    })
+    return types;
+}

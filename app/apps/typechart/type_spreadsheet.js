@@ -189,7 +189,7 @@ class TypeSpreadSheet {
         return this.typeList.map(type => {
             for (const [key, value] of Object.entries(filters)) {
                 if (type[key] !== value) {
-                    return {invisible: true, functions: type.functions}
+                    return {invisible: true, ...type}
                 }
             }
             return type;

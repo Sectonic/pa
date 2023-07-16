@@ -6,6 +6,7 @@ import { Type512Input } from "@components/type512Input";
 import { addType } from "@lib/admin";
 import { useRouter } from "next/navigation";
 import { getSimilar } from "@lib/admin";
+import { checkCorrectType } from "@lib/getTypeData";
 
 export default function Page() {
     const [links, setLinks] = useState([]);
@@ -38,21 +39,10 @@ export default function Page() {
             return;
         }
 
-        if (!acceptableTypes.modalities.includes(Type512.modalities)) {
-            setError('Modality input is not acceptable');
+        const nextError = checkCorrectType(Type512);
+        if (nextError) {
+            setError(nextError)
             return;
-        }
-        if (!acceptableTypes.functions.includes(Type512.function1) || !acceptableTypes.functions.includes(Type512.function2)) {
-            setError('Function input(s) are not acceptable');
-            return;
-        }
-        const animalString = Type512.saviorAnimals + Type512.animal3 + Type512.animal4;
-        for (var i = 0; i < animalString.length; i++) {
-            const animalChr = animalString.charAt(i);
-            if (!acceptableTypes.animals.includes(animalChr)) {
-                setError('Animal input(s) are not acceptable');
-                return;
-            }
         }
 
         setError('');

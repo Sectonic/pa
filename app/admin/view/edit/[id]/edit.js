@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { OptionDropdown, Option } from "../../optionDropdown";
 import { Type512Input } from "@components/type512Input";
 import { updateType, deleteType } from "@lib/admin";
+import { checkCorrectType } from "@lib/getTypeData";
 
 export default function Edit({ type }) {
     const [links, setLinks] = useState(type.links.map(link => {
@@ -46,21 +47,10 @@ export default function Edit({ type }) {
             return;
         }
 
-        if (!acceptableTypes.modalities.includes(Type512.modalities)) {
-            setError('Modality input is not acceptable');
+        const nextError = checkCorrectType(Type512);
+        if (nextError) {
+            setError(nextError)
             return;
-        }
-        if (!acceptableTypes.functions.includes(Type512.function1) || !acceptableTypes.functions.includes(Type512.function2)) {
-            setError('Function input(s) are not acceptable');
-            return;
-        }
-        const animalString = Type512.saviorAnimals + Type512.animal3 + Type512.animal4;
-        for (var i = 0; i < animalString.length; i++) {
-            const animalChr = animalString.charAt(i);
-            if (!acceptableTypes.animals.includes(animalChr)) {
-                setError('Animal input(s) are not acceptable');
-                return;
-            }
         }
 
         setError('');

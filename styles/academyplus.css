@@ -94,8 +94,8 @@
 
 .support_card {
     margin: 0 !important;
-    width: max-content;
-    padding: 15px;
+    width: max-content !important;
+    padding: 15px !important;
     text-align: center;
 }
 
@@ -135,13 +135,13 @@
     gap: 15px;
     margin: 0 auto;
     justify-content: center;
-    align-items: center;
+    align-items: center !important;
     font-size: 20px;
-    background-color: var(--light-grey);
-    padding: 10px 30px;
-    border-radius: 50px;
+    background-color: var(--light-grey) !important;
+    padding: 10px 30px !important;
+    border-radius: 50px !important;
     border: 1px solid rgba(255, 255, 255, 0.212);
-    width: max-content;
+    width: max-content !important;
     cursor: pointer;
     transition: .3s ease;
     color: white;

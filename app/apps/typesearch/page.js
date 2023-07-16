@@ -1,4 +1,4 @@
-import { TypePopup, PopupLoading } from './typePopup';
+import { TypePopup, PopupLoading } from '@components/type_popup/typePopup';
 import { Entries, EntriesLoading } from './entries';
 import { filter_exchange } from './filters';
 import DatabaseSearch from './databaseSearch';

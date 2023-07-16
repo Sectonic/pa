@@ -74,6 +74,14 @@ export const Type512Input = ({ Type512, setType512 }) => {
         focusingInput.current.focus();
     }
 
+    const checkBackSpace = (e) => {
+        const inputArr = [modalities, function1, function2, saviorAnimals, animal3];
+        if (e.key === 'Backspace' && e.target.value.length === 0) {
+            const lastInput = inputArr[Number(e.target.id) - 1];
+            lastInput.current.focus();
+        }
+    }
+
     return (
         <div className="functions_input">
             <div className="functions_input-section">
@@ -82,20 +90,20 @@ export const Type512Input = ({ Type512, setType512 }) => {
             </div>
             <div className="functions_input-section">
                 <input type="text" name="function1" className="functions_input-medium" 
-                ref={function1} id={1} onChange={Type512Handler} value={Type512.function1} onClick={Type512Focusing} />
+                ref={function1} id={1} onChange={Type512Handler} onKeyDown={checkBackSpace} value={Type512.function1} onClick={Type512Focusing} />
                 <div>/</div>
                 <input type="text" name="function2" className="functions_input-medium" 
-                ref={function2} id={2} onChange={Type512Handler} value={Type512.function2} onClick={Type512Focusing} />
+                ref={function2} id={2} onChange={Type512Handler} onKeyDown={checkBackSpace} value={Type512.function2} onClick={Type512Focusing} />
             </div>
             <div className="functions_input-section">
                 <input type="text" name="saviorAnimals" className="functions_input-medium" 
-                ref={saviorAnimals} id={3} onChange={Type512Handler} value={Type512.saviorAnimals} onClick={Type512Focusing} />
+                ref={saviorAnimals} id={3} onChange={Type512Handler} onKeyDown={checkBackSpace} value={Type512.saviorAnimals} onClick={Type512Focusing} />
                 <div>/</div>
                 <input type="text" name="animal3" className="functions_input-short" 
-                ref={animal3} id={4} onChange={Type512Handler} value={Type512.animal3} onClick={Type512Focusing} />
+                ref={animal3} id={4} onChange={Type512Handler} onKeyDown={checkBackSpace} value={Type512.animal3} onClick={Type512Focusing} />
                 <div>{'('}</div>
                 <input type="text" name="animal4" className="functions_input-short" 
-                ref={animal4} id={5} onChange={Type512Handler} value={Type512.animal4} onClick={Type512Focusing} />
+                ref={animal4} id={5} onChange={Type512Handler} onKeyDown={checkBackSpace} value={Type512.animal4} onClick={Type512Focusing} />
                 <div>{')'}</div>
             </div>
         </div>
