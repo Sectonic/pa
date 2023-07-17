@@ -6,5 +6,5 @@ export const EntriesLoading = () => (
 
 export const Entries = async () => {
     const data = await getEntries();
-    return <h3 className='banner_subtitle'>{data} entries</h3>
+    return <h3 className='banner_subtitle'>{data}  Typed People</h3>
 }

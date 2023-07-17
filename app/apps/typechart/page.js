@@ -116,7 +116,7 @@ export default async function TypeTool({ searchParams }) {
                     </div>
                 </div>
                 <div className="typechart_examples">
-                    <h2>Type Twins/Cousins</h2>
+                    <h2>TypeSearch</h2>
                     <div className="typechart_examples-container">
                         <Suspense fallback={<ExampleLoading/>} > 
                             <ExamplesContainer typeData={filters} />

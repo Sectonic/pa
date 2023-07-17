@@ -281,7 +281,7 @@
 
 .db_search {
     width: 35%;
-    border-radius: 10px;
+    border-radius: 50px;
     background-color: var(--dark-grey);
     border: 3px solid var(--light-grey);
     position: relative;
@@ -306,7 +306,7 @@
     border: none;
     outline: none;
     background-color: var(--dark-grey);
-    border-radius: 10px;
+    border-radius: 50px;
     font-size: 18px;
     color: white;
     padding-left: 20px;
