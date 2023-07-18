@@ -198,13 +198,13 @@
 .functions_input {
     margin: 0 auto;
     display: flex;
-    gap: 5px;
+    gap: 20px;
     font-size: 30px;
 }
 
 .functions_input-section {
     display: flex;
-    gap: 10px;
+    gap: 2px;
 }
 
 .functions_input-short {
@@ -212,7 +212,7 @@
 }
 
 .functions_input-long {
-    width: 22px;
+    width: 30px;
 }
 
 .functions_input-medium {

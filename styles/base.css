@@ -59,7 +59,7 @@ a {
 }
 
 body {
-  background-color: var(--black);
+  background-color: var(--purple-black);
   color: white;
   margin: 0;
   font-weight: 500 !important;
@@ -117,7 +117,7 @@ button {
   top: 0;
   width: 100%;
   height: 77px;
-  background-color: var(--black);
+  background-color: var(--purple-black);
   z-index: 11;
 }
 

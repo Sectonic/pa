@@ -1,6 +1,6 @@
 import sheet from "./type_spreadsheet";
 import { createMetaData } from "@lib/metadata";
-import { TypeChartSearch } from "./search";
+import { SpreadSheetBtn, TypeChartSearch } from "./search";
 import { getSession } from "@lib/session";
 import { redirect } from "next/navigation";
 import { getTypeData } from "@lib/getTypeData";
@@ -9,6 +9,8 @@ import { ExampleLoading, ExamplesContainer } from "./examplesContainer";
 import Stack from "@components/type_popup/stack";
 import { AnimalDiagram } from "@components/type_popup/animal_diagram";
 import { OptionDropdown, Option } from "app/admin/view/optionDropdown";
+import { CoinContainer } from "./coins";
+import { Diagram } from "./diagram";
 
 export const metadata = createMetaData({
   title: 'TypeTool',
@@ -31,7 +33,7 @@ export default async function TypeTool({ searchParams }) {
     const spreadsheet_filters = searchParams.type ? getTypeData(searchParams.type, false) : {};
     const filters = searchParams.type ? getTypeData(searchParams.type) : {};
     const animals = ['SC/B(P)', 'SC/P(B)', 'SB/C(P)', 'SB/P(C)', 'CS/B(P)', 'CS/P(B)', 'CP/S(B)', 'CP/B(S)', 'BS/C(P)', 'BS/P(C)', 'BP/S(C)', 'BP/C(S)', 'PC/S(B)', 'PC/B(S)', 'PB/S(C)', 'PB/C(S)'];
-    const typecolor_filter = searchParams.Filter || 'Extroversion';
+    const typecolor_filter = searchParams.filter || 'Extroversion';
 
     const colorObj = {
         Extroversion: {
@@ -47,6 +49,20 @@ export default async function TypeTool({ searchParams }) {
         }
     }
 
+    const sortSaviorAnimals = (searchingAnimal) => {
+        
+        const animalSaviors = {
+            'Sleep':'Play',
+            'Consume':'Blast'
+        }
+
+        if ([filters.animal1, filters.animal2].includes(searchingAnimal)) {
+            return searchingAnimal;
+        } else {
+            return animalSaviors[searchingAnimal];
+        }
+    }
+
     return (
         <div className="main">
             <div className="banner banner_blue banner_search">
@@ -58,66 +74,104 @@ export default async function TypeTool({ searchParams }) {
                     </div>
                     <div>
                         <h1 className='banner_text blue'>TypeChart</h1>
-                        <h3 className='banner_subtitle'>Unfold the personality code</h3>
                     </div>
                 </div>
+            </div>
+            <div className="typechart_container">
                 <TypeChartSearch />
-            </div>
-            <div className="spreadsheet_container">
-                <div className="spreadsheet" id='Filter'>
-                    { [...Array(16).keys()].map(i => {
-                        return (
-                            <div className="spreadsheet_col" key={i}>
-                                <div className="spreadsheet_anim">{animals[i]}</div>
-                                <div className="spreadsheet_types">
-                                    { sheet.matchFilters(removeEmpty(spreadsheet_filters)).slice((8*i), (8*i)+8).map((type, index) => {
-                                        const filteringValue = type[colorObj[typecolor_filter].name];
-
-                                        const giveCurve = () => {
-                                            var returnedClass = `spreadsheet_type ${type.invisible ? 'invisible_type' : ''}`;
-                                            returnedClass += ' ' + colorObj[typecolor_filter][filteringValue];
-                                            
-                                            if (index === 0) {
-                                                return returnedClass + ' spreadsheet_type-top';
-                                            } else if (index === 7) {
-                                                return returnedClass + ' spreadsheet_type-bottom';
-                                            } else {
-                                                return returnedClass;
-                                            }
-                                        }
-                                        
-                                        return <div className={giveCurve()} key={index}>{type.functions}</div>
-                                    })}
-                                </div>
-                            </div>
-                        )
-                    })}
+                <div className="typechart_diagrams_container">
+                    <div className="stack_container typechart_stack">
+                        <Stack data={filters} />
+                    </div>
+                    <div className="animal_container typechart_animal">
+                        <AnimalDiagram data={filters} />
+                    </div>
+                    <div className="typechart_coins">
+                        <CoinContainer keys={['Observer', 'Decider']} value={filters.oD} />
+                        <CoinContainer keys={['Di', 'De']} value={filters.deciderNeed} />
+                        <CoinContainer keys={['Oi', 'Oe']} value={filters.observerNeed} />
+                        <CoinContainer keys={['N', 'S']} value={filters.observerLetter} />
+                        <CoinContainer keys={['F', 'T']} value={filters.deciderLetter} />
+                        { searchParams.type && (
+                            <>
+                                <CoinContainer keys={['Sleep', 'Play']} value={sortSaviorAnimals('Sleep')} />
+                                <CoinContainer keys={['Consume', 'Blast']} value={sortSaviorAnimals('Consume')} />
+                            </>
+                        )}
+                        <CoinContainer keys={['Info', 'Energy']} value={filters.energyInfo} />
+                        <CoinContainer keys={['Introvert', 'Extrovert']} value={filters.extrovertIntrovert} />
+                        <CoinContainer keys={['fS', 'mS']} value={filters.sensoryModality} />
+                        <CoinContainer keys={['fDe', 'mDe']} value={filters.deModality} />
+                    </div>
                 </div>
-                <div className="spreadsheet_check_container register_inputs">
-                    <OptionDropdown name='Filter' desc='Filter type spreadsheet colors' changeParams={true} defaultValue={searchParams.Filter || 'Extroversion'} >
-                            <Option>Extroversion</Option>
-                            <Option>De</Option>
-                            <Option>Oe</Option>
-                    </OptionDropdown>
-                </div>
-            </div>
-            <div className="typechart_split_container">
-                <div className="typechart_diagram">
-                    <h2>Diagram</h2>
-                    <div className="diagram_container">
-                        <div className="stack_container outline-gray">
-                            <Stack data={filters} />
-                        </div>
-                        <div className="animal_container">
-                            <AnimalDiagram data={filters} />
-                            <div className="animals_analysis outline-gray">
+                <div className="spreadsheet_container">
+                    <div className="spreadsheet_banner">
+                        <div className="spreadsheet_option">
+                            Introvert/Extrovert
+                            <img src="/img/main/section_btn.png" />
+                            <div className="spreadsheet_option-dropdown">
+                                <SpreadSheetBtn val="Extroversion">Introvert/Extrovert</SpreadSheetBtn>
+                                <SpreadSheetBtn val="Oe">Oi/Oe</SpreadSheetBtn>
+                                <SpreadSheetBtn val="De">Di/De</SpreadSheetBtn>
                             </div>
                         </div>
                     </div>
+                    <div className="spreadsheet" id='filter'>
+                        { [...Array(16).keys()].map(i => {
+                            return (
+                                <div className="spreadsheet_col" key={i}>
+                                    <div className="spreadsheet_anim">{animals[i]}</div>
+                                    <div className="spreadsheet_types">
+                                        { sheet.matchFilters(removeEmpty(spreadsheet_filters)).slice((8*i), (8*i)+8).map((type, index) => {
+                                            const filteringValue = type[colorObj[typecolor_filter].name];
+
+                                            const giveCurve = () => {
+                                                var returnedClass = `spreadsheet_type ${type.invisible ? 'invisible_type' : ''}`;
+                                                returnedClass += ' ' + colorObj[typecolor_filter][filteringValue];
+                                                
+                                                if (index === 0) {
+                                                    return returnedClass + ' spreadsheet_type-top';
+                                                } else if (index === 7) {
+                                                    return returnedClass + ' spreadsheet_type-bottom';
+                                                } else {
+                                                    return returnedClass;
+                                                }
+                                            }
+                                            
+                                            return <div className={giveCurve()} key={index}>{type.functions}</div>
+                                        })}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
-                <div className="typechart_examples">
-                    <h2>Type Twins/Cousins</h2>
-                    <div className="typechart_examples-container">
+                <div className="typechart_split_container">
+                    <div className="typechart_diagrams">
+                        <Diagram
+                            name="Extroversion"
+                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
+                            value={65.43}
+                            rank={434}
+                            colors={['#ff5639', '#692b38']}
+                        />
+                        <div className="typechart_diagram">
+                        
+                        </div>
+                        <div className="typechart_diagram">
+                        
+                        </div>
+                        <div className="typechart_diagram">
+                        
+                        </div>
+                        <div className="typechart_diagram">
+                        
+                        </div>
+                        <div className="typechart_diagram">
+                        
+                        </div>
+                    </div>
+                    <div className="typechart_examples">
                         <Suspense fallback={<ExampleLoading/>} > 
                             <ExamplesContainer typeData={filters} />
                         </Suspense>

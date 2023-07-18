@@ -529,11 +529,7 @@
   width: calc(100% - 130px);
   margin: 0 auto;
   margin-top: 3px;
-  background-image: linear-gradient(
-      to right,
-      rgba(var(--purple-black-rgb), 0.9),
-      rgba(var(--dark-grey-rgb), 0.7)
-    );
+  background-color: var(--purple-black);
   border-radius: 15px;
   padding: 40px;
   flex-grow: 1;
@@ -642,7 +638,6 @@
 }
 
 .learn_system-learnbtn {
-  width: calc(100% - 50px);
   margin-bottom: 20px;
   cursor: default;
 }
