@@ -40,17 +40,23 @@ export default function Learn({ searchParams }) {
                 <img src='/img/learn/intro_logo.png' />
               </IntroCourse>
             </Link>
-            <Link href="/typing">
-              <IntroCourse color="yellow" title="Type Objectively">
-                Disover how to objectively track personality type with scientific principles!
-                <img src='/img/learn/objective_typing.png' />
-              </IntroCourse>
-            </Link>
             <Link href="/ops">
               <TypologySystem title="Objective Personality" extraTags={['ops', 'op']}>
                 Uncover your default wiring through a spectrum of up to 2048 personality codes. 
                 <img src='/img/learn/ops_logo.png' />
               </TypologySystem>
+            </Link>
+            <Link href="/typing">
+              <IntroCourse color="yellow" title="Type Yourself">
+                Arm yourself with the right tools and knowledge to type yourself!
+                <img src='/img/learn/objective_typing.png' />
+              </IntroCourse>
+            </Link>
+            <Link href="/typing">
+              <IntroCourse color="green" title="Typing Others">
+                Disover how to objectively track personality type with scientific principles!
+                <img src='/img/learn/typing_others.png' />
+              </IntroCourse>
             </Link>
             <IntroCourse color="yellow" title="Improve With Type!">
                 Turn knowledge into action by learning to leverage the OP Code in your life!

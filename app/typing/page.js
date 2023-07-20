@@ -13,7 +13,14 @@ function Typing() {
     <div className="main">
       <LearnLayout>
           <LearnTree>
-          <TreeSection title="Learn-the-Method">
+          <TreeSection title="First Steps">
+          <IconContainer>
+                <Icon img='typing/home/start' name='Start' direction='right'>
+                    <IconDropdown title="Get Started">
+                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                    </IconDropdown>
+                </Icon>
+                </IconContainer>
               <IconContainer>
                 <Icon img='typing/home/guide' name='Your Type' direction='right' href="/typing/your_type" />
                 <Icon img='typing/home/method' name='Typing Others' direction='right' href="/typing/typing_method" />
@@ -38,7 +45,7 @@ function Typing() {
               <img src='/img/learn/objective_typing.png' />
               </div>
           </div>
-          <LearnButton title="Learn-the-Method">
+          <LearnButton title="First Steps">
             Learn how to go through typing yourself & how to type others accurately.
           </LearnButton>
           <LearnButton title="Pick-an-Approach">
