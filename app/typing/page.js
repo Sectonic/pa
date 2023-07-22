@@ -15,7 +15,7 @@ function Typing() {
           <LearnTree>
           <TreeSection title="First Steps">
           <IconContainer>
-                <Icon img='typing/home/start' name='Start' direction='right'>
+                <Icon img='typing/home/start' name='Get Started' direction='right'>
                     <IconDropdown title="Get Started">
                     <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
                     </IconDropdown>
