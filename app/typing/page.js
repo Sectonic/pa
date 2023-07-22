@@ -20,13 +20,24 @@ function Typing() {
                     <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
                     </IconDropdown>
                 </Icon>
-                </IconContainer>
+          </IconContainer>
+          <IconContainer>
+                <Icon img='typing/home/flame' name='Obstacles' direction='right'>
+                    <IconDropdown title="Obstacles">
+                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                    </IconDropdown>
+                </Icon>
+                <Icon img='typing/home/compass' name='Principles' direction='left'>
+                    <IconDropdown title="Principles">
+                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                    </IconDropdown>
+                </Icon>
+          </IconContainer>
               <IconContainer>
                 <Icon img='typing/home/guide' name='Your Type' direction='right' href="/typing/your_type" />
-                <Icon img='typing/home/method' name='Typing Others' direction='right' href="/typing/typing_method" />
               </IconContainer>
           </TreeSection>
-          <TreeSection title="Pick-an-Approach">
+          <TreeSection title="Approaches">
               <IconContainer>
                 <Icon img='typing/home/triangulation' name='Triangulation' direction='right' href="/typing/triangulation" />
               </IconContainer>
@@ -48,7 +59,7 @@ function Typing() {
           <LearnButton title="First Steps">
             Learn how to go through typing yourself & how to type others accurately.
           </LearnButton>
-          <LearnButton title="Pick-an-Approach">
+          <LearnButton title="Approaches">
             Turn knowledge into action and start tracking your type objectively.
           </LearnButton>
           </LearnButtons>

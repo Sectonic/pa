@@ -20,8 +20,7 @@ export default function Learn({ searchParams }) {
             />
             </div>
             <div>
-                <h1 className='banner_text blue'>Academy Courses</h1>
-                <h3 className='banner_subtitle'>Learn About Personality theory & Self Growth!</h3>
+                <h1 className='banner_text blue'>Academy Learn</h1>
             </div>
         </div>
         <LearnSearch />

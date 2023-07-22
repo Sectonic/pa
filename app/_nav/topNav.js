@@ -70,7 +70,7 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
                         <div className='register-box_btn'>
                         <img src='/img/main/login_icon.png' />
                         <div>
-                            Login
+                            Log In
                         </div>
                         </div>
                     </Link>
@@ -78,7 +78,7 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
                         <div className='register-box_btn'>
                         <img src='/img/main/signup_icon.png' />
                         <div>
-                            Signup
+                            Sign Up
                         </div>
                         </div>
                     </Link>

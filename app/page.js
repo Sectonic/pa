@@ -142,51 +142,6 @@ export default function Page() {
                 </div>
             </div>
             </div>
-            <div className="section extra_margin_section">
-            <div className="section_body">
-            <div className="section_img">
-                <img
-                    src={"/img/main/o.png"}
-                />
-                </div>
-            </div>
-            <h2 className="section_title neg-mt-45">Objective Personality Theory</h2>
-            <p className="letters_subtitle">
-            *We are not affiliated, and do not take credit for the theory itself.
-            <br/> We base our knowledge on the Objective Personality System (OPS).
-            <br/> All credit goes to the original creators, Dave Powers & Shannon Renee. 
-            <br/> For original content, check out the official sources below.
-            </p>
-            <ChangeSection link="/resources" text="Official Source" src="/img/learn/ops/home/tools.png" />
-            </div>
-            <div className="section extra_margin_section">
-                <div className="section_body">
-                    <div className="section_img">
-                        <img
-                            src={"/img/academyplus/one.png"}
-                        />
-                    </div>
-                </div>
-                <h2 className="section_title neg-mt-45">All The Best, For The Community</h2>
-                <p className="letters_subtitle">
-                    A community project lead by Aze and Sectonic.
-                </p>
-                <div className="section_body section_texts-sm extra_spacing_texts-sm">
-                    <div className="section_text outline-trans">
-                    <div className="text-sm_img home-top_img">
-                        <img
-                        src={"/img/main/positive.png"}
-                        />
-                    </div>
-                    <div className="text-sm_desc">
-                        <h3 className="section_subtitle margin-sm">Net Positive Impact</h3>
-                        <p>
-                        Pushing OPS forward by pioneering the best platform for knowledge.
-                        </p>
-                    </div>
-                    </div>
-                </div>
-            </div>
             </div>
       </div>
     );
