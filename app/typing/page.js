@@ -13,7 +13,7 @@ function Typing() {
     <div className="main">
       <LearnLayout>
           <LearnTree>
-          <TreeSection title="First Steps">
+          <TreeSection title="Understanding">
           <IconContainer>
                 <Icon img='typing/home/start' name='Get Started' direction='right'>
                     <IconDropdown title="Get Started">
@@ -22,20 +22,42 @@ function Typing() {
                 </Icon>
           </IconContainer>
           <IconContainer>
-                <Icon img='typing/home/flame' name='Obstacles' direction='right'>
+          <Icon img='typing/home/compass' name='Principles' direction='right'>
+                    <IconDropdown title="Principles">
+                    <DropdownItem src="learn/typing/home/shield" title="Truth" link="/typing/expectations" />
+                    <DropdownItem src="learn/typing/home/arrow" title="Purpose" link="/typing/expectations" />
+                    </IconDropdown>
+                </Icon>
+                <Icon img='typing/home/flame' name='Obstacles' direction='left'>
                     <IconDropdown title="Obstacles">
                     <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
                     </IconDropdown>
                 </Icon>
-                <Icon img='typing/home/compass' name='Principles' direction='left'>
-                    <IconDropdown title="Principles">
+          </IconContainer>
+          </TreeSection>
+          <TreeSection title="Methodology">
+          <IconContainer>
+                <Icon img='typing/home/method' name='Basics' direction='right'>
+                    <IconDropdown title="Basics">
                     <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                    <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
                     </IconDropdown>
                 </Icon>
           </IconContainer>
-              <IconContainer>
-                <Icon img='typing/home/guide' name='Your Type' direction='right' href="/typing/your_type" />
-              </IconContainer>
+          <IconContainer>
+                <Icon img='typing/home/material' name='Material' direction='right'>
+                    <IconDropdown title="Material">
+                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                    <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
+                    </IconDropdown>
+                </Icon>
+                <Icon img='typing/home/choice' name='Conclusion' direction='left'>
+                    <IconDropdown title="Conclusion">
+                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                    <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
+                    </IconDropdown>
+                </Icon>
+          </IconContainer>
           </TreeSection>
           <TreeSection title="Approaches">
               <IconContainer>
@@ -44,6 +66,15 @@ function Typing() {
               <IconContainer>
                 <Icon img='typing/home/teams' name='Typing Teams' direction='right' href="/typing/typing_teams" />
                 <Icon img='typing/home/d&s' name='Official Typing' direction='left' href="/typing/d&s_typing" />
+              </IconContainer>
+          </TreeSection>
+          <TreeSection title="Post-Typing">
+              <IconContainer>
+              <Icon img='typing/home/sun' name='After Typing' direction='right'>
+                    <IconDropdown title="After Typing">
+                    <DropdownItem src="learn/typing/home/sun" title="Expectations" link="/typing/expectations" />
+                    </IconDropdown>
+             </Icon>
               </IconContainer>
           </TreeSection>
           </LearnTree>
@@ -56,11 +87,17 @@ function Typing() {
               <img src='/img/learn/objective_typing.png' />
               </div>
           </div>
-          <LearnButton title="First Steps">
-            Learn how to go through typing yourself & how to type others accurately.
+          <LearnButton title="Understanding">
+            Understand the psychological aspects of the typing process.
+          </LearnButton>
+          <LearnButton title="Methodology">
+            Nail down the right methods and techniques for an accurate typing.
           </LearnButton>
           <LearnButton title="Approaches">
-            Turn knowledge into action and start tracking your type objectively.
+            Turn knowledge into action with practical solutions to getting typed.
+          </LearnButton>
+          <LearnButton title="Post-Typing">
+            What comes after determining your type, and what it means to you.
           </LearnButton>
           </LearnButtons>
       </LearnLayout>

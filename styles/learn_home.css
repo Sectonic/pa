@@ -102,7 +102,7 @@
   justify-content: flex-start;
   gap: 10px;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 10px;
   transition: .3s ease;
 }
 
@@ -440,7 +440,7 @@
   height: 25px;
   margin-left: 13px;
   margin-top: 10px;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 7.5px;
   padding-left: 11px;
   position: relative;
