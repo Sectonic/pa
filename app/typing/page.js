@@ -18,6 +18,7 @@ function Typing() {
                 <Icon img='typing/home/start' name='Get Started' direction='right'>
                     <IconDropdown title="Get Started">
                     <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                    <DropdownItem src="learn/typing/home/ribbon" title="A Better Way" link="/typing/better_way" />
                     </IconDropdown>
                 </Icon>
           </IconContainer>
@@ -65,7 +66,11 @@ function Typing() {
               </IconContainer>
               <IconContainer>
                 <Icon img='typing/home/teams' name='Typing Teams' direction='right' href="/typing/typing_teams" />
-                <Icon img='typing/home/d&s' name='Official Typing' direction='left' href="/typing/d&s_typing" />
+                <Icon img='typing/home/d&s' name='Paid Typings' direction='left'>
+                    <IconDropdown title="Paid Typings">
+                    <DropdownItem src="learn/typing/home/d&s" title="D&S Typing (OPS)" link="/typing/d&s_typing" />
+                    </IconDropdown>
+                </Icon>
               </IconContainer>
           </TreeSection>
           <TreeSection title="Post-Typing">

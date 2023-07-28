@@ -20,7 +20,7 @@ export default function Learn({ searchParams }) {
             />
             </div>
             <div>
-                <h1 className='banner_text blue'>Academy Learn</h1>
+                <h1 className='banner_text blue'>Learn Courses</h1>
             </div>
         </div>
         <LearnSearch />
