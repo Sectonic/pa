@@ -13,7 +13,7 @@ function Typing() {
     <div className="main">
       <LearnLayout>
           <LearnTree>
-          <TreeSection title="Understanding">
+          <TreeSection title="Mentality">
           <IconContainer>
                 <Icon img='typing/home/start' name='Get Started' direction='right'>
                     <IconDropdown title="Get Started">
@@ -25,7 +25,7 @@ function Typing() {
           <IconContainer>
           <Icon img='typing/home/compass' name='Principles' direction='right'>
                     <IconDropdown title="Principles">
-                    <DropdownItem src="learn/typing/home/shield" title="Truth" link="/typing/expectations" />
+                    <DropdownItem src="learn/typing/home/shield" title="Truth" link="/typing/truth" />
                     <DropdownItem src="learn/typing/home/arrow" title="Purpose" link="/typing/expectations" />
                     </IconDropdown>
                 </Icon>
@@ -62,10 +62,18 @@ function Typing() {
           </TreeSection>
           <TreeSection title="Approaches">
               <IconContainer>
-                <Icon img='typing/home/triangulation' name='Triangulation' direction='right' href="/typing/triangulation" />
+              <Icon img='typing/home/triangulation' name='Triangulation' direction='right'>
+                    <IconDropdown title="Triangulation">
+                    <DropdownItem src="learn/typing/home/triangulation" title="Triangulation" link="/typing/triangulation" />
+                    </IconDropdown>
+                </Icon>
               </IconContainer>
               <IconContainer>
-                <Icon img='typing/home/teams' name='Typing Teams' direction='right' href="/typing/typing_teams" />
+              <Icon img='typing/home/teams' name='Typing Teams' direction='right'>
+                    <IconDropdown title="Typing Teams">
+                    <DropdownItem src="learn/typing/home/teams" title="Typing Teams" link="/typing/typing_teams" />
+                    </IconDropdown>
+                </Icon>
                 <Icon img='typing/home/d&s' name='Paid Typings' direction='left'>
                     <IconDropdown title="Paid Typings">
                     <DropdownItem src="learn/typing/home/d&s" title="D&S Typing (OPS)" link="/typing/d&s_typing" />
@@ -92,7 +100,7 @@ function Typing() {
               <img src='/img/learn/objective_typing.png' />
               </div>
           </div>
-          <LearnButton title="Understanding">
+          <LearnButton title="Mentality">
             Understand the psychological aspects of the typing process.
           </LearnButton>
           <LearnButton title="Methodology">
