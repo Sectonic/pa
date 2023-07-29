@@ -22,20 +22,20 @@ function betterWay() {
           <div className="section_body reverse_body">
             <div className="section_text multiple_paragraphs">
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Issues with conventional typing</h2>
+                <h2 className="margin-sm">The problem</h2>
                 <p>
-                To understand how typing can be done better. We must see what is wrong with conventional typing in most other personality systems.
+                To understand how typing can be done better. We must see what is wrong with conventional typing as seen in most other personality systems.
                 </p>
                 <p>
-                Most other systems typically base typings on subjective self reporting. While it appears easier at first glance, it becomes more complicated due to what is lacking: a true perception of yourself.
+                Most other systems typically type based on self-typing, which is inherently flawed as it is limited to your self perception.
                 </p>
               </div>
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Personality Tests</h2>
+                <h2 className="margin-sm">Lack of method</h2>
                 <p>
-                "Fun" personality tests also do not help this case. For example in 16personalities, you get a short test where you answer some arbitrary questions. 
-                After that the test pops out a cartoony personality chracter to pat you on the back but it does not truly say anything about you. It is vague and almost anyone can relate to those traits if they wished.
+                Another common theme within most common use of personality theory is the complete lack of method.
                 </p>
+                <p>No focus whatsoever on typing through objective and scientifically based validation. Just claims, tests and self assignment of types.</p>
               </div>
             </div>
             <div className="section_img">
@@ -50,31 +50,38 @@ function betterWay() {
             </div>
             <div className="section_text multiple_paragraphs">
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Self Reporting</h2>
+                <h2 className="margin-sm">Subjectivity</h2>
                 <p>
-                The main flaw with typing out there is self reporting. At the end of the day, nearly all the common methods lead right back to subjectively picking and choosing your type.
+                When it comes down to it, most common typing practices fail because they're rooted in subjectivity.
                 </p>
                 <p>
-                Some systems use tests, some let you type yourself, and others have someone else type you based on your responses.
+                The point of a personality system is to be able to categorize types and traits in relation to each other. If this is done subjectively, then it is all based on your own intepretation of the system and yourself.
                 </p>
                 <p>
-                The idea behind a personality system is to properly track personality, and be able to categorize types in relation to each other. If your method is subjective, you are not properly comparing in relation to others. You are only comparing to your own feelings and standards.
-                </p>
-              </div>
-              <div className="multi_paragraph">
-                <h2 className="margin-sm">Why It's Bad</h2>
-                <p>
-                  When you look subjectively at how you feel about your personality, your perspective can be extremely skewed. You can be the most extroverted person, but type yourself introverted because you feel lonely and tired at night. You could be the most introverted person, but type yourself extroverted because you feel good around people. 
-                </p>
-                <p>
-                  These answers all go down a path where you're not properly looking at yourself, but instead you are cherry picking what feels right. Understanding the truth to yourself will uncover how you actually act. This cannot be done with a subjective perspective.
+                While it may add up to yourself, it effectively makes the theory useless outside your head. Two different people can be the same type, for completely different reasons. That is the problem with subjectivity and self reporting.
                 </p>
               </div>
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Self-Typing</h2>
-                <p> There is a reason why your biggest realizations about yourself often come from another person's perspective. It is because, while people do know themselves, they do not know everything. You do not objectively know your behaviors that well compared to the spectrum of people around you.</p>
+                <h2 className="margin-sm">Personality Tests</h2>
                 <p>
-                  If you're choosing your own type in a system, you're still only comparing to only your own perception, in which lies the issue.
+                  Where it gets interesting is that subjectivity is found everywhere. Not just in systems where you self-assign a type. 
+                </p>
+                <p>
+                  Personality tests typically end up being self-typing in disguise. A test will typically ask you about how you see yourself, which then directly leads to a type. 
+                  This is as much self typing as simply picking a type, just with an extra layer.
+                </p>
+              </div>
+              <div className="multi_paragraph">
+                <h2 className="margin-sm">Typists as a proxy</h2>
+                <p> 
+                Where many end up unknowingly typing themselves, is ironically seeking to be typed by someone else.
+                </p>
+                <p>
+                  What typically ends up happening is that the typist will use a questionnaire or interview questions that revolve around your own perception of yourself.
+                </p>
+                <p>
+                  For instance, a typist may ask "Do you prefer the abstract or practical solutions". This type of question is essentially just your own opinion. 
+                  The typist simply convertes the responses into a type. Yet again, it is self-typing with extra steps
                 </p>
               </div>
             </div>
@@ -84,22 +91,25 @@ function betterWay() {
           <div className="section_body reverse_body">
             <div className="section_text multiple_paragraphs">
               <div className="multi_paragraph">
-                <h2 className="margin-sm">What else?</h2>
+                <h2 className="margin-sm">Psychology</h2>
                 <p>
-                  Beyond self typing specifically, most other methods are self-typing in disguise.
+                  So, why is subjectivity and self perception so bad? I know myself best!
                 </p>
                 <p>
-                  We already know that online personality tests cannot gauge who you are well, but what about other methods?
+                  While it is true, you know yourself best from your own point of view. The science does not lie about objective reality. 
+                </p>
+                <p>
+                  Psychology has time and time proven that self perception is just not an accurate method. You don't see what you aren't seeing.
                 </p>
               </div>
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Subjective Methodology</h2>
-                <p>Even things like interviews and questionares can end up falling into subjectivity. This is where it gets tricky. Often when people type others, the questions they ask or the answers they receive will all be based on self assessments.</p>
-                <p>"My personality is really x! I belive deeply that I am y. I am soooo z you cannot believe it." Even when trying an approach with other people, it can still end up not being accurate due to self-reporting.</p>
+                <h2 className="margin-sm">Confusion</h2>
                 <p>
-                  What happens with most of such typings, is that the typist is not actually interpreting or comparing your actions. Instead they simply convert your opinion into a type. Whether it be an interview, or any form of typing, if a typist is judging your opinions about yourself as they are, we arrive right back at self reporting - with a few sprinkles of intepretation.
+                A common but unfortunate fallout of the subjective method is type confusion. It all circles back to your own perception. What if that perception is unstable?
                 </p>
-                <p>How do you beat this?</p>
+                <p>
+                Then you end up in type limbo. Many get stuck here, going round and round, can't seem to figure out what type they actually are. Some even get so emotionally invested that it becomes stressful.
+                </p>
               </div>
             </div>
             <div className="section_img">
@@ -114,20 +124,19 @@ function betterWay() {
             </div>
             <div className="section_text multiple_paragraphs">
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Setting new standards</h2>
-                <p> Instead of using someone's opinion on themselves, you look at their actions, behaviors, and patterns in their life that they reoccuringly get stuck on doing; you look at where they fit on the spectrum; you look at Objectivity.</p>
+                <h2 className="margin-sm">Doing it better</h2>
+                <p> Now that you understand what is wrong with conventional methods, it becomes easier to do it right.</p>
                 <p>
-                Instead of running to quick tests or solutions where you get to put yourself in a box. Objective methodology is key.
+                Instead of running to quick tests or self perception. The key to typing yourself accurately is through the objective method and mastery of the psychology behind type.
                 </p>
               </div>
               <div className="multi_paragraph">
                 <h2 className="margin-sm">If you've come this far</h2>
                 <p>
-                  Now that you understand why conventional methods are typically pretty lackluster, it's time to talk about what can be done about it. The rest of the course goes in depth with how typing can be done right using simple principles of psychology.
+                  The rest of this course dives deep into methodology, psychology and practical approaches.
                 </p>
                 <p>
-                  Through objectivity, methodology and understanding the psychology behind typing. 
-                  It's possible to nail down a type that actually means something, and has validity.
+                  Through understanding these, you can turn knowledge into action. This is how real typing is meant to be.
                 </p>
               </div>
             </div>
