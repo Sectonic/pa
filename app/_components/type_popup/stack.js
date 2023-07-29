@@ -256,7 +256,7 @@ export default function Stack({ data }) {
                 3: 'fourth_logo'
             }
         }
-        var current_anim = anim_all[anim_num];
+        var current_anim = data.type !== 'xx xx/xx xx/x(x)' ? anim_all.find(anim => anim.stack === anim_num + 1) : null;
         if (current_anim) {
             let bracket_option = bracket_options[current_anim.stack];
             let stack_option = stack_options[current_anim.stack];

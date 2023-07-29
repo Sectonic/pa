@@ -49,7 +49,7 @@ export const getExamples = async (typeData) => {
         orderBy: {
             id: 'desc'
         },
-        take: 6,
+        take: 8,
     })
     return types;
 }

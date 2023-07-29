@@ -8,9 +8,9 @@ import { Suspense } from "react";
 import { ExampleLoading, ExamplesContainer } from "./examplesContainer";
 import Stack from "@components/type_popup/stack";
 import { AnimalDiagram } from "@components/type_popup/animal_diagram";
-import { OptionDropdown, Option } from "app/admin/view/optionDropdown";
-import { CoinContainer } from "./coins";
+import { Coin } from "./coins";
 import { Diagram } from "./diagram";
+import { CoinContainer } from "./coinContainer";
 
 export const metadata = createMetaData({
   title: 'TypeTool',
@@ -30,8 +30,8 @@ export default async function TypeTool({ searchParams }) {
       redirect('/login?' + new URLSearchParams({callback: '/apps/typechart'}));
     }
 
-    const spreadsheet_filters = searchParams.type ? getTypeData(searchParams.type, false) : {};
-    const filters = searchParams.type ? getTypeData(searchParams.type) : {};
+    const spreadsheet_filters = getTypeData(searchParams.type || 'xx xx/xx xx/x(x)', false);
+    const filters = getTypeData(searchParams.type || 'xx xx/xx xx/x(x)');
     const animals = ['SC/B(P)', 'SC/P(B)', 'SB/C(P)', 'SB/P(C)', 'CS/B(P)', 'CS/P(B)', 'CP/S(B)', 'CP/B(S)', 'BS/C(P)', 'BS/P(C)', 'BP/S(C)', 'BP/C(S)', 'PC/S(B)', 'PC/B(S)', 'PB/S(C)', 'PB/C(S)'];
     const typecolor_filter = searchParams.filter || 'Extroversion';
 
@@ -46,20 +46,6 @@ export default async function TypeTool({ searchParams }) {
         },
         De: {
 
-        }
-    }
-
-    const sortSaviorAnimals = (searchingAnimal) => {
-        
-        const animalSaviors = {
-            'Sleep':'Play',
-            'Consume':'Blast'
-        }
-
-        if ([filters.animal1, filters.animal2].includes(searchingAnimal)) {
-            return searchingAnimal;
-        } else {
-            return animalSaviors[searchingAnimal];
         }
     }
 
@@ -86,23 +72,18 @@ export default async function TypeTool({ searchParams }) {
                     <div className="animal_container typechart_animal">
                         <AnimalDiagram data={filters} />
                     </div>
-                    <div className="typechart_coins">
-                        <CoinContainer keys={['Observer', 'Decider']} value={filters.oD} />
-                        <CoinContainer keys={['Di', 'De']} value={filters.deciderNeed} />
-                        <CoinContainer keys={['Oi', 'Oe']} value={filters.observerNeed} />
-                        <CoinContainer keys={['N', 'S']} value={filters.observerLetter} />
-                        <CoinContainer keys={['F', 'T']} value={filters.deciderLetter} />
-                        { searchParams.type && (
-                            <>
-                                <CoinContainer keys={['Sleep', 'Play']} value={sortSaviorAnimals('Sleep')} />
-                                <CoinContainer keys={['Consume', 'Blast']} value={sortSaviorAnimals('Consume')} />
-                            </>
-                        )}
-                        <CoinContainer keys={['Info', 'Energy']} value={filters.energyInfo} />
-                        <CoinContainer keys={['Introvert', 'Extrovert']} value={filters.extrovertIntrovert} />
-                        <CoinContainer keys={['fS', 'mS']} value={filters.sensoryModality} />
-                        <CoinContainer keys={['fDe', 'mDe']} value={filters.deModality} />
-                    </div>
+                    <CoinContainer typeData={filters} >
+                        <Coin coin={'oD'} keys={['Observer', 'Decider']} />
+                        <Coin coin={'deciderNeed'} keys={['Di', 'De']} />
+                        <Coin coin={'observerNeed'} keys={['Oi', 'Oe']} />
+                        <Coin coin={'observerLetter'} keys={['N', 'S']} />
+                        <Coin coin={'deciderLetter'} keys={['F', 'T']} />
+                        <Coin coin={'energyAnimal'} keys={['Sleep', 'Play']} />
+                        <Coin coin={'infoAnimal'} keys={['Consume', 'Blast']} />
+                        <Coin coin={'energyInfo'} keys={['Info', 'Energy']} />
+                        <Coin coin={'sensoryModality'} keys={['fS', 'mS']} />
+                        <Coin coin={'deModality'} keys={['fDe', 'mDe']} />
+                    </CoinContainer>
                 </div>
                 <div className="spreadsheet_container">
                     <div className="spreadsheet_banner">
@@ -155,21 +136,41 @@ export default async function TypeTool({ searchParams }) {
                             rank={434}
                             colors={['#ff5639', '#692b38']}
                         />
-                        <div className="typechart_diagram">
-                        
-                        </div>
-                        <div className="typechart_diagram">
-                        
-                        </div>
-                        <div className="typechart_diagram">
-                        
-                        </div>
-                        <div className="typechart_diagram">
-                        
-                        </div>
-                        <div className="typechart_diagram">
-                        
-                        </div>
+                        <Diagram
+                            name="Gather"
+                            src="/img/icons/Needs/oe.png"
+                            value={65.43}
+                            rank={434}
+                            colors={['#ff5639', '#692b38']}
+                        />
+                        <Diagram
+                            name="Extroversion"
+                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
+                            value={65.43}
+                            rank={434}
+                            colors={['#ff5639', '#692b38']}
+                        />
+                        <Diagram
+                            name="Extroversion"
+                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
+                            value={65.43}
+                            rank={434}
+                            colors={['#ff5639', '#692b38']}
+                        />
+                        <Diagram
+                            name="Extroversion"
+                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
+                            value={65.43}
+                            rank={434}
+                            colors={['#ff5639', '#692b38']}
+                        />
+                        <Diagram
+                            name="Extroversion"
+                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
+                            value={65.43}
+                            rank={434}
+                            colors={['#ff5639', '#692b38']}
+                        />
                     </div>
                     <div className="typechart_examples">
                         <Suspense fallback={<ExampleLoading/>} > 

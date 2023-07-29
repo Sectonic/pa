@@ -167,7 +167,7 @@
         ],
         "De": [
             {"name": "oD", "value": "Observer"},
-            {"name": "Decider", "value": "De"}
+            {"name": "deciderNeed", "value": "De"}
         ],
         "Di": [
             {"name": "oD", "value": "Observer"},
@@ -220,7 +220,6 @@
         "Te": [
             {"name": "function2", "value": "Te"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperment", "value": "EJ"},
             {"name": "deciderAxis", "value": "Fi-Te"},
             {"name": "deciderLetter", "value": "T"},
             {"name": "deciderNeed", "value": "De"}
@@ -228,7 +227,6 @@
         "Fe": [
             {"name": "function2", "value": "Fe"},
             {"name": "oD", "value": "Observer"},
-            {"name": "temperment", "value": "EJ"},
             {"name": "deciderAxis", "value": "Fe-Ti"},
             {"name": "deciderLetter", "value": "F"},
             {"name": "deciderNeed", "value": "De"}
@@ -278,16 +276,20 @@
     },
     "animal3": {
         "Play": [
-            {"name": "animal3", "value": "Play"}
+            {"name": "animal3", "value": "Play"},
+            {"name": "energyInfo", "value": "Energy"}
         ],
         "Blast": [
-            {"name": "animal3", "value": "Blast"}
+            {"name": "animal3", "value": "Blast"},
+            {"name": "energyInfo", "value": "Info"}
         ],
         "Consume": [
-            {"name": "animal3", "value": "Consume"}
+            {"name": "animal3", "value": "Consume"},
+            {"name": "energyInfo", "value": "Info"}
         ],
         "Sleep": [
-            {"name": "animal3", "value": "Sleep"}
+            {"name": "animal3", "value": "Sleep"},
+            {"name": "energyInfo", "value": "Energy"}
         ]
     },
     "animal4": {

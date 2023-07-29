@@ -25,6 +25,7 @@ export const ExamplesContainer = async ({ typeData }) => {
         delete obj.sleepModality
         delete obj.consumeModality
         delete obj.blastModality
+        delete obj.temperment
         return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
     }
     

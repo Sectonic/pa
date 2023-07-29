@@ -31,7 +31,10 @@ export const getTypeData = (typeString, includeNull = true) => {
             let current = TypeInfo[name][value];
             if (includeNull || !['sensoryModality', 'deModality'].includes(name)) {
                 current.forEach(coin => {
-                  temp[coin.name] = coin.value;
+                    if (coin.name === "Decider" || coin.value === "Decider") {
+                        console.log(coin, name, value);
+                    }
+                    temp[coin.name] = coin.value;
                 });
             }
         }
@@ -101,4 +104,58 @@ export const checkCorrectType = (typeData) => {
     }
 
     return;
+}
+
+export const combineToFunctions = (need, letter, oD = null) => {
+
+    if (!need && !letter) {
+
+        if (oD) {
+            return oD === 'decider' ? 'Dx' : 'Ox';
+        }
+
+        return 'xx';
+    }
+
+    if (!letter) {
+        return need;
+    }
+
+    if (!need) {
+        return letter + 'x';
+    }
+
+    return letter[0] + need[1];
+};
+
+export const changeAnimals = (anim1, energyAnim, infoAnim, energyInfo) => {
+
+    const animalType = {
+        'Consume': 'Info',
+        'Blast': 'Info',
+        'Sleep': 'Energy',
+        'Play': 'Energy'
+    }
+
+    const oppositeAnimals = {
+        'Consume': 'Blast',
+        'Blast': 'Consume',
+        'Sleep': 'Play',
+        'Play': 'Sleep'   
+    }
+
+    const anim2 = animalType[anim1] === 'Energy' ? infoAnim : energyAnim;
+    const demons = [oppositeAnimals[anim1], oppositeAnimals[anim2]];
+    var anim3, anim4;
+
+    if (animalType[demons[0]] !== energyInfo) {
+        anim4 = demons[0];
+        anim3 = demons[1];
+    } else {
+        anim4 = demons[1];
+        anim3 = demons[0];
+    }
+    
+    return `${anim1[0]}${anim2[0]}/${anim3[0]}(${anim4[0]})`
+
 }
