@@ -4,7 +4,7 @@ import { createMetaData } from "@lib/metadata";
 
 export const metadata = createMetaData({
   title: 'D&S Typing',
-  description: 'The official way of typing by Dave & Shan',
+  description: 'Official typing by D&S within OPS',
   image: '/embed/d&s_typing.png',
   url: '/typing/d&s_typing',
 });
@@ -14,7 +14,7 @@ function dsTyping() {
     <div className="main">
       <Banner
         background="blue"
-        title="Official Typing"
+        title="D&S Typing"
         section="d&s"
         type="typing"
       />
