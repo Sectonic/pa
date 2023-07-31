@@ -7,10 +7,10 @@ export const CoinContainer = ({ keys, value }) => {
 
     return (
         <div className="typechart_coin_container">
-            {keys.map(key => {
+            {keys.mapW(key, i => {
                 const saviorDemon = value === key ? 'savior' : 'demon';
                 return (
-                    <div className={`typechart_coin-${saviorDemon}`}>
+                    <div className={`typechart_coin-${saviorDemon}`} key={i}>
                         {key}
                     </div>
                 )
