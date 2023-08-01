@@ -51,14 +51,16 @@ export const TypeChartSearch = ({ type }) => {
             <div className="typechart_search_container">
                 <div className="typechart_search">
                     <Type512Input Type512={Type512} setType512={setType512} />
-                    <div className="typechart_search-submit" onClick={analyzeType}>
-                        Analyze
-                        <img src="/img/typechart/search.png" />
+                    <div className="typechart_search-btn" onClick={analyzeType}>
+                        <img src="/img/typechart/apply.png" />
                     </div>
                 </div>
                 <div className="typechart_search-btns">
+                <div className="typechart_search-btn">
+                        <img src="/img/typechart/typing.png" />
+                    </div>
                     <div className="typechart_search-btn">
-                        <img src="/img/main/menu_icon.png" />
+                        <img src="/img/typechart/compare.png" />
                     </div>
                     <div className="typechart_search-btn" onClick={() => {router.push('/apps/typechart'); setType512(emptyType)}}>
                         <img src="/img/main/delete.png" />
