@@ -16,7 +16,7 @@ export const Diagram = ({ name, src, value, rank, colors }) => {
                     const currentLower = i * 10;
                     const currentUpper = currentLower + 10;
                     const color = value > currentLower && value <= currentUpper ? colors[0] : colors[1];
-                    return <div className={`typechart_diagram-bar-${bar}`} style={{backgroundColor: color}}></div>
+                    return <div className={`typechart_diagram-bar-${bar}`} style={{backgroundColor: color}} key={i} ></div>
                 })}
             </div>
             <div className="typechart_diagram-graph__bottom">
