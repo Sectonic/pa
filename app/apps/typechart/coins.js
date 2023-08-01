@@ -200,16 +200,16 @@ export const Coin = ({ keys, value, coin, typeData }) => {
         T: '/img/typechart/t.png',
         N: '/img/typechart/n.png',
         S: '/img/typechart/s.png',
-        Sleep: '/img/icons/Needs/oidi.png',
-        Play: '/img/icons/Needs/oede.png',
-        Blast: '/img/icons/Needs/oide.png',
-        Consume: '/img/icons/Needs/oedi.png',
-        Info: '/img/learn/ops/basic/animals/energy.png',
-        Energy: '/img/learn/ops/basic/animals/light.png',
-        fS: '/img/icons/Modalities/Fem/f_s.png',
-        mS: '/img/icons/Modalities/Masc/m_s.png',
-        fDe: '/img/icons/Modalities/Fem/f_de.png',
-        mDe: '/img/icons/Modalities/Masc/m_de.png'
+        Sleep: '/img/typechart/sleep.png',
+        Play: '/img/typechart/play.png',
+        Blast: '/img/typechart/blast.png',
+        Consume: '/img/typechart/consume.png',
+        Info: '/img/typechart/info.png',
+        Energy: '/img/typechart/energy.png',
+        fS: '/img/typechart/fsens.png',
+        mS: '/img/typechart/msens.png',
+        fDe: '/img/typechart/fde.png',
+        mDe: '/img/typechart/mde.png'
     }
 
     const changeCoin = (e) => {
