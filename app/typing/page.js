@@ -26,12 +26,11 @@ function Typing() {
           <Icon img='typing/home/compass' name='Principles' direction='right'>
                     <IconDropdown title="Principles">
                     <DropdownItem src="learn/typing/home/shield" title="Truth" link="/typing/truth" />
-                    <DropdownItem src="learn/typing/home/arrow" title="Purpose" link="/typing/expectations" />
                     </IconDropdown>
                 </Icon>
-                <Icon img='typing/home/flame' name='Obstacles' direction='left'>
-                    <IconDropdown title="Obstacles">
-                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                <Icon img='typing/home/flame' name='Psychology' direction='left'>
+                    <IconDropdown title="Psychology">
+                    <DropdownItem src="learn/typing/home/flame" title="Psychology" link="/typing/psychology" />
                     </IconDropdown>
                 </Icon>
           </IconContainer>

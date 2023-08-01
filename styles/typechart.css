@@ -19,11 +19,11 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 15px 15px;
 }
 
 .spreadsheet_banner {
-    border-radius: 20px 20px 0 0;
+    border-radius: 15px 15px 0 0;
     padding: 5px 15px;
     background-color: var(--light-grey);
 }
@@ -37,7 +37,7 @@
     cursor: pointer;
     width: max-content;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .spreadsheet_option:hover {
@@ -61,7 +61,7 @@
     background-color: var(--dark-grey);
     z-index: 10;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -135,7 +135,7 @@
 .typechart_search_container {
     background-color: var(--dark-grey);
     padding: 10px 15px;    
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     justify-content: space-between;
 }
@@ -150,7 +150,7 @@
 .typechart_search-submit {
     background-color: var(--light-grey);
     padding: 7px 10px;
-    border-radius: 20px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,7 +237,7 @@
     flex-basis: calc(100%/3);
     padding: 20px;
     background-color: var(--dark-grey);
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -353,7 +353,7 @@
     width: 185px;
     height: 233px;
     background-color: var(--dark-grey);
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .typechart_diagram-title {
@@ -404,7 +404,7 @@
     flex-basis: 10%;
     background-color: white;
     width: 100%;
-    border-radius: 3px;
+    border-radius: 30px;
     opacity: .8;
 }
 
