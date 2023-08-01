@@ -60,7 +60,7 @@ function psychology() {
                 Through understanding, you can use psychology to your advantage. 
                 </p>
                 <p>
-                Certain patterns invalidate your typing by messing up the methodology and skewing your typing.
+                Certain patterns invalidate your typing by messing up the methodology and skewing your results.
                 </p>
                 <p>
                 Once you are able to identify these patterns, it is easier to deliberately avoid them.

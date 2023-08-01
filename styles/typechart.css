@@ -272,7 +272,7 @@
 }
 
 .typechart_coin-intermediate {
-    width: 30px;
+    width: 50px;
     padding-top: 8px;
     padding-bottom: 9px;
     background-color: var(--purple-black);
@@ -322,7 +322,7 @@
 }
 
 .typechart_coin_container img {
-    width: 40px;
+    width: 30px;
 }
 
 .typechart_split_container {

@@ -172,11 +172,11 @@ export default async function TypeTool({ searchParams }) {
                             colors={['#ff5639', '#692b38']}
                         />
                     </div>
-                    <div className="typechart_examples">
+                    { <div className="typechart_examples">
                         <Suspense fallback={<ExampleLoading/>} > 
                             <ExamplesContainer typeData={filters} />
                         </Suspense>
-                    </div>
+                    </div>}
                 </div>
             </div>
         </div>

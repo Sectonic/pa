@@ -6,7 +6,7 @@ import { getSession } from "@lib/session";
 
 export const metadata = createMetaData({
   title: 'Academy Apps',
-  description: 'Our own easy to use OPS tools',
+  description: 'Our own suite of personality tools',
   url: '/apps',
 });
 
