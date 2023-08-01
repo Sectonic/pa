@@ -8,7 +8,6 @@ export const SearchInput = ({ input }) => {
     const router = useRouter();
 
     const checkReset = (e) => {
-        console.log(e.key);
         if (e.target.value == "") {
             router.push('/admin/view');
         }

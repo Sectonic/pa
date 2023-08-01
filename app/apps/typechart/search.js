@@ -1,16 +1,26 @@
 "use client";
 
-import { Children, useState } from "react";
+import { Children, useState, useEffect } from "react";
 import { Type512Input } from "@components/type512Input";
 import { useRouter, useSearchParams } from "next/navigation";
 import { checkCorrectType } from "@lib/getTypeData";
 
 const emptyType = {modalities: '', function1: '', function2: '', saviorAnimals: '', animal3: '', animal4: ''}
 
-export const TypeChartSearch = () => {
+const notEmptyType = (type) => ({modalities: type.substring(0,2), function1: type.substring(3,5), function2: type.substring(6,8), saviorAnimals: type.substring(9,11), animal3: type.substring(12,13), animal4: type.substring(14,15)});
+
+export const TypeChartSearch = ({ type }) => {
+    const [paramsType, setParamsType] = useState(type);
     const [error, setError] = useState('');
-    const [Type512, setType512] = useState(emptyType);
+    const [Type512, setType512] = useState(paramsType ? notEmptyType(paramsType) : emptyType);
     const router = useRouter();
+    const params = useSearchParams();
+
+    useEffect(() => {
+        const newType = params.get('type');
+        setParamsType(newType);
+        setType512(newType ? notEmptyType(newType) : emptyType)
+    }, [params.get('type')])
 
     const getFullType = () => `${Type512.modalities} ${Type512.function1}/${Type512.function2} ${Type512.saviorAnimals}/${Type512.animal3}(${Type512.animal4})`;
 

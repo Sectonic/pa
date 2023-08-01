@@ -1,6 +1,7 @@
 "use client";
 
 import { changeAnimals, combineToFunctions } from "@lib/getTypeData";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 String.prototype.replaceCharacterAtIndex = function(index, newCharacter) {
@@ -12,12 +13,20 @@ String.prototype.replaceCharacterAtIndex = function(index, newCharacter) {
 };
 
 export const Coin = ({ keys, value, coin, typeData }) => {
+    const router = useRouter();
 
     const animalType = {
         'Consume': 'Info',
         'Blast': 'Info',
         'Sleep': 'Energy',
         'Play': 'Energy'
+    }
+
+    const oppositeAnimals = {
+        'Blast': 'Consume',
+        'Play': 'Sleep',
+        'Consume': 'Blast',
+        'Sleep': 'Play'
     }
 
     const animNeeds = {
@@ -27,23 +36,34 @@ export const Coin = ({ keys, value, coin, typeData }) => {
         'Sleep': ['Oi', 'Di']
     }
 
+    const saviorAnims = [typeData.animal1, typeData.animal2];
+    const demonAnims = [typeData.animal3, typeData.animal4];
+
+    const getAnimalByNeed = (needs) => Object.keys(animNeeds).find(key => animNeeds[key].every((v, i) => v === needs[i])) || null;
+
     const getEnergySavior = () => {
-        const saviorAnims = [typeData.animal1, typeData.animal2];
         if (saviorAnims.includes('Play')) {
             return 'Play';
-        } else if (saviorAnims.includes('Slee')) {
+        } else if (saviorAnims.includes('Sleep')) {
             return 'Sleep'
+        } else if (demonAnims.includes('Play')) {
+            return 'Sleep';
+        } else if (demonAnims.includes('Sleep')) {
+            return 'Play';
         } else {
             return null;
         }
     }
     
     const getInfoSavior = () => {
-        const saviorAnims = [typeData.animal1, typeData.animal2];
         if (saviorAnims.includes('Consume')) {
             return 'Consume';
         } else if (saviorAnims.includes('Blast')) {
             return 'Blast'
+        } else if (demonAnims.includes('Consume')) {
+            return 'Blast';
+        } else if (demonAnims.includes('Blast')) {
+            return 'Consume';
         } else {
             return null;
         }
@@ -51,8 +71,6 @@ export const Coin = ({ keys, value, coin, typeData }) => {
 
     const coinChanger = {
         oD: (value, type = typeData.type) => {
-            // xx xx/xx xx/x(x)
-            // 0123456789012345
             if (value === 'x') {
                 const funcs = type.substring(3,8);
                 type = type.replace(funcs, 'xx/xx');
@@ -76,11 +94,21 @@ export const Coin = ({ keys, value, coin, typeData }) => {
         },
         deciderNeed: (value, type = typeData.type) => {
             const startingPoint = typeData.oD === 'Decider' ? 3 : 6;
+            if (typeData.observerNeed && value != 'x') {
+                const animalFromNeeds = getAnimalByNeed([typeData.observerNeed, value]);
+                const animals = animalType[animalFromNeeds] === 'Energy' ? changeAnimals(animalFromNeeds, animalFromNeeds, getInfoSavior(), typeData.energyInfo) : changeAnimals(animalFromNeeds, getEnergySavior(), animalFromNeeds, typeData.energyInfo);
+                type = type.replaceCharacterAtIndex(9, animals);
+            }
             type = type.replaceCharacterAtIndex(startingPoint, combineToFunctions(value === 'x' ? null : value, typeData['deciderLetter'] , 'Decider'));
             return type;  
         },
         observerNeed: (value, type = typeData.type) => {
             const startingPoint = typeData.oD === 'Observer' ? 3 : 6;
+            if (typeData.deciderNeed && value != 'x') {
+                const animalFromNeeds = getAnimalByNeed([value, typeData.deciderNeed]);
+                const animals = animalType[animalFromNeeds] === 'Energy' ? changeAnimals(animalFromNeeds, animalFromNeeds, getInfoSavior(), typeData.energyInfo) : changeAnimals(animalFromNeeds, getEnergySavior(), animalFromNeeds, typeData.energyInfo);
+                type = type.replaceCharacterAtIndex(9, animals);
+            }
             type = type.replaceCharacterAtIndex(startingPoint, combineToFunctions(value === 'x' ? null : value, typeData['observerLetter'] , 'Observer'));
             return type;      
         },
@@ -100,12 +128,21 @@ export const Coin = ({ keys, value, coin, typeData }) => {
             }
 
             var animal1 = typeData.animal1;
-            if (animalType[typeData.animal1] === 'Info' && value != typeData.animal1) {
+
+            if (!animal1 && typeData.deciderNeed && typeData.observerNeed) {
+                const newNeeds = [typeData.observerNeed, typeData.deciderNeed];
+                const animalFromNeeds = Object.keys(animNeeds).find(key => animNeeds[key].every((v, i) => v === newNeeds[i])) || null;
+                animal1 = animalFromNeeds; 
+            }
+
+            if ((animal1 && animalType[animal1] === 'Info' && value !== animal1) || (typeData.animal2 && animalType[typeData.animal2] === 'Energy')) {
                 animal1 = value;
                 const needs = animNeeds[value];
                 type = coinChanger.observerNeed(needs[0]);
                 type = coinChanger.deciderNeed(needs[1], type);
             }
+
+            if (!animal1) return type;
 
             const animals = changeAnimals(animal1, getEnergySavior(), value, typeData.energyInfo);
             type = type.replaceCharacterAtIndex(9, animals);
@@ -120,24 +157,37 @@ export const Coin = ({ keys, value, coin, typeData }) => {
                 return type.replaceCharacterAtIndex(9, animals);
             }
 
-            if (animalType[typeData.animal1] === 'Energy' && value != typeData.animal1) {
+            var animal1 = typeData.animal1;
+
+            if (!animal1 && typeData.deciderNeed && typeData.observerNeed) {
+                const newNeeds = [typeData.observerNeed, typeData.deciderNeed];
+                const animalFromNeeds = getAnimalByNeed(newNeeds);
+                animal1 = animalFromNeeds; 
+            }
+
+            if ((animal1 && animalType[animal1] === 'Energy' && value !== animal1) || (typeData.animal2 && animalType[typeData.animal2] === 'Info')) {
                 animal1 = value;
                 const needs = animNeeds[value];
                 type = coinChanger.observerNeed(needs[0]);
                 type = coinChanger.deciderNeed(needs[1], type);
             }
 
+            if (!animal1) return type;
+
             const animals = changeAnimals(animal1, value, getInfoSavior(), typeData.energyInfo);
             type = type.replaceCharacterAtIndex(9, animals);
             return type;
+
         },
-
-
+        energyInfo: (value, type = typeData.type ) => {
+            if (value === 'x') {
+                return type.replaceCharacterAtIndex(12, 'x(x)');
+            }
+            const energyAnim = oppositeAnimals[getEnergySavior()];
+            const infoAnim = oppositeAnimals[getInfoSavior()];
+            return type.replaceCharacterAtIndex(12, `${value === 'Energy' ? energyAnim[0] : infoAnim[0]}(${value === 'Energy' ? infoAnim[0] : energyAnim[0]})`);
+        },
     }
-
-    useEffect(() => {
-        console.log(coinChanger.infoAnimal('x'));
-    }, [])
 
     const imagesObj = {
         Observer: '/img/icons/partial/needs/o.png',
@@ -163,25 +213,23 @@ export const Coin = ({ keys, value, coin, typeData }) => {
     }
 
     const changeCoin = (e) => {
-
-        if (e.target.className.includes('typechart_coin-intermediate')) {
-            
-        }
-
-
-
+        const changedType = coinChanger[coin](e.target.innerHTML);
+        router.push('/apps/typechart?' + new URLSearchParams({type: changedType}) + '#container');
     }
 
     return (
         <div className="typechart_coin_container">
-            {keys.map(key, i => {
-                const saviorDemon = value === key ? 'savior' : 'demon';
-                return (
-                    <div className={`typechart_coin-${saviorDemon}`} key={i}>
-                        {key}
-                    </div>
-                )
-            })}
+            <div className={`typechart_coin-${value === keys[0] ? 'savior' : 'demon'}`}>
+                <img src={imagesObj[keys[0]]}/>
+                <div className="typechart_coin-btn" onClick={value === keys[0] ? null : changeCoin}>{keys[0]}</div>
+            </div>
+            <div className={`typechart_coin-intermediate ${!keys.includes(value) ? 'typechart_coin-none' : ''}`} onClick={!keys.includes(value) ? null : changeCoin}>
+                x
+            </div>
+            <div className={`typechart_coin-${value === keys[1] ? 'savior' : 'demon'}`}>
+                <img src={imagesObj[keys[1]]}/>
+                <div className="typechart_coin-btn" onClick={value === keys[1] ? null : changeCoin}>{keys[1]}</div>
+            </div>
         </div>
     )
 }

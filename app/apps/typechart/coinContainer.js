@@ -2,23 +2,32 @@ import { Children, cloneElement } from "react"
 
 export const CoinContainer = ({ children, typeData }) => {
 
+    const saviorAnims = [typeData.animal1, typeData.animal2];
+    const demonAnims = [typeData.animal3, typeData.animal4];
+
     const getEnergySavior = () => {
-        const saviorAnims = [typeData.animal1, typeData.animal2];
         if (saviorAnims.includes('Play')) {
             return 'Play';
-        } else if (saviorAnims.includes('Slee')) {
+        } else if (saviorAnims.includes('Sleep')) {
             return 'Sleep'
+        } else if (demonAnims.includes('Play')) {
+            return 'Sleep';
+        } else if (demonAnims.includes('Sleep')) {
+            return 'Play';
         } else {
             return null;
         }
     }
     
     const getInfoSavior = () => {
-        const saviorAnims = [typeData.animal1, typeData.animal2];
         if (saviorAnims.includes('Consume')) {
             return 'Consume';
         } else if (saviorAnims.includes('Blast')) {
             return 'Blast'
+        } else if (demonAnims.includes('Consume')) {
+            return 'Blast';
+        } else if (demonAnims.includes('Blast')) {
+            return 'Consume';
         } else {
             return null;
         }

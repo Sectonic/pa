@@ -6,7 +6,7 @@ export default function Stack({ data }) {
         return [data.animal1, data.animal2].includes(animal);
     }
 
-    function checkStack(animal) {
+    function checkStacking(animal) {
         let checkIndex = animal_stack.indexOf(animal) + 1;
         return checkIndex
     }
@@ -184,17 +184,16 @@ export default function Stack({ data }) {
     }
 
     var anim_all = [];
-    need_grant.forEach(current_grant => {
-        let any_null = !current_grant[0] || !current_grant[1];
-        if (!any_null) {
+    need_grant.forEach((current_grant, i) => {
+        if (current_grant[0] && current_grant[1]) {
             let current_animal = animal_options[current_grant[0]][current_grant[1]];
-            let current_stack = checkStack(current_animal);
-            let current_savior = checkSavior(current_animal);
+            let current_stack = i + 1;
             if (current_stack != 0) {
                 anim_all.push({
-                    'animal': current_animal,
-                    'stack': current_stack,
-                    'savior': current_savior
+                    animal: current_animal,
+                    stack: current_stack,
+                    savior: checkSavior(current_animal),
+                    size: checkStacking(current_animal)
                 })
             }
         } else {
@@ -256,10 +255,12 @@ export default function Stack({ data }) {
                 3: 'fourth_logo'
             }
         }
-        var current_anim = data.type !== 'xx xx/xx xx/x(x)' ? anim_all.find(anim => anim.stack === anim_num + 1) : null;
-        if (current_anim) {
-            let bracket_option = bracket_options[current_anim.stack];
-            let stack_option = stack_options[current_anim.stack];
+
+        const all_nulls = anim_all.flat().every(entry => entry === null);
+        var current_anim = !all_nulls ? anim_all.find(anim => anim.stack === anim_num + 1) : null;
+        if (current_anim && current_anim.size != 0) {
+            let bracket_option = bracket_options[current_anim.size];
+            let stack_option = stack_options[current_anim.size];
             let animal_letter = current_anim.animal[0];
             let stack_placement = current_anim.stack;
             let bracket_placement = bracket_placements.bracket[anim_num];
@@ -333,9 +334,33 @@ export default function Stack({ data }) {
                         } else if (data.observerNeed) {
                             current_function = savior_demon == 'border-func' ? data.observerNeed.toLowerCase() : opposites.needs[data.observerNeed];
                             path_location = '/img/icons/partial/needs/';
+                            masculine_feminine = data.sensoryModality ? (
+                                data.observerAxis ? (
+                                    data.observerAxis === 'Se-Ni' ? (
+                                        data.sensoryModality === 'mS' ? (
+                                            current_function === 'oe' ? 'm_' : 'f_'
+                                        ) : (
+                                            current_function === 'oe' ? 'f_' : 'm_'
+                                        )
+                                    ) : (
+                                        data.sensoryModality === 'mS' ? (
+                                            current_function === 'oe' ? 'f_' : 'm_'
+                                        ) : (
+                                            current_function === 'oe' ? 'm_' : 'f_'
+                                        )
+                                    )
+                                ) : ""
+                            ) : "";
                         } else if (data.observerLetter) {
                             current_function = savior_demon == 'border-func' ? data.observerLetter.toLowerCase() : opposites.letters[data.observerLetter];
                             path_location = '/img/icons/partial/letters/';
+                            masculine_feminine = data.sensoryModality ? (
+                                data.sensoryModality === 'mS' ? (
+                                        current_function === 'n' ? 'f_' : 'm_'
+                                    ) : (
+                                        current_function === 'n' ? 'm_' : 'f_'
+                                    )
+                                ) : "";
                         } else {
                             path_location = "/img/icons/partial/";
                             current_function = "blank";
@@ -356,9 +381,9 @@ export default function Stack({ data }) {
                             }
                             path_location = '/img/icons/partial/needs/';
                         } else if (data.deciderLetter) {
-                            masculine_feminine = "";
                             current_function = savior_demon == 'border-func' ? data.deciderLetter.toLowerCase() : opposites.letters[data.deciderLetter];
                             path_location = '/img/icons/partial/letters/';
+                            masculine_feminine = "";
                         } else {
                             path_location = "/img/icons/partial/";
                             current_function = "blank";

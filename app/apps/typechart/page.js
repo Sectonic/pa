@@ -63,8 +63,8 @@ export default async function TypeTool({ searchParams }) {
                     </div>
                 </div>
             </div>
-            <div className="typechart_container">
-                <TypeChartSearch />
+            <div className="typechart_container" id="container">
+                <TypeChartSearch type={searchParams.type} />
                 <div className="typechart_diagrams_container">
                     <div className="stack_container typechart_stack">
                         <Stack data={filters} />

@@ -29,11 +29,8 @@ export const getTypeData = (typeString, includeNull = true) => {
     for (const [name, value] of Object.entries(data)) {
         if (value) {
             let current = TypeInfo[name][value];
-            if (includeNull || !['sensoryModality', 'deModality'].includes(name)) {
+            if (current && (includeNull || !['sensoryModality', 'deModality'].includes(name))) {
                 current.forEach(coin => {
-                    if (coin.name === "Decider" || coin.value === "Decider") {
-                        console.log(coin, name, value);
-                    }
                     temp[coin.name] = coin.value;
                 });
             }
@@ -141,11 +138,12 @@ export const changeAnimals = (anim1, energyAnim, infoAnim, energyInfo) => {
         'Consume': 'Blast',
         'Blast': 'Consume',
         'Sleep': 'Play',
-        'Play': 'Sleep'   
+        'Play': 'Sleep',  
+        'None': 'x' 
     }
 
-    const anim2 = animalType[anim1] === 'Energy' ? infoAnim : energyAnim;
-    const demons = [oppositeAnimals[anim1], oppositeAnimals[anim2]];
+    const anim2 = anim1 ? (animalType[anim1] === 'Energy' ? infoAnim : energyAnim) : null;
+    const demons = [oppositeAnimals[anim1 || 'None'], oppositeAnimals[anim2 || 'None']];
     var anim3, anim4;
 
     if (animalType[demons[0]] !== energyInfo) {
@@ -156,6 +154,6 @@ export const changeAnimals = (anim1, energyAnim, infoAnim, energyInfo) => {
         anim3 = demons[0];
     }
     
-    return `${anim1[0]}${anim2[0]}/${anim3[0]}(${anim4[0]})`
+    return `${anim1[0]}${anim2 ? anim2[0] : 'x'}/${anim3[0]}(${anim4[0]})`
 
 }
