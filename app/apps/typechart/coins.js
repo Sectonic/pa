@@ -174,17 +174,14 @@ export const Coin = ({ keys, value, coin, typeData }) => {
 
     return (
         <div className="typechart_coin_container">
-            <div className={`typechart_coin-${value === keys[0] ? 'savior' : 'demon'}`}>
-                <img src={imagesObj[keys[0]]}/>
-                <div className="typechart_coin-btn" onClick={value === keys[0] ? null : changeCoin}>{keys[0]}</div>
-            </div>
-            <div className={`typechart_coin-intermediate ${!keys.includes(value) ? 'typechart_coin-none' : ''}`} onClick={!keys.includes(value) ? null : changeCoin}>
-                x
-            </div>
-            <div className={`typechart_coin-${value === keys[1] ? 'savior' : 'demon'}`}>
-                <img src={imagesObj[keys[1]]}/>
-                <div className="typechart_coin-btn" onClick={value === keys[1] ? null : changeCoin}>{keys[1]}</div>
-            </div>
+            {keys.map(key, i => {
+                const saviorDemon = value === key ? 'savior' : 'demon';
+                return (
+                    <div className={`typechart_coin-${saviorDemon}`} key={i}>
+                        {key}
+                    </div>
+                )
+            })}
         </div>
     )
 }
