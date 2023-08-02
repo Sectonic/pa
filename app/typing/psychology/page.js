@@ -44,14 +44,14 @@ function psychology() {
               </div>
             </div>
             <div className="section_img">
-              <img src="/img/learn/typing/psychology/confusion.png" alt="" />
+              <img src="/img/learn/typing/obstacles/confusion.png" alt="" />
             </div>
           </div>
         </div>
         <div className="section section_images-in">
           <div className="section_body reverse_body">
           <div className="section_img">
-              <img src="/img/learn/typing/psychology/success.png" alt="" />
+              <img src="/img/learn/typing/obstacles/success.png" alt="" />
             </div>
             <div className="section_text multiple_paragraphs">
               <div className="multi_paragraph">

@@ -23,14 +23,17 @@ function Typing() {
                 </Icon>
           </IconContainer>
           <IconContainer>
-          <Icon img='typing/home/compass' name='Principles' direction='right'>
-                    <IconDropdown title="Principles">
+          <Icon img='typing/home/compass' name='Mindset' direction='right'>
+                    <IconDropdown title="Mindset">
                     <DropdownItem src="learn/typing/home/shield" title="Truth" link="/typing/truth" />
                     </IconDropdown>
                 </Icon>
-                <Icon img='typing/home/flame' name='Psychology' direction='left'>
-                    <IconDropdown title="Psychology">
+                <Icon img='typing/home/flame' name='Obstacles' direction='left'>
+                    <IconDropdown title="Obstacles">
                     <DropdownItem src="learn/typing/home/flame" title="Psychology" link="/typing/psychology" />
+                    <DropdownItem src="learn/typing/home/perception" title="Perception" link="/typing/perception" />
+                    <DropdownItem src="learn/typing/home/identity" title="Identity" link="/typing/identity" />
+                    <DropdownItem src="learn/typing/home/biases" title="Biases" link="/typing/biases" />
                     </IconDropdown>
                 </Icon>
           </IconContainer>
