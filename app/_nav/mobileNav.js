@@ -21,16 +21,16 @@ export default function MobileNav({ backgroundMobile, mobileMenuOut, navMobile, 
                         <img src='/img/main/learn.png'/>
                       </div>
                     </Link>
-                    <Link href='/typing'>
+                    <Link href='/apps/typechart'>
                       <div className={`mobile_menu-link ${path[1] == 'typing' && 'mobile_menu-link--selected'}`}>
-                        <div>Typing</div>
-                        <img src='/img/main/typing.png'/>
+                        <div>TypeChart</div>
+                        <img src='/img/main/type_tool.png'/>
                       </div>
                     </Link>
                     <Link href='/apps'>
                       <div className={`mobile_menu-link ${path[1] == 'apps' && 'mobile_menu-link--selected'}`}>
-                        <div>Apps</div>
-                        <img src='/img/main/tools.png'/>
+                        <div>TypeSearch</div>
+                        <img src='/img/main/database.png'/>
                       </div>
                     </Link>
                     <Link href='/resources'>
