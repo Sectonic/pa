@@ -1,6 +1,6 @@
 
 
-export const AnimalDiagram = ({ data }) => {
+export const AnimalDiagram = ({ data, noSocial }) => {
 
     var animal_stack = [data.animal1, data.animal2, data.animal3, data.animal4];
     var decider_functions = ['fe', 'te', 'fi', 'ti'];
@@ -124,10 +124,14 @@ export const AnimalDiagram = ({ data }) => {
 
     return (
         <div className="animals_diagram outline-gray">
-            {data.social ? (
-                <img src={`/img/icons/social/${data.social}.png`} className='social_type' />
-            ) : (
-                <img src='/img/icons/partial/social/social_blank.png' className='social_type' />
+            {!noSocial && (
+              <>
+                {data.social ? (
+                    <img src={`/img/icons/social/${data.social}.png`} className='social_type' />
+                ) : (
+                    <img src='/img/icons/partial/social/social_blank.png' className='social_type' />
+                )}
+              </>
             )}
             <div className='animals_diagram-container'>
                 <div className="animal_diagram-names">

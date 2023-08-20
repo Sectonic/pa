@@ -11,6 +11,11 @@ import { AnimalDiagram } from "@components/type_popup/animal_diagram";
 import { Coin } from "./coins";
 import { Diagram } from "./diagram";
 import { CoinContainer } from "./coinContainer";
+import { extroversionAnalytics, gatherAnalytics, intuitionAnalytics, masculinityAnalytics, testForEveryType, thinkingAnalytics, getCoin } from "./analytics";
+import { TypePopup, PopupLoading } from "@components/type_popup/typePopup";
+import db from "@lib/prisma/client";
+import * as fs from 'fs';
+import ToTypeSearchBtn from "./toTypeSearch";
 
 export const metadata = createMetaData({
   title: 'TypeTool',
@@ -20,6 +25,32 @@ export const metadata = createMetaData({
 });
 
 export default async function TypeTool({ searchParams }) {
+
+    // const allTypes = await db.type.findMany();
+    // const percentages = Array.from({ length: 100 }, (_, i) => (i + 1) * 6.25).filter(num => num <= 100);
+    // const percentageCounter = {};
+    // allTypes.forEach(type => {
+    //   const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
+    //   if (!incompletes.some(incomplete => type.type.includes(incomplete))) {
+    //     const coins = ['extroversion', 'openness', 'intuition', 'thinking', 'masculinity'];
+    //     coins.forEach(coin => {
+    //         const analytics = getCoin(coin, type.type);
+    //         percentages.forEach(p => {
+    //             const currentPercentage = analytics.value[0];
+    //             const lowerP = p - 6.25;
+    //             if (currentPercentage >= lowerP && currentPercentage < p) {
+    //                 if (!percentageCounter.hasOwnProperty(coin)) percentageCounter[coin] = {};
+    //                 if (percentageCounter[coin].hasOwnProperty(p)) percentageCounter[coin][p] += 1
+    //                 else percentageCounter[coin][p] = 1
+    //             }
+    //         })
+    //     })
+    //   }
+    // })
+    // fs.writeFile('public/json/typeAnalytics.json', JSON.stringify(percentageCounter), (err) => console.log(err));
+
+    const incomplete_parts = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
+    const incomplete = searchParams.type ? incomplete_parts.some(part => searchParams.type.includes(part)) : true;
     
     function removeEmpty(obj) {
         return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
@@ -37,20 +68,32 @@ export default async function TypeTool({ searchParams }) {
 
     const colorObj = {
         Extroversion: {
+            title: 'Introvert/Extrovert',
             name: 'extrovertIntrovert',
             Extrovert: 'type_red',
             Introvert: 'type_blue'
         },
         Oe: {
-
+            title: 'Oi/Oe',
+            name: 'observerNeed',
+            Oe: 'type_red',
+            Oi: 'type_blue'
         },
         De: {
-
+            title: 'Di/De',
+            name: 'deciderNeed',
+            De: 'type_red',
+            Di: 'type_blue'
         }
     }
 
     return (
         <div className="main">
+            {searchParams.popup_id && (
+                <Suspense fallback={<PopupLoading/>}>
+                    <TypePopup popup_id={searchParams.popup_id} />
+                </Suspense>
+            )}
             <div className="banner banner_blue banner_search">
                 <div className='banner_logo'>
                     <div className="banner_icon">
@@ -66,12 +109,6 @@ export default async function TypeTool({ searchParams }) {
             <div className="typechart_container" id="container">
                 <TypeChartSearch type={searchParams.type} />
                 <div className="typechart_diagrams_container">
-                    <div className="stack_container typechart_stack">
-                        <Stack data={filters} />
-                    </div>
-                    <div className="animal_container typechart_animal">
-                        <AnimalDiagram data={filters} />
-                    </div>
                     <CoinContainer typeData={filters} >
                         <Coin coin={'oD'} keys={['Observer', 'Decider']} />
                         <Coin coin={'deciderNeed'} keys={['Di', 'De']} />
@@ -84,11 +121,73 @@ export default async function TypeTool({ searchParams }) {
                         <Coin coin={'sensoryModality'} keys={['fS', 'mS']} />
                         <Coin coin={'deModality'} keys={['fDe', 'mDe']} />
                     </CoinContainer>
+                    <div className="typechart_stack-animal_container">
+                        <div className="stack_container typechart_stack">
+                            <Stack data={filters} />
+                        </div>
+                        <div className="animal_container typechart_animal">
+                            <AnimalDiagram data={filters} noSocial={true} />
+                        </div>
+                    </div>
+                    <div className="typechart_spectrumview typechart_diagrams">
+                        <div className="typechart_spectrumview_title">
+                            <div className="typechart_title_small">Trait Spectrums</div>
+                            <div className="typechart_subtitle_small">Displays your type's percentile within each personality trait. The graph is highlighted based on this percentile.</div>
+                        </div>
+                        { incomplete ? (
+                            <div className="spectrumview_incomplete">
+                                <div className="spectrumview_title">Incomplete Type</div>
+                                <div className="spectrumview_subtitle">Incomplete types currently do not have trait spectrums. Please input a full 512 type to see its spectrums.</div>
+                                <img src="/img/typechart/incomplete.png" className="spectrumview_incomplete-banner" />
+                                <div className="spectrumview_incomplete-banner__bg"></div>
+                            </div>
+                        ) : (
+                            <>
+                                <Diagram
+                                    name="Extroversion"
+                                    src="/img/typechart/de.png"
+                                    {...extroversionAnalytics(searchParams.type)}
+                                    colors={['#288cff', '#ff5639']}
+                                />
+                                <Diagram
+                                    name="Openness"
+                                    src="/img/typechart/oe.png"
+                                    {...gatherAnalytics(searchParams.type)}
+                                    colors={['#288cff', '#ff5639']}
+                                    total={512}
+                                />
+                                <Diagram
+                                    name="Intuition"
+                                    src="/img/typechart/n.png"
+                                    {...intuitionAnalytics(searchParams.type)}
+                                    // colors={['#aff457', '#ffc04f']}
+                                    colors={['#288cff', '#ff5639']}
+                                    total={128}
+                                />
+                                <Diagram
+                                    name="Thinking"
+                                    src="/img/typechart/t.png"
+                                    {...thinkingAnalytics(searchParams.type)}
+                                    // colors={['#ff4467', '#2dc3e2']}
+                                    colors={['#288cff', '#ff5639']}
+                                    total={128}
+                                />
+                                <Diagram
+                                    name="Masculinity"
+                                    src="/img/typechart/mDe.png"
+                                    {...masculinityAnalytics(searchParams.type)}
+                                    // colors={['#e332ba', '#182ed6']}
+                                    colors={['#288cff', '#ff5639']}
+                                    total={512}
+                                />
+                            </>
+                        )}
+                    </div>
                 </div>
                 <div className="spreadsheet_container">
                     <div className="spreadsheet_banner">
                         <div className="spreadsheet_option">
-                            Introvert/Extrovert
+                            {searchParams.filter ? colorObj[searchParams.filter].title : 'Introvert/Extrovert'}
                             <img src="/img/main/section_btn.png" />
                             <div className="spreadsheet_option-dropdown">
                                 <SpreadSheetBtn val="Extroversion">Introvert/Extrovert</SpreadSheetBtn>
@@ -109,6 +208,10 @@ export default async function TypeTool({ searchParams }) {
                                             const giveCurve = () => {
                                                 var returnedClass = `spreadsheet_type ${type.invisible ? 'invisible_type' : ''}`;
                                                 returnedClass += ' ' + colorObj[typecolor_filter][filteringValue];
+
+                                                if (!searchParams.type || searchParams.type === 'xx xx/xx xx/x(x)') {
+                                                    returnedClass += ' invisible_type';
+                                                }
                                                 
                                                 if (index === 0) {
                                                     return returnedClass + ' spreadsheet_type-top';
@@ -127,56 +230,17 @@ export default async function TypeTool({ searchParams }) {
                         })}
                     </div>
                 </div>
-                <div className="typechart_split_container">
-                    <div className="typechart_diagrams">
-                        <Diagram
-                            name="Extroversion"
-                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
-                            value={65.43}
-                            rank={434}
-                            colors={['#ff5639', '#692b38']}
-                        />
-                        <Diagram
-                            name="Gather"
-                            src="/img/icons/Needs/oe.png"
-                            value={65.43}
-                            rank={434}
-                            colors={['#ff5639', '#692b38']}
-                        />
-                        <Diagram
-                            name="Extroversion"
-                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
-                            value={65.43}
-                            rank={434}
-                            colors={['#ff5639', '#692b38']}
-                        />
-                        <Diagram
-                            name="Extroversion"
-                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
-                            value={65.43}
-                            rank={434}
-                            colors={['#ff5639', '#692b38']}
-                        />
-                        <Diagram
-                            name="Extroversion"
-                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
-                            value={65.43}
-                            rank={434}
-                            colors={['#ff5639', '#692b38']}
-                        />
-                        <Diagram
-                            name="Extroversion"
-                            src="/img/learn/ops/advanced/extroversion/extrovert.png"
-                            value={65.43}
-                            rank={434}
-                            colors={['#ff5639', '#692b38']}
-                        />
-                    </div>
-                    { <div className="typechart_examples">
-                        <Suspense fallback={<ExampleLoading/>} > 
-                            <ExamplesContainer typeData={filters} />
-                        </Suspense>
-                    </div>}
+                <div className="typechart_examples-title">Type Examples</div>
+                {!incomplete && (
+                    <>
+                        <div className="typechart_examples-subtitle">Want more examples?</div>
+                        <ToTypeSearchBtn />
+                    </>
+                )}
+                <div className="typechart_examples">
+                    <Suspense fallback={<ExampleLoading/>} > 
+                        <ExamplesContainer typeData={filters} />
+                    </Suspense>
                 </div>
             </div>
         </div>

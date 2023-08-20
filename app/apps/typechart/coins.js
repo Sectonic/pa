@@ -3,6 +3,7 @@
 import { changeAnimals, combineToFunctions } from "@lib/getTypeData";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { testForEveryType } from "./analytics";
 
 String.prototype.replaceCharacterAtIndex = function(index, newCharacter) {
     if (index < 0 || index >= this.length) {
@@ -14,6 +15,11 @@ String.prototype.replaceCharacterAtIndex = function(index, newCharacter) {
 
 export const Coin = ({ keys, value, coin, typeData }) => {
     const router = useRouter();
+
+    // useEffect(() => {
+    //     console.log(testForEveryType('masculinity'));
+    // }, [])
+
 
     const animalType = {
         'Consume': 'Info',

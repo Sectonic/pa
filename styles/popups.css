@@ -332,8 +332,28 @@
 .animals_analysis {
   margin-top: 20px;
   background-color: var(--dark-grey);
-  border-radius: 15px;
+  border-radius: 50px;
   height: calc(20% - 15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  transition: .2s ease;
+  cursor: pointer;
+}
+
+.animals_analysis:hover {
+  background-color: var(--light-grey);
+}
+
+.animals_analysis-incomplete {
+  background-color: var(--dark-grey);
+}
+
+.animals_analysis img {
+  width: 30px;
+  height: 30px;
 }
 
 .animal_diagram-names {

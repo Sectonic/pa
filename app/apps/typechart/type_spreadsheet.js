@@ -137,6 +137,15 @@ const allTypes = [
     "Te/Se PB/C(S)"
 ]
 
+const everyType = [];
+allTypes.forEach(type => {
+    const modalities = ["FF", "FM", "MF", "MM"];   
+    modalities.forEach(modality => {
+        everyType.push(modality + " " + type)
+    })
+})
+export { everyType };
+
 function sortType (string) {
     let animal_options = {
         'P': 'Play',

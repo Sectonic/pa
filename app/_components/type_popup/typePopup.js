@@ -6,6 +6,7 @@ import Link from "next/link";
 import { TypePopupClose } from "./typePopupClose";
 import { getType } from "@lib/typesearch";
 import { AnimalDiagram } from "./animal_diagram";
+import ToTypeChart from "./ToTypeChart";
 
 const TypePopupTemplate = ({ children }) => (
   <div className="popup_bg animate__animated animate__fadeIn">
@@ -29,6 +30,8 @@ export const PopupLoading = () => (
 export async function TypePopup({ popup_id }) {
 
   const data = await getType(Number(popup_id));
+  const incomplete_parts = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
+  const incomplete = incomplete_parts.some(part => data.type.includes(part));
 
   return (
     <TypePopupTemplate>
@@ -62,9 +65,14 @@ export async function TypePopup({ popup_id }) {
             </div>
             <div className="animal_container">
                 <AnimalDiagram data={data} />
-                <div className="animals_analysis outline-gray">
-                </div>
-              </div>
+                {incomplete ? (
+                  <div className="animals_analysis animals_analysis-incomplete">
+                    Unavaliable
+                  </div>
+                ) : (
+                  <ToTypeChart type={data.type} />
+                )}
+            </div>
         </div>
       </div>
     </TypePopupTemplate>

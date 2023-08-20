@@ -1,10 +1,9 @@
 import { getExamples } from "@lib/typesearch";
 import { Examples } from "./examples";
-import { removeEmpty } from "@components/config";
 
 export const ExampleLoading = () => (
     <>
-        {[...Array(6)].map((index) =>
+        {[...Array(9)].map((index) =>
             <div key={index} className="db_card outline-gray">
                 <div className="db_card-img db_card-img-empty load_wraper"><div className="activity"></div></div>
                 <div className="db_card-text">

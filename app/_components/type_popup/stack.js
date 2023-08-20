@@ -262,7 +262,7 @@ export default function Stack({ data }) {
             let bracket_option = bracket_options[current_anim.size];
             let stack_option = stack_options[current_anim.size];
             let animal_letter = current_anim.animal[0];
-            let stack_placement = current_anim.stack;
+            let stack_placement = current_anim.size;
             let bracket_placement = bracket_placements.bracket[anim_num];
             let logo_placement = bracket_placements.logo[anim_num];
             return (

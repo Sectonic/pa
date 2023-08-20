@@ -315,6 +315,12 @@
     padding: 20px;
 }
 
+@media screen and (max-width: 1200px) {
+    .adminview_container {
+        width: 90%;
+    }
+}
+
 .adminview-input {
     margin: 20px auto;
     margin-bottom: 30px;

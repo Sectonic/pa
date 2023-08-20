@@ -9,6 +9,7 @@
 
 .typechart_container {
     max-width: 1400px;
+    padding: 0 25px;
     margin: 0 auto;
 }
 
@@ -57,7 +58,7 @@
     position: absolute;
     top: 30px;
     left: -10px;
-    width: 100%;
+    width: max-content;
     background-color: var(--dark-grey);
     z-index: 10;
     padding: 10px;
@@ -147,22 +148,6 @@
     gap: 20px;
 }
 
-.typechart_search-submit {
-    background-color: var(--light-grey);
-    padding: 7px 10px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.typechart_search-submit img {
-    width: 15px;
-}
-
 .typechart_search input {
     background-color: var(--dark-grey);
     border: 3px solid var(--light-grey);
@@ -212,15 +197,30 @@
     margin-top: 20px;
 }
 
+.typechart_stack-animal_container {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .typechart_stack {
-    flex-basis: calc(100%/3);
+    width: 100%;
     border-radius: 10px;
+    height: 380px;
+}
+
+.typechart_stack > div {
+    scale: 1.16;
+    margin-left: 0;
 }
 
 .typechart_animal {
-    flex-basis: calc(100%/3);
     width: 100%;
     border-radius: 10px;
+    flex-grow: 1;
+    padding: 15px 0;
+    background-color: var(--dark-grey);
 }
 
 .typechart_animal .animals_diagram {
@@ -234,15 +234,22 @@
 }
 
 .typechart_coins {
-    flex-basis: calc(100%/3);
+    flex-basis: 30%;
     padding: 20px;
     background-color: var(--dark-grey);
     border-radius: 15px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typechart_coins-center-wrapper {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 10px;
-    overflow-y: auto;
-    max-height: 350px;
 }
 
 .typechart_coin_container {
@@ -333,20 +340,28 @@
     margin-top: 20px;
 }
 
-.typechart_split_container > div {
-    flex-basis: 50%;
+.typechart_spectrumview {
+    flex-basis: 30%;
     display: flex;
     align-self: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
+    overflow-y: auto;
+    max-height: 693px;
 }
 
-.typechart_diagrams {
-    justify-content: flex-end;
+.typechart_spectrumview::-webkit-scrollbar {
+    width: 3px;
 }
 
 .typechart_examples {
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+
 }
 
 .typechart_diagram {
@@ -359,10 +374,10 @@
 .typechart_diagram-title {
     display: flex;
     justify-content: flex-start;
-    padding: 0 10px;
+    padding: 0 8px;
     align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 8px;
+    margin-top: 8px;
     font-weight: 600;
     font-size: 17px;
 }
@@ -372,6 +387,7 @@
     border-radius: 100px;
     padding: 5px;
     background-color: var(--light-grey);
+    filter: brightness(90%)
 }
 
 .typechart_diagram-value {
@@ -379,6 +395,11 @@
     margin: 5px auto;
     font-size: 30px;
     font-weight: 700;
+}
+
+.typechart_diagram_value__multiple {
+    font-size: 20px;
+    margin: 11px 0;
 }
 
 .typechart_diagram-desc {
@@ -393,7 +414,7 @@
     height: 85px;
     width: calc(100% - 20px);
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -401,38 +422,122 @@
 }
 
 .typechart_diagram-graph > div {
-    flex-basis: 10%;
+    width: 5px;
     background-color: white;
-    width: 100%;
     border-radius: 30px;
-    opacity: .8;
-}
-
-.typechart_diagram-bar-10 {
-    height: 20px;
-}
-
-.typechart_diagram-bar-20 {
-    height: 35px;
-}
-
-.typechart_diagram-bar-30 {
-    height: 60px;
-}
-
-.typechart_diagram-bar-40 {
-    height: 70px;
-}
-
-.typechart_diagram-bar-50 {
-    height: 85px;
 }
 
 .typechart_diagram-graph__bottom {
     width: calc(100% - 20px);
     margin: 3px auto;
+    margin-top: 6px;
     display: flex;
     justify-content: space-between;
     font-size: 10px;
+    font-weight: 400;
+}
+
+.typechart_title_small {
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.typechart_subtitle_small {
+    color: hsla(0,0%,100%,.555);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.typechart_spectrumview_title {
+    flex-basis: calc(100% - 48px);
+    background-color: var(--dark-grey);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.typechart_examples-title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.typechart_examples-subtitle {
+    text-align: center;
+    color: hsla(0,0%,100%,.555);
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.typechart_examples-btn {
+    background-color: var(--light-grey);
+    padding: 7px 10px;
+    border-radius: 15px;
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.typechart_examples-btn:hover {
+    background-color: var(--light-purple);
+}
+
+.typechart_examples-btn img {
+    width: 15px;
+}
+
+.spectrumview_incomplete {
+    flex-basis: calc(100% - 48px);
+    padding: 20px;
+    background-color: var(--dark-grey);
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.spectrumview_incomplete-banner {
+    position: absolute;
+    width: 300px;
+    border-radius: 13px;
+    bottom: -15px;
+    right: -15px;
+    opacity: .8;
+    z-index: 1;
+}
+
+.spectrumview_incomplete-banner__bg {
+    background-color: var(--purple-black);
+    position: absolute;
+    width: 330px;
+    height: 425px;
+    border-radius: 13px;
+    bottom: -35px;
+    right: -15px;
+    opacity: .4;
+    z-index: 0;  
+}
+
+.spectrumview_title {
+    z-index: 1;
+    font-size: 25px;
+    font-weight: 800;
+    position: relative;
+}
+
+.spectrumview_subtitle {
+    width: 75%;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
     font-weight: 400;
 }

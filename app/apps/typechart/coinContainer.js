@@ -45,9 +45,15 @@ export const CoinContainer = ({ children, typeData }) => {
 
     return (
         <div className="typechart_coins">
-            {Children.map(children, (child) => {
-                return cloneElement(child, { typeData, value: ['infoAnimal', 'energyAnimal'].includes(child.props.coin) ? sortSaviorAnimals(child.props.coin) : typeData[child.props.coin] })
-            })}
+            <div className="typechart_coins-center-wrapper">
+                <div>
+                    <div className="typechart_title_small">Coin Checklist</div>
+                    <div className="typechart_subtitle_small">Click a coin to change the type.</div>
+                </div>
+                {Children.map(children, (child) => {
+                    return cloneElement(child, { typeData, value: ['infoAnimal', 'energyAnimal'].includes(child.props.coin) ? sortSaviorAnimals(child.props.coin) : typeData[child.props.coin] })
+                })}
+            </div>
         </div>
     );
 }
