@@ -12,7 +12,7 @@
 }
 
 .db_card {
-    width: 175px;
+    width: 160px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -115,7 +115,7 @@
 }
 
 .db_card-text h3 {
-    font-size: 14px;
+    font-size: 12px;
     width: 160px;
     overflow: hidden;
     text-overflow: ellipsis;

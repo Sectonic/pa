@@ -24,13 +24,22 @@ export default function SideNav(props) {
                 <div className='tool_tip'>Learn</div>
             </li>
           </Link>
-          <Link href="/apps">
-            <li className={props.section === "apps" ? "selected_nav" : undefined}>
+          <Link href="/apps/typechart">
+            <li className={props.section === "typetool" ? "selected_nav" : undefined}>
                 <img
-                  src={"/img/main/tools.png"}
+                  src={"/img/main/type_tool.png"}
                   alt="tools icon"
                 />
-                <div className='tool_tip'>Apps</div>
+                <div className='tool_tip'>TypeChart</div>
+            </li>
+          </Link>
+          <Link href="/apps/typesearch">
+            <li className={props.section === "database" ? "selected_nav" : undefined}>
+                <img
+                  src={"/img/main/database.png"}
+                  alt="tools icon"
+                />
+                <div className='tool_tip'>TypeSearch</div>
             </li>
           </Link>
           <Link href="/resources">

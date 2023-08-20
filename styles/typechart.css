@@ -1,6 +1,8 @@
 .spreadsheet_container {
+    width: calc(100% - 50px);
     margin: 0 auto;
     margin-top: 20px;
+    border-radius: 20px 20px 0 0;
     background-color: var(--purple-black);
     display: flex;
     width: max-content;
@@ -14,30 +16,13 @@
 }
 
 .spreadsheet {
+    width: max-content;
     margin: 0 auto;
     background-color: var(--dark-grey);
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    border-radius: 0 0 15px 15px;
-}
-
-.spreadsheet_banner {
-    border-radius: 15px 15px 0 0;
-    padding: 5px 15px;
-    background-color: var(--light-grey);
-}
-
-.spreadsheet_option {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    width: max-content;
-    padding: 5px;
     border-radius: 15px;
 }
 
@@ -134,11 +119,40 @@
 }
 
 .typechart_search_container {
-    background-color: var(--dark-grey);
-    padding: 10px 15px;    
-    border-radius: 15px;
+    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+.typechart_search-btn_container {
+    display: flex;
+    justify-content: center;
+}
+
+.typechart_search-btn {
+    background-color: var(--dark-grey);
+    padding: 7px 15px;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s ease;
+    font-size: 16px;
+}
+
+.typechart_search-btn:hover {
+    background-color: var(--light-grey);
+}
+
+.typechart_search-btn.active {
+    background-color: var(--light-grey);
+}
+
+.typechart_search-btn:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.typechart_search-btn:last-child {
+    border-radius: 0 10px 10px 0;
 }
 
 .typechart_search {
@@ -159,33 +173,30 @@
     font-family: inherit;
 }
 
-.typechart_search-btns {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-}
-
-.typechart_search-btn {
-    padding: 10px;
-    transition: .3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.typechart_search-btn:hover {
+.typechart_search-submit {
     background-color: var(--light-grey);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 7px;
+    padding: 7px 12px;
+    width: max-content;
+    margin: 0 auto;
+    font-size: 15px;
+    border-radius: 15px;
+    transition: .2s ease;
+    cursor: pointer;
 }
 
-.typechart_search-btn img {
-    width: 25px;
+.typechart_search-submit:hover {
+    background-color: var(--light-purple);
+}
+
+.typechart_search-submit img {
+    width: 20px;
 }
 
 .typechart_search-error {
-    text-align: center;
     margin-bottom: 10px;
 }
 
@@ -284,55 +295,13 @@
     padding-bottom: 9px;
     background-color: var(--purple-black);
     text-align: center;
-    transition: .2s ease;
-    cursor: pointer;
-}
-
-.typechart_coin-none {
-    background-color: var(--light-grey);
-}
-
-.typechart_coin-intermediate:hover {
-    background-color: var(--light-grey);
-}
-
-.typechart_coin-btn {
-    padding: 10px 20px;
-    width: 70px;
-    text-align: center;
-    transition: .2s ease;
-    cursor: pointer;
-}
-
-.typechart_coin-savior .typechart_coin-btn {
-    background-color: var(--light-grey);
-}
-
-.typechart_coin-demon .typechart_coin-btn {
-    background-color: var(--purple-black);
-}
-
-.typechart_coin-btn:hover {
-    background-color: var(--light-grey);
-}
-
-.typechart_coin_container > div:last-child .typechart_coin-btn {
-    border-radius: 0 10px 10px 0;
-}
-
-.typechart_coin_container > div:first-child .typechart_coin-btn {
-    border-radius: 10px 0 0 10px;
-}
-
-.typechart_coin-demon img {
-    filter: grayscale(0.90) brightness(50%);
-}
-
-.typechart_coin_container img {
-    width: 30px;
+    margin-top: 0;
 }
 
 .typechart_split_container {
+    background-color: var(--purple-black);
+    width: calc(100% - 50px);
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -417,8 +386,9 @@
     margin-top: 15px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    gap: 5px;
+    gap: 20px;
+    flex-direction: column;
+    text-align: center;
 }
 
 .typechart_diagram-graph > div {
