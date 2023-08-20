@@ -19,7 +19,7 @@ export default function Database({ data, count }) {
             <Pagination currentPage={Number(params.get('page'))} top={true} count={count} />
             {data.map(person => {
                 return(
-                    <div id={person.id} key={person.id} className="db_card outline-gray db_card_hover" onClick={() => handlePopup(person.id)}>
+                    <div id={person.id} key={person.id} className="db_card db_card_hover" onClick={() => handlePopup(person.id)}>
                         {person.social && (
                         <div className='db_card-social'>
                                 <img src={`/img/icons/social/${person.social}.png`} />

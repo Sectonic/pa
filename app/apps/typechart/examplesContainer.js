@@ -4,7 +4,7 @@ import { Examples } from "./examples";
 export const ExampleLoading = () => (
     <>
         {[...Array(9)].map((index) =>
-            <div key={index} className="db_card outline-gray">
+            <div key={index} className="db_card">
                 <div className="db_card-img db_card-img-empty load_wraper"><div className="activity"></div></div>
                 <div className="db_card-text">
                     <div>

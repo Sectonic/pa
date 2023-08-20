@@ -60,7 +60,7 @@ export async function TypePopup({ popup_id }) {
             </div>
         </div>
         <div className="diagram_container">
-            <div className="stack_container outline-gray">
+            <div className="stack_container">
             <Stack data={data} />
             </div>
             <div className="animal_container">

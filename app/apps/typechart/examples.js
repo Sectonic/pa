@@ -15,7 +15,7 @@ export const Examples = ({ data }) => {
         <>
             {data.map(person => {
                 return(
-                    <div id={person.id} key={person.id} className="db_card outline-gray db_card_hover" 
+                    <div id={person.id} key={person.id} className="db_card db_card_hover" 
                         onClick={() => handlePopup(person.id)}
                     >
                         {person.social && (

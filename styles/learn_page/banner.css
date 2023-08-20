@@ -2,14 +2,12 @@
     padding: 50px 0;
     width: calc(100% - 50px);
     margin: 17px auto;
-    background-color: white;
     background-image: linear-gradient(
       to top,
       rgba(var(--purple-black-rgb), .9),
       rgba(var(--dark-grey-rgb), .5)
     ), url("../backgrounds/background_yellow.png") ;
     background-size: 100%;
-    background-color: black;
     border-radius: 15px;
     display: flex;
     align-items: center;

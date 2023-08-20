@@ -185,8 +185,9 @@
 
 .stack_container {
     width: 50%;
-    padding-top: 30px;
+    padding: 5px;
     padding-bottom: 15px;
+    padding-top: 30px;
     background-color: var(--dark-grey);
     border-radius: 15px;
     display: flex;

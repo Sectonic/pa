@@ -123,7 +123,7 @@ export const AnimalDiagram = ({ data, noSocial }) => {
     }
 
     return (
-        <div className="animals_diagram outline-gray">
+        <div className="animals_diagram">
             {!noSocial && (
               <>
                 {data.social ? (

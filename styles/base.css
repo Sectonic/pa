@@ -20,14 +20,19 @@
   --vibrant-orange: #ffb700;
   --vibrant-orange-rgb: 255, 183, 0;
 
-  --dark-grey: #112a58;
+  --dark-grey: #06102b86;
   --dark-grey-rgb: 18, 36, 68;
 
-  --light-grey: #1a3b70;
+  --dark-grey-full: #06102bda;
+
+  --light-grey: #122a50c2;
   --light-grey-rgb: 25, 52, 96;
 
-  --purple-black: #061539;
+  --purple-black: #05102b;
   --purple-black-rgb: 4, 13, 30;
+
+  --purple-black-light: #072261;
+  --purple-black-light-rgb: 7, 34, 97;
 }
 
 .load_wraper{
@@ -60,10 +65,26 @@ a {
 
 body {
   background-color: var(--purple-black);
+  background: url("./backgrounds/gradient_bg.webp"), linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
+  background-size: contain;
+  background-repeat: no-repeat;
   color: white;
   margin: 0;
   font-weight: 500 !important;
   font-size: 18px !important;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
+  opacity: 0.5; /* Adjust the opacity value as needed */
 }
 
 h1,
@@ -94,10 +115,11 @@ button {
 
 ::-webkit-scrollbar {
   width: 8px;
+  background: linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--light-grey);
+  background: var(--dark-grey);
 }
 
 .nav {
@@ -107,9 +129,12 @@ button {
   width: 80px;
   height: calc(97vh - 65px);
   border-radius: 10px;
-  background-color: var(--purple-black);
   transition: 0.3s;
   overflow-y: scroll;
+}
+
+.nav::-webkit-scrollbar {
+  background: transparent;
 }
 
 .top_nav {
@@ -117,8 +142,8 @@ button {
   top: 0;
   width: 100%;
   height: 77px;
-  background-color: var(--purple-black);
   z-index: 11;
+  backdrop-filter: blur(5px);
 }
 
 .top_nav-box {
@@ -128,10 +153,10 @@ button {
   transform: translate(-50%, -50%);
   width: calc(100% - 18px);
   height: 50px;
-  background-color: var(--purple-black);
   border-radius: 10px;
   display: flex;
   justify-content:space-between;
+  backdrop-filter: blur(5px);
 }
 
 .top_nav-box > div {
@@ -220,7 +245,7 @@ button {
   left: -150px;
   top: 40px;
   width: 180px;
-  background-color: var(--dark-grey);
+  background-color: var(--dark-grey-full);
   border-radius: 15px;
   padding: 10px;
   display: flex;
