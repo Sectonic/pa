@@ -350,7 +350,7 @@
   padding: 5px;
   margin-top: 20px;
   background-color: var(--dark-grey);
-  border-radius: 50px;
+  border-radius: 15px;
   height: calc(20% - 15px);
   display: flex;
   justify-content: center;

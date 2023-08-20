@@ -211,7 +211,7 @@
 }
 
 .typechart_stack > div {
-    scale: 1.16;
+    scale: 1.25;
     margin-left: 0;
 }
 
@@ -227,6 +227,7 @@
     height: 100%;
     border: none;
     background-color: transparent;
+    scale: 1.2
 }
 
 .typechart_animal .names_last {
@@ -240,7 +241,7 @@
 }
 
 .typechart_coins {
-    flex-basis: 30%;
+    flex-basis: 25%;
     padding: 20px;
     background-color: var(--dark-grey);
     border-radius: 15px;
@@ -304,7 +305,7 @@
 
 .typechart_coin-btn {
     padding: 10px 20px;
-    width: 70px;
+    width: 60px;
     text-align: center;
     transition: .2s ease;
     cursor: pointer;
@@ -347,7 +348,7 @@
 }
 
 .typechart_spectrumview {
-    flex-basis: 30%;
+    flex-basis: 35%;
     display: flex;
     align-self: flex-start;
     flex-wrap: wrap;
@@ -372,7 +373,7 @@
 
 .typechart_diagram {
     width: 185px;
-    height: 233px;
+    height: 180px;
     background-color: var(--dark-grey);
     border-radius: 15px;
 }
@@ -417,7 +418,7 @@
 }
 
 .typechart_diagram-graph {
-    height: 85px;
+    height: 50px;
     width: calc(100% - 20px);
     margin: 0 auto;
     margin-top: 15px;
@@ -439,7 +440,7 @@
     margin-top: 6px;
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: 0px;
     font-weight: 400;
 }
 
