@@ -54,6 +54,9 @@ export const TypeChartSearch = ({ type }) => {
                     <div className="typechart_search-btn" onClick={analyzeType}>
                         <img src="/img/typechart/apply.png" />
                     </div>
+                    <div className="typechart_search-btn" onClick={() => {router.push('/apps/typechart'); setType512(emptyType)}}>
+                        <img src="/img/main/delete.png" />
+                    </div>
                 </div>
                 <div className="typechart_search-btns">
                 <div className="typechart_search-btn">
@@ -61,9 +64,6 @@ export const TypeChartSearch = ({ type }) => {
                     </div>
                     <div className="typechart_search-btn">
                         <img src="/img/typechart/compare.png" />
-                    </div>
-                    <div className="typechart_search-btn" onClick={() => {router.push('/apps/typechart'); setType512(emptyType)}}>
-                        <img src="/img/main/delete.png" />
                     </div>
                 </div>
             </div>

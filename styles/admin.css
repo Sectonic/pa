@@ -199,7 +199,7 @@
     margin: 0 auto;
     display: flex;
     gap: 20px;
-    font-size: 30px;
+    font-size: 32px;
 }
 
 .functions_input-section {
@@ -208,15 +208,15 @@
 }
 
 .functions_input-short {
-    width: 10px;
+    width: 16px;
 }
 
 .functions_input-long {
-    width: 30px;
+    width: 37px;
 }
 
 .functions_input-medium {
-    width: 22px;
+    width: 30px;
 }
 
 .typeform_submit {

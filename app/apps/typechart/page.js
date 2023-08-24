@@ -233,7 +233,7 @@ export default async function TypeTool({ searchParams }) {
                 <div className="typechart_examples-title">Type Examples</div>
                 {!incomplete && (
                     <>
-                        <div className="typechart_examples-subtitle">Want more examples?</div>
+                        <div className="typechart_examples-subtitle">More results available</div>
                         <ToTypeSearchBtn />
                     </>
                 )}

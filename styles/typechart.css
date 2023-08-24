@@ -144,7 +144,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
 }
 
 .typechart_search input {
@@ -152,7 +152,7 @@
     border: 3px solid var(--light-grey);
     border-radius: 5px;
     outline: none;
-    font-size: 16px;
+    font-size: 22px;
     color: white;
     padding: 6px 10px;
     font-family: inherit;
@@ -348,7 +348,7 @@
 }
 
 .typechart_spectrumview {
-    flex-basis: 35%;
+    flex-basis: 36%;
     display: flex;
     align-self: flex-start;
     flex-wrap: wrap;
@@ -372,8 +372,8 @@
 }
 
 .typechart_diagram {
-    width: 185px;
-    height: 180px;
+    width: 180px;
+    height: 220px;
     background-color: var(--dark-grey);
     border-radius: 15px;
 }
@@ -418,7 +418,7 @@
 }
 
 .typechart_diagram-graph {
-    height: 50px;
+    height: 90px;
     width: calc(100% - 20px);
     margin: 0 auto;
     margin-top: 15px;
@@ -480,7 +480,7 @@
 .typechart_examples-btn {
     background-color: var(--light-grey);
     padding: 7px 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     width: max-content;
     margin: 0 auto;
     margin-top: 5px;
@@ -507,7 +507,7 @@
     background-color: var(--dark-grey);
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 527px;
     border-radius: 10px;
 }
 

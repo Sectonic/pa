@@ -2,13 +2,13 @@
 :root {
   --black: #0a142c;
 
-  --vibrant-purple: #193460;
+  --vibrant-purple: #122a50c2;
   --vibrant-purple-rgb: 18, 28, 58;
   
   --light-purple: #2c4060;
   --light-purple-rgb: 44, 64, 96;
 
-  --dark-purple: #122444;
+  --dark-purple: #06102b86;
   --dark-purple-rgb: 3, 13, 30;
 
   --low-op-dark-purple: #030d1e8d;
@@ -143,7 +143,7 @@ button {
   width: 100%;
   height: 77px;
   z-index: 11;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(15px);
 }
 
 .top_nav-box {

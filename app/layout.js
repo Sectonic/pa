@@ -16,14 +16,14 @@ import '@css/typechart.css';
 import '@css/admin.css';
 import "animate.css";
 
-import { Montserrat } from "next/font/google";
+import { Lexend } from "next/font/google";
 import {NavContainer, NavLoading} from './navContainer';
 import { createMetaData } from '@lib/metadata';
 import { Analytics } from '@vercel/analytics/react';
 import Provider from './provider';
 import { Suspense } from 'react';
 
-const font = Montserrat ({ 
+const font = Lexend ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
     subsets: ['latin'] 
 }); 
