@@ -28,8 +28,8 @@ function Typing() {
                     <DropdownItem src="learn/typing/home/shield" title="Truth" link="/typing/truth" />
                     </IconDropdown>
                 </Icon>
-                <Icon img='typing/home/flame' name='Obstacles' direction='left'>
-                    <IconDropdown title="Obstacles">
+                <Icon img='typing/home/flame' name='Fallacies' direction='left'>
+                    <IconDropdown title="Fallacies">
                     <DropdownItem src="learn/typing/home/flame" title="Psychology" link="/typing/psychology" />
                     <DropdownItem src="learn/typing/home/perception" title="Perception" link="/typing/perception" />
                     <DropdownItem src="learn/typing/home/identity" title="Identity" link="/typing/identity" />

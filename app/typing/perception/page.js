@@ -2,8 +2,8 @@ import Banner from "../../_components/banner";
 import { createMetaData } from "@lib/metadata";
 
 export const metadata = createMetaData({
-  title: 'Truth',
-  description: 'Understanding how psychology affects typing',
+  title: 'Identity',
+  description: 'Understanding the limits of perception',
   image: '/embed/your_type.png',
   url: '/typing/perception',
 });
@@ -24,13 +24,13 @@ function perception() {
               <div className="multi_paragraph">
                 <h2 className="margin-sm">Perception is limited</h2>
                 <p>
-                This is where most get caught up. Perception is a very malleable and not exactly omniscient. 
+                The first thing to understand, is that perception is a very malleable and limited. 
                 </p>
                 <p>
                 You are seeing a small bit of the reality through a keyhole. From what you see, your mind fills in all the blanks based on what is expected.
                 </p>
                 <p>
-                This basic concept has been extensively studied throughout time, and is accepted a fact within the field of psychology nowadays.
+                This basic concept has been extensively studied throughout time, and is accepted as a fact within the field of psychology.
                 </p>
               </div>
               <div className="multi_paragraph">
@@ -39,7 +39,7 @@ function perception() {
                 It's fairly simple. You can't see, what you can't see.
                 </p>
                 <p>
-                When it comes to personality. A big aspect is identifying where you make mistakes. However, you don't make mistakes because you know you're making them.
+                When it comes to personality theories, a big aspect is identifying where you make mistakes. However, you don't make mistakes because you know you're making them.
                 </p>
                 <p>
                 You make the mistakes you do, because you don't see yourself making them.
