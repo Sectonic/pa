@@ -196,24 +196,10 @@
     margin: 0 auto;
     display: flex;
     gap: 20px;
-    font-size: 32px;
 }
 
-.functions_input-section {
-    display: flex;
-    gap: 2px;
-}
-
-.functions_input-short {
-    width: 16px;
-}
-
-.functions_input-long {
-    width: 37px;
-}
-
-.functions_input-medium {
-    width: 30px;
+.functions_input input {
+    font-size: 20px;
 }
 
 .typeform_submit {

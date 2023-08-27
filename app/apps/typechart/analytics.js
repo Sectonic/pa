@@ -321,39 +321,39 @@ const values = {
     }
 }
 
+const getBasics = (type) => {
+    const checkExists = (string) => (string.includes('x') ? null : string);
+    const [modalities, functions, animals] = type.split(' ').map(checkExists);
+    return { modalities, functions, animals };
+};
+
 export const getCoin = (coin, type) => {
-    const coins = { intuition: intuitionAnalytics(type), extroversion: extroversionAnalytics(type), openness: gatherAnalytics(type), thinking: thinkingAnalytics(type), masculinity: masculinityAnalytics(type) };
-    return coins[coin];
-}
+    const analyzers = {
+        intuition: intuitionAnalytics(type),
+        sensory: intuitionAnalytics(type, true),
+        extroversion: extroversionAnalytics(type),
+        introversion: extroversionAnalytics(type, true),
+        gather: gatherAnalytics(type),
+        organize: gatherAnalytics(type, true),
+        thinking: thinkingAnalytics(type),
+        feeling: thinkingAnalytics(type, true),
+        masculinity: masculinityAnalytics(type),
+        femininity: masculinityAnalytics(type, true)
+    };
+    return analyzers[coin];
+};
 
 export const testForEveryType = (coin) => {
     const typeDict = {};
-    everyType.forEach(type => {
+    everyType.forEach((type) => {
         const result = getCoin(coin, type);
         typeDict[type] = result.rank[0];
     });
     const sortedTypes = Object.entries(typeDict).sort((a, b) => a[1] - b[1]);
-    const uniqueTypes = new Set(sortedTypes.map(type => type[1]));
+    const uniqueTypes = new Set(sortedTypes.map((type) => type[1]));
     console.log(uniqueTypes.size);
     return sortedTypes;
-}
-
-const getBasics = (type) => {
-
-    const checkExists = (string) => {
-        if (string.includes('x')) {
-            return null;
-        }
-        return string;
-    }
-    
-    const type_split = type.split(' ');
-    const modalities = checkExists(type_split[0]);
-    const functions = checkExists(type_split[1]);
-    const animals = checkExists(type_split[2]);
-
-    return { modalities, functions, animals };
-}
+};
 
 const getResults = (coin, allParts, factor = 512, rankShrink = 1) => {
     const allCoinKeys = Object.keys(values[coin]);
@@ -382,16 +382,24 @@ const getResults = (coin, allParts, factor = 512, rankShrink = 1) => {
     high_percentage = Math.round((high_percentage + Number.EPSILON) * 10) / 10;
     low_percentage = Math.round((low_percentage + Number.EPSILON) * 10) / 10;
     if (high_ranking === low_ranking) {
-        return { rank: [high_ranking], value: [high_percentage] };
+        return { rank: [high_ranking], value: [high_percentage], amount: factor };
     } else {
-        return { rank: [low_ranking, high_ranking], value: [low_percentage, high_percentage] };
+        return { rank: [low_ranking, high_ranking], value: [low_percentage, high_percentage], amount: factor };
     }
 }
+
+const invertResults = ({ rank, value, amount }) => {
+    const newRank = rank.map((r) => amount - r);
+    const newPercentage = value.map((v) => Math.round(((100 - v) + Number.EPSILON) * 10) / 10);
+    return { rank: newRank, value: newPercentage };
+};
 
 export function extroversionAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) {
     const { modalities, functions, animals } = getBasics(type);
     const letters = functions ? functions[0] + functions[3] : null;
-    return getResults('extroversion', { modalities, functions: letters, animals });
+    const result = getResults('extroversion', { modalities, functions: letters, animals });
+    if (invert) return invertResults(result);
+    return result;
 }
 
 export function gatherAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) {
@@ -405,7 +413,9 @@ export function gatherAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) {
             typeData.deciderAxis === 'Fi-Te' ? 'SF' : 'ST'
         )
     ) : null;
-    return getResults('gather', { modalities: blastModality, animals, letters: typeData.oD ? `${typeData.oD} ${letters}` : null }, 512);
+    const result = getResults('gather', { modalities: blastModality, animals, letters: typeData.oD ? `${typeData.oD} ${letters}` : null }, 512);
+    if (invert) return invertResults(result);
+    return result;
 }
 
 export function intuitionAnalytics(type = 'xx xx/xx xx/x(x)', invert = false){
@@ -414,7 +424,9 @@ export function intuitionAnalytics(type = 'xx xx/xx xx/x(x)', invert = false){
     const observerLetters = functions ? `${typeData.observerLetter} ${typeData.oD}` : null;
     const modality = (functions && modalities) ? `${typeData.observerAxis} ${typeData.blastModality}` : null;
     const axisAndAnimal = (functions && animals) ? `${typeData.observerAxis} ${animals}` : null;
-    return getResults('intuition', { modalities: modality, animals: axisAndAnimal, functions: observerLetters }, 128);
+    const result = getResults('intuition', { modalities: modality, animals: axisAndAnimal, functions: observerLetters }, 128);
+    if (invert) return invertResults(result);
+    return result;
 }
 
 export function thinkingAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) {
@@ -423,7 +435,9 @@ export function thinkingAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) {
     const deciderLetters = functions ? `${typeData.deciderLetter} ${typeData.oD}` : null;
     const modality = (functions && modalities) ? `${typeData.deciderAxis} ${typeData.playModality}` : null;
     const axisAndAnimal = (functions && animals) ? `${typeData.deciderAxis} ${animals}` : null;
-    return getResults('thinking', { modalities: modality, animals: axisAndAnimal, functions: deciderLetters }, 128);
+    const result = getResults('thinking', { modalities: modality, animals: axisAndAnimal, functions: deciderLetters }, 128);
+    if (invert) return invertResults(result);
+    return result;
 }
 
 export function masculinityAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) {
@@ -485,5 +499,7 @@ export function masculinityAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) 
 
     const masculineAnimalActivation = (modalities && animals) ? `${getMasculineAnimal()} ${getSaviorAnim('Info')}${getSaviorAnim('Energy')} (${typeData.animal4.substring(0,1)})` : null;
 
-    return getResults('masculinity', { modalities, saviorMasculinity, masculineAnimalActivation });
+    const result = getResults('masculinity', { modalities, saviorMasculinity, masculineAnimalActivation });
+    if (invert) return invertResults(result);
+    return result;
 }

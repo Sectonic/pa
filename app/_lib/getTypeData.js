@@ -92,7 +92,7 @@ export const checkCorrectType = (typeData) => {
     if (!acceptableTypes.functions.includes(typeData.function1) || !acceptableTypes.functions.includes(typeData.function2)) {
         return 'Function input(s) are not acceptable';
     }
-    const animalString = typeData.saviorAnimals + typeData.animal3 + typeData.animal4;
+    const animalString = typeData.animals.replace(/[^A-Za-z]/g, '');
     for (var i = 0; i < animalString.length; i++) {
         const animalChr = animalString.charAt(i);
         if (!acceptableTypes.animals.includes(animalChr)) {
@@ -103,6 +103,21 @@ export const checkCorrectType = (typeData) => {
     return;
 }
 
+export const formatType = (input) => {
+    const template = "xx xx/xx xx/x(x)";
+    var formattedInput = '';
+    for (let i = 0; i < template.length; i++) {
+        const inputPart = input[i];
+        if (inputPart) {
+            formattedInput += inputPart
+        } else {
+            formattedInput += template[i];
+        }
+    }
+    
+    return formattedInput;
+}
+
 export const combineToFunctions = (need, letter, oD = null) => {
 
     if (!need && !letter) {
@@ -111,7 +126,7 @@ export const combineToFunctions = (need, letter, oD = null) => {
             return oD === 'decider' ? 'Dx' : 'Ox';
         }
 
-        return 'xx';
+        return 'Xx';
     }
 
     if (!letter) {

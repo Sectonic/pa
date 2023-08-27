@@ -2,14 +2,32 @@
     margin: 0 auto;
     margin-top: 20px;
     display: flex;
-    width: max-content;
     flex-direction: column;
+    overflow-x: auto;
+}
+
+.spreadsheet_container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.spreadsheet_container::-webkit-scrollbar-thumb {
+    background-color: var(--light-grey);
+    border-radius: 10px;
 }
 
 .typechart_container {
-    max-width: 1400px;
+    max-width: 1425px;
     padding: 0 25px;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 985px) {
+    .typechart_container {
+        padding: 0 10px;
+    }
+    .spreadsheet_container {
+        margin-top: 30px;
+    }
 }
 
 .spreadsheet {
@@ -144,7 +162,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+}
+
+.typechart_search .functions_input {
+    margin: 0 0;
+}
+
+@media screen and (max-width:775px) {
+    .typechart_search {
+        width: 100%;
+        justify-content: space-between;
+    }
 }
 
 .typechart_search input {
@@ -157,6 +186,23 @@
     padding: 6px 10px;
     font-family: inherit;
 }
+
+.typechart_search-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width:450px) {
+    .typechart_search input {
+        width: 100%;
+    }
+    .typechart_search .functions_input {
+        flex-basis: 75%;
+    }
+}
+
 
 .typechart_search-btns {
     display: flex;
@@ -192,15 +238,29 @@
     display: flex;
     justify-content: center;
     align-items: stretch;
+    flex-wrap: wrap;
     gap: 20px;
     margin-top: 20px;
 }
 
 .typechart_stack-animal_container {
-    flex-basis: 40%;
+    flex-basis: 35.5%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+@media screen and (max-width: 1550px) {
+    .typechart_stack-animal_container {
+        flex-basis: 30%;
+    }
+}
+
+@media screen and (max-width: 1385px) {
+    .typechart_stack-animal_container {
+        flex-basis: 0;
+        flex-grow: 1;
+    }
 }
 
 .typechart_stack {
@@ -213,6 +273,18 @@
 .typechart_stack > div {
     scale: 1.16;
     margin-left: 0;
+}
+
+@media screen and (max-width: 985px) {
+    .typechart_stack > div {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .typechart_stack {
+        height: 300px;
+    }
 }
 
 .typechart_animal {
@@ -275,6 +347,27 @@
     transition: .2s ease;
 }
 
+@media screen and (max-width: 980px) {
+    .typechart_coins {
+        flex-basis: 100%;
+    }
+    .typechart_coin_container {
+        justify-content: center;
+    }
+    .typechart_coin-savior, .typechart_coin-demon {
+        flex-basis: 0;
+        padding: 3px;
+        gap: 12px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .typechart_coins {
+        padding: 10px 0px;
+    }
+}
+
 .typechart_coin_container > div:first-child {
     padding-right: 0;
 }
@@ -310,6 +403,12 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 980px) {
+    .typechart_coin-btn {
+        padding: 10px 12px;
+    }
+}
+
 .typechart_coin-savior .typechart_coin-btn {
     background-color: var(--light-grey);
 }
@@ -338,6 +437,12 @@
     width: 30px;
 }
 
+@media screen and (max-width: 985px) {
+    .typechart_coin_container img {
+        width: 25px;
+    }
+}
+
 .typechart_split_container {
     display: flex;
     justify-content: center;
@@ -347,7 +452,7 @@
 }
 
 .typechart_spectrumview {
-    flex-basis: 30%;
+    flex-basis: 28.5%;
     display: flex;
     align-self: flex-start;
     flex-wrap: wrap;
@@ -360,6 +465,19 @@
     width: 3px;
 }
 
+@media screen and (max-width: 1550px) {
+    .typechart_spectrumview {
+        flex-basis: 33%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1385px) {
+    .typechart_spectrumview {
+        flex-basis: 100%;
+    }
+}
+
 .typechart_examples {
     display: flex;
     justify-content: center;
@@ -367,14 +485,19 @@
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 50px;
-
 }
 
 .typechart_diagram {
-    width: 185px;
+    width: 187px;
     height: 233px;
     background-color: var(--dark-grey);
     border-radius: 15px;
+}
+
+@media screen and (max-width: 450px) {
+    .typechart_diagram {
+        width: calc(50% - 15px);
+    }
 }
 
 .typechart_diagram-title {
@@ -416,6 +539,22 @@
     margin: 0 auto;
 }
 
+@media screen and (max-width: 420px) {
+    .typechart_diagram-title {
+        font-size: 16px;
+    }
+    .typechart_diagram-title img {
+        width: 21px;
+        padding: 4px;
+    }
+    .typechart_diagram-value {
+        font-size: 27px;
+    }
+    .typechart_diagram-desc {
+        font-size: 10px;
+    }
+}
+
 .typechart_diagram-graph {
     height: 85px;
     width: calc(100% - 20px);
@@ -446,6 +585,13 @@
 .typechart_title_small {
     font-weight: 800;
     font-size: 22px;
+}
+
+@media screen and (max-width: 600px) {
+    .typechart_title_small-extra {
+        margin-top: 5px;
+        margin-left: 15px;
+    }
 }
 
 .typechart_subtitle_small {

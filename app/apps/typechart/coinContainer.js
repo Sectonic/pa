@@ -47,7 +47,7 @@ export const CoinContainer = ({ children, typeData }) => {
         <div className="typechart_coins">
             <div className="typechart_coins-center-wrapper">
                 <div>
-                    <div className="typechart_title_small">Coin Checklist</div>
+                    <div className="typechart_title_small typechart_title_small-extra">Coin Checklist</div>
                 </div>
                 {Children.map(children, (child) => {
                     return cloneElement(child, { typeData, value: ['infoAnimal', 'energyAnimal'].includes(child.props.coin) ? sortSaviorAnimals(child.props.coin) : typeData[child.props.coin] })

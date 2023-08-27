@@ -5,7 +5,7 @@
   --vibrant-purple: #122a50c2;
   --vibrant-purple-rgb: 18, 28, 58;
   
-  --light-purple: #2c4060;
+  --light-purple: #253f86;
   --light-purple-rgb: 44, 64, 96;
 
   --dark-purple: #06102b86;
@@ -31,7 +31,7 @@
   --purple-black: #05102b;
   --purple-black-rgb: 4, 13, 30;
 
-  --purple-black-light: #072261;
+  --purple-black-light: #0a2667;
   --purple-black-light-rgb: 7, 34, 97;
 }
 
@@ -67,12 +67,19 @@ body {
   background-color: var(--purple-black);
   background: url("./backgrounds/gradient_bg.webp"), linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
   background-size: contain;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   color: white;
   margin: 0;
   font-weight: 500 !important;
   font-size: 18px !important;
   position: relative;
+}
+
+@media screen and (max-width: 1250px) {
+  body {
+    background-size: 1250px;
+  }
 }
 
 body::before {

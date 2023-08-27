@@ -6,40 +6,29 @@ import { Type512Input } from "@components/type512Input";
 import { addType } from "@lib/admin";
 import { useRouter } from "next/navigation";
 import { getSimilar } from "@lib/admin";
-import { checkCorrectType } from "@lib/getTypeData";
+import { checkCorrectType, formatType } from "@lib/getTypeData";
 
 export default function Page() {
     const [links, setLinks] = useState([]);
     const [similar, setSimilar] = useState([]);
     const [imageB64, setImageB64] = useState(null);
-    const [Type512, setType512] = useState({modalities: '', function1: '', function2: '', saviorAnimals: '', animal3: '', animal4: ''});
+    const [Type512, setType512] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
     const name = useRef(null);
 
-    const getFullType = () => `${Type512.modalities} ${Type512.function1}/${Type512.function2} ${Type512.saviorAnimals}/${Type512.animal3}(${Type512.animal4})`;
-
-    const acceptableTypes = {
-        modalities: ['MM', 'MF', 'FM', 'FF', 'Mx', 'Fx', 'xM', 'xF', 'xx'],
-        functions: ['Te', 'Fe', 'Fi', 'Ti', 'Ne', 'Se', 'Ni', 'Si', 'De', 'Di', 'Oe', 'Oi', 'Tx', 'Fx', 'Nx', 'Sx', 'Dx', 'Ox', 'xx'],
-        animals: ['P', 'B', 'C', 'S', 'x']
-    }
-
     const typeHandler = async (e) => {
         e.preventDefault();
         
-        var partEmpty = false;
-        Object.values(Type512).forEach(part => {
-            if (part === '') {
-                setError('Fill out entire 512 type in type selection');
-                partEmpty = true;
-            }
-        })
-        if (partEmpty) {
-            return;
-        }
+        const formattedType = formatType(Type512);
+        setType512(formattedType);
+        const [modalities, functions, animals] = formattedType.split(' ');;
+        const [function1, function2] = functions.split('/');
 
-        const nextError = checkCorrectType(Type512);
+        const nextError = checkCorrectType({
+            modalities, animals, function1, function2
+        });
+
         if (nextError) {
             setError(nextError)
             return;
@@ -65,7 +54,7 @@ export default function Page() {
 
         const data = {
             name: e.target.name.value,
-            type: getFullType(),
+            type: formattedType,
             fileId, image,
             social: e.target.social.value != '--' ? e.target.social.value : null,
             tag: e.target.tag.value != '--' ? e.target.tag.value : null,

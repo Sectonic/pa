@@ -3,7 +3,7 @@
 import typeAnalytics from '@public/json/typeAnalytics.json';
 import { useSearchParams } from 'next/navigation';
 
-export const Diagram = ({ name, src, value, rank, colors: [ color1, color2 ], total }) => {
+export const Diagram = ({ name, src, value, rank, color, total }) => {
 
     const params = useSearchParams();
 
@@ -40,7 +40,7 @@ export const Diagram = ({ name, src, value, rank, colors: [ color1, color2 ], to
                 {graphArr.map((bar, i) => {
                     const currentLower = bar - 6.25;
                     const currentUpper = bar;
-                    const currentColor = currentUpper <= 50 ? color1 : color2;
+                    const currentColor = color;
                     var opacity;
                     if (value.length === 1) {
                         opacity = value[0] >= currentLower && value[0] < currentUpper ? '100%' : '20%';

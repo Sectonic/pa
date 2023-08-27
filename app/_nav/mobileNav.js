@@ -27,7 +27,7 @@ export default function MobileNav({ backgroundMobile, mobileMenuOut, navMobile, 
                         <img src='/img/main/type_tool.png'/>
                       </div>
                     </Link>
-                    <Link href='/apps'>
+                    <Link href='/apps/typesearch'>
                       <div className={`mobile_menu-link ${path[1] == 'apps' && 'mobile_menu-link--selected'}`}>
                         <div>TypeSearch</div>
                         <img src='/img/main/database.png'/>

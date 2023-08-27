@@ -16,6 +16,7 @@ import { TypePopup, PopupLoading } from "@components/type_popup/typePopup";
 import db from "@lib/prisma/client";
 import * as fs from 'fs';
 import ToTypeSearchBtn from "./toTypeSearch";
+import DiagramContainer from "./diagramContainer";
 
 export const metadata = createMetaData({
   title: 'TypeTool',
@@ -32,7 +33,7 @@ export default async function TypeTool({ searchParams }) {
     // allTypes.forEach(type => {
     //   const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
     //   if (!incompletes.some(incomplete => type.type.includes(incomplete))) {
-    //     const coins = ['extroversion', 'openness', 'intuition', 'thinking', 'masculinity'];
+    //     const coins = ['extroversion', 'gather', 'intuition', 'thinking', 'masculinity', 'introversion', 'organize', 'sensory', 'feeling', 'femininity'];
     //     coins.forEach(coin => {
     //         const analytics = getCoin(coin, type.type);
     //         percentages.forEach(p => {
@@ -142,45 +143,76 @@ export default async function TypeTool({ searchParams }) {
                                 <div className="spectrumview_incomplete-banner__bg"></div>
                             </div>
                         ) : (
-                            <>
+                            <DiagramContainer>
                                 <Diagram
                                     name="Extroversion"
                                     src="/img/typechart/de.png"
                                     {...extroversionAnalytics(searchParams.type)}
-                                    colors={['#288cff', '#ff5639']}
+                                    color='#ff5639'
                                 />
                                 <Diagram
-                                    name="Openness"
+                                    name="Introversion"
+                                    src="/img/typechart/di.png"
+                                    {...extroversionAnalytics(searchParams.type, true)}
+                                    color='#288cff'
+                                />
+                                <Diagram
+                                    name="Gather"
                                     src="/img/typechart/oe.png"
                                     {...gatherAnalytics(searchParams.type)}
-                                    colors={['#288cff', '#ff5639']}
+                                    color='#ff5639'
                                     total={512}
+                                />
+                                <Diagram
+                                    name="Organize"
+                                    src="/img/typechart/oi.png"
+                                    {...gatherAnalytics(searchParams.type, true)}
+                                    color='#288cff'
+                                    total={512}
+                                />
+                                <Diagram
+                                    name="Sensory"
+                                    src="/img/typechart/s.png"
+                                    {...intuitionAnalytics(searchParams.type, true)}
+                                    color='#ff5639'
+                                    total={128}
                                 />
                                 <Diagram
                                     name="Intuition"
                                     src="/img/typechart/n.png"
                                     {...intuitionAnalytics(searchParams.type)}
-                                    // colors={['#aff457', '#ffc04f']}
-                                    colors={['#288cff', '#ff5639']}
+                                    color='#288cff'
                                     total={128}
                                 />
                                 <Diagram
                                     name="Thinking"
                                     src="/img/typechart/t.png"
                                     {...thinkingAnalytics(searchParams.type)}
-                                    // colors={['#ff4467', '#2dc3e2']}
-                                    colors={['#288cff', '#ff5639']}
+                                    color='#ff5639'
+                                    total={128}
+                                />
+                                <Diagram
+                                    name="Feeling"
+                                    src="/img/typechart/f.png"
+                                    {...thinkingAnalytics(searchParams.type, true)}
+                                    color='#288cff'
                                     total={128}
                                 />
                                 <Diagram
                                     name="Masculinity"
                                     src="/img/typechart/mDe.png"
                                     {...masculinityAnalytics(searchParams.type)}
-                                    // colors={['#e332ba', '#182ed6']}
-                                    colors={['#288cff', '#ff5639']}
+                                    color='#ff5639'
                                     total={512}
                                 />
-                            </>
+                                <Diagram
+                                    name="Femininity"
+                                    src="/img/typechart/fDe.png"
+                                    {...masculinityAnalytics(searchParams.type, true)}
+                                    color='#288cff'
+                                    total={512}
+                                />
+                            </DiagramContainer>
                         )}
                     </div>
                 </div>
