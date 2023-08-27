@@ -22,7 +22,7 @@ export default function Resources() {
         <div className="section typing_section">
           <h2 className="section_title">Official Objective Personality</h2>
           <div className="section_body top_typing">
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://www.objectivepersonalitysystem.com/"
                 target="_blank"
@@ -42,7 +42,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://docs.google.com/document/d/1aLrwLdhvOGIF-fdouUxAxJ_5tlt6mgu_NBnXaN4N_JU"
                 target="_blank"
@@ -62,7 +62,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://www.youtube.com/c/ObjectivePersonality"
                 target="_blank"
@@ -87,7 +87,7 @@ export default function Resources() {
         <div className="section typing_section">
           <h2 className="section_title">Videos & Content</h2>
           <div className="section_body top_typing">
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://www.youtube.com/c/ObjectivePersonality"
                 target="_blank"
@@ -109,7 +109,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://www.youtube.com/c/LiJo1"
                 target="_blank"
@@ -125,7 +125,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://www.youtube.com/c/BinyaminTsadikBenMalka"
                 target="_blank"
@@ -143,7 +143,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://www.youtube.com/c/PersonalityTrainer"
                 target="_blank"
@@ -170,7 +170,7 @@ export default function Resources() {
         <div className="section typing_section">
           <h2 className="section_title">Written Sources</h2>
           <div className="section_body top_typing">
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://ops-dashboard.herokuapp.com/home"
                 target="_blank"
@@ -191,7 +191,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://docs.google.com/document/d/1JlYKh73yyJo15oYb5LTC3EqYmiU51azNV257sP_TFic/edit"
                 target="_blank"
@@ -209,7 +209,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://docs.google.com/document/d/1JlYKh73yyJo15oYb5LTC3EqYmiU51azNV257sP_TFic/edit"
                 target="_blank"
@@ -232,7 +232,7 @@ export default function Resources() {
         <div className="section typing_section">
           <h2 className="section_title">Tools & Utilities</h2>
           <div className="section_body top_typing">
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://opt-toy.vercel.app/?fbclid=IwAR2Xyj2zQNKmUDOOxovsrvUEgla9esiqFrYS5CF9koni6Zv2X04cEczOm9k#?type[]=Dx/Ox-%3F"
                 target="_blank"
@@ -253,7 +253,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://ops-dashboard.herokuapp.com/analyzer?m=FF&s1=Fe&s2=Se&a=PCSB"
                 target="_blank"
@@ -274,7 +274,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://ops-dashboard.herokuapp.com/practice"
                 target="_blank"
@@ -294,7 +294,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://airtable.com/shrQ6IoDtlXpzmC1l/tblyUDDV5zVyuX5VL/viweXFJuHAQpi5as3"
                 target="_blank"
@@ -315,7 +315,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://ops-dashboard.herokuapp.com/search"
                 target="_blank"
@@ -339,7 +339,7 @@ export default function Resources() {
         <div className="section typing_section">
           <h2 className="section_title">Groups</h2>
           <div className="section_body top_typing">
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://discord.com/invite/s4v5yQdnE9"
                 target="_blank"
@@ -360,7 +360,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://docs.google.com/forms/d/e/1FAIpQLSf9aoDFBV53yy0SmNPog6XEGpm_STtU8VIZossofHIFY_V0nQ/viewform"
                 target="_blank"
@@ -381,7 +381,7 @@ export default function Resources() {
                 </div>
               </Link>
             </div>
-            <div className="section_text outline-gray m0">
+            <div className="section_text  m0">
               <Link
                 href="https://www.facebook.com/groups/objectivepersonality/"
                 target="_blank"
