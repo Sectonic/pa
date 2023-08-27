@@ -39,7 +39,7 @@ const ToTypeSearchBtn = () => {
     return (
         <div className="typechart_examples-btn" onClick={handleTypeSearch}>
             <img src="/img/typechart/search.png" />
-            Search on TypeSearch
+            Open in TypeSearch
         </div>
     )
 }

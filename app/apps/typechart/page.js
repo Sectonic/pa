@@ -132,12 +132,12 @@ export default async function TypeTool({ searchParams }) {
                     <div className="typechart_spectrumview typechart_diagrams">
                         <div className="typechart_spectrumview_title">
                             <div className="typechart_title_small">Trait Spectrums</div>
-                            <div className="typechart_subtitle_small">Displays your type's percentile within each personality trait. The graph is highlighted based on this percentile.</div>
+                            <div className="typechart_subtitle_small">Displays where a type falls on the spectrum of activation within each trait</div>
                         </div>
                         { incomplete ? (
                             <div className="spectrumview_incomplete">
                                 <div className="spectrumview_title">Incomplete Type</div>
-                                <div className="spectrumview_subtitle">Incomplete types currently do not have trait spectrums. Please input a full 512 type to see its spectrums.</div>
+                                <div className="spectrumview_subtitle">Trait spectrums do not work on incomplete types, input a full type</div>
                                 <img src="/img/typechart/incomplete.png" className="spectrumview_incomplete-banner" />
                                 <div className="spectrumview_incomplete-banner__bg"></div>
                             </div>
@@ -233,7 +233,7 @@ export default async function TypeTool({ searchParams }) {
                 <div className="typechart_examples-title">Type Examples</div>
                 {!incomplete && (
                     <>
-                        <div className="typechart_examples-subtitle">Want more examples?</div>
+                        <div className="typechart_examples-subtitle">More results available</div>
                         <ToTypeSearchBtn />
                     </>
                 )}

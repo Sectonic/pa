@@ -29,9 +29,10 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 11;
-  --animate-duration: .25s;
+  --animate-duration: 0.5s;
+  backdrop-filter: blur(50px);
 }
 
 .popup_main {
@@ -40,7 +41,7 @@
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   width: 680px;
-  background: url("./backgrounds/gradient_bg.webp"), linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
+   /*background: url("./backgrounds/gradient_bg.webp"), linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));*/
   backdrop-filter: brightness(70);
   background-size: 175%;
   background-position: center;
@@ -113,7 +114,6 @@
   right: 12px;
   top: 12px;
   cursor: pointer;
-  background-color: var(--purple-black);
   border-radius: 10px;
   width: 45px;
   height: 45px;
@@ -182,7 +182,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 .type_top > div {
@@ -192,7 +192,6 @@
 .type_top-img {
   width: 279px !important;
   height: 279px !important;
-  border: 5px solid var(--light-grey);
   border-radius: 15px;
 }
 
@@ -350,7 +349,7 @@
   padding: 5px;
   margin-top: 20px;
   background-color: var(--dark-grey);
-  border-radius: 50px;
+  border-radius: 15px;
   height: calc(20% - 15px);
   display: flex;
   justify-content: center;
