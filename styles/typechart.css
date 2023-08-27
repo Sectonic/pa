@@ -144,7 +144,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 20px;
 }
 
 .typechart_search input {
@@ -152,7 +152,7 @@
     border: 3px solid var(--light-grey);
     border-radius: 5px;
     outline: none;
-    font-size: 22px;
+    font-size: 16px;
     color: white;
     padding: 6px 10px;
     font-family: inherit;
@@ -180,7 +180,7 @@
 }
 
 .typechart_search-btn img {
-    width: 25px;
+    width: 23px;
 }
 
 .typechart_search-error {
@@ -211,7 +211,7 @@
 }
 
 .typechart_stack > div {
-    scale: 1.25;
+    scale: 1.16;
     margin-left: 0;
 }
 
@@ -227,7 +227,6 @@
     height: 100%;
     border: none;
     background-color: transparent;
-    scale: 1.2
 }
 
 .typechart_animal .names_last {
@@ -241,7 +240,7 @@
 }
 
 .typechart_coins {
-    flex-basis: 25%;
+    flex-basis: 30%;
     padding: 20px;
     background-color: var(--dark-grey);
     border-radius: 15px;
@@ -305,7 +304,7 @@
 
 .typechart_coin-btn {
     padding: 10px 20px;
-    width: 60px;
+    width: 70px;
     text-align: center;
     transition: .2s ease;
     cursor: pointer;
@@ -348,7 +347,7 @@
 }
 
 .typechart_spectrumview {
-    flex-basis: 36%;
+    flex-basis: 30%;
     display: flex;
     align-self: flex-start;
     flex-wrap: wrap;
@@ -372,8 +371,8 @@
 }
 
 .typechart_diagram {
-    width: 180px;
-    height: 220px;
+    width: 185px;
+    height: 233px;
     background-color: var(--dark-grey);
     border-radius: 15px;
 }
@@ -418,7 +417,7 @@
 }
 
 .typechart_diagram-graph {
-    height: 90px;
+    height: 85px;
     width: calc(100% - 20px);
     margin: 0 auto;
     margin-top: 15px;
@@ -440,7 +439,7 @@
     margin-top: 6px;
     display: flex;
     justify-content: space-between;
-    font-size: 0px;
+    font-size: 10px;
     font-weight: 400;
 }
 
@@ -480,7 +479,7 @@
 .typechart_examples-btn {
     background-color: var(--light-grey);
     padding: 7px 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     width: max-content;
     margin: 0 auto;
     margin-top: 5px;
@@ -507,7 +506,7 @@
     background-color: var(--dark-grey);
     position: relative;
     overflow: hidden;
-    height: 527px;
+    height: 500px;
     border-radius: 10px;
 }
 
