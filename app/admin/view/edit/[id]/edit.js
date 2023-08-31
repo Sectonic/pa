@@ -11,7 +11,7 @@ export default function Edit({ type }) {
         return {url: link.url, name: link.name};
     }));
     const [imageB64, setImageB64] = useState(type.image);
-    const [Type512, setType512] = useState('');
+    const [Type512, setType512] = useState(type.type);
     const [error, setError] = useState('');
     const name = useRef(null);
 
