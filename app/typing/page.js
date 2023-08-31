@@ -40,22 +40,14 @@ function Typing() {
           </TreeSection>
           <TreeSection title="Methodology">
           <IconContainer>
-                <Icon img='typing/home/method' name='Basics' direction='right'>
-                    <IconDropdown title="Basics">
-                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
-                    <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
-                    </IconDropdown>
-                </Icon>
-          </IconContainer>
-          <IconContainer>
                 <Icon img='typing/home/material' name='Material' direction='right'>
                     <IconDropdown title="Material">
                     <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
                     <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
                     </IconDropdown>
                 </Icon>
-                <Icon img='typing/home/choice' name='Conclusion' direction='left'>
-                    <IconDropdown title="Conclusion">
+                <Icon img='typing/home/method' name='Basics' direction='right'>
+                    <IconDropdown title="Basics">
                     <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
                     <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
                     </IconDropdown>
@@ -96,8 +88,8 @@ function Typing() {
           <LearnButtons>
           <div className='learn_system learn_system-learnbtn learn_system-yellow'>
               <div className='learn_system-tag'>Introduction Course</div>
-              <div className='learn_system-title'>Intro to Typing</div>
-              <div className='learn_system-description'>Typing" is how you find someone's personality type. Get introduced to how you type accurately and efficiently.</div>
+              <div className='learn_system-title'>Objective Typing</div>
+              <div className='learn_system-description'>Arm yourself with the right tools and knowledge to type yourself using principles of objectivity!</div>
               <div className='learn_system-image'>
               <img src='/img/learn/objective_typing.png' />
               </div>

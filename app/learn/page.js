@@ -46,8 +46,8 @@ export default function Learn({ searchParams }) {
               </TypologySystem>
             </Link>
             <Link href="/typing">
-              <IntroCourse color="yellow" title="Type Yourself">
-                Arm yourself with the right tools and knowledge to type yourself!
+              <IntroCourse color="yellow" title="Objective Typing">
+                Arm yourself with the right tools and knowledge to type yourself using principles of objectivity!
                 <img src='/img/learn/objective_typing.png' />
               </IntroCourse>
             </Link>

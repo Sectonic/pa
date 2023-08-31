@@ -107,25 +107,22 @@ function identity() {
               <div className="multi_paragraph">
                 <h2 className="margin-sm">Typing is a tool</h2>
                 <p>
-                While typing has to do with uncovering truths about yourself, it's also important to realize it's just a tool. 
+                While typing has to do with uncovering personal things, it's also important to realize it's just a tool. 
                 </p>
                 <p>
-                Your identity is not encapsulated within a type. A type is just a way to categorize few traits you happen to have.
-                </p>
-                <p>
-                (cut)
+                Your identity is not encapsulated within a type. A type is just a way to categorize few traits you happen to have, and it is not perfect.
                 </p>
               </div>
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Collective perception</h2>
+                <h2 className="margin-sm">Managing identity</h2>
                 <p>
-                At the end of the day, we're all seeing our own little bit of reality.
+                When typing yourself, it's impossible not to apply things to yourself. Doing so is rather healthy.
                 </p>
                 <p>
-                However, as you start tracking certain bits of reality from multiple points of view, it becomes something everyone is able to see.
+                However, the goal should be to have a healthy balance where you are not attaching your identity to type, while being able to process what it means for your life.
                 </p>
                 <p>
-                That is when you start moving towards objectivity and determining a real type.
+                If you run into any of these traps around typing and get stuck, the real answers you need may have nothing to do with type at all.
                 </p>
               </div>
             </div>
