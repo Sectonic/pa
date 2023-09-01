@@ -18,20 +18,36 @@ export const metadata = createMetaData({
 const getFilteredResults = (selectedOptions) => {
     var clean_filters = {
     };
+    var names = 0;
     selectedOptions.forEach(filter => {
         var all_filters = filter_exchange[filter];
-        all_filters.forEach(item => {
-            let filter_col = clean_filters[item.name];
-            if (filter_col) {
-                if (!filter_col.in.includes(item.value)) {
-                    clean_filters[item.name].in.push(item.value);
+        if (all_filters) {
+            all_filters.forEach(item => {
+                let filter_col = clean_filters[item.name];
+                if (filter_col) {
+                    if (!filter_col.in.includes(item.value)) {
+                        clean_filters[item.name].in.push(item.value);
+                    }
+                } else {
+                    clean_filters[item.name] = {
+                        in: [item.value]
+                    };
                 }
+            });
+        } else {
+            if (names > 1) {
+                clean_filters.OR.push({ name: { contains: filter } })
+            } else if (names > 0 ) {
+                clean_filters.OR = [
+                    { name: { contains: clean_filters.name.contains } },
+                    { name: { contains: filter } },
+                ]
+                delete clean_filters.name;
             } else {
-                clean_filters[item.name] = {
-                    in: [item.value]
-                };
+                clean_filters.name = { contains: filter };
             }
-        });
+            names++;
+        }
     });
     return {
         where: clean_filters,

@@ -130,6 +130,10 @@ export default async function TypeTool({ searchParams }) {
                             <AnimalDiagram data={filters} noSocial={true} />
                         </div>
                     </div>
+                    <div className="mobile_typechart_spectrum_title">
+                        <div className="typechart_title_small">Trait Spectrums</div>
+                        <div className="typechart_subtitle_small">Displays where a type falls on the spectrum of activation within each trait</div>
+                    </div>
                     <div className="typechart_spectrumview typechart_diagrams">
                         <div className="typechart_spectrumview_title">
                             <div className="typechart_title_small">Trait Spectrums</div>

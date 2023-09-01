@@ -494,9 +494,18 @@
     border-radius: 15px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 980px) {
+    .typechart_spectrumview {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 20px;
+    }
+    .typechart_spectrumview::-webkit-scrollbar {
+        height: 5px;
+    }
     .typechart_diagram {
-        width: calc(50% - 15px);
+        min-width: 187px;
     }
 }
 
@@ -605,6 +614,23 @@
     background-color: var(--dark-grey);
     border-radius: 10px;
     padding: 20px;
+}
+
+.mobile_typechart_spectrum_title {
+    display: none;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--dark-grey);
+}
+
+@media screen and (max-width: 980px) {
+    .mobile_typechart_spectrum_title {
+        display: block;
+    }
+    .typechart_spectrumview_title {
+        display: none;
+    }
 }
 
 .typechart_examples-title {

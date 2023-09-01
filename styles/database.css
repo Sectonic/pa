@@ -272,7 +272,6 @@
 
 @media screen and (max-width: 775px) {
     .db_background {
-        height: calc(100vh - 102px);
         width: calc(100% - 25px);
         margin-top: 14px;
     }

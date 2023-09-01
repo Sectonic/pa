@@ -1,6 +1,6 @@
 "use client";
 
-import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createQueryString } from '@lib/params';
 import { options } from './filters';
@@ -20,13 +20,31 @@ export default function DatabaseSearch({ filters }) {
 
     const formatOptionLabel = ({label}) => (
         <div>
-          <div style={{ display: "inline-block", backgroundColor: '#5c64f4', padding: '2px 5px', borderRadius: 20, fontSize: '17px' }}>{label}</div>
+          <div style={{ display: "inline-block", backgroundColor: '#0f2769', padding: '2px 5px', borderRadius: 20, fontSize: '16px', fontWeight: '400' }}>{label}</div>
         </div>
     );
 
+    const formatGroupLabel = ({ label }) => (
+        <div style={{color: 'white', fontSize: '16px', padding: 4, paddingTop: 2, paddingLeft: 10}}>
+           <span>{label}</span> 
+        </div>
+    )
+
+    const nameHandler = (name) => {
+        const newParams = params.get('filters') ? JSON.parse(decodeURIComponent(params.get('filters'))) : [];
+        newParams.push(name);
+        router.push('/apps/typesearch?' + createQueryString('filters', encodeURIComponent(JSON.stringify(newParams)), params));
+    }
+
+    const formatCreateLabel = (name) => (
+        <div style={{ display: "inline-block", backgroundColor: '#0f2769', padding: '2px 5px', borderRadius: 20, fontSize: '16px', fontWeight: '400' }}>
+            <span>Search Name: {name}</span>
+        </div>
+    )
+
     return (
         <div className="db_search">
-            <Select
+            <CreatableSelect
                 styles={{
                     input: (styles) => ({
                         ...styles,
@@ -34,7 +52,7 @@ export default function DatabaseSearch({ filters }) {
                     }),
                     control: styles => ({ 
                         ...styles,
-                        backgroundColor: '#192030',
+                        backgroundColor: '#06102b',
                         border: 'none',
                         outline: 'none', 
                         borderRadius: '50px', 
@@ -44,10 +62,10 @@ export default function DatabaseSearch({ filters }) {
                         }),
                     option: (styles) => ({
                         ...styles,
-                        backgroundColor: '#192030',
+                        backgroundColor: '#06102b',
                         color: 'white',
                         ':hover': {
-                            backgroundColor: '#262e47',
+                            backgroundColor: '#0f2769',
                             color: 'white',
                             cursor: 'pointer',
                         },
@@ -69,36 +87,36 @@ export default function DatabaseSearch({ filters }) {
                         paddingBottom: 0,
                         borderBottomLeftRadius: '20px',
                         borderBottomRightRadius: '20px',
-                        backgroundColor: '#192030',
+                        backgroundColor: '#06102b',
                         borderTop: 'none',
-                        borderLeft: '3px solid #262e47',
-                        borderRight: '3px solid #262e47',
-                        borderBottom: '3px solid #262e47',
+                        borderLeft: '3px solid #0f2769',
+                        borderRight: '3px solid #0f2769',
+                        borderBottom: '3px solid #0f2769',
                         zIndex: 10,
                         "::-webkit-scrollbar": {
                             width: "3px"
                         },
                         "::-webkit-scrollbar-thumb": {
-                            background: "#5c64f4"
+                            background: "#0f2769"
                         },
                     }),
                     multiValue: (styles) => {
                         return {
                         ...styles,
                         borderRadius: 20,
-                        backgroundColor:'#5c64f4',
+                        backgroundColor:'#0f2769',
                         };
                     },
                     multiValueLabel: (styles) => ({
                     ...styles,
-                    backgroundColor: '#5c64f4',
+                    backgroundColor: '#0f2769',
                     color: '#FFF',
                     borderTopLeftRadius: 20,
                     borderBottomLeftRadius: 20
                     }),
                     multiValueRemove: (styles) => ({
                         ...styles,
-                        backgroundColor: '#5c64f4',
+                        backgroundColor: '#0f2769',
                         borderTopRightRadius: 20,
                         borderBottomRightRadius: 20,
                         ':hover': {
@@ -115,7 +133,11 @@ export default function DatabaseSearch({ filters }) {
                 classNamePrefix="select"
                 spellcheck="false"
                 onChange={handleSelectChange}
+                onCreateOption={nameHandler}
+                formatCreateLabel={formatCreateLabel}
+                formatGroupLabel={formatGroupLabel}
                 value={filters}
+                placeholder="Search here"
             />
         </div>
     )
