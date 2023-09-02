@@ -204,14 +204,14 @@ export default async function TypeTool({ searchParams }) {
                                 />
                                 <Diagram
                                     name="Masculinity"
-                                    src="/img/typechart/mDe.png"
+                                    src="/img/typechart/mde.png"
                                     {...masculinityAnalytics(searchParams.type)}
                                     color='#ff5639'
                                     total={512}
                                 />
                                 <Diagram
                                     name="Femininity"
-                                    src="/img/typechart/fDe.png"
+                                    src="/img/typechart/fde.png"
                                     {...masculinityAnalytics(searchParams.type, true)}
                                     color='#288cff'
                                     total={512}

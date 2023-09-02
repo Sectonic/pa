@@ -52,10 +52,7 @@
 @media screen and (max-width:775px) {
   .section {
     width: calc(100% - 25px);
-    margin-top: 20px;
-  }
-  .extra_margin_section {
-    margin-top: 40px !important;
+    margin-top: 0px;
   }
 }
 

@@ -537,6 +537,13 @@
   gap: 40px;
 }
 
+@media screen and (max-width: 600px) {
+  .learn_systems {
+    width: 100%;
+    padding: 0;
+  }
+}
+
 .learn_systems-title {
   font-size: 20px;
   font-weight: 700;
@@ -570,8 +577,8 @@
 
 @media screen and (max-width: 450px) {
   .learn_system {
-    width: calc(100% - 40px);
-    height: 275px;
+    width: 220px;
+    height: 220px;
   }
 }
 
@@ -630,6 +637,27 @@
     rgba(var(--light-grey-rgb), 0.4),
     rgba(var(--dark-grey-rgb), .1)
   ), url(".//backgrounds/background_pink.png");
+}
+
+.learn_system-soon {
+  filter:opacity(50%) grayscale(100%);
+  cursor: default;
+  overflow: hidden;
+}
+
+.learn_system-soon:hover {
+  background-size: 1700px;
+}
+
+.learn_system-soon-tag {
+  position: absolute;
+  top: 53%;
+  left: 65%;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  transform: rotate(45deg) translate(-50%, -50%);
+  background-color: var(--light-grey);
 }
 
 .learn_system-learnbtn {

@@ -76,72 +76,72 @@ export default function Page() {
             </div>
             </div>
             <div className='section_container'>
-            <div className="section">
-            <div className="section_body">
-            <div className="section_img">
-                <img
-                    src={"/img/main/logo.png"}
-                />
+                <div className="section">
+                    <div className="section_body">
+                        <div className="section_img">
+                            <img
+                                src={"/img/main/logo.png"}
+                            />
+                        </div>
+                    </div>
+                    <h2 className="section_title neg-mt-45">Everything You'll Need</h2>
+                    <div className="section_body section_texts-sm extra_spacing_texts-sm">
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/main/learn2.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">Learn Personality</h3>
+                                <p>
+                                Unfold the objectively trackable spectrum of personality.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/main/type2.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">Type Objectively</h3>
+                                <p>
+                                Use proper methods to track personality type objectively.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="section_body section_texts-sm extra_spacing_texts-sm">
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/main/tools2.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">The Best Tools</h3>
+                                <p>
+                                We'll help you along the way with the best easy to use tools.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/main/improve2.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">Actually Improve</h3>
+                                <p>
+                                Turn knowledge into action by taking theory into practice.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <h2 className="section_title neg-mt-45">Everything You'll Need</h2>
-            <div className="section_body section_texts-sm extra_spacing_texts-sm">
-                <div className="section_text outline-trans">
-                <div className="text-sm_img home-top_img">
-                    <img
-                    src={"/img/main/learn2.png"}
-                    />
-                </div>
-                <div className="text-sm_desc">
-                    <h3 className="section_subtitle margin-sm">Learn Personality</h3>
-                    <p>
-                    Unfold the objectively trackable spectrum of personality.
-                    </p>
-                </div>
-                </div>
-                <div className="section_text outline-trans">
-                <div className="text-sm_img home-top_img">
-                    <img
-                    src={"/img/main/type2.png"}
-                    />
-                </div>
-                <div className="text-sm_desc">
-                    <h3 className="section_subtitle margin-sm">Type Objectively</h3>
-                    <p>
-                    Use proper methods to track personality type objectively.
-                    </p>
-                </div>
-                </div>
-            </div>
-            <div className="section_body section_texts-sm extra_spacing_texts-sm">
-                <div className="section_text outline-trans">
-                <div className="text-sm_img home-top_img">
-                    <img
-                    src={"/img/main/tools2.png"}
-                    />
-                </div>
-                <div className="text-sm_desc">
-                    <h3 className="section_subtitle margin-sm">The Best Tools</h3>
-                    <p>
-                    We'll help you along the way with the best easy to use tools.
-                    </p>
-                </div>
-                </div>
-                <div className="section_text outline-trans">
-                <div className="text-sm_img home-top_img">
-                    <img
-                    src={"/img/main/improve2.png"}
-                    />
-                </div>
-                <div className="text-sm_desc">
-                    <h3 className="section_subtitle margin-sm">Actually Improve</h3>
-                    <p>
-                    Turn knowledge into action by taking theory into practice.
-                    </p>
-                </div>
-                </div>
-            </div>
-            </div>
             </div>
       </div>
     );

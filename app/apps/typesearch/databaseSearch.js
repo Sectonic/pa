@@ -137,7 +137,7 @@ export default function DatabaseSearch({ filters }) {
                 formatCreateLabel={formatCreateLabel}
                 formatGroupLabel={formatGroupLabel}
                 value={filters}
-                placeholder="Search here"
+                placeholder="Search a type or a name"
             />
         </div>
     )

@@ -33,12 +33,6 @@ export default function Learn({ searchParams }) {
         )}
         <div className="learn_systems-container">
           <SearchContainer query={searchParams.query}>
-            <Link href="/learn">
-              <IntroCourse color="green" title="Discover Personality">
-                Unfold the meaning of personality & how it impacts everything in your life.
-                <img src='/img/learn/intro_logo.png' />
-              </IntroCourse>
-            </Link>
             <Link href="/ops">
               <TypologySystem title="Objective Personality" extraTags={['ops', 'op']}>
                 Uncover your default wiring through a spectrum of up to 2048 personality codes. 
@@ -51,24 +45,24 @@ export default function Learn({ searchParams }) {
                 <img src='/img/learn/objective_typing.png' />
               </IntroCourse>
             </Link>
-            <Link href="/typing">
-              <IntroCourse color="green" title="Typing Others">
+            <IntroCourse color="green" title="Discover Personality" comingSoon={true}>
+                Unfold the meaning of personality & how it impacts everything in your life.
+                <img src='/img/learn/intro_logo.png' />
+            </IntroCourse>
+            <IntroCourse color="green" title="Typing Others" comingSoon={true}>
                 Disover how to objectively track personality type with scientific principles!
                 <img src='/img/learn/typing_others.png' />
-              </IntroCourse>
-            </Link>
-            <IntroCourse color="yellow" title="Improve With Type!">
+            </IntroCourse>
+            <IntroCourse color="yellow" title="Improve With Type!" comingSoon={true}>
                 Turn knowledge into action by learning to leverage the OP Code in your life!
                 <img src='/img/learn/improve.png' />
-              </IntroCourse>
-            <Link href="/learn">
-              <TypologySystem color="pink" title="Bycognition Direct">
+            </IntroCourse>
+            <TypologySystem color="pink" title="Bycognition Direct" comingSoon={true}>
                 <span>
                   A project to learn about the impulsive processes which form personality.
                 </span>
                 <img src='/img/learn/bycog_logo.png' />
-              </TypologySystem>
-            </Link>
+            </TypologySystem>
           </SearchContainer>
         </div>
       </div>

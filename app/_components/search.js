@@ -25,11 +25,13 @@ export const SearchContainer = ({children, query}) => {
     )
 }
 
-export const IntroCourse = ({children, color, title}) => {
-    const systemColor = color ? 'learn_system learn_system-' + color : 'learn_system';
+export const IntroCourse = ({children, color, title, comingSoon}) => {
+    var systemColor = color ? 'learn_system learn_system-' + color : 'learn_system';
+    systemColor += comingSoon ? ' learn_system-soon' : '';
     const children_arr = Children.toArray(children);
     return (
         <div className={systemColor}>
+            { comingSoon && <div className="learn_system-soon-tag">Coming Soon</div>}
             <div className="learn_system-tag">Introduction Course</div>
             <div className="learn_system-title">{title}</div>
             <div className="learn_system-description">{children_arr[0]}</div>
@@ -45,11 +47,13 @@ IntroCourse.defaultProps = {
     extraTags: []
 }
 
-export const TypologySystem = ({children, color, title}) => {
-    const systemColor = color ? 'learn_system learn_system-' + color : 'learn_system';
+export const TypologySystem = ({children, color, title, comingSoon}) => {
+    var systemColor = color ? 'learn_system learn_system-' + color : 'learn_system';
+    systemColor += comingSoon ? ' learn_system-soon' : '';
     const children_arr = Children.toArray(children);
     return (
         <div className={systemColor}>
+            { comingSoon && <div className="learn_system-soon-tag">Coming Soon</div>}
             <div className="learn_system-tag">Typology System</div>
             <div className="learn_system-title">{title}</div>
             <div className="learn_system-description">{children_arr[0]}</div>

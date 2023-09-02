@@ -18,34 +18,161 @@ export default function ObjectiveMethod() {
             <div className="section_container">
                 <div className="section section_images-in">
                     <div className="section_body reverse_body">
+                    <div className="section_img">
+                        <img
+                        src={"/img/learn/ops/intro/method/disclaimer.png"}
+                        alt=""
+                        />
+                    </div>
                     <div className="section_text multiple_paragraphs">
                         <div className="multi_paragraph">
-                        <h2 className="margin-sm">What Is OPS?</h2>
+                        <h2 className="margin-sm">Attempt at Scienctific Method</h2>
                         <p>
-                        Objective Personality or "OPS" is a cognitive theory which has been under development by Dave and Shan for upwards of 10 years.
-                        OPS utilizes the scientific methods to categorize personality.
-                        </p>
-                        <p>
-                        OPS was developed with the aim of making personality objectively trackable through proper methods, as well as rectifying many of the shortcomings found in other theories.
+                            Objective Personality tries to implement ideas of the scientific method into its system. The reason it is laid out is because the system relies on trackable evidence rather than anecdotal evidence. It's goal is to minimize subjectivity during a typing process which is why they opt to pursue the scientific approach.
                         </p>
                         </div>
                         <div className="multi_paragraph">
-                        <h2 className="margin-sm">Objectively Trackable</h2>
+                        <h2 className="margin-sm">Disclaimer</h2>
                         <p>
-                        Where other theories fell short, was having something provable and trackable. MBTI and other theories quit after theorizing and have been studied to be as accurate as a coin flip.
+                            The Objective Personality System <i>is not</i> actually real science. This may confuse you because it has the name "Objective" in it. What it does do though is try to use methodology and procedures akin to the scientific method to minimize people's misperceptions of themselves.
                         </p>
                         <p>
-                        This is where OPS differs. Objective Personality is based on years of hypothesizing, testing and adapting based on the results.
-                        The result of this is a system made up for 512 types where multiple seperate operators can consistently nail down a single type out of 512.
+                            It has largely been a critique of the system that the name does not follow what it does, but another case is that the <i>point</i> of the name is to showcase its attempt at minimizing misperception. The Objective methodology below is to help people type themselves and others better, and it is not an attempt to prove its scientific validity.
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div className="section section_images-in">
+                    <div className="section_body reverse_body">
+                    <div className="section_text multiple_paragraphs">
+                        <div className="multi_paragraph">
+                        <h2 className="margin-sm">Anecdotal Evidence</h2>
+                        <p>
+                            The majority of typology systems are based on anecdotal evidence. This means that people are mostly taking their personal accounts on their personality, without considering the truth or reliability in it. 
+                        </p>
+                        <p>
+                            OPS sees the impact this can have on understanding your genuine personality in the system: someone can <i>feel</i> that they have one trait, but actually have something else. This leaded them to use behavioral patterns through trackable evidence instead.
+                        </p>
+                        </div>
+                        <div className="multi_paragraph">
+                        <h2 className="margin-sm">Trackable Evidence</h2>
+                        <p>
+                            Trackable evidence is not something a person just <i>feel</i> about themselves, but what they actually do in their life. It is something observable to the people around the person as well, it can be <i>tracked</i>.
+                        </p>
+                        <p>
+                            The procedure to use for tracking behaviors is: observation, speculation, repetition, validification, and conclusion (talked about below). With this procedure, you can check whether or not they <i>really</i> do have a behavioral pattern. During personality typing, we can often misperceive someone's true behavior and cognition. This helps that.
                         </p>
                         </div>
                     </div>
                     <div className="section_img">
                         <img
-                        src={"/img/learn/ops/intro/ops/top.png"}
+                        src={"/img/learn/ops/intro/method/evidence.png"}
                         alt=""
                         />
                     </div>
+                    </div>
+                </div>
+                <div className="section">
+                    <div className="section_body">
+                        <div className="section_img section_img">
+                            <img
+                                src={"/img/learn/ops/intro/method/procedure.png"}
+                            />
+                        </div>
+                    </div>
+                    <h2 className="section_title neg-mt-45">The Typing Procedure</h2>
+                    <div className="section_body section_texts-sm extra_spacing_texts-sm">
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/learn/ops/intro/method/observation.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">1. Observation</h3>
+                                <p>
+                                    You first observe someone having a trait or performing an action
+                                </p>
+                            </div>
+                        </div>
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/learn/ops/intro/method/hypothesis.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">2. Speculation</h3>
+                                <p>
+                                    You then speculate that this could mean they have a certain behavioral pattern
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="section_body section_texts-sm extra_spacing_texts-sm">
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/learn/ops/intro/method/experiment.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">3. Repetition</h3>
+                                <p>
+                                    You don't stop at speculation. You have to catch this behavior <i>multiple</i> times and consistently.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/learn/ops/intro/method/conclusion.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">4. Validification</h3>
+                                <p>
+                                    You either validify that they have this trait through the repetition, or they dont - questioning another trait.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="section_body section_texts-sm extra_spacing_texts-sm">
+                        <div className="section_text outline-trans">
+                            <div className="text-sm_img home-top_img">
+                                <img
+                                src={"/img/learn/ops/intro/method/result.png"}
+                                />
+                            </div>
+                            <div className="text-sm_desc">
+                                <h3 className="section_subtitle margin-sm">5. Conclusion</h3>
+                                <p>
+                                    The cycle above continues until you finally have a solid conclusion with good repetition. You now know they have that behavioral pattern.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="section section_images-in">
+                    <div className="section_body reverse_body">
+                        <div className="section_img">
+                            <img
+                            src={"/img/learn/ops/intro/method/onto.png"}
+                            alt=""
+                            />
+                        </div>
+                        <div className="section_text multiple_paragraphs">
+                            <div className="multi_paragraph">
+                                <h2 className="margin-sm">Onto the System</h2>
+                                <p>
+                                    You now know the underlying concepts that build up OPS: from its use of spectrums and binary coins, to the objective method. 
+                                </p>
+                                <p>
+                                    Next up is learning the 9 binary coins in Objective Personality. The coins are the building blocks of the system; they serve as the distinguishing behavior patterns we talked about in the procedure.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -61,7 +61,7 @@ export default function Purpose() {
                             Dave & Shan prioritize using the scientific method for categorizing personality. This assumes an objective form of personality, how can that be? How OPS portrays personality objectively is through the use of the spectrum.
                         </p>
                         <p>
-                            Instead of narrowing down to an individual's traits and patterns, the system expands and looks at where the individual falls in between everyone else's traits & patterns. It inquires, "Where does your personality fit in alongside the sea of all other personalities?"
+                            Instead of narrowing down to an individual's traits and patterns, the system expands and looks at where the individual falls in between everyone else's traits & patterns. It inquires, "Where does your personality fit in alongside everyone else's personalities?"
                         </p>
                         </div>
                         <div className="multi_paragraph">
