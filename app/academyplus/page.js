@@ -4,6 +4,7 @@ import { getCustomer } from '@lib/customer';
 import { createMetaData } from "@lib/metadata";
 import { CheckoutBtn } from './checkoutBtn';
 import { PortalBtn } from './portalBtn';
+import { redirect } from 'next/navigation';
 
 export const metadata = createMetaData({
   title: 'Academy Plus',
@@ -13,6 +14,8 @@ export const metadata = createMetaData({
 });
 
 export default async function AcademyPlus() {
+
+    redirect('/');
 
     const  { academyPlus, customer, active } = await getCustomer();
 

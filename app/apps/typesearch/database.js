@@ -11,7 +11,7 @@ export default function Database({ data, count }) {
     const params = useSearchParams();
 
     const handlePopup = (person_id) => {
-        router.push('/apps/typesearch?' + createQueryString('popup_id', String(person_id), params) + `#${person_id}`);
+        router.push('/apps/typesearch?' + createQueryString('popup_id', String(person_id), params), { scroll: false });
     }
 
     return (

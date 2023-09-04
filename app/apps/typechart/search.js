@@ -38,8 +38,8 @@ export const TypeChartSearch = ({ type }) => {
 
         setError('');
 
-        const newUrl = `/apps/typechart?` + new URLSearchParams({type: formattedType}) + '#container';
-        router.push(newUrl);
+        const newUrl = `/apps/typechart?` + new URLSearchParams({type: formattedType});
+        router.push(newUrl, { scroll: false });
     }
 
     return (
@@ -52,7 +52,7 @@ export const TypeChartSearch = ({ type }) => {
                         <div className="typechart_search-btn" onClick={analyzeType}>
                             <img src="/img/typechart/apply.png" />
                         </div>
-                        <div className="typechart_search-btn" onClick={() => router.push('/apps/typechart')}>
+                        <div className="typechart_search-btn" onClick={() => router.push('/apps/typechart', { scroll: false })}>
                             <img src="/img/main/delete.png" />
                         </div>
                     </div>
@@ -78,7 +78,7 @@ export const SpreadSheetBtn = ({ children, val }) => {
     const changeSheet = () => {
         const newParams = new URLSearchParams(params);
         newParams.set('filter', val);
-        router.push('/apps/typechart?' + newParams + "#filter");
+        router.push('/apps/typechart?' + newParams, { scroll: false });
     }
 
     return (

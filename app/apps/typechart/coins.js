@@ -220,7 +220,7 @@ export const Coin = ({ keys, value, coin, typeData }) => {
 
     const changeCoin = (e) => {
         const changedType = coinChanger[coin](e.target.innerHTML);
-        router.push('/apps/typechart?' + new URLSearchParams({type: changedType}) + '#container');
+        router.push('/apps/typechart?' + new URLSearchParams({type: changedType}), { scroll: false });
     }
 
     return (

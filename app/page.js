@@ -1,20 +1,15 @@
 "use client";
 
 import { TypeAnimation } from 'react-type-animation';
-import ChangeSection from '@components/change_section';
 import UpdatesPopup from './updatesPopup';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function Page() {
-    const router = useRouter();
     const [popup, setPopup] = useState(false);
 
     const openPopup = () => {
         setPopup(true);
     }
-
-    const academyPlus = () => router.push('/academyplus');
 
     return (
         <div className="main">
@@ -39,40 +34,40 @@ export default function Page() {
                 </div>
                 </h1>
                 <div className="home_dashboard">
-                <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/FcqsJHXCBR", '_blank').focus()}>
-                <img src="/img/main/discord.png" className="updates_img" />
-                <div className="home_lg-text">
-                    <div>
-                    Join Our
+                    <div className="home_dashboard-sm" onClick={() => window.open("https://discord.com/invite/s4v5yQdnE9", '_blank').focus()}>
+                        <img src="/img/main/discord.png" className="updates_img" />
+                        <div className="home_lg-text">
+                            <div>
+                            Join Our
+                            </div>
+                            <div className="home_lg-textbig">
+                            Community
+                            </div>
+                        </div>
                     </div>
-                    <div className="home_lg-textbig">
-                    Discord
+                    <div className="home_dashboard-sm negml-10" onClick={() => window.open("https://paypal.me/AzeOriginal?country.x=DK&locale.x=en_US", '_blank').focus()}>
+                        <img src="/img/main/support.png" className="updates_img" />
+                        <div className="home_lg-text">
+                            <div>
+                            Support Us
+                            </div>
+                            <div className="home_lg-textbig">
+                            Donate
+                            </div>
+                        </div>
+                    </div>
+                    <div className="home_dashboard-lg" onClick={openPopup} >
+                        <img src="/img/main/launch.png" className="updates_img" />
+                        <div className="home_lg-text">
+                            <div>
+                            June 1st
+                            </div>
+                            <div className="home_lg-textbig">
+                            Project Launched!
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-                <div className="home_dashboard-sm negml-10" onClick={academyPlus}>
-                <img src="/img/main/support.png" className="updates_img" />
-                <div className="home_lg-text">
-                    <div>
-                    Support With
-                    </div>
-                    <div className="home_lg-textbig">
-                    Academy+
-                    </div>
-                </div>
-                </div>
-                <div className="home_dashboard-lg" onClick={openPopup} >
-                <img src="/img/main/launch.png" className="updates_img" />
-                <div className="home_lg-text">
-                    <div>
-                    June 1st
-                    </div>
-                    <div className="home_lg-textbig">
-                    Project Launched!
-                    </div>
-                </div>
-                </div>
-            </div>
             </div>
             </div>
             <div className='section_container'>

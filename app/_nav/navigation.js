@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 import AccountPopup from './accountPopup';
 import TopNav from "./topNav";
@@ -12,6 +12,12 @@ export default function DefaultNavigation ({ user }) {
     const [menu, setMenu] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
     const [popup, setPopup] = useState(false);
+
+    useEffect(() => {
+        if (window.innerWidth <= 775) {
+            mobileMenuOut();
+        }
+    }, [pathname])
 
     const mobileMenuOut = () => {
         if (mobileMenu) {

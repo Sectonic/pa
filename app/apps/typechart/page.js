@@ -107,7 +107,7 @@ export default async function TypeTool({ searchParams }) {
                     </div>
                 </div>
             </div>
-            <div className="typechart_container" id="container">
+            <div className="typechart_container">
                 <TypeChartSearch type={searchParams.type} />
                 <div className="typechart_diagrams_container">
                     <CoinContainer typeData={filters} >

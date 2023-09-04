@@ -7,12 +7,21 @@ export default function SideNav(props) {
     <div className="nav">
       <div className="nav_container">
         <div className="nav_bar">
-        <Link href="/">
+          <Link href="/">
             <li className={props.section === "" || null ? "selected_nav" : undefined} id="home_nav">
                 <img
                   src={"/img/main/home.png"}
                   alt="learn icon"
                 />
+            </li>
+          </Link>
+          <Link href="/aboutus">
+            <li className={props.section === "learn" ? "selected_nav" : undefined}>
+                <img
+                  src={"/img/main/about.png"}
+                  alt="learn icon"
+                />
+                <div className='tool_tip'>About</div>
             </li>
           </Link>
           <Link href="/learn">
@@ -51,7 +60,7 @@ export default function SideNav(props) {
                 <div className='tool_tip'>Resources</div>
             </li>
           </Link>
-          <Link href="/academyplus">
+          {/* <Link href="/academyplus">
             <li className={props.section === "academyplus" ? "selected_nav" : undefined}>
                 <img
                   src={"/img/main/support.png"}
@@ -59,7 +68,7 @@ export default function SideNav(props) {
                 />
                 <div className='tool_tip'>Plus</div>
             </li>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

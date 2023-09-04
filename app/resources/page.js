@@ -11,6 +11,19 @@ export const metadata = createMetaData({
 
 export default function Resources() {
   return (
+    /*
+
+    https://www.youtube.com/@9coins353
+    https://www.youtube.com/@daveofallpeople
+    https://www.youtube.com/@resistrambling3850
+    https://www.youtube.com/@personalityhabits
+    https://www.youtube.com/@jungbuck
+    https://www.youtube.com/@RoqbinReality
+    https://www.youtube.com/@AutoAlchemy
+    https://www.youtube.com/@TheNiNeShowOfficial
+    https://www.youtube.com/@townsfolktoheroes3148
+
+    */
     <div className="main">
       <Banner
         background="blue"
@@ -22,7 +35,7 @@ export default function Resources() {
         <div className="section typing_section">
           <h2 className="section_title">Official Objective Personality</h2>
           <div className="section_body top_typing">
-            <div className="section_text  m0">
+            <div className="section_text m0">
               <Link
                 href="https://www.objectivepersonalitysystem.com/"
                 target="_blank"

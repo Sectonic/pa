@@ -8,7 +8,7 @@ export const Examples = ({ data }) => {
     const params = useSearchParams();
 
     const handlePopup = (person_id) => {
-        router.push('/apps/typechart?' + createQueryString('popup_id', String(person_id), params) + `#${person_id}`);
+        router.push('/apps/typechart?' + createQueryString('popup_id', String(person_id), params), { scroll: false });
     }
 
     return (

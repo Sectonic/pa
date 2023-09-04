@@ -17,7 +17,7 @@ export default function ObjectiveMethod() {
             />
             <div className="section_container">
                 <div className="section section_images-in">
-                    <div className="section_body reverse_body">
+                    <div className="section_body">
                     <div className="section_img">
                         <img
                         src={"/img/learn/ops/intro/method/disclaimer.png"}
@@ -155,7 +155,7 @@ export default function ObjectiveMethod() {
                     </div>
                 </div>
                 <div className="section section_images-in">
-                    <div className="section_body reverse_body">
+                    <div className="section_body">
                         <div className="section_img">
                             <img
                             src={"/img/learn/ops/intro/method/onto.png"}

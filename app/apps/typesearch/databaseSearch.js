@@ -15,7 +15,7 @@ export default function DatabaseSearch({ filters }) {
             filters_array.push(filter['value']);
         });     
         const filter_string = filters_array.length === 0 ? '' : encodeURIComponent(JSON.stringify(filters_array));    
-        router.push('/apps/typesearch?' + createQueryString('filters', filter_string, params));
+        router.push('/apps/typesearch?' + createQueryString('filters', filter_string, params), { scroll: false });
     }
 
     const formatOptionLabel = ({label}) => (
@@ -33,7 +33,7 @@ export default function DatabaseSearch({ filters }) {
     const nameHandler = (name) => {
         const newParams = params.get('filters') ? JSON.parse(decodeURIComponent(params.get('filters'))) : [];
         newParams.push(name);
-        router.push('/apps/typesearch?' + createQueryString('filters', encodeURIComponent(JSON.stringify(newParams)), params));
+        router.push('/apps/typesearch?' + createQueryString('filters', encodeURIComponent(JSON.stringify(newParams)), params), { scroll: false });
     }
 
     const formatCreateLabel = (name) => (

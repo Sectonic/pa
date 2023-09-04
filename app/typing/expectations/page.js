@@ -46,7 +46,7 @@ function expectations() {
           </div>
         </div>
         <div className="section section_images-in">
-          <div className="section_body reverse_body">
+          <div className="section_body">
           <div className="section_img">
               <img src="/img/learn/typing/get_started/direction.png" alt="" />
             </div>

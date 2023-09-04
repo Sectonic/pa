@@ -4,8 +4,8 @@
     margin: 17px auto;
     background-image: linear-gradient(
       to top,
-      rgba(var(--purple-black-rgb), .9),
-      rgba(var(--dark-grey-rgb), .5)
+      rgba(var(--dark-grey-rgb), .85),
+      rgba(var(--dark-grey-rgb), .85)
     ), url("../backgrounds/background_yellow.png") ;
     background-size: 100%;
     border-radius: 15px;
@@ -55,8 +55,8 @@
 .banner_purple {
     background-image: linear-gradient(
         to top,
-        rgba(var(--purple-black-rgb), .9),
-        rgba(var(--dark-grey-rgb), .5)
+        rgba(var(--dark-grey-rgb), .85),
+        rgba(var(--dark-grey-rgb), .85)
     ),
     url("../backgrounds/background_blue.png");
 }
@@ -64,8 +64,8 @@
 .banner_pink {
     background-image: linear-gradient(
         to top,
-        rgba(var(--purple-black-rgb), .9),
-        rgba(var(--dark-grey-rgb), .5)
+        rgba(var(--dark-grey-rgb), .85),
+        rgba(var(--dark-grey-rgb), .85)
     ),
     url("../backgrounds/background_pink.png");
 }
@@ -73,8 +73,8 @@
 .banner_blue {
     background-image: linear-gradient(
         to top,
-        rgba(var(--purple-black-rgb), .9),
-        rgba(var(--dark-grey-rgb), .5)
+        rgba(var(--dark-grey-rgb), .85),
+        rgba(var(--dark-grey-rgb), .85)
     ),
     url("../backgrounds/background_blue.png");
 }
@@ -82,8 +82,8 @@
 .banner_green {
     background-image: linear-gradient(
         to top,
-        rgba(var(--purple-black-rgb), .9),
-        rgba(var(--dark-grey-rgb), .5)
+        rgba(var(--dark-grey-rgb), .85),
+        rgba(var(--dark-grey-rgb), .85)
     ),
     url("../backgrounds/background_green.png");
 }

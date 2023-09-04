@@ -49,12 +49,12 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
                               <img src='/img/main/settings.png'/>
                               <div>Account Settings</div>
                           </div>
-                          <form method='POST' onSubmit={useSubscription}>
+                          {/* <form method='POST' onSubmit={useSubscription}>
                               <button className='user-profile_row user-profile_row-btn' type='submit'>
                               <img src='/img/main/subscription.png'/>
                               <div>Subscription</div>
                               </button>
-                          </form>
+                          </form> */}
                           <div className='user-profile_row' onClick={Logout}>
                               <img src='/img/main/logout_icon.png'/>
                               <div>Logout</div>

@@ -9,7 +9,7 @@ export const TypePopupClose = ({ person_id }) => {
     const path = usePathname();
 
     const onClose = () => {
-        router.push(path + '?' + createQueryString('popup_id', '', params) + `#${person_id}`);
+        router.push(path + '?' + createQueryString('popup_id', '', params), { scroll: false });
     }
 
     return (
