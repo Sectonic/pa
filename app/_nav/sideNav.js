@@ -15,15 +15,6 @@ export default function SideNav(props) {
                 />
             </li>
           </Link>
-          <Link href="/aboutus">
-            <li className={props.section === "learn" ? "selected_nav" : undefined}>
-                <img
-                  src={"/img/main/about.png"}
-                  alt="learn icon"
-                />
-                <div className='tool_tip'>About</div>
-            </li>
-          </Link>
           <Link href="/learn">
             <li className={props.section === "learn" ? "selected_nav" : undefined}>
                 <img
@@ -58,6 +49,15 @@ export default function SideNav(props) {
                   alt="resources icon"
                 />
                 <div className='tool_tip'>Resources</div>
+            </li>
+          </Link>
+          <Link href="/aboutus">
+            <li className={props.section === "learn" ? "selected_nav" : undefined}>
+                <img
+                  src={"/img/main/about.png"}
+                  alt="learn icon"
+                />
+                <div className='tool_tip'>About</div>
             </li>
           </Link>
           {/* <Link href="/academyplus">

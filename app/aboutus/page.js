@@ -5,7 +5,7 @@ export default function Page() {
     return (
         <div className="main">
             <Banner
-                background="blue"
+                background="yellow"
                 title="About Us"
                 section="about"
                 type="nav"
