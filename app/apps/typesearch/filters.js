@@ -1,4 +1,16 @@
 export const filter_exchange = {
+    "#1": [
+        {'name': 'social', 'value': '1'},
+    ],
+    "#2": [
+        {'name': 'social', 'value': '2'},
+    ],
+    "#3": [
+        {'name': 'social', 'value': '3'},
+    ],
+    "#4": [
+        {'name': 'social', 'value': '4'},
+    ],
     "MM": [
         {'name': 'sensoryModality', 'value': 'mS'},
         {'name': 'deModality', 'value': 'mDe'},
@@ -210,6 +222,15 @@ export const filter_exchange = {
 }
 
 export const options = [
+    {
+        label: 'Socials',
+        options: [
+            { value: '#1', label: '#1'},
+            { value: '#2', label: '#2'},
+            { value: '#3', label: '#3'},
+            { value: '#4', label: '#4'}
+        ]
+    },
     {
         label: 'Modalities',
         options: [
