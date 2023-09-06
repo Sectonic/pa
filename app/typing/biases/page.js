@@ -22,80 +22,83 @@ function biases() {
           <div className="section_body reverse_body">
             <div className="section_text multiple_paragraphs">
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Self Discovery</h2>
+                <h2 className="margin-sm">Expectation warps reality</h2>
                 <p>
-                An undeniable part of determing your personality type, is the motivation that brought you to do so in the first place. 
+                What you are looking for, why you are looking, and the way you are looking all shape what you see in the end. 
                 </p>
                 <p>
-                Whether casual or serious, most get into personality theory because they want to understand something about themselves better.
+                This is what biases are all about. Being biased is a normal part of life, but when it comes to objectively determining a type, biases get in the way.
                 </p>
                 <p>
-                Who you are, and how you fit into the outside world. The motivation to answer these questions is how you uncover truths you'd otherwise never find.
+                Essentially all of the fallacies in this course are biases with extra steps, but here we'll take a look at how bias itself works.
                 </p>
               </div>
               <div className="multi_paragraph">
-                <h2 className="margin-sm">However...</h2>
+                <h2 className="margin-sm"></h2>
                 <p>
-                That same motivation can equally be be what stands between you and actually seeing the truth.
+                The best way to avoid bias, is to understand how it works.
                 </p>
                 <p>
-                It is important to realize, that to a large extent, we see what we are looking for.
-                </p>
-                <p>
-                Therefore, it is not uncommon to feel attatched to the idea of your type, as your type is about your identity and who you are.
+                By being able to recognize the different types of biases, you can steer clear of them when going about your typing method.
                 </p>
               </div>
             </div>
             <div className="section_img">
-              <img src="/img/learn/typing/obstacles/idea.png" alt="" />
+              <img src="/img/learn/typing/obstacles/shapes.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div className="section">
+          <h2 className="section_title">Types of Biases</h2>
+          <div className="section_body section_texts-sm">
+            <div className="section_text">
+              <div className="text-sm_img">
+                <img
+                  src={"/img/learn/ops/advanced/extroversion/introvert.png"}
+                  alt=""
+                />
+              </div>
+              <div className="text-sm_desc">
+                <h3 className="section_subtitle margin-sm">Internal Bias</h3>
+                <p>
+                  Swayed perspective as a result of conviction, personal belief or internal emotional responses.
+                  <div className="margin-sm">
+                </div>
+                </p>
+              </div>
+            </div>
+            <div className="section_text">
+              <div className="text-sm_img">
+                <img
+                  src={"/img/learn/ops/advanced/extroversion/extrovert.png"}
+                  alt=""
+                />
+              </div>
+              <div className="text-sm_desc">
+                <h3 className="section_subtitle margin-sm">External Bias</h3>
+                <p>
+                  Swayed perspective caused by outside factors such as other people or representation of reality.
+                </p>
+              </div>
             </div>
           </div>
         </div>
         <div className="section section_images-in">
           <div className="section_body reverse_body">
           <div className="section_img">
-              <img src="/img/learn/typing/obstacles/confusion.png" alt="" />
+              <img src="/img/learn/typing/obstacles/yes.png" alt="" />
             </div>
             <div className="section_text multiple_paragraphs">
               <div className="multi_paragraph">
-                <h2 className="margin-sm">"Lost self" fallacy</h2>
+                <h2 className="margin-sm">Confirmation Bias</h2>
                 <p>
-                A pitfall not all too uncommon is to use type to form some kind of identity for yourself. 
-                </p>
-                <p>
-                Seeking out a type label as a substitute for your own identity is fairly common, but can also be extremely stressful.
-                At the end of the day it won't do anything but cover up a void that's still there.
-                </p>
-                <p>
-                If you are too attached to what type you are, objective typing will be a nightmare. As your entire identity is resting on one way of classifying personality.
+                -
                 </p>
               </div>
               <div className="multi_paragraph">
-                <h2 className="margin-sm">Type limbo</h2>
+                <h2 className="margin-sm">-</h2>
                 <p>
-                One scenario that may happen in cases like this is called "type limbo".
-                </p>
-                <p>
-                This is when you keep running in circles, constantly unsure of your type and never really getting anywhere.
-                </p>
-                <p>
-                Your attachment to your type is too strong to settle. The result of this being a detrimental downwards spiral of constant uncertainty and stress.
-                </p>
-              </div>
-              <div className="multi_paragraph">
-                <h2 className="margin-sm">"My" type</h2>
-                <p>
-                Another such example is being stuck on your own idea of your type.
-                </p>
-                <p>
-                This happens when you are so attached to your own "truth" of who you are through a certain type, that you can't let go.
-                </p>
-                <p>
-                The attachment in itself comes from the fear of not actually knowing who you are without the label. 
-                As a result, you start forming the type and system around yourself, and any opinions that don't align with your own get dismissed.
-                </p>
-                <p>
-                Needless to say, this is also an unhealthy approach.
+                -
                 </p>
               </div>
             </div>
