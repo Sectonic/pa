@@ -91,21 +91,21 @@
 .support_body {
     flex-direction: row !important;
     flex-wrap: wrap;
+    gap: 30px !important;
 }
 
 .support_card {
     margin: 0 !important;
     width: max-content !important;
-    padding: 15px !important;
+    padding: 25px !important;
     text-align: center;
 }
 
 .support_card img {
-    width: 160px;
-    height: 160px;
+    width: 185px;
+    height: 185px;
     object-fit: cover;
     border-radius: 15px;
-    border: 3px solid var(--light-purple);
 }
 
 .support_card h2 {
@@ -114,6 +114,54 @@
 
 .support_title {
     font-size: 28px;
+}
+
+@media screen and (max-width: 775px) and (min-width: 500px) {
+    .support_title {
+        margin-bottom: 20px;
+    }  
+}
+
+.contributor_body {
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 20px !important;
+    max-width: 680px;
+}
+
+@media screen and (max-width: 1100px) {
+    .section_body.support_body {
+        gap: 30px !important;
+    }  
+    .section_body.contributor_body {
+        gap: 20px !important;
+    }
+}
+
+.contributor_card {
+    width: 150px;
+    background-color: var(--dark-grey);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 537px) {
+    .contributor_card {
+        width: 205px;
+    }
+}
+
+.contributor_card img {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    object-fit: cover;
 }
 
 .blur_background {

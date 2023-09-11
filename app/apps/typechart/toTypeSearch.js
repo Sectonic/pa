@@ -32,7 +32,7 @@ const ToTypeSearchBtn = () => {
         }
 
         const url = '/apps/typesearch?' + new URLSearchParams({ filters: JSON.stringify(typeSearchOptions), page: 1 });
-        router.push(url, { scroll: false });
+        router.push(url);
 
     }
 

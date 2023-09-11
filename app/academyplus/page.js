@@ -175,20 +175,20 @@ export default async function AcademyPlus() {
             <div className="section_title">And always more in the works...</div>
           </div>
           <div className="section extra_margin_section">
-        <div className="section_body">
-        <div className="section_img">
-              <img
-                src={"/img/academyplus/support.png"}
-              />
+            <div className="section_body">
+              <div className="section_img">
+                <img
+                  src={"/img/academyplus/support.png"}
+                />
+              </div>
             </div>
-          </div>
-          <h2 className="section_title neg-mt-45">Help us keep it running</h2>
-          <p className="letters_subtitle">
-          All these things cost a lot of money to keep running over time,
-          <br/> By buying Plus you make us able to keep doing more of what we do.
-          <br/>If you like what we do, the support would mean the world to us, genuinely. 
-          </p>
-          <div className="section_title support_title">Our Team</div>
+            <h2 className="section_title neg-mt-45">Help us keep it running</h2>
+            <p className="letters_subtitle">
+            All these things cost a lot of money to keep running over time,
+            <br/> By buying Plus you make us able to keep doing more of what we do.
+            <br/>If you like what we do, the support would mean the world to us, genuinely. 
+            </p>
+            <div className="section_title support_title">Our Team</div>
             <div className="section_body neg-mt-45 support_body">
               <div className="section_text support_card outline-gray">
                 <div>
@@ -203,7 +203,7 @@ export default async function AcademyPlus() {
                 </div>
               </div>
             </div>
-        </div>
+          </div>
           <div className="section blur_background">
             <div className="section_title">Gain more & Support us for<br/><span className="orange-text price-text">$9 / Month</span></div>
             <div className="section_body neg-mt-45">

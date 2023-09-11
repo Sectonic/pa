@@ -13,6 +13,7 @@ export default function Resources() {
   return (
     /*
 
+    TO ADD:
     https://www.youtube.com/@9coins353
     https://www.youtube.com/@daveofallpeople
     https://www.youtube.com/@resistrambling3850
@@ -22,6 +23,8 @@ export default function Resources() {
     https://www.youtube.com/@AutoAlchemy
     https://www.youtube.com/@TheNiNeShowOfficial
     https://www.youtube.com/@townsfolktoheroes3148
+    https://docs.google.com/document/d/1Tnvo0q-WD2QFruigMH132_-KsiaMviiAAzxb6OkreMU/edit?usp=sharing
+    https://www.facebook.com/groups/2234820326745628/permalink/2891317501095904
 
     */
     <div className="main">
