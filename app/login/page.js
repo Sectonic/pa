@@ -60,7 +60,7 @@ export default function Login() {
     return(
         <div className="full_background">
             <form className="register_section" onSubmit={Login}>
-                <Link href='/'><div className='register_back'>Go Back</div></Link>
+                <Link href='/'><div className='register_back'>Go Home</div></Link>
                 <img className="register_img" src="/img/main/logo.png"/>
                 <div className="register_title">Log into an Account</div>
                 <div className="register_subtitle">Or <Link className="register_link" href={`/register?` + new URLSearchParams({callback: params.get('callback') || ''})}>register</Link> if you don't have one</div>
@@ -79,7 +79,7 @@ export default function Login() {
                     <div className="register_eye" onClick={() => setVisible(!isVisible)}>
                         {isVisible ? <img src="/img/main/seen.png" className='register_eye-visible'/> : <img src='/img/main/hide.png'/>}
                     </div>
-                    <div className='register_forgotten'><div>forgot password?</div></div>
+                    <Link className='register_forgotten' href='/reset'><div>forgot password?</div></Link>
                 </div>
                 <button type="submit" className="register_btn">Login</button>
                 <div className='register_line'><span>or</span></div>

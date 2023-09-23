@@ -56,7 +56,7 @@ export default function Page() {
                             </div>
                         </div>
                     </div>
-                    <div className="home_dashboard-lg" onClick={openPopup} >
+                    <div className="home_dashboard-sm" onClick={openPopup} >
                         <img src="/img/main/launch.png" className="updates_img" />
                         <div className="home_lg-text">
                             <div>

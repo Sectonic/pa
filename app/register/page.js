@@ -1,6 +1,6 @@
 "use client";
 
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
 import { createUser, createUserEmail } from '@lib/register';
@@ -9,6 +9,8 @@ import { useGoogleLogin, googleLogout } from '@react-oauth/google';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { getDiscordAuth } from '@lib/discord';
 
+const randomCode = () => Math.random().toString().substring(2, 6);
+
 export default function Register() {
     const [isVisible, setVisible] = useState(false);
     const [error, setError] = useState('');
@@ -16,7 +18,7 @@ export default function Register() {
     const [auth, setAuth] = useState('');
     const [registerBody, setRegisterBody] = useState({});
     const [verificationLoading, setVerificationLoading] = useState(false);
-    const [code, setCode] = useState(Math.random().toString().substring(2, 6));
+    const [code, setCode] = useState(randomCode());
     const params = useSearchParams();
     const router = useRouter();
 
@@ -56,11 +58,23 @@ export default function Register() {
         }
     }
 
-    const Register = async () => {
+    const Register = async (e) => {
+        e.target.innerHTML = 'Creating...';
         if (auth == code) {
             await createUser(registerBody);
             window.location.href = params.get('callback') || '/';
         }
+        e.target.innerHTML = 'Create Account';
+    }
+
+    const resendCode = async (e) => {
+        e.target.innerHTML = 'Sending...';
+        const newCode = randomCode();
+        setCode(newCode);
+        await useEmailVerification(registerBody.email, newCode);
+        e.target.innerHTML = 'New code sent!';
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        e.target.innerHTML = 'Resend Code'
     }
 
     const VerificationStart = async (e) => {
@@ -72,6 +86,8 @@ export default function Register() {
             password: e.target.password.value,
             confirm: e.target.confirm.value,
         }
+
+        setRegisterBody(data);
 
         const databaseVerification = await useDatabaseVerification(data);
         const dbError = !!databaseVerification.error;
@@ -85,7 +101,6 @@ export default function Register() {
 
         if (emailVerification) {
             setVerifying(true);
-            setRegisterBody(data);
         }
 
     }
@@ -97,7 +112,7 @@ export default function Register() {
     return(
         <div className="full_background">
                 <form className="register_section" onSubmit={VerificationStart}>
-                    <Link href='/'><div className='register_back'>Go Back</div></Link>
+                    <Link href='/'><div className='register_back'>Go Home</div></Link>
                     <img className="register_img" src="/img/main/logo.png"/>
                     <div className="register_title">Register an Account</div>
                     <div className="register_subtitle">Or <Link className="register_link" href={`/login?` + new URLSearchParams({callback: params.get('callback') || ''})}>login</Link> if you have one already</div>
@@ -134,7 +149,8 @@ export default function Register() {
                                     <div className='account_verify'>Verification</div>
                                     <div className='account_verify-desc'>An email was sent with the code provided</div>
                                     <AuthCode onChange={onAuthChange} allowedCharacters='numeric' inputClassName='authcode_inputs' length={4} />
-                            </>
+                                    <button type="button" className="register_btn" onClick={resendCode}>Resend Code</button>
+                                </>
                             )} 
                         </>
                     )}

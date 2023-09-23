@@ -113,13 +113,19 @@
 }
 
 .support_title {
-    font-size: 28px;
+    font-size: 28px !important;
 }
 
 @media screen and (max-width: 775px) and (min-width: 500px) {
     .support_title {
         margin-bottom: 20px;
     }  
+}
+
+@media screen and (max-width: 775px) {
+    .support_title {
+        font-size: 23px !important;
+    }
 }
 
 .contributor_body {

@@ -17,7 +17,7 @@ export default async function Success({ searchParams }) {
     return (
         <div className="full_background">
             <div className="register_section">
-                <Link href='/'><div className='register_back'>Go Back</div></Link>
+                <Link href='/'><div className='register_back'>Go Home</div></Link>
                 <img className="register_img" src="/img/academyplus/academyplus_exclusive.png"/>
                 <div className="register_title">{res}</div>
             </div>

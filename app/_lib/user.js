@@ -2,6 +2,7 @@
 
 import { getSession } from './session';
 import db from '@db/client';
+import bcrypt from 'bcryptjs';
 
 export const useUser = async () => {
 
@@ -55,4 +56,19 @@ export const editUser = async (username) => {
         })
     }
 
+}
+
+export const resetPassword = async (email, password) => {
+    const hash = await bcrypt.hash(password, 10);
+    await db.user.update({
+        where: { email },
+        data: { password: hash }
+    });
+}
+
+export const checkEmailExists = async (email) => {
+    const user = await db.user.findUnique({
+        where: { email }
+    });
+    return user ? true : false
 }
