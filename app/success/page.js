@@ -9,6 +9,9 @@ export const metadata = createMetaData({
 });
 
 export default async function Success({ searchParams }) {
+
+    redirect('/');
+
     const res = await createCustomer(searchParams.session_id);
     if (!res) {
         redirect('/academyplus');

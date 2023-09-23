@@ -71,10 +71,12 @@ export default function Register() {
         e.target.innerHTML = 'Sending...';
         const newCode = randomCode();
         setCode(newCode);
-        await useEmailVerification(registerBody.email, newCode);
-        e.target.innerHTML = 'New code sent!';
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        e.target.innerHTML = 'Resend Code'
+        const emailVerified = await useEmailVerification(registerBody.email, newCode);
+        if (emailVerified) {
+            e.target.innerHTML = 'New code sent!';
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            e.target.innerHTML = 'Resend Code'
+        }
     }
 
     const VerificationStart = async (e) => {

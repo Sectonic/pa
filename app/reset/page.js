@@ -39,7 +39,8 @@ export default function Login() {
         e.target.innerHTML = 'Sending...';
         const emailExists = await checkEmailExists(email);
         if (!emailExists) {
-            e.target.innerHTML = 'This email has no account';
+            setError('This email has no account');
+            e.target.innerHTML = 'Send Code';
         }
         setLoading(true);
         await sendPasswordEmail(email, code);
