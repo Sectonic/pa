@@ -4,7 +4,7 @@ import {useState, useEffect, useRef} from 'react';
 import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
 import { createUser, createUserEmail } from '@lib/register';
-import { useDatabaseVerification, useEmailVerification } from '@lib/verification';
+import { useDatabaseVerification, getEmailVerification } from '@lib/verification';
 import { useGoogleLogin, googleLogout } from '@react-oauth/google';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { getDiscordAuth } from '@lib/discord';
@@ -71,7 +71,7 @@ export default function Register() {
         e.target.innerHTML = 'Sending...';
         const newCode = randomCode();
         setCode(newCode);
-        const emailVerified = await useEmailVerification(registerBody.email, newCode);
+        const emailVerified = await getEmailVerification(registerBody.email, newCode);
         if (emailVerified) {
             e.target.innerHTML = 'New code sent!';
             await new Promise(resolve => setTimeout(resolve, 2000));
@@ -98,7 +98,7 @@ export default function Register() {
         }
         
         setVerificationLoading(true);
-        const emailVerification = await useEmailVerification(data.email, code, dbError);
+        const emailVerification = await getEmailVerification(data.email, code, dbError);
         setVerificationLoading(false);
 
         if (emailVerification) {

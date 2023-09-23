@@ -4,7 +4,7 @@ import { createTransport } from "nodemailer";
 import { getSession } from "./session";
 import db from "@db/client";
 
-export const useEmailVerification = async (email, code, error = null) => {
+export const getEmailVerification = async (email, code, error = null) => {
 
     if (error) {
         return false;
