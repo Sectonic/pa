@@ -1,8 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function SideNav(props) {
+  const pathname = usePathname();
+
+
+  if (pathname.includes('admin')) {
+    return <></>
+  }
+
   return (
     <div className="nav">
       <div className="nav_container">
