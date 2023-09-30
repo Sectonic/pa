@@ -94,6 +94,7 @@
 
 .popup_text::-webkit-scrollbar {
   width: 5px;
+  background: transparent;
 }
 
 .popup_exit {

@@ -3,7 +3,6 @@ import { usePathname } from 'next/navigation';
 import AccountPopup from './accountPopup';
 import TopNav from "./topNav";
 import MobileNav from "./mobileNav";
-import SideNav from "./sideNav";
 
 export default function DefaultNavigation ({ user }) {
     const pathname = usePathname();
@@ -43,7 +42,6 @@ export default function DefaultNavigation ({ user }) {
         <>
             { !['/register', '/login'].includes(pathname) && (
                 <>
-                <SideNav section={pathname[1]} />
                 { mobileMenu && (
                     <MobileNav 
                         backgroundMobile={backgroundMobile} 

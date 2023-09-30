@@ -52,7 +52,7 @@ export default function SideNav(props) {
             </li>
           </Link>
           <Link href="/aboutus">
-            <li className={props.section === "learn" ? "selected_nav" : undefined}>
+            <li className={props.section === "about" ? "selected_nav" : undefined}>
                 <img
                   src={"/img/main/about.png"}
                   alt="learn icon"

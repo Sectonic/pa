@@ -17,8 +17,8 @@
   --high-op-dark-purple: #030d1ea4;
   --high-op-dark-purple-rgb: 3, 13, 30, 0.643;
 
-  --vibrant-orange: #ffb700;
-  --vibrant-orange-rgb: 255, 183, 0;
+  --vibrant-orange: #ffc022;
+  --vibrant-orange-rgb: 255, 192, 34;
 
   --dark-grey: #06102b86;
   --dark-grey-rgb: 6, 16, 43;
@@ -131,7 +131,6 @@ button {
 
 .nav {
   position: fixed;
-  left: 9px;
   top: calc(1.5% + 65px);
   width: 80px;
   height: calc(97vh - 65px);
@@ -158,6 +157,7 @@ button {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  max-width: 1850px;
   width: calc(100% - 18px);
   height: 50px;
   border-radius: 10px;
@@ -656,4 +656,9 @@ button {
   background-color: var(--dark-purple);
   font-size: 15px;
   border-radius: 15px;
+}
+
+.page_container {
+  max-width: 1800px;
+  margin: 0 auto;
 }

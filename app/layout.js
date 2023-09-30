@@ -22,6 +22,7 @@ import { createMetaData } from '@lib/metadata';
 import { Analytics } from '@vercel/analytics/react';
 import Provider from './provider';
 import { Suspense } from 'react';
+import SideNav from './_nav/sideNav';
 
 const font = Lexend ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
@@ -39,7 +40,10 @@ export default async function RootLayout({ children }) {
               <Suspense fallback={<NavLoading />}>
                 <NavContainer />
               </Suspense>
-              {children}
+              <div className='page_container'>
+                <SideNav />
+                {children}
+              </div>
             <Analytics/>
           </Provider>
         </body>
