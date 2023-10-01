@@ -77,7 +77,7 @@ export default async function Page({ searchParams }) {
 
     const session = getSession();
     if (!session) {
-      redirect('/login?' + new URLSearchParams({callback: '/apps/typesearch?' + new URLSearchParams(searchParams)}));
+      redirect('/login?' + new URLSearchParams({callback: '/apps/typesearch?' + new URLSearchParams(searchParams), error: 'An account is required for TypeSearch'}));
     }
 
     const { page, searchFilters, queryFilters, popup } = await getTypeSearchParams(searchParams);

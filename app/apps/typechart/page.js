@@ -59,7 +59,7 @@ export default async function TypeTool({ searchParams }) {
 
     const session = getSession();
     if (!session) {
-      redirect('/login?' + new URLSearchParams({callback: '/apps/typechart'}));
+      redirect('/login?' + new URLSearchParams({callback: '/apps/typechart', error: 'An account is required for TypeChart'}));
     }
 
     const spreadsheet_filters = getTypeData(searchParams.type || 'xx xx/xx xx/x(x)', false);

@@ -29,10 +29,6 @@ export default function Page() {
                     <img src='/img/home/hero.png' className='home_banner-hero' />
                 </div>
             </div>
-            {/* <div className='home_section'>
-                <div className=''>Dive Deep into Personality</div>
-                <div className=''>Through our variety of courses</div>
-            </div> */}
             <div className='home_section'>
                 <div className='home_section_split'>
                     <div className='text-right'>
@@ -50,13 +46,7 @@ export default function Page() {
                 </div>
             </div>
             <div className='home_section'>
-                <div className='home_section_split'>
-                    {/* <div>
-                        <div className='home_section_img-container'>
-                            <img src='/img/home/typesearch.png' />
-                            <img src='/img/home/typesearch_popup.png' />
-                        </div>
-                    </div> */}
+                <div className='home_section_split home_section_split-reverse'>
                     <div className='home_section_img-container'>
                         <img src='/img/home/combined_typesearch.png' />
                     </div>
