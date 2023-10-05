@@ -377,7 +377,7 @@
 .home_footer-btns > div {
   border: 2px solid rgba(var(--vibrant-orange-rgb), .4);
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 15px;
   background-color: rgba(var(--dark-grey-rgb), .3);
   cursor: pointer;
   transition: .2s ease;
