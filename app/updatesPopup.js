@@ -4,6 +4,8 @@ import Popup from "@components/popup";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createQueryString } from "@lib/params";
+import { getCookie, hasCookie, setCookie } from "cookies-next";
+import { cookieOptions } from "@components/config";
 
 const UpdatesPopup = ({ date, params }) => {
     const router = useRouter();
@@ -29,7 +31,7 @@ const UpdatesPopup = ({ date, params }) => {
                     <img src="/img/main/launch.png" />
                 </div>
                 <div className="popup_section-text">
-                    <h3 className="popup_subtitle margin-sm">Official Project Launch</h3>
+                    <h3 className="popup_subtitle margin-sm">Official Project Release</h3>
                     <p>
                     Hi, I'm Alex, you may already know me as Aze. I'm proud to finally announce that Personality Academy has officially launched! 
                     </p>
@@ -58,6 +60,10 @@ function UpdatesPopupContainer() {
         if (params.get('updates')) {
             const date = new Date(params.get('updates'));
             if (!isNaN(date) && date instanceof Date) {
+                const seenUpdates = getCookie('updates') ? JSON.parse(getCookie('updates')) : [];
+                if (!seenUpdates.includes(params.get('updates'))) {
+                    setCookie('updates', JSON.stringify([...seenUpdates, params.get('updates')]), cookieOptions);
+                }
                 setShowUpdates(true);
             } else {
                 setShowUpdates(false);

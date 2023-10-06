@@ -72,7 +72,7 @@ export default function Page() {
             </div>
             <div className='home_footer-title'>Want to <span>Get Involved?</span></div>
             <div className='home_footer-btns'>
-            <div onClick={() => open("/register", "_blank")}>
+                <div onClick={() => router.push("/register")}>
                     <img src='/img/main/user.png' />
                     <div>Make Your Profile</div>
                 </div>
@@ -80,7 +80,7 @@ export default function Page() {
                     <img src='/img/main/discord.png' />
                     <div>Join Our Discord</div>
                 </div>
-                <div onClick={() => open("/academyplus", "_blank")}>
+                <div onClick={() => open("/https://paypal.me/AzeOriginal?country.x=DK&locale.x=en_US", "_blank")}>
                     <img src='/img/main/support.png' />
                     <div>Support The Project</div>
                 </div>
