@@ -46,8 +46,8 @@ const NotificationCenter = () => {
                     <div className='user-profile notification_center-container animate__animated animate__zoomIn'>
                         <div className='notification_center'>
                             <div className='notification_title'>Notification Center</div>
-                            {allUpdates.map(update => (
-                                <div className='notification_box' onClick={() => updateClicked(update)}>
+                            {allUpdates.map((update, i) => (
+                                <div key={i} className='notification_box' onClick={() => updateClicked(update)}>
                                     <div className='notification_box-tags'>
                                         <div className='notification_box-date'>{update.dateStr}</div>
                                         { !seenUpdates.includes(update.date) && <div className='notification_box-unread'>Unread</div> }
