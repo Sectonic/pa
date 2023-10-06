@@ -31,7 +31,7 @@ export default async function TypeTool({ searchParams }) {
     // const percentages = Array.from({ length: 100 }, (_, i) => (i + 1) * 6.25).filter(num => num <= 100);
     // const percentageCounter = {};
     // allTypes.forEach(type => {
-    //   const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
+    //   const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx', 'FX', 'XF', 'MX', 'XM'];
     //   if (!incompletes.some(incomplete => type.type.includes(incomplete))) {
     //     const coins = ['extroversion', 'gather', 'intuition', 'thinking', 'masculinity', 'introversion', 'organize', 'sensory', 'feeling', 'femininity'];
     //     coins.forEach(coin => {
@@ -50,7 +50,7 @@ export default async function TypeTool({ searchParams }) {
     // })
     // fs.writeFile('public/json/typeAnalytics.json', JSON.stringify(percentageCounter), (err) => console.log(err));
 
-    const incomplete_parts = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
+    const incomplete_parts = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx', 'FX', 'XF', 'MX', 'XM'];
     const incomplete = searchParams.type ? incomplete_parts.some(part => searchParams.type.includes(part)) : true;
     
     function removeEmpty(obj) {

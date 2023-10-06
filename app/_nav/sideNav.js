@@ -7,7 +7,7 @@ export default function SideNav(props) {
   const pathname = usePathname();
 
 
-  if (pathname.includes('admin')) {
+  if (pathname.includes('admin') || pathname.includes('register') || pathname.includes('login')) {
     return <></>
   }
 

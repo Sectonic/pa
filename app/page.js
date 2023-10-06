@@ -1,21 +1,14 @@
 "use client";
 
-import { TypeAnimation } from 'react-type-animation';
-import UpdatesPopup from './updatesPopup';
-import { useState } from 'react';
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-    const [popup, setPopup] = useState(false);
-
-    const openPopup = () => {
-        setPopup(true);
-    }
+    const router = useRouter();
 
     return (
         <div className="main">
-            { popup && <UpdatesPopup onClose={() => setPopup(false)} /> }
             <div className='home_banner'>
-                <div className='home_banner-update' onClick={openPopup}>
+                <div className='home_banner-update' onClick={() => router.push('/?' + new URLSearchParams({ updates: '11/1/23' }), { scroll: false })}>
                     <img src='/img/main/sparkles.png' />
                     Personality Academy Released!
                 </div>

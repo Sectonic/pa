@@ -3,16 +3,17 @@
     width: 100%;
     height: max-content;
     min-height: 100vh; 
-    background-color: var(--purple-black);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: var(--purple-black);
-    background: url("./backgrounds/gradient_bg.webp"), linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
     background-size: cover;
     z-index: 30;
     overflow-y:scroll;
+}
+
+.full_background::-webkit-scrollbar {
+    display: none;
 }
 
 .register_inputs {

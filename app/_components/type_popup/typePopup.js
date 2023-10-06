@@ -30,7 +30,7 @@ export const PopupLoading = () => (
 export async function TypePopup({ popup_id }) {
 
   const data = await getType(Number(popup_id));
-  const incomplete_parts = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
+  const incomplete_parts = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx', 'FX', 'XF', 'MX', 'XM'];
   const incomplete = incomplete_parts.some(part => data.type.includes(part));
 
   return (

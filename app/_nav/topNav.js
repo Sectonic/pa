@@ -6,6 +6,7 @@ import { deleteCookie } from 'cookies-next';
 import { cookieOptions } from '@components/config';
 import { getPortal } from '@lib/customer';
 import { useRouter } from 'next/navigation';
+import NotificationCenter from './notificationCenter';
 
 export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutside, menu, user }) {
     const router = useRouter();
@@ -63,6 +64,7 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
                       </OutsideClickHandler>
                       )}
                   </div>
+                  <NotificationCenter />
                 </div>
                 ) : (
                   <div className='register-box'>

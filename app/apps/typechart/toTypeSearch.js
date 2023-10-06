@@ -17,7 +17,7 @@ const ToTypeSearchBtn = () => {
             return;
         }
         const typeSearchOptions = [];
-        const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx'];
+        const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx', 'FX', 'XF', 'MX', 'XM'];
         type.split(' ').forEach(part => {
             if (!incompletes.some(incomplete => part.includes(incomplete))) {
                 typeSearchOptions.push(part);

@@ -23,6 +23,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Provider from './provider';
 import { Suspense } from 'react';
 import SideNav from './_nav/sideNav';
+import UpdatesPopupContainer from './updatesPopup';
 
 const font = Lexend ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
@@ -33,20 +34,21 @@ export const metadata = createMetaData({});
 
 export default async function RootLayout({ children }) {
 
-    return (
-      <html lang="en">
-        <body className={font.className}>
-          <Provider>
-              <Suspense fallback={<NavLoading />}>
-                <NavContainer />
-              </Suspense>
-              <div className='page_container'>
-                <SideNav />
-                {children}
-              </div>
-            <Analytics/>
-          </Provider>
-        </body>
-      </html>
-    );
+  return (
+    <html lang="en">
+      <body className={font.className}>
+        <UpdatesPopupContainer />
+        <Provider>
+            <Suspense fallback={<NavLoading />}>
+              <NavContainer />
+            </Suspense>
+            <div className='page_container'>
+              <SideNav />
+              {children}
+            </div>
+          <Analytics/>
+        </Provider>
+      </body>
+    </html>
+  );
 }
