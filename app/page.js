@@ -10,13 +10,13 @@ export default function Page() {
             <div className='home_banner'>
                 <div className='home_banner-update' onClick={() => router.push('/?' + new URLSearchParams({ updates: '11/1/23' }), { scroll: false })}>
                     <img src='/img/main/sparkles.png' />
-                    Personality Academy Released!
+                    Official Project Release!
                 </div>
                 <div className='home_banner-title'>
                     Personality Theory Made <span>Simple.</span>
                 </div>
                 <div className='home_banner-subtitle'>
-                    Learn Personality. Type Objectively. Use The Best Tools. Actually Improve.
+                    Unfold the spectrum of personality through a scientific perspective.
                 </div>
                 <div className='home_banner-hero-container'>
                     <img src='/img/home/hero.png' className='home_banner-hero' />
@@ -25,13 +25,13 @@ export default function Page() {
             <div className='home_section'>
                 <div className='home_section_split'>
                     <div className='text-right'>
-                        <div className='home_section-title'><span>Dive Deep</span> into Personality</div>
+                        <div className='home_section-title'><span>Dive Deep</span> into Personality Theory</div>
                         <img className='home_section_description-img' src='/img/home/courses_icon.png' />
                         <div className='home_section_description-title'>A Variety of Courses</div>
-                        <div className='home_section_description-text'>Freely learn different personality theories and methodologies to get a better grasp of yourself and others. Courses will be continually added.</div>
+                        <div className='home_section_description-text'>Discover personality theories and their applications through comprehensive yet simple to follow courses.</div>
                         <img className='home_section_description-img' src='/img/home/unbiased_icon.png' />
                         <div className='home_section_description-title'>An Unbiased Perspective</div>
-                        <div className='home_section_description-text'>We focus on a trackable and unbiased perspective to personality. Our courses reflect on methods to alleviate your previous biases.</div>
+                        <div className='home_section_description-text'>We focus on a more scientific and unbiased approach to personality. Our courses reflect on methodology and application.</div>
                     </div>
                     <div className='home_section_img-container home_section_img-container-lg'>
                         <img src='/img/home/courses_combined.png' />
@@ -44,25 +44,45 @@ export default function Page() {
                         <img src='/img/home/combined_typesearch.png' />
                     </div>
                     <div>
-                        <div className='home_section-title'>Explore the <span>World's</span> Personality</div>
+                        <div className='home_section-title'>Understand Personality Through <span>Real People</span></div>
                         <img className='home_section_description-img' src='/img/home/explore_icon.png' />
-                        <div className='home_section_description-title'>Examples of All Personalities</div>
-                        <div className='home_section_description-text'>Discover real examples of all the different personality types with almost 2000 people typed. Analyze them through our diagrams and video links.</div>
+                        <div className='home_section_description-title'>Go Beyond Theory</div>
+                        <div className='home_section_description-text'>Search through a variety of typed individuals to better grasp how personality shows in the real world.</div>
                         <img className='home_section_description-img' src='/img/home/updates_icon.png' />
                         <div className='home_section_description-title'>Constant Updates</div>
-                        <div className='home_section_description-text'>We are constantly adding new people and features onto our tools. This is the largest and most up-to-date OPS database and will stay as such.</div>
+                        <div className='home_section_description-text'>We are always keeping things up to date, and expanding with new features. TypeSearch is the largest and most frequenty updated OPS database.</div>
+                    </div>
+                </div>
+            </div>
+            <div className='home_section'>
+                <div className='home_section_split'>
+                    <div className='text-right'>
+                        <div className='home_section-title'>Make It Your <span>Personality Platform</span></div>
+                        <img className='home_section_description-img' src='/img/home/courses_icon.png' />
+                        <div className='home_section_description-title'>Better With a Profile</div>
+                        <div className='home_section_description-text'>Sign up to transform this page into your own dashboard. Customize your profile, and access our latest and greatest tools!</div>
+                        <img className='home_section_description-img' src='/img/home/unbiased_icon.png' />
+                        <div className='home_section_description-title'>Endless Options</div>
+                        <div className='home_section_description-text'>Study the theories, type alongside others, or hone your own skills, compete and rise to the top! Progress is our motto.</div>
+                    </div>
+                    <div className='home_section_img-container home_section_img-container-lg'>
+                        <img src='/img/home/courses_combined.png' />
                     </div>
                 </div>
             </div>
             <div className='home_footer-title'>Want to <span>Get Involved?</span></div>
             <div className='home_footer-btns'>
-                <div onClick={() => window.open("https://discord.com/invite/s4v5yQdnE9", "_blank")}>
-                    <img src='/img/home/community.png' />
-                    <div>Join Our Community</div>
+            <div onClick={() => open("/register", "_blank")}>
+                    <img src='/img/main/user.png' />
+                    <div>Make Your Profile</div>
                 </div>
-                <div onClick={() => window.open("https://paypal.me/AzeOriginal?country.x=DK&locale.x=en_US", "_blank")}>
-                    <img src='/img/home/donate.png' />
-                    <div>Donate and Support</div>
+                <div onClick={() => window.open("https://discord.com/invite/s4v5yQdnE9", "_blank")}>
+                    <img src='/img/main/discord.png' />
+                    <div>Join Our Discord</div>
+                </div>
+                <div onClick={() => open("/academyplus", "_blank")}>
+                    <img src='/img/main/support.png' />
+                    <div>Support The Project</div>
                 </div>
             </div>
             <div className='home_footer_subtitle'>Otherwise, Welcome to the Academy.</div>
