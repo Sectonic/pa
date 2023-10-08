@@ -40,7 +40,7 @@ export default function DefaultNavigation ({ user }) {
 
     return (
         <>
-            { !['/register', '/login'].includes(pathname) && (
+            { !['/register', '/login', '/contact', '/reset', '/success'].includes(pathname) && (
                 <>
                 { mobileMenu && (
                     <MobileNav 

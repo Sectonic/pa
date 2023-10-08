@@ -35,6 +35,11 @@ const NotificationCenter = () => {
         router.push(pathname + '?' + createQueryString('updates', update.date, params), { scroll: false })
     }
 
+    const readAll = () => {
+        setSeenUpdates(allUpdates.map(update => update.date));
+        setCookie('updates', JSON.stringify(allUpdates.map(update => update.date)), cookieOptions);
+    }
+
     return (
         <div className='register-box_btn topnav_extras'>
             <img src='/img/main/notification.png' onClick={() => setPopup(!popup)} />
@@ -45,7 +50,10 @@ const NotificationCenter = () => {
                 >
                     <div className='user-profile notification_center-container animate__animated animate__zoomIn'>
                         <div className='notification_center'>
-                            <div className='notification_title'>Notification Center</div>
+                            <div className='notification_split'>
+                                <div className='notification_title'>Notification Center</div>
+                                {!checkIfAllSeen() && <div className='notification_clear' onClick={readAll}>Read All</div>}
+                            </div>
                             {allUpdates.map((update, i) => (
                                 <div key={i} className='notification_box' onClick={() => updateClicked(update)}>
                                     <div className='notification_box-tags'>

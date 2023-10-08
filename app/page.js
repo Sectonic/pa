@@ -80,7 +80,7 @@ export default function Page() {
                     <img src='/img/main/discord.png' />
                     <div>Join Our Discord</div>
                 </div>
-                <div onClick={() => open("/https://paypal.me/AzeOriginal?country.x=DK&locale.x=en_US", "_blank")}>
+                <div onClick={() => open("https://paypal.me/AzeOriginal?country.x=DK&locale.x=en_US", "_blank")}>
                     <img src='/img/main/support.png' />
                     <div>Support The Project</div>
                 </div>

@@ -8,13 +8,16 @@ export const Option = ({ selectValue, children }) => {
     return <option onClick={() => selectValue(Children.toArray(children)[0])}>{children}</option>
 }
 
-export const OptionDropdown = ({ name, children, defaultValue }) => {
+export const OptionDropdown = ({ name, children, defaultValue, setChoice = null }) => {
     const [value, setValue] = useState(defaultValue || '--');
     const [dropdown, setDropdown] = useState(false);
 
     const selectValue = (val) => {
         setValue(val);
-        setDropdown(false)
+        setDropdown(false);
+        if (setChoice) {
+            setChoice(val);
+        }
     }
 
     return (

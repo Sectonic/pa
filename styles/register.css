@@ -30,6 +30,45 @@
     gap: 3px;
 }
 
+.register_inputs .register_inputs_split-40-60 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.register_inputs_split-40-60 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3px;
+}
+
+.register_inputs_split-40-60 > :first-child {
+    flex-basis: 40%;
+}
+
+.register_inputs_split-40-60 > :last-child {
+    flex-basis: 60%;
+}
+
+@media screen and (max-width:590px) {
+    .register_inputs .register_inputs_split-40-60 {
+        flex-direction: column;
+    }
+    .register_inputs_split-40-60 > :first-child {
+        width: 100%;
+        flex-basis: 100%;
+    }
+    
+    .register_inputs_split-40-60 > :last-child {
+        width: 100%;
+        flex-basis: 100%;
+    }
+}
+
 .register_label {
     font-size: 14px;
     font-weight: 400;
@@ -43,6 +82,16 @@
     border: 3px solid var(--light-grey);
     margin-top: 30px;
     margin-bottom:  30px;
+}
+
+.contact_section {
+    width: 800px;
+}
+
+@media screen and (max-width: 925px) {
+    .contact_section {
+        width: calc(100% - 130px);
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -60,6 +109,27 @@
     color: white;
     padding: 6px 10px;
     font-family: inherit;
+}
+
+.register_inputs input::placeholder {
+    color: rgba(255, 255, 255, 0.555);
+}
+
+.register_inputs textarea {
+    background-color: var(--dark-grey);
+    border: 3px solid var(--light-grey);
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    padding: 6px 10px;
+    font-family: inherit;
+    min-height: 150px;
+}
+
+.register_inputs textarea::placeholder {
+    color: rgba(255, 255, 255, 0.555);
 }
 
 .register_title {

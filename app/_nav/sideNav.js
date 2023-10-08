@@ -7,8 +7,10 @@ export default function SideNav(props) {
   const pathname = usePathname();
 
 
-  if (pathname.includes('admin') || pathname.includes('register') || pathname.includes('login')) {
-    return <></>
+  const excludedPages = ['admin', 'register', 'login', 'contact', 'reset', 'success'];
+
+  if (excludedPages.some(page => pathname.includes(page))) {
+    return <></>; 
   }
 
   return (

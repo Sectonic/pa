@@ -5,11 +5,13 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { deleteCookie } from 'cookies-next';
 import { cookieOptions } from '@components/config';
 import { getPortal } from '@lib/customer';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import NotificationCenter from './notificationCenter';
 
 export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutside, menu, user }) {
     const router = useRouter();
+    const pathname = usePathname();
+    const params = useSearchParams();
   
     const Logout = async () => {
       deleteCookie('PAsession', cookieOptions);
@@ -65,10 +67,13 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
                       )}
                   </div>
                   <NotificationCenter />
+                  <Link href={`/contact?` + new URLSearchParams({callback: pathname !== '/' ? pathname + (params ? `?${new URLSearchParams(params)}` : '') : '/'})} className='register-box_btn topnav_extras'>
+                    <img src='/img/main/mail.png'/>
+                  </Link>
                 </div>
                 ) : (
                   <div className='register-box'>
-                    <Link href='/login'>
+                    <Link href={`/login?` + new URLSearchParams({callback: pathname !== '/' ? pathname + (params ? `?${new URLSearchParams(params)}` : '') : '/'})}>
                         <div className='register-box_btn'>
                         <img src='/img/main/login_icon.png' />
                         <div>
@@ -76,7 +81,7 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
                         </div>
                         </div>
                     </Link>
-                    <Link href='/register'>
+                    <Link href={`/register?` + new URLSearchParams({callback: pathname !== '/' ? pathname + (params ? `?${new URLSearchParams(params)}` : '') : '/'})}>
                         <div className='register-box_btn'>
                         <img src='/img/main/signup_icon.png' />
                         <div>

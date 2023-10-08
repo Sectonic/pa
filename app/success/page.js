@@ -10,19 +10,20 @@ export const metadata = createMetaData({
 
 export default async function Success({ searchParams }) {
 
-    redirect('/');
+    // redirect('/');
 
-    const res = await createCustomer(searchParams.session_id);
-    if (!res) {
-        redirect('/academyplus');
-    }
+    // const res = await createCustomer(searchParams.session_id);
+    // if (!res) {
+    //     redirect('/academyplus');
+    // }
 
     return (
         <div className="full_background">
             <div className="register_section">
-                <Link href='/'><div className='register_back'>Go Home</div></Link>
+                {searchParams.callback ? <Link href={searchParams.callback}><div className='register_back'>Return to Site</div></Link> : <Link href='/'><div className='register_back'>Go Home</div></Link>}
                 <img className="register_img" src="/img/academyplus/academyplus_exclusive.png"/>
-                <div className="register_title">{res}</div>
+                <div className="register_title">Successfully sent!</div>
+                <div className='register_subtitle'>We will try to respond to your message as fast as possible</div>
             </div>
         </div>
     )
