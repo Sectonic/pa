@@ -9,10 +9,22 @@ export default function MobileNav({ backgroundMobile, mobileMenuOut, navMobile, 
               <OutsideClickHandler onOutsideClick={mobileMenuOut}>
                 <div className='mobile_menu-base animate__animated animate__slideInLeft animate__faster' ref={navMobile}>
                   <div className='mobile_menu-nav'>
+                    <Link href='/dashboard'>
+                      <div className={`mobile_menu-link ${path[1] == '' && 'mobile_menu-link--selected'}`}>
+                        <div>Dashboard</div>
+                        <img src='/img/main/dashboard.png'/>
+                      </div>
+                    </Link>
                     <Link href='/'>
                       <div className={`mobile_menu-link ${path[1] == '' && 'mobile_menu-link--selected'}`}>
                         <div>Home</div>
                         <img src='/img/main/home.png'/>
+                      </div>
+                    </Link>
+                    <Link href='/aboutus'>
+                      <div className={`mobile_menu-link ${path[1] == 'about' && 'mobile_menu-link--selected'}`}>
+                        <div>About Us</div>
+                        <img src='/img/main/about.png'/>
                       </div>
                     </Link>
                     <Link href='/learn'>
@@ -37,12 +49,6 @@ export default function MobileNav({ backgroundMobile, mobileMenuOut, navMobile, 
                       <div className={`mobile_menu-link ${path[1] == 'resources' && 'mobile_menu-link--selected'}`}>
                         <div>Resources</div>
                         <img src='/img/main/resources.png'/>
-                      </div>
-                    </Link>
-                    <Link href='/aboutus'>
-                      <div className={`mobile_menu-link ${path[1] == 'about' && 'mobile_menu-link--selected'}`}>
-                        <div>About Us</div>
-                        <img src='/img/main/about.png'/>
                       </div>
                     </Link>
                   </div>

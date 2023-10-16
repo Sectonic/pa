@@ -44,13 +44,17 @@ export default function Register() {
             if (error) {
                 setError(error);
             } else {
-                window.location.href = params.get('callback') || '/';
+                if (!params.get('callback') || params.get('callback') === '/') {
+                    window.location.href = '/dashboard';
+                } else {
+                    window.location.href = params.get('callback');          
+                }
             }
         }
     })
 
     const discordRegister = async () => {
-        const { error, url } = await getDiscordAuth('register', (params.get('callback') || ''));
+        const { error, url } = await getDiscordAuth('register', ((!params.get('callback') || params.get('callback') === '/') ? '/dashboard' : params.get('callback')));
         if (error) {
             setError(error)
         } else {
@@ -62,7 +66,11 @@ export default function Register() {
         e.target.innerHTML = 'Creating...';
         if (auth == code) {
             await createUser(registerBody);
-            window.location.href = params.get('callback') || '/';
+            if (!params.get('callback') || params.get('callback') === '/') {
+                window.location.href = '/dashboard';
+            } else {
+                window.location.href = params.get('callback');          
+            }
         }
         e.target.innerHTML = 'Create Account';
     }
