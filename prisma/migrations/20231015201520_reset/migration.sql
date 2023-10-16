@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE `User` ADD COLUMN `description` VARCHAR(191) NULL,
+    ADD COLUMN `opsType` VARCHAR(191) NULL,
+    ADD COLUMN `opsTyping` VARCHAR(191) NULL,
+    ADD COLUMN `pronouns` VARCHAR(191) NULL;

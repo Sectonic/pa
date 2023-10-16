@@ -157,7 +157,7 @@ button {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 1850px;
+  max-width: 1835px;
   width: calc(100% - 18px);
   height: 50px;
   border-radius: 10px;
@@ -192,6 +192,18 @@ button {
   cursor: default !important;
   padding: 10px 0px !important;
   padding-right: 10px !important;
+}
+
+@media screen and (max-width: 450px) {
+  .topnav_extras .notification_center-container {
+    left: -200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .topnav_extras .notification_center-container {
+    left: -170px;
+  }
 }
 
 .notification_ping {
@@ -312,6 +324,26 @@ button {
   display: none !important;
 }
 
+.user-dashboard {
+  padding: 7px 15px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: inset 0 -7px 11px rgba(var(--vibrant-orange-rgb), .3);
+  width: max-content;
+  border: 1px solid var(--vibrant-orange);
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.user-dashboard:hover {
+  box-shadow: inset 0 -7px 11px rgba(var(--vibrant-orange-rgb), .4);
+}
+
 @media only screen and (max-width: 775px) {
   .logo-box > div {
     display: none;
@@ -319,7 +351,7 @@ button {
   .logo-box {
     height: 50px;
   }
-  .user-username {
+  .user-dashboard {
     display: none;
   }
   .logo-box {
@@ -404,6 +436,15 @@ button {
 
 .user-profile_row:hover {
   background-color: var(--light-grey);
+}
+
+.user-profile_row__blank {
+  font-size: 15px;
+  cursor: default;
+}
+
+.user-profile_row__blank:hover {
+  background-color: var(--dark-grey-full);
 }
 
 .user-profile_row img {
@@ -751,7 +792,6 @@ button {
 }
 
 .main {
-  width: calc(100% - 85px);
   margin-left: 85px;
   margin-top: 80px;
   position: relative;
@@ -760,7 +800,6 @@ button {
 
 @media only screen and (max-width: 775px) {
   .main {
-    width: calc(100% - 10px);
     margin-left: 5px;
   }
   .main_extra_padding {
@@ -779,6 +818,7 @@ button {
 }
 
 .page_container {
-  max-width: 1800px;
+  max-width: 1850px;
+  width: calc(100% - 18px);
   margin: 0 auto;
 }

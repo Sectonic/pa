@@ -1,6 +1,6 @@
 import { useRef } from "react"
 
-export const Type512Input = ({ Type512, setType512 }) => {
+export const Type512Input = ({ Type512, setType512, label }) => {
     const inputRef = useRef(null);
 
     const onFocus = () => {
@@ -46,8 +46,15 @@ export const Type512Input = ({ Type512, setType512 }) => {
     }
 
     return (
-        <div className="functions_input">
+        label ? (
+            <>
+                <label className="register_label">{label}</label>
+                <input type="text" value={Type512} onChange={Type512Handler} ref={inputRef} onClick={onFocus} placeholder="xx xx/xx xx/x(x)" />
+            </>
+        ) : (
+            <div className="functions_input">
             <input type="text" value={Type512} onChange={Type512Handler} ref={inputRef} onClick={onFocus} placeholder="xx xx/xx xx/x(x)" />
         </div>
+        )
     )
 }

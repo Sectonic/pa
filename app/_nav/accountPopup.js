@@ -14,7 +14,7 @@ function AccountPopup({ onClose, user }) {
       if (userName.length > 35) {
         setError('Username has to be shorter than 35 characters');
       } else {
-        await editUser(userName);
+        await editUser({ username: userName});
         window.location.href = '/';
       }
     }

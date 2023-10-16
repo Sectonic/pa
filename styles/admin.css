@@ -92,14 +92,14 @@
     --animate-duration: .3s;
 }
 
-.option-dropdown > option{
+.option-dropdown > div{
     background-color: rgba(var(--dark-grey-rgb), .5);
     padding: 5px 10px;
     border-radius: 15px;
     cursor: pointer;
 }
 
-.option-dropdown > option:hover {
+.option-dropdown > div:hover {
     background-color: rgba(var(--dark-grey-rgb), .9);
 }
 

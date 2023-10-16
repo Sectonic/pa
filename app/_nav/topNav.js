@@ -42,12 +42,17 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
               </Link>
               {user ? (
                 <div className='user-box'>
-                  <div className='user-username'>{user.username}</div>
+                  <Link href='/dashboard' className='user-dashboard'>Dashboard</Link>
+                  <NotificationCenter />
+                  <Link href={`/contact?` + new URLSearchParams({callback: pathname !== '/' ? pathname + (params ? `?${new URLSearchParams(params)}` : '') : '/'})} className='register-box_btn topnav_extras'>
+                    <img src='/img/main/mail.png'/>
+                  </Link>
                   <div className='user-box_img'>
                       <div className='user_img' onClick={MenuVisible}>{user.username[0]}</div>
                       {menu && (
                       <OutsideClickHandler onOutsideClick={MenuOutside}>
                           <div className='user-profile animate__animated animate__zoomIn'>
+                          <div className='user-profile_row user-profile_row__blank'>Hey, {user.username}</div>
                           <div className='user-profile_row' onClick={() => setPopup(true)}>
                               <img src='/img/main/settings.png'/>
                               <div>Account Settings</div>
@@ -66,10 +71,6 @@ export default function TopNav({ setPopup, setMobileMenu, MenuVisible, MenuOutsi
                       </OutsideClickHandler>
                       )}
                   </div>
-                  <NotificationCenter />
-                  <Link href={`/contact?` + new URLSearchParams({callback: pathname !== '/' ? pathname + (params ? `?${new URLSearchParams(params)}` : '') : '/'})} className='register-box_btn topnav_extras'>
-                    <img src='/img/main/mail.png'/>
-                  </Link>
                 </div>
                 ) : (
                   <div className='register-box'>

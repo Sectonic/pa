@@ -42,3 +42,4 @@ api/client_secrets.json
 
 # Local DB Script
 app/_lib/prisma/local.js
+app/_lib/prisma/typesearch.json

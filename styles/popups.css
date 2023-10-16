@@ -608,11 +608,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 .account_save-btn img {
-  width: 20px;
+  width: 15px;
 }
 
 .delete_button {

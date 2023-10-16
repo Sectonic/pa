@@ -14,6 +14,7 @@ import '@css/placeholder.css';
 import '@css/academyplus.css';
 import '@css/typechart.css';
 import '@css/admin.css';
+import '@css/dashboard.css';
 import "animate.css";
 
 import { Lexend } from "next/font/google";

@@ -4,12 +4,19 @@ import { getSession } from './session';
 import db from '@db/client';
 import bcrypt from 'bcryptjs';
 
-export const useUser = async () => {
+export const useUser = async (profile = false) => {
 
     const session = getSession();
     if (!session) {
         return;
     }
+
+    const profileSelect = profile ? ({            
+        description: true,
+        pronouns: true,
+        opsType: true,
+        opsTyping: true
+    }) : ({});
 
     const user = await db.user.findUnique({
         where: {
@@ -18,7 +25,8 @@ export const useUser = async () => {
         select: {
             id: true,
             username: true,
-            email: true
+            email: true,
+            ...profileSelect
         }
     });
 
@@ -42,7 +50,7 @@ export const deleteUser = async () => {
 
 }
 
-export const editUser = async (username) => {
+export const editUser = async (editDict) => {
 
     const session = getSession();
     if (session) {
@@ -50,9 +58,7 @@ export const editUser = async (username) => {
             where: {
                 id: session
             },
-            data: {
-                username
-            }
+            data: editDict
         })
     }
 

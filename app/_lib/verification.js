@@ -10,8 +10,8 @@ export const getEmailVerification = async (email, code, error = null) => {
         return false;
     }
  
-    const account = process.env.NEXT_PUBLIC_MAIL
-    const pass = process.env.NEXT_PUBLIC_MAIL_PASSWORD
+    const account = process.env.NEXT_PUBLIC_MAIL;
+    const pass = process.env.NEXT_PUBLIC_MAIL_PASSWORD;
     
     const transport = createTransport({
         service: "gmail",

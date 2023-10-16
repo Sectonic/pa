@@ -5,7 +5,7 @@ import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 
 export const Option = ({ selectValue, children }) => {
-    return <option onClick={() => selectValue(Children.toArray(children)[0])}>{children}</option>
+    return <div onClick={() => selectValue(Children.toArray(children)[0])}>{children}</div>
 }
 
 export const OptionDropdown = ({ name, children, defaultValue, setChoice = null }) => {
