@@ -33,8 +33,8 @@ export default function DashboardBanner({ profile }) {
                             {(tags.every(tag => tag === null)) ? (
                                 <div className="no_tag"><i>No Tags</i></div>
                             ) : (
-                                tags.map(tag => (
-                                tag && <div>{tag}</div>
+                                tags.map((tag, i) => (
+                                tag && <div key={i}>{tag}</div>
                                 ))
                             )}
                         </div>
