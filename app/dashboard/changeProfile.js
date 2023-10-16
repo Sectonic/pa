@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation";
 
 const parseProfile = (profile) => {
     const newProf = {...profile}
-    if (!['He/Him', 'She/Her', 'They/Them'].includes(newProf.pronouns) && newProf.pronouns != '') {
+    if (!['He/Him', 'She/Her', 'They/Them'].includes(newProf.pronouns) && newProf.pronouns != null) {
         newProf.pronouns = 'Other';
     }
-    if (!['Self Typed', 'Triangulated', 'Officially Typed'].includes(newProf.opsTyping) && newProf.opsTyping != '') {
+    if (!['Self Typed', 'Triangulated', 'Officially Typed'].includes(newProf.opsTyping) && newProf.opsTyping != null) {
         newProf.opsTyping = 'Other';
     }
     return newProf;
@@ -19,8 +19,8 @@ const parseProfile = (profile) => {
 export default function ChangeProfile({ profile, setChangeProfile }) {
     const router = useRouter();
     const [editedProfile, setEditedProfile] = useState(parseProfile(profile));
-    const [otherPronouns, setOtherPronouns] = useState(!['He/Him', 'She/Her', 'They/Them'].includes(profile.pronouns) && profile.pronouns != '' ? profile.pronouns : '');
-    const [otherProcess, setOtherProcess] = useState(!['Self Typed', 'Triangulated', 'Officially Typed'].includes(profile.opsTyping) && profile.opsTyping != '' ? profile.opsTyping : '');
+    const [otherPronouns, setOtherPronouns] = useState(!['He/Him', 'She/Her', 'They/Them'].includes(profile.pronouns) && profile.pronouns != null ? profile.pronouns : '');
+    const [otherProcess, setOtherProcess] = useState(!['Self Typed', 'Triangulated', 'Officially Typed'].includes(profile.opsTyping) && profile.opsTyping != null ? profile.opsTyping : '');
     const [error, setError] = useState('');
 
     const saveChanges = async () => {
@@ -77,7 +77,7 @@ export default function ChangeProfile({ profile, setChangeProfile }) {
                     <Option>They/Them</Option>
                     <Option>Other</Option>
                 </OptionDropdown>
-                { (!['He/Him', 'She/Her', 'They/Them'].includes(editedProfile.pronouns) && editedProfile.pronouns != '') && (
+                { (!['He/Him', 'She/Her', 'They/Them'].includes(editedProfile.pronouns) && editedProfile.pronouns != null) && (
                     <div>
                         <label className="register_label">Other Pronouns:</label>
                         <input type="text" value={otherPronouns} onChange={(e) => setOtherPronouns(e.target.value)} />
@@ -92,7 +92,7 @@ export default function ChangeProfile({ profile, setChangeProfile }) {
                     <Option>Officially Typed</Option>
                     <Option>Other</Option>
                 </OptionDropdown>
-                { (!['Self Typed', 'Triangulated', 'Officially Typed'].includes(editedProfile.opsTyping) && editedProfile.opsTyping != '') && (
+                { (!['Self Typed', 'Triangulated', 'Officially Typed'].includes(editedProfile.opsTyping) && editedProfile.opsTyping != null) && (
                     <div>
                         <label className="register_label">Other Typing Process:</label>
                         <input type="text" value={otherProcess} onChange={(e) => setOtherProcess(e.target.value)} />
