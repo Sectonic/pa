@@ -7,6 +7,8 @@ import { Suspense } from 'react';
 import { createMetaData } from "@lib/metadata";
 import { getSession } from '@lib/session';
 import { redirect } from 'next/navigation';
+import Alert from '@components/alert';
+import Link from 'next/link';
 
 export const metadata = createMetaData({
   title: 'TypeSearch',
@@ -106,6 +108,8 @@ export default async function Page({ searchParams }) {
                             </div>
                         </div>
                         <DatabaseSearch filters={searchFilters}  />
+                        <div className='database_contact'>Want to add someone or fix something incorrect? <Link className='database_contact-link' href={"/contact?" + new URLSearchParams({ topic: 'TypeSearch', callback: '/apps/typesearch?' + new URLSearchParams(searchParams) })}>Contact Us</Link></div>
+                        <Alert prompt="We're currently updating the old website links" />
                     </div>
                     <div className="db_card-container">
                         {!popup ? (

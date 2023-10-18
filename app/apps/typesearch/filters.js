@@ -219,9 +219,26 @@ export const filter_exchange = {
         {'name': 'animal3', 'value': 'Consume'},
         {'name': 'animal4', 'value': 'Sleep'},
     ],
+    "Class Typing": [
+        {name: 'tag', value: 'Class Typing'}
+    ],
+    "Mentioned": [
+        {name: 'tag', value: 'Mentioned'}
+    ],
+    "Community Member": [
+        {name: 'tag', value: 'Community Member'}
+    ]
 }
 
 export const options = [
+    {
+        label: 'Tags',
+        options: [
+            { value: 'Class Typing', label: 'Class Typing'},
+            { value: 'Mentioned', label: 'Mentioned'},
+            { value: 'Community Member', label: 'Community Member'},
+        ]
+    },
     {
         label: 'Socials',
         options: [

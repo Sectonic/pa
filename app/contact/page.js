@@ -58,7 +58,7 @@ export default function Page({ searchParams }) {
                             <input type="email" name='email' placeholder="name@company.xyz" required />
                         </div>
                     </div>
-                    <TopicOptions />
+                    <TopicOptions defaultValue={searchParams.topic || null} />
                     <div>
                         <label className="register_label">Message:</label>
                         <textarea name='description' placeholder="What do you want to tell us?" required />

@@ -2,12 +2,12 @@
 import { OptionDropdown, Option } from "app/admin/view/optionDropdown";
 import { useState } from "react";
 
-const TopicOptions = () => {
-    const [topic, setTopic] = useState('--');
+const TopicOptions = ({ defaultValue }) => {
+    const [topic, setTopic] = useState(defaultValue || '--');
 
     return (
         <>
-            <OptionDropdown name="Topic:" setChoice={setTopic}>
+            <OptionDropdown name="Topic:" defaultValue={defaultValue} setChoice={setTopic}>
                 <Option>General</Option>
                 <Option>Technical Issue</Option>
                 <Option>Partnership</Option>

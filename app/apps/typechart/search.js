@@ -18,14 +18,13 @@ export const TypeChartSearch = ({ type }) => {
         setType512(newType || '')
     }, [params.get('type')])
 
-    const analyzeType = () => {
+    const analyzeType = (e) => {
+        e.preventDefault();
 
         const formattedType = formatType(Type512);
         setType512(formattedType);
         const [modalities, functions, animals] = formattedType.split(' ');;
         const [function1, function2] = functions.split('/');
-
-        console.log(formattedType);
 
         const nextError = checkCorrectType({
             modalities, animals, function1, function2
@@ -46,17 +45,17 @@ export const TypeChartSearch = ({ type }) => {
         <>
             {error && <div className='register_error typechart_search-error'>{error}</div>}
             <div className="typechart_search_container">
-                <div className="typechart_search">
+                <form className="typechart_search" onSubmit={analyzeType}>
                     <Type512Input Type512={Type512} setType512={setType512} />
                     <div className="typechart_search-btn-container">
-                        <div className="typechart_search-btn" onClick={analyzeType}>
+                        <button className="typechart_search-btn" type="submit">
                             <img src="/img/typechart/apply.png" />
-                        </div>
+                        </button>
                         <div className="typechart_search-btn" onClick={() => router.push('/apps/typechart', { scroll: false })}>
                             <img src="/img/main/delete.png" />
                         </div>
                     </div>
-                </div>
+                </form>
                 {/* <div className="typechart_search-btns">
                 <div className="typechart_search-btn">
                         <img src="/img/typechart/typing.png" />

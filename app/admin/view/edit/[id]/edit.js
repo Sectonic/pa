@@ -183,7 +183,7 @@ export default function Edit({ type }) {
                         <Option>--</Option>
                         <Option>Community Member</Option>
                         <Option>Class Typing</Option>
-                        <Option>Speculation</Option>
+                        <Option>Mentioned</Option>
                     </OptionDropdown>
                 </div>
                 <h3>Type Selection</h3>
