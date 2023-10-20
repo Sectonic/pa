@@ -119,6 +119,25 @@
   font-weight: 500;
 }
 
+.icon-bar_viewed {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.icon-bar_viewed > div {
+  height: 35px;
+  width: 5px;
+  background-color: var(--green);
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.icon-bar_viewed-red > div {
+  background-color: rgba(var(--red-rgb), .7);
+}
+
 .icon-dropdown_link {
   height: 40px;
   width: 40px;
@@ -339,12 +358,15 @@
 .section_buttons-sticky {
   position: fixed;
   top: 80px;
-  right: 25px;
+  right: 38px;
 }
 
 @media only screen and (max-width: 1400px) {
   .section_buttons {
     width: 325px;
+  }
+  .section_buttons-sticky {
+    right: 28px;
   }
 }
 
@@ -384,7 +406,7 @@
 .section_button-selected .button-title {
   font-size: 20px;
   font-weight: 600;
-  border-radius: 15px 20px 0 0px;
+  border-radius: 13px 13px 0 0px;
   width: 91%;
   padding: 10px 0;
   padding-right: 9.3%;
@@ -685,6 +707,10 @@
 
 .section_buttons-sticky .learn_system-learnbtn {
   display: none;
+}
+
+.section_buttons .learn_system {
+  width: calc(100% - 80px);
 }
 
 .learn_system-tag {

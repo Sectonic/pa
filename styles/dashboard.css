@@ -197,3 +197,21 @@
 .dashboard__edit-btns .dashboard_banner-btn {
     gap: 8px;
 }
+
+.dashboard_stats_container {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    max-width: 1200px;
+    width: calc(100% - 50px);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard_stats_container > div {
+    flex-basis: calc(100%/3);
+    height: 300px;
+    background-color: var(--dark-grey);
+    border-radius: 10px;
+}

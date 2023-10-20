@@ -74,7 +74,7 @@ export default function Page() {
             <div className='home_footer-btns'>
                 <div onClick={() => router.push("/register")}>
                     <img src='/img/main/user.png' />
-                    <div>Make Your Profile</div>
+                    <div>Create your Account</div>
                 </div>
                 <div onClick={() => window.open("https://discord.com/invite/s4v5yQdnE9", "_blank")}>
                     <img src='/img/main/discord.png' />

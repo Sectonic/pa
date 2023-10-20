@@ -1,4 +1,5 @@
 import { LearnLayout, LearnButtons, LearnButton, LearnTree, TreeSection, IconContainer, Icon, IconDropdown, DropdownItem } from '@components/learn_tree';
+import { getCourseActivity } from '@lib/courses';
 import { createMetaData } from "@lib/metadata";
 
 export const metadata = createMetaData({
@@ -8,11 +9,12 @@ export const metadata = createMetaData({
   url: '/ops',
 });
 
-export default function OPS() {
+export default async function OPS() {
+    const viewedPages = await getCourseActivity('ops');
 
     return (
         <div className="main">
-        <LearnLayout>
+        <LearnLayout viewedPages={viewedPages}>
             <LearnTree>
             <TreeSection title="First-Steps">
                 <IconContainer>
@@ -30,19 +32,19 @@ export default function OPS() {
                     <Icon img='ops/home/savior_demon' name='Savior & Demon' direction='right'>
                         <IconDropdown title="Savior & Demon">
                         <DropdownItem src="learn/ops/home/savior_demon" title="Overview" link="/ops/savior_demon" />
-                        <DropdownItem src="learn/ops/home/action_trait" title="Action vs Trait" link="/ops/action_trait" />
+                        {/* <DropdownItem src="learn/ops/home/action_trait" title="Action vs Trait" link="/ops/action_trait" /> */}
                         </IconDropdown>
                     </Icon>
                 </IconContainer>
                 <IconContainer>
                     <Icon img='ops/home/human_needs' name='Human Needs' direction='right'>
                         <IconDropdown title="Human Needs">
-                        <DropdownItem src="learn/ops/home/human_needs" title="Overview" link="/ops/human_needs" />
+                            <DropdownItem src="learn/ops/home/human_needs" title="Overview" link="/ops/human_needs" />
                         </IconDropdown>
                     </Icon>
                     <Icon img='ops/home/letters' name='Letters' direction='left'>
                         <IconDropdown title="Letters">
-                        <DropdownItem src="learn/ops/home/letters" title="Overview" link="/ops/letters" />
+                            <DropdownItem src="learn/ops/home/letters" title="Overview" link="/ops/letters" />
                         </IconDropdown>
                     </Icon>
                 </IconContainer>

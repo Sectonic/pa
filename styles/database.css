@@ -290,7 +290,7 @@
 
 @media screen and (max-width: 775px) {
     .db_search {
-        width: 75%;
+        width: calc(100% - 40px);
     }
 }
 
@@ -317,4 +317,12 @@
 .database_contact-link {
     border-bottom: 1px solid white;
     cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .database_contact {
+        text-align: center;
+        padding: 0 20px;
+        font-size: 13px;
+    }
 }

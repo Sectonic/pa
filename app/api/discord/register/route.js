@@ -5,7 +5,7 @@ import { createUserEmail } from '@lib/register';
 
 export async function GET(request) {
   const oauth = new DiscordOauth2();
-  const baseUrl = process.env.PRODUCTION === 'true' ? 'https://pa-beryl.vercel.app' : 'http://localhost:3000';
+  const baseUrl = process.env.PRODUCTION === 'true' ? 'https://personalityacademy.vercel.app' : 'http://localhost:3000';
   const code = request.nextUrl.searchParams.get('code');
   const decodedURI = decodeURIComponent(request.nextUrl.searchParams.get('state')) || '/';
   const callbackUrl = decodedURI === null || decodedURI === 'null' ? '/' : decodedURI;

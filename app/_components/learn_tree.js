@@ -5,22 +5,23 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import {useState, useRef, Children, cloneElement, useEffect} from 'react';
 import "animate.css";
 
-export function IconContainer({children}) {
+export function IconContainer({children, viewedPages}) {
+    const children_arr = Children.toArray(children);
     if (Children.count(children) > 1) {
         return (
             <div className='seconds' >
-                {children}
+                {children_arr.map(child => cloneElement(child, { viewedPages }))}
             </div>
         )
     }
     return (
         <>
-            {children}
+            {children_arr.map(child => cloneElement(child, { viewedPages }))}
         </>
     )
 }
 
-export function Icon({img, name, children, direction, href}) {
+export function Icon({img, name, children, direction, href, viewedPages}) {
     const [clicked, setClicked] = useState(false);
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
@@ -59,7 +60,7 @@ export function Icon({img, name, children, direction, href}) {
                         <div className='page_icon-dropdown__bg' ref={dropdownBG}>
                             <OutsideClickHandler onOutsideClick={dropdownHide}>
                                 <div className={`page_icon-dropdown page_icon-dropdown__${direction} animate__animated`} ref={dropdownContainer}>
-                                    {children}
+                                    {Children.toArray(children).map(child => cloneElement(child, { viewedPages }))}
                                 </div>
                             </OutsideClickHandler>
                         </div>
@@ -71,12 +72,15 @@ export function Icon({img, name, children, direction, href}) {
     )
 }
 
-export function IconDropdown({ children, title }) {
+export function IconDropdown({ children, title, viewedPages }) {
     return (
         <>
             <div className='icon-dropdown_title'>{title}</div>
             <div className='icon-dropdown_links'>
-                {children}
+                {Children.map(children, child => {
+                    const viewed = viewedPages.map(page => page.url).includes(child.props.link);
+                    return cloneElement(child, { viewed });
+                })}
                 <div className='icon-dropdown_bar__transparent'>A</div>
                 <div className='icon-dropdown_bar__transparent'>A</div>
                 <div className='icon-dropdown_bar__transparent'>A</div>
@@ -85,48 +89,38 @@ export function IconDropdown({ children, title }) {
     )
 }
 
-export function DropdownItem({ label, src, link, title }) {
-    if (label) {
-        return (
-            <Link href={link}>
-                <div className='icon-dropdown_bar'>
-                    <div className='icon-dropdown_link'>
-                        <div>{label}</div>
-                    </div>
-                    <div className='icon-bar_title'>
-                        {title}
-                    </div>
+export function DropdownItem({ label, src, link, title, viewed }) {
+    return (
+        <Link href={link}>
+            <div className='icon-dropdown_bar'>
+                <div className={`icon-dropdown_${label ? 'link' : 'img'}`}>
+                    {label ? <div>{label}</div> : <img src={`/img/${src}.png`} />}
                 </div>
-            </Link>
-        )
-    } else {
-        return (
-            <Link href={link}>
-                <div className='icon-dropdown_bar'>
-                    <div className='icon-dropdown_img'>
-                        <img src={`/img/${src}.png`} />
-                    </div>
-                    <div className='icon-bar_title'>
-                        {title}
-                    </div>
+                <div className='icon-bar_title'>
+                    {title}
                 </div>
-            </Link>
-        )
-    }
+                <div className={`icon-bar_viewed ${viewed ? '' : 'icon-bar_viewed-red'}`}>
+                    <div></div>
+                </div>
+            </div>
+        </Link>
+    );
 }
 
-export const TreeSection = ({ children, title }) => {
+export const TreeSection = ({ children, title, viewedPages }) => {
+    const children_arr = Children.toArray(children);
+
     return (
         <div id={title}>
             <div className='section_top'>
                 {title}
             </div>
-            {children}
+            {children_arr.map(child => cloneElement(child, { viewedPages }))}
         </div>
     )
 }
 
-export const LearnTree = ({ children, setSelected, setSticky }) => {
+export const LearnTree = ({ children, setSelected, setSticky, viewedPages }) => {
     const tree = useRef(null);
     const children_arr = Children.toArray(children);
 
@@ -178,7 +172,7 @@ export const LearnTree = ({ children, setSelected, setSticky }) => {
     return (
         <div className='learn_section'>
             <div className='section_map' ref={tree} >
-                {children}
+                {children_arr.map(child => cloneElement(child, { viewedPages }))}
             </div>
         </div>
     )
@@ -229,7 +223,7 @@ export const LearnButtons = ({ children, selected, sticky, selections }) => {
     )
 }
 
-export const LearnLayout = ({ children }) => {
+export const LearnLayout = ({ children, viewedPages }) => {
     const [selected, setSelected] = useState("");
     const [sticky, setSticky] = useState(false);
 
@@ -252,7 +246,7 @@ export const LearnLayout = ({ children }) => {
 
     return (
         <div className={overviewClass}>
-            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky})}
+            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky, viewedPages })}
             {cloneElement(children_arr[1], {selected: selected, sticky: sticky, selections: selections})}
         </div>
     )

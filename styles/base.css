@@ -20,6 +20,8 @@
   --vibrant-orange: #ffc022;
   --vibrant-orange-rgb: 255, 192, 34;
 
+  --green: #c8fa64;
+
   --dark-grey: #06102b86;
   --dark-grey-rgb: 6, 16, 43;
 
@@ -33,6 +35,9 @@
 
   --purple-black-light: #0a2667;
   --purple-black-light-rgb: 7, 34, 97;
+
+  --baby-blue: #6dd6fb;
+  --red-rgb: 236, 78, 78;
 }
 
 .load_wraper{
@@ -152,6 +157,16 @@ button {
   backdrop-filter: blur(15px);
 }
 
+.course_activity-tracker {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 1px;
+  z-index: 12;
+  background-color: rgba(var(--vibrant-orange-rgb), .99);
+  transition: .5s ease;
+}
+
 .top_nav-box {
   position: absolute;
   left: 50%;
@@ -163,7 +178,6 @@ button {
   border-radius: 10px;
   display: flex;
   justify-content:space-between;
-  backdrop-filter: blur(5px);
 }
 
 .top_nav-box > div {
@@ -836,6 +850,18 @@ button {
   font-weight: 400;
   box-shadow: inset 0 -7px 11px rgba(var(--vibrant-orange-rgb), .2);
   margin: 0 auto;
+}
+
+@media screen and (max-width:500px) {
+  .alert {
+    flex-direction: column;
+    width: 80%;
+    text-align: center;
+    font-size: 12px;
+  }
+  .alert img {
+    display: none;
+  }
 }
 
 .alert img {

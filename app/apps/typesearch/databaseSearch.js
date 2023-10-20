@@ -49,6 +49,11 @@ export default function DatabaseSearch({ filters }) {
                     input: (styles) => ({
                         ...styles,
                         color: 'white',
+                        fontSize: '16px',
+                    }),
+                    placeholder: (styles) => ({
+                        ...styles,
+                        fontSize: '16px'
                     }),
                     control: styles => ({ 
                         ...styles,
@@ -137,7 +142,7 @@ export default function DatabaseSearch({ filters }) {
                 formatCreateLabel={formatCreateLabel}
                 formatGroupLabel={formatGroupLabel}
                 value={filters}
-                placeholder="Search a type or a name"
+                placeholder="Search type, name, or tag"
             />
         </div>
     )

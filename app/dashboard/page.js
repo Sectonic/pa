@@ -7,6 +7,17 @@ export default async function Page() {
     return (
         <div className="main">
             <DashboardBanner profile={profile} />
+            <div className="dashboard_stats_container">
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
         </div>
     )
 }

@@ -44,18 +44,6 @@ function Functions() {
         </div>
         <div className="section functions">
           <h2 className="section_title margin-sm">Decider Functions</h2>
-          <div className="section_body section_texts-sm">
-            <div className="section_text section_column-title">
-              <div className="section_column-img">
-                <img src={"/img/icons/Needs/di.png"} alt="" />
-              </div>
-            </div>
-            <div className="section_text section_column-title">
-              <div className="section_column-img">
-                <img src={"/img/icons/Needs/de.png"} alt="" />
-              </div>
-            </div>
-          </div>
           <div className="section_body section_texts-sm extra_spacing_texts-sm">
             <div className="section_text outline-grey external_link-source">
               <div className="text-sm_img">
@@ -119,18 +107,6 @@ function Functions() {
         </div>
         <div className="section functions extra_margin_section">
           <h2 className="section_title margin-sm">Observer Functions</h2>
-          <div className="section_body section_texts-sm">
-            <div className="section_text section_column-title">
-              <div className="section_column-img">
-                <img src={"/img/icons/Needs/oi.png"} alt="" />
-              </div>
-            </div>
-            <div className="section_text section_column-title">
-              <div className="section_column-img">
-                <img src={"/img/icons/Needs/oe.png"} alt="" />
-              </div>
-            </div>
-          </div>
           <div className="section_body section_texts-sm extra_spacing_texts-sm">
             <div className="section_text outline-grey">
               <div className="text-sm_img">
