@@ -10,7 +10,7 @@ export const metadata = createMetaData({
 
 function Letters() {
   return (
-    <div className="main">
+    <>
       <Banner background="pink" title="Letters" section="ops/home/letters" />
       <div className="section_container">
         <div className="section">
@@ -174,7 +174,7 @@ function Letters() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

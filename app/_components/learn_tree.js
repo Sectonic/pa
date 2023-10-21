@@ -4,6 +4,7 @@ import Link from "next/link";
 import OutsideClickHandler from 'react-outside-click-handler';
 import {useState, useRef, Children, cloneElement, useEffect} from 'react';
 import "animate.css";
+import { getSession } from "@lib/session";
 
 export function IconContainer({children, viewedPages}) {
     const children_arr = Children.toArray(children);
@@ -21,10 +22,21 @@ export function IconContainer({children, viewedPages}) {
     )
 }
 
-export function Icon({img, name, children, direction, href, viewedPages}) {
+export function Icon({comingSoon, img, name, children, direction, href, viewedPages}) {
     const [clicked, setClicked] = useState(false);
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
+
+    if (comingSoon) {
+        return <div className="icon_container link_text">
+            <div>
+                <div className="page_icon page_icon_soon">
+                    <img src={`/img/learn/${img}.png`} />
+                </div>
+            </div>
+            <div className='icon_text' >Coming Soon</div>
+        </div>
+    }
 
     const dropdownShow = () => {
         setClicked(true);
@@ -90,6 +102,7 @@ export function IconDropdown({ children, title, viewedPages }) {
 }
 
 export function DropdownItem({ label, src, link, title, viewed }) {
+    const session = getSession();
     return (
         <Link href={link}>
             <div className='icon-dropdown_bar'>
@@ -99,9 +112,11 @@ export function DropdownItem({ label, src, link, title, viewed }) {
                 <div className='icon-bar_title'>
                     {title}
                 </div>
-                <div className={`icon-bar_viewed ${viewed ? '' : 'icon-bar_viewed-red'}`}>
-                    <div></div>
-                </div>
+                { session && (
+                    <div className={`icon-bar_viewed ${viewed ? '' : 'icon-bar_viewed-red'}`}>
+                        <div></div>
+                    </div>
+                )}
             </div>
         </Link>
     );
@@ -209,9 +224,32 @@ export const LearnButton = ({children, title, selected, selections }) => {
 
 export const LearnButtons = ({ children, selected, sticky, selections }) => {
     const stickyClass = sticky ? 'section_buttons section_buttons-sticky' : 'section_buttons';
+    const [styleSheet, setStyleSheet] = useState({ right: 'inherit' });
+
+    useEffect(() => {
+        const handleResize = () => {
+          const currentWidth = window.innerWidth;
+    
+          if (currentWidth >= 1800) {
+            const widthDifference = currentWidth - 1800;
+            const widthToAdd = Math.round(widthDifference / 2);
+            setStyleSheet({ right: widthToAdd + 3 });
+          } else {
+            setStyleSheet({ right: 'inherit' });
+          }
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        handleResize();
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     return (
-        <ul className={stickyClass}>
+        <ul className={stickyClass} style={styleSheet}>
             {Children.map(children, (child, i) => {
                 if (child.props.title == selected) {
                     return cloneElement(child, {selected: true, selections:selections })

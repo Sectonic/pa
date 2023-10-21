@@ -39,6 +39,11 @@
   transform: translate(-50%, -50%);
 }
 
+.page_icon_soon {
+  filter: grayscale(100%) !important;
+  cursor: default !important;
+}
+
 .page_icon-dropdown {
   position: absolute;
   top: -40px;

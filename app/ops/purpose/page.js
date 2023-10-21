@@ -9,7 +9,7 @@ export const metadata = createMetaData({
 
 export default function Purpose() {
     return (
-        <div className="main">
+        <>
             <Banner
                 background="pink"
                 title="Purpose of OPS"
@@ -77,6 +77,6 @@ export default function Purpose() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

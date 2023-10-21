@@ -42,20 +42,20 @@ async function Typing() {
           </IconContainer>
           </TreeSection>
           <TreeSection title="Methodology">
-          <IconContainer>
-                <Icon img='typing/home/material' name='Material' direction='right'>
-                    <IconDropdown title="Material">
-                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
-                    <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
-                    </IconDropdown>
-                </Icon>
-                <Icon img='typing/home/method' name='Basics' direction='right'>
-                    <IconDropdown title="Basics">
-                    <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
-                    <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
-                    </IconDropdown>
-                </Icon>
-          </IconContainer>
+            <IconContainer>
+                  <Icon comingSoon={true} img='typing/home/material' name='Material' direction='right'>
+                      <IconDropdown title="Material">
+                      <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                      <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
+                      </IconDropdown>
+                  </Icon>
+                  <Icon comingSoon={true} img='typing/home/method' name='Basics' direction='right'>
+                      <IconDropdown title="Basics">
+                      <DropdownItem src="learn/typing/home/start" title="Expectations" link="/typing/expectations" />
+                      <DropdownItem src="learn/typing/home/guide" title="The Journey" link="/typing/expectations" />
+                      </IconDropdown>
+                  </Icon>
+            </IconContainer>
           </TreeSection>
           <TreeSection title="Approaches">
               <IconContainer>
@@ -80,7 +80,7 @@ async function Typing() {
           </TreeSection>
           <TreeSection title="Post-Typing">
               <IconContainer>
-              <Icon img='typing/home/sun' name='After Typing' direction='right'>
+              <Icon comingSoon={true} img='typing/home/sun' name='After Typing' direction='right'>
                     <IconDropdown title="After Typing">
                     <DropdownItem src="learn/typing/home/sun" title="Expectations" link="/typing/expectations" />
                     </IconDropdown>

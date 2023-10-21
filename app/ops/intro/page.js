@@ -9,8 +9,8 @@ export const metadata = createMetaData({
 
 function OPS() {
   return (
-    <div className="main">
-      <Banner background="blue" title="Objective Personality" section="ops/home/intro" />
+    <>
+      <Banner background="blue" title="Introduction" section="ops/home/intro" />
       <div className="section_container">
         <div className="section section_images-in">
           <div className="section_body reverse_body">
@@ -136,7 +136,7 @@ function OPS() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

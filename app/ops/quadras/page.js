@@ -10,7 +10,7 @@ export const metadata = createMetaData({
 
 function Quadras() {
   return (
-    <div className="main">
+    <>
       <Banner background="pink" title="Quadras" section="ops/home/quadras" />
       <div className="section_container">
         <div className="section functions">
@@ -253,7 +253,7 @@ function Quadras() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

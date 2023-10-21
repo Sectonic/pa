@@ -6,16 +6,10 @@ export default async function Page() {
 
     return (
         <div className="main">
-            <DashboardBanner profile={profile} />
-            <div className="dashboard_stats_container">
-                <div>
-
-                </div>
-                <div>
-
-                </div>
-                <div>
-
+            <div className="dashboard_container">
+                <DashboardBanner profile={profile} />
+                <div className="dashboard_coming-soon">
+                    More coming soon
                 </div>
             </div>
         </div>

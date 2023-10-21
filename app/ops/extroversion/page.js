@@ -10,7 +10,7 @@ export const metadata = createMetaData({
 
 function Extroversion() {
   return (
-    <div className="main">
+    <>
       <Banner background="green" title="Extroversion" section="ops/home/extroversion" />
       <div className="section_container">
         <div className="section">
@@ -196,7 +196,7 @@ function Extroversion() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

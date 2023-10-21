@@ -10,7 +10,7 @@ export const metadata = createMetaData({
 
 function Social() {
   return (
-    <div className="main">
+    <>
       <Banner background="yellow" title="Social Hierarchy" section="ops/home/social" />
       <div className="section_container">
         <div className="section section_images-in">
@@ -231,7 +231,7 @@ function Social() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -10,7 +10,7 @@ export const metadata = createMetaData({
 
 function animalModalities() {
   return (
-    <div className="main">
+    <>
       <Banner
         background="pink"
         title="Animal Modalities"
@@ -144,7 +144,7 @@ function animalModalities() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

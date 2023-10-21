@@ -58,15 +58,15 @@ export default function Page() {
                 <div className='home_section_split'>
                     <div className='text-right'>
                         <div className='home_section-title'>Make It Your <span>Personality Platform</span></div>
-                        <img className='home_section_description-img' src='/img/home/courses_icon.png' />
-                        <div className='home_section_description-title'>Better With a Profile</div>
+                        <img className='home_section_description-img' src='/img/home/account.png' />
+                        <div className='home_section_description-title'>Better With an Account</div>
                         <div className='home_section_description-text'>Sign up to transform this page into your own dashboard. Customize your profile, and access our latest and greatest tools!</div>
-                        <img className='home_section_description-img' src='/img/home/unbiased_icon.png' />
+                        <img className='home_section_description-img' src='/img/home/options.png' />
                         <div className='home_section_description-title'>Endless Options</div>
                         <div className='home_section_description-text'>Study the theories, type alongside others, or hone your own skills, compete and rise to the top! Progress is our motto.</div>
                     </div>
                     <div className='home_section_img-container home_section_img-container-lg'>
-                        <img src='/img/home/courses_combined.png' />
+                        <img src='/img/home/personality_platform.png' />
                     </div>
                 </div>
             </div>

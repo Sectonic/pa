@@ -10,7 +10,7 @@ export const metadata = createMetaData({
 
 function SaviorDemon() {
   return (
-    <div className="main">
+    <>
       <Banner
         background="yellow"
         title="Savior & Demon"
@@ -184,7 +184,7 @@ function SaviorDemon() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -39,7 +39,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate(-50%, calc(-50% - .5px));
   width: 680px;
   background-color: var(--dark-grey-full);
   backdrop-filter: brightness(70);

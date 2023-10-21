@@ -9,7 +9,7 @@ export const metadata = createMetaData({
 
 export default function ObjectiveMethod() {
     return (
-        <div className="main">
+        <>
             <Banner
                 background="pink"
                 title="Objective Method"
@@ -176,6 +176,6 @@ export default function ObjectiveMethod() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
