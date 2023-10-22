@@ -70,6 +70,22 @@
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .section_title {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .section_title {
+    font-size: 30px;
+    margin-bottom: 20px !important;
+  }
+  .section_title-mb-less {
+    margin-bottom: 0 !important;
+  }
+}
+
 
 .letters_subtitle {
   margin-top: -15px;

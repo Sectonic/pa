@@ -125,6 +125,12 @@ button {
   margin-bottom: -12.5px;
 }
 
+@media screen and (max-width: 775px) {
+  .margin-sm {
+    font-size: 25px;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   background: linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
