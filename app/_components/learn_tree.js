@@ -69,9 +69,9 @@ export function Icon({comingSoon, img, name, children, direction, href, viewedPa
                 <div className='page_icon' onClick={dropdownShow}>
                     <img src={`/img/learn/${img}.png`} />
                     {clicked && (
-                        <div className='page_icon-dropdown__bg' ref={dropdownBG}>
+                        <div className='page_icon-dropdown__bg animte__animated' ref={dropdownBG}>
                             <OutsideClickHandler onOutsideClick={dropdownHide}>
-                                <div className={`page_icon-dropdown page_icon-dropdown__${direction} animate__animated`} ref={dropdownContainer}>
+                                <div className={`page_icon-dropdown page_icon-dropdown__${direction} animate__animated `} ref={dropdownContainer}>
                                     {Children.toArray(children).map(child => cloneElement(child, { viewedPages }))}
                                 </div>
                             </OutsideClickHandler>

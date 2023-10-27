@@ -10,6 +10,7 @@ export const Diagram = ({ name, src, value, rank, color, total }) => {
     const graphArr = Array.from({ length: 100 }, (_, i) => (i + 1) * 6.25).filter(num => num <= 100);
 
     function ordinal(i) {
+        i = i === 0 ? 1 : i;
         var j = i % 10,
             k = i % 100;
         if (j == 1 && k != 11) {
