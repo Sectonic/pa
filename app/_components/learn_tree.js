@@ -27,6 +27,16 @@ export function Icon({comingSoon, img, name, children, direction, href, viewedPa
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
 
+    useEffect(() => {
+        if (window.innerWidth <= 750) {
+            if (clicked) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'visible';
+            }
+        }
+    }, [clicked])
+
     if (comingSoon) {
         return <div className="icon_container link_text">
             <div>
@@ -224,7 +234,7 @@ export const LearnButton = ({children, title, selected, selections }) => {
 
 export const LearnButtons = ({ children, selected, sticky, selections }) => {
     const stickyClass = sticky ? 'section_buttons section_buttons-sticky' : 'section_buttons';
-    const [styleSheet, setStyleSheet] = useState({ right: 'inherit' });
+    const [styleSheet, setStyleSheet] = useState({ right: 38 });
 
     useEffect(() => {
         const handleResize = () => {
@@ -235,7 +245,7 @@ export const LearnButtons = ({ children, selected, sticky, selections }) => {
             const widthToAdd = Math.round(widthDifference / 2);
             setStyleSheet({ right: widthToAdd + 3 });
           } else {
-            setStyleSheet({ right: 'inherit' });
+            setStyleSheet({ right: 38 });
           }
         };
     

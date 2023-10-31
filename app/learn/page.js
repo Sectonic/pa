@@ -23,7 +23,7 @@ export default function Learn({ searchParams }) {
                 <h1 className='banner_text blue'>Learn Courses</h1>
             </div>
         </div>
-        <LearnSearch />
+        {/* <LearnSearch /> */}
       </div>
       <div className='learn_systems'>
         {!searchParams.query ? (

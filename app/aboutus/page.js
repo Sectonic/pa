@@ -18,38 +18,15 @@ export default function Page() {
                             <div className="multi_paragraph">
                                 <h2 className="margin-sm">Community Project</h2>
                                 <p>
-                                    Personality Academy is a community based platform aimed to provide a space to explore personality theory freely and without misinformation. We teach concepts as simple but nuanced as possible, while also creating applications for you to easily interact with typology.
+                                    Personality Academy is a community based platform aimed to provide a space to explore personality theory freely and without misinformation. We teach concepts as simple but nuanced as possible, while also creating applications for you to easily interact with typology. You are apart of the community, so contact us to provide feedback.
                                 </p>
-                                <p>
-                                    You are apart of the community, so contact us to provide feedback.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="section_body section_texts-sm">
-                        <div className="section_text outline-trans">
-                            <div className="text-sm_img home-top_img">
-                                <img
-                                src={"/img/learn/ops_logo.png"}
-                                />
-                            </div>
-                            <div className="text-sm_desc">
-                                <h3 className="section_subtitle margin-sm">Objective Personality</h3>
+                                <h3 className="margin-sm">Objective Personality</h3>
                                 <p>
                                     We focus on utilizing the Objective Personality System, created by Dave and Shannon, the most. We are not affiliated with Dave and Shannon.
                                 </p>
-                            </div>
-                        </div>
-                        <div className="section_text outline-trans">
-                            <div className="text-sm_img home-top_img">
-                                <img
-                                src={"/img/aboutus/positive.png"}
-                                />
-                            </div>
-                            <div className="text-sm_desc">
-                                <h3 className="section_subtitle margin-sm">Net Positive Impact</h3>
+                                <h3 className="margin-sm">Net Positive Impact</h3>
                                 <p>
-                                    We focus on the overall positive impact we can have on people. We prioritize using personality systems for improvement and growth.
+                                We focus on the overall positive impact we can have on people. We prioritize using personality systems for improvement and growth.
                                 </p>
                             </div>
                         </div>

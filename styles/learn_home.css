@@ -230,9 +230,6 @@
     margin: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    animation: slideInUp;
-    animation-delay: .2s;
-    animation-duration: .7s;
   }
   .icon-dropdown_links {
     height: 200px;

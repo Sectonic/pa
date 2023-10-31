@@ -109,7 +109,7 @@ export default async function Page({ searchParams }) {
                         </div>
                         <DatabaseSearch filters={searchFilters}  />
                         <div className='database_contact'>Want to add someone or fix something incorrect? <Link className='database_contact-link' href={"/contact?" + new URLSearchParams({ topic: 'TypeSearch', callback: '/apps/typesearch?' + new URLSearchParams(searchParams) })}>Contact Us</Link></div>
-                        <Alert prompt="We're currently updating the old website links" />
+                        {/* <Alert prompt="We're currently updating the old website links" /> */}
                     </div>
                     <div className="db_card-container">
                         {!popup ? (

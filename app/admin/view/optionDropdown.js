@@ -31,9 +31,11 @@ export const OptionDropdown = ({ name, children, defaultValue, setChoice = null 
                     }
                 }}>
                     <div className="animate__animated animate__fadeIn option-dropdown">
-                        {Children.map(children, child => (
-                            cloneElement(child, {selectValue: selectValue})
-                        ))}
+                        <div>
+                            {Children.map(children, child => (
+                                cloneElement(child, {selectValue: selectValue})
+                            ))}
+                        </div>
                     </div>
                 </OutsideClickHandler>
             )}
