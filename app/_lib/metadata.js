@@ -10,7 +10,7 @@ export const createMetaData = ({ title, description, url, image}) => {
             description: description || 'Personality Theory Made Simple. Net Positive Impact.',
             url: url || "/",
             images: [{
-                url: `/img/${image}` || '/embed/home.png',
+                url: image ? `/img/${image}` : '/embed/home.png',
                 width: 1291,
                 height: 685
             }]
