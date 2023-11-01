@@ -595,8 +595,8 @@
   height: 300px;
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), .5),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .7),
+    rgba(var(--dark-grey-rgb), .4)
   ), url(".//backgrounds/background_blue.png");
   background-size: 1700px;
   transition: .4s ease;
@@ -604,6 +604,7 @@
   padding: 40px;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 450px) {
@@ -616,32 +617,32 @@
 .learn_system-green {
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), .5),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .7),
+    rgba(var(--dark-grey-rgb), .4)
   ), url(".//backgrounds/background_green.png");
 }
 
 .learn_system-yellow {
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), .5),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .7),
+    rgba(var(--dark-grey-rgb), .4)
   ), url(".//backgrounds/background_yellow.png");
 }
 
 .learn_system-pink {
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), .5),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .7),
+    rgba(var(--dark-grey-rgb), .4)
   ), url(".//backgrounds/background_pink.png");
 }
 
 .learn_system:hover {
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), 0.4),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .6),
+    rgba(var(--dark-grey-rgb), .3)
   ), url(".//backgrounds/background_blue.png");
   background-size: 1900px;
 }
@@ -649,31 +650,30 @@
 .learn_system-green:hover {
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), 0.4),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .6),
+    rgba(var(--dark-grey-rgb), .3)
   ), url(".//backgrounds/background_green.png");
 }
 
 .learn_system-yellow:hover {
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), 0.4),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .6),
+    rgba(var(--dark-grey-rgb), .3)
   ), url(".//backgrounds/background_yellow.png");
 }
 
 .learn_system-pink:hover {
   background-image: linear-gradient(
     to bottom right,
-    rgba(var(--light-grey-rgb), 0.4),
-    rgba(var(--dark-grey-rgb), .1)
+    rgba(var(--light-grey-rgb), .6),
+    rgba(var(--dark-grey-rgb), .3)
   ), url(".//backgrounds/background_pink.png");
 }
 
 .learn_system-soon {
   filter:opacity(50%) grayscale(100%);
   cursor: default;
-  overflow: hidden;
 }
 
 .learn_system-soon:hover {
@@ -689,6 +689,10 @@
   text-align: center;
   transform: rotate(45deg) translate(-50%, -50%);
   background-color: var(--light-grey);
+}
+
+.learn_system-progress-tag {
+  background-color: var(--purple-black);
 }
 
 .learn_system-learnbtn {

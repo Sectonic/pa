@@ -1,6 +1,6 @@
 "use client";
 
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import AuthCode from 'react-auth-code-input';
 import { createUser, createUserEmail } from '@lib/register';

@@ -34,13 +34,13 @@ export default function Learn({ searchParams }) {
         <div className="learn_systems-container">
           <SearchContainer query={searchParams.query}>
             <Link href="/ops">
-              <TypologySystem title="Objective Personality" extraTags={['ops', 'op']}>
+              <TypologySystem title="Objective Personality" extraTags={['ops', 'op']} inProgress={true}>
                 Uncover your default wiring through a spectrum of up to 2048 personality codes. 
                 <img src='/img/learn/ops_logo.png' />
               </TypologySystem>
             </Link>
             <Link href="/typing">
-              <IntroCourse color="yellow" title="Objective Typing">
+              <IntroCourse color="yellow" title="Objective Typing" inProgress={true}>
                 Arm yourself with the right tools and knowledge to type yourself using principles of objectivity!
                 <img src='/img/learn/objective_typing.png' />
               </IntroCourse>

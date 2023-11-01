@@ -15,18 +15,6 @@ export default function MobileNav({ backgroundMobile, mobileMenuOut, navMobile, 
                         <img src='/img/main/dashboard.png'/>
                       </div>
                     </Link>
-                    <Link href='/'>
-                      <div className={`mobile_menu-link ${path[1] == '' && 'mobile_menu-link--selected'}`}>
-                        <div>Home</div>
-                        <img src='/img/main/home.png'/>
-                      </div>
-                    </Link>
-                    <Link href='/aboutus'>
-                      <div className={`mobile_menu-link ${path[1] == 'about' && 'mobile_menu-link--selected'}`}>
-                        <div>About Us</div>
-                        <img src='/img/main/about.png'/>
-                      </div>
-                    </Link>
                     <Link href='/learn'>
                       <div className={`mobile_menu-link ${path[1] == 'learn' && 'mobile_menu-link--selected'}`}>
                         <div>Learn</div>

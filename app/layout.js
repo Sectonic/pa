@@ -15,6 +15,7 @@ import '@css/academyplus.css';
 import '@css/typechart.css';
 import '@css/admin.css';
 import '@css/dashboard.css';
+import '@css/footer.css';
 import "animate.css";
 
 import { Lexend } from "next/font/google";
@@ -25,13 +26,16 @@ import Provider from './provider';
 import { Suspense } from 'react';
 import SideNav from './_nav/sideNav';
 import UpdatesPopupContainer from './updatesPopup';
+import Footer from '@components/footer';
 
 const font = Lexend ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
     subsets: ['latin'] 
 }); 
 
-export const metadata = createMetaData({});
+export const metadata = createMetaData({
+  image: '/img/embed/home.png'
+});
 
 export default async function RootLayout({ children }) {
 
@@ -47,6 +51,7 @@ export default async function RootLayout({ children }) {
               <SideNav />
               {children}
             </div>
+            <Footer />
           <Analytics/>
         </Provider>
       </body>

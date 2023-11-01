@@ -86,13 +86,13 @@ export default function Page() {
                 </div>
             </div>
             <div className='home_footer_subtitle'>Otherwise, Welcome to the Academy.</div>
-            <div className='home_footer-end'>
+            {/* <div className='home_footer-end'>
                 <div className='home_footer_circle-xxl'></div>
                 <div className='home_footer_circle-xl'></div>
                 <div className='home_footer_circle-lg'></div>
                 <div className='home_footer_circle-md'></div>
                 <div className='home_footer_circle-sm'></div>
-            </div>
+            </div> */}
       </div>
     );
 }

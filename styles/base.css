@@ -148,6 +148,7 @@ button {
   border-radius: 10px;
   transition: 0.3s;
   overflow-y: scroll;
+  z-index: 2;
 }
 
 .nav::-webkit-scrollbar {
