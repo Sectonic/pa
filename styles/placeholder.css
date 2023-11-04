@@ -1,7 +1,7 @@
 .placeholder-page {
     width: calc(100% - 50px);
     margin: 0 auto;
-    height: calc(100vh - 97px);
+    height: calc(100dvh - 97px);
     border-radius: 15px;
     background-image: linear-gradient(
       to right,
@@ -17,7 +17,7 @@
 }
 
 .popup_loading {
-    height: 75vh;
+    height: 75dvh;
     width: 100%;
     background-image: linear-gradient(
         to right,

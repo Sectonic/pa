@@ -82,3 +82,9 @@ model User {
   subscriptionId String?
   courseActivities CourseActivity[]
 }
+
+model Price {
+  id Int @id @default(autoincrement())
+  amount Int @unique
+  priceId String
+}

@@ -1,5 +1,6 @@
 import Banner from "../../_components/banner";
 import { createMetaData } from "@lib/metadata";
+import Alert from "@components/alert";
 
 export const metadata = createMetaData({
   title: 'Biases',
@@ -17,6 +18,7 @@ function biases() {
         section="biases"
         type="typing"
       />
+      <Alert prompt='This page is a work in progress' />
       <div className="section_container">
         <div className="section section_images-in">
           <div className="section_body reverse_body">

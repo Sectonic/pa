@@ -1,5 +1,6 @@
 import Banner from "@components/banner";
 import { createMetaData } from "@lib/metadata";
+import Alert from "@components/alert";
 
 export const metadata = createMetaData({
   title: 'Letters',
@@ -12,6 +13,7 @@ function Letters() {
   return (
     <>
       <Banner background="pink" title="Letters" section="ops/home/letters" />
+      <Alert prompt='This page is a work in progress' />
       <div className="section_container">
         <div className="section">
           <div className="section_body">

@@ -1,5 +1,6 @@
 import Banner from "@components/banner";
 import { createMetaData } from "@lib/metadata";
+import Alert from "@components/alert";
 
 export const metadata = createMetaData({
   title: 'Quadras',
@@ -12,6 +13,7 @@ function Quadras() {
   return (
     <>
       <Banner background="pink" title="Quadras" section="ops/home/quadras" />
+      <Alert prompt='This page is a work in progress' />
       <div className="section_container">
         <div className="section functions">
           <img

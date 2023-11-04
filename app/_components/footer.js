@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+import { isMobile } from "react-device-detect";
 
 export default function Footer() {
     const pathname = usePathname();
     const params = useSearchParams();
+
+    if (pathname === '/success' && !isMobile) {
+        return <></>;
+    }
 
     return (
         <div className="footer">
@@ -32,8 +37,8 @@ export default function Footer() {
                     <div className="footer-col">
                         <Link href='/aboutus'>About Us</Link>
                         <Link href={`/contact?` + new URLSearchParams({callback: pathname !== '/' ? pathname + (params ? `?${new URLSearchParams(params)}` : '') : '/'})}>Contact Us</Link>
-                        <a href='https://paypal.me/AzeOriginal?country.x=DK&locale.x=en_US' target="_blank">Donate</a>
-                        <a href='https://discord.com/invite/s4v5yQdnE9' target="_blank">Discord</a>
+                        <Link href='/donate'>Donate</Link>
+                        <Link href='https://discord.com/invite/s4v5yQdnE9' target="_blank" rel="noopener noreferrer">Discord</Link>
                     </div>
                 </div>
             </div>
