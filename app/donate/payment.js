@@ -43,7 +43,7 @@ export default function DonationPayment() {
         };
         window.addEventListener('message', redirectOnSuccess);
         return () => window.removeEventListener('message', redirectOnSuccess);
-    }, [])
+    }, []);
 
     return (
         <div className="donate_payment">
@@ -55,7 +55,7 @@ export default function DonationPayment() {
             <label>Amount</label>
             <div className="donate_payment-input">
                 <div>$</div>
-                <input type="number" value={donation} onChange={(e) => setDonation(e.target.value)} />
+                <input type="number" min={0} step={1} value={donation} onChange={(e) => setDonation(e.target.value)} />
             </div>
             {error !== '' && <div className='register_error'>{error}</div>}
             <div className="donate_payment-submit" onClick={handleDonate}>Donate</div>

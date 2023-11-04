@@ -5,7 +5,7 @@ import { getSession } from './session';
 
 const client_id = process.env.DISCORD_CLIENT_ID;
 const client_secret = process.env.DICSORD_CLIENT_SECRET;
-const redirect_uri = process.env.PRODUCTION === 'true' ? `https://pa-beryl.vercel.app/api/discord/` : `http://localhost:3000/api/discord/`;
+const redirect_uri = process.env.PRODUCTION === 'true' ? `https://personalityacademy.vercel.app/api/discord/` : `http://localhost:3000/api/discord/`;
 
 export const getDiscordToken = async (code, location) => {
     const tokenOptions = {
