@@ -155,7 +155,7 @@ export default function Register() {
                         </div>
                     </div>
                     {verificationLoading ? (
-                        <div class="lds-ellipsis small_loader"><div></div><div></div><div></div><div></div></div>
+                        <div className="lds-ellipsis small_loader"><div></div><div></div><div></div><div></div></div>
                     ) : (
                         <>
                             {verifying && (

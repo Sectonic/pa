@@ -7,7 +7,6 @@ import { Suspense } from 'react';
 import { createMetaData } from "@lib/metadata";
 import { getSession } from '@lib/session';
 import { redirect } from 'next/navigation';
-import Alert from '@components/alert';
 import Link from 'next/link';
 
 export const metadata = createMetaData({
@@ -112,13 +111,9 @@ export default async function Page({ searchParams }) {
                         {/* <Alert prompt="We're currently updating the old website links" /> */}
                     </div>
                     <div className="db_card-container">
-                        {!popup ? (
-                            <Suspense fallback={<DatabaseLoading />}>
-                                <DatabaseContainer page={page} filters={queryFilters} />
-                            </Suspense>
-                        ) : (
-                            <DatabaseLoading />
-                        )}
+                        <Suspense fallback={<DatabaseLoading />}>
+                            <DatabaseContainer page={page} filters={queryFilters} />
+                        </Suspense>
                     </div>
                 </div>
             </div>

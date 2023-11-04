@@ -74,7 +74,7 @@ export default function Login() {
                         <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} required maxLength='100' />
                     </div> 
                 </div>
-                { loading && <div class="lds-ellipsis small_loader"><div></div><div></div><div></div><div></div></div> }
+                { loading && <div className="lds-ellipsis small_loader"><div></div><div></div><div></div><div></div></div> }
                 { sentToEmail && !resettingPassword &&  (
                     <>
                         <div className='account_verify' style={{marginTop: 15}} >Verification</div>

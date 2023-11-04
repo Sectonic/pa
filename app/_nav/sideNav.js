@@ -61,6 +61,15 @@ export default function SideNav(props) {
                 <div className='tool_tip'>Resources</div>
             </li>
           </Link>
+          <Link href="/donate">
+            <li className={props.section === "resources" ? "selected_nav" : undefined}>
+                <img
+                  src={"/img/main/support.png"}
+                  alt="resources icon"
+                />
+                <div className='tool_tip'>Support</div>
+            </li>
+          </Link>
           {/* <Link href="/academyplus">
             <li className={props.section === "academyplus" ? "selected_nav" : undefined}>
                 <img

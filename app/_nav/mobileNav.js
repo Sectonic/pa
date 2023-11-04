@@ -39,6 +39,12 @@ export default function MobileNav({ backgroundMobile, mobileMenuOut, navMobile, 
                         <img src='/img/main/resources.png'/>
                       </div>
                     </Link>
+                    <Link href='/donate'>
+                      <div className={`mobile_menu-link ${path[1] == 'resources' && 'mobile_menu-link--selected'}`}>
+                        <div>Resources</div>
+                        <img src='/img/main/support.png'/>
+                      </div>
+                    </Link>
                   </div>
               </div>
             </OutsideClickHandler>
