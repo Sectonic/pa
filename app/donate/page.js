@@ -45,8 +45,8 @@ export default async function Page() {
                     </div>
                     {recentDonations.length > 0 && <div className="recent_donations-title">Your Recent Donations</div>}
                     <div className="recent_donations">
-                        {recentDonations.map(donation => (
-                            <div>
+                        {recentDonations.map((donation, i) => (
+                            <div key={i}>
                                 <div>${donation.amount}</div>
                                 <div>{unixTimestampToFormattedDate(donation.time)}</div>
                             </div>

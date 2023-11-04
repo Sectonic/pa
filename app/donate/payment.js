@@ -48,8 +48,8 @@ export default function DonationPayment() {
     return (
         <div className="donate_payment">
             <div className="donate_payment-btns">
-                {[10, 20, 25, 50, 75, 100].map(num => (
-                    <div className={num === donation ? 'active' : ''} onClick={() => setDonation(num)}>${num}</div>
+                {[10, 20, 25, 50, 75, 100].map((num, i) => (
+                    <div key={i} className={num === donation ? 'active' : ''} onClick={() => setDonation(num)}>${num}</div>
                 ))}
             </div>
             <label>Amount</label>
