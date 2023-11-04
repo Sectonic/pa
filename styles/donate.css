@@ -180,3 +180,52 @@
     border-radius: 100px;
     border: 1px solid var(--light-purple);
 }
+
+@media screen and (max-width: 775px) {
+    .donate_box {
+        flex-direction: column;
+    }
+    .donate_info {
+        width: calc(100% - 100px);
+        height: max-content;
+        padding-bottom: 0;
+    }
+    .donate_info img { 
+        position: relative;
+        transform: none;
+        left: 0; 
+        top: 0;
+        margin-top: 30px;
+    }
+    .donate_payment {
+        width: calc(100% - 100px);
+        height: max-content;
+    }
+    .donate_payment-submit {
+        position: relative;
+        transform: none;
+        left: 0; 
+        top: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .donate_payment-input input {
+        flex: 1;
+    }
+    .donate_payment-input {
+        padding-left: 15px;
+    }
+    .recent_donations {
+        width: calc(100% - 100px);
+        margin: 0 auto;
+    }
+    .recent_donations > div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .donate_info img {
+        width: 100%;
+    }
+}
