@@ -1,7 +1,7 @@
 
 .dashboard_container {
     width: calc(100% - 50px);
-    min-height: calc(100vh - 110px);
+    min-height: calc(100dvh - 110px);
     max-width: 1200px;
     display: flex;
     justify-content: center;
@@ -158,6 +158,11 @@
 
 .dashboard-banner__description pre {
     text-wrap: wrap !important;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
     font-family: inherit;
 }
 

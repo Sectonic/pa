@@ -1,6 +1,7 @@
 import Banner from "@components/banner";
 import Link from 'next/link';
 import { createMetaData } from "@lib/metadata";
+import Alert from "@components/alert";
 
 export const metadata = createMetaData({
   title: 'Typing Teams',
@@ -18,6 +19,7 @@ function typingTeams() {
         section="teams"
         type="typing"
       />
+      <Alert prompt='This page is a work in progress' />
       <div className="section_container">
         <div className="section section_images-in">
           <div className="section_body">
@@ -92,13 +94,13 @@ function typingTeams() {
             </div>
             <div className="section_text outline-gray m0">
               <Link
-                href="https://discord.com/invite/FcqsJHXCBR"
+                href="https://discord.com/invite/s4v5yQdnE9"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <div>
                   <img
-                    src="/img/learn/typing/teams/pa.png"
+                    src="/img/main/logo.png"
                     alt=""
                     className="typing_img-home rounded_edges-img"
                   />

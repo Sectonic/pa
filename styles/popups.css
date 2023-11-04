@@ -79,7 +79,7 @@
 }
 
 .popup_text {
-  max-height: 85vh;
+  max-height: 85dvh;
   -webkit-font-smoothing: antialiased;
   overflow-y: scroll;
   position: relative;

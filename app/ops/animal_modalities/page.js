@@ -1,3 +1,4 @@
+import Alert from "@components/alert";
 import Banner from "@components/banner";
 import { createMetaData } from "@lib/metadata";
 
@@ -16,6 +17,7 @@ function animalModalities() {
         title="Animal Modalities"
         section="ops/home/animal_modalities"
       />
+      <Alert prompt='This page is a work in progress' />
       <div className="section_container">
         <div className="section functions">
           <img

@@ -80,19 +80,12 @@ export default function Page() {
                     <img src='/img/main/discord.png' />
                     <div>Join Our Discord</div>
                 </div>
-                <div onClick={() => open("https://paypal.me/AzeOriginal?country.x=DK&locale.x=en_US", "_blank")}>
+                <div onClick={() => router.push('/donate')}>
                     <img src='/img/main/support.png' />
                     <div>Support The Project</div>
                 </div>
             </div>
             <div className='home_footer_subtitle'>Otherwise, Welcome to the Academy.</div>
-            {/* <div className='home_footer-end'>
-                <div className='home_footer_circle-xxl'></div>
-                <div className='home_footer_circle-xl'></div>
-                <div className='home_footer_circle-lg'></div>
-                <div className='home_footer_circle-md'></div>
-                <div className='home_footer_circle-sm'></div>
-            </div> */}
       </div>
     );
 }
