@@ -52,6 +52,12 @@ export const deleteUser = async () => {
 
 export const editUser = async (editDict) => {
 
+    for (const key in editDict) {
+        if (editDict[key] === '') {
+            delete editDict[key];
+        }
+    }    
+
     const session = getSession();
     if (session) {
         await db.user.update({

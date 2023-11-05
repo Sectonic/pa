@@ -38,17 +38,24 @@ export default function ChangeProfile({ profile, setChangeProfile }) {
         const pronouns = editedProfile.pronouns === 'Other' ? otherPronouns : editedProfile.pronouns;
         const process = editedProfile.opsTyping === 'Other' ? otherProcess : editedProfile.opsTyping;
 
-        const formattedType = formatType(editedProfile.opsType);
-        const [modalities, functions, animals] = formattedType.split(' ');;
-        const [function1, function2] = functions.split('/');
+        var modalities, functions, animals, function1, function2;
+        if (editedProfile.opsType) {
+            const formattedType = formatType(editedProfile.opsType);
+            [modalities, functions, animals] = formattedType.split(' ');;
+            [function1, function2] = functions.split('/');
+        } else {
+            var modalities = functions = animals = function1 = function2 = '';
+        }
 
-        const nextError = checkCorrectType({
-            modalities, animals, function1, function2
-        });
-
-        if (nextError) {
-            setError(nextError);
-            return;
+        if (editedProfile.opsType) {
+            const nextError = checkCorrectType({
+                modalities, animals, function1, function2
+            });
+    
+            if (nextError) {
+                setError(nextError);
+                return;
+            }
         }
 
         setError('');
