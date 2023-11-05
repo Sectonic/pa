@@ -7,23 +7,23 @@ import "animate.css";
 import { getSession } from "@lib/session";
 import { useRouter } from "next/navigation";
 
-export function IconContainer({children, viewedPages}) {
+export function IconContainer({children, viewedPages, session }) {
     const children_arr = Children.toArray(children);
     if (Children.count(children) > 1) {
         return (
             <div className='seconds' >
-                {children_arr.map(child => cloneElement(child, { viewedPages }))}
+                {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
             </div>
         )
     }
     return (
         <>
-            {children_arr.map(child => cloneElement(child, { viewedPages }))}
+            {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
         </>
     )
 }
 
-export function Icon({comingSoon, img, name, children, direction, href, viewedPages}) {
+export function Icon({comingSoon, img, name, children, direction, href, viewedPages, session }) {
     const [clicked, setClicked] = useState(false);
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
@@ -95,14 +95,17 @@ export function Icon({comingSoon, img, name, children, direction, href, viewedPa
     )
 }
 
-export function IconDropdown({ children, title, viewedPages }) {
+export function IconDropdown({ children, title, viewedPages, session }) {
+
+
+
     return (
         <>
             <div className='icon-dropdown_title'>{title}</div>
             <div className='icon-dropdown_links'>
                 {Children.map(children, child => {
                     const viewed = viewedPages.map(page => page.url).includes(child.props.link);
-                    return cloneElement(child, { viewed });
+                    return cloneElement(child, { viewed, session });
                 })}
                 <div className='icon-dropdown_bar__transparent'>A</div>
                 <div className='icon-dropdown_bar__transparent'>A</div>
@@ -112,9 +115,9 @@ export function IconDropdown({ children, title, viewedPages }) {
     )
 }
 
-export function DropdownItem({ label, src, link, title, viewed }) {
-    const session = getSession();
+export function DropdownItem({ label, src, link, title, viewed, session }) {
     const router = useRouter();
+    
     return (
         <div style={{cursor: 'pointer'}} onClick={() => {
             document.body.style.overflow = 'visible';
@@ -137,7 +140,7 @@ export function DropdownItem({ label, src, link, title, viewed }) {
     );
 }
 
-export const TreeSection = ({ children, title, viewedPages }) => {
+export const TreeSection = ({ children, title, viewedPages, session }) => {
     const children_arr = Children.toArray(children);
 
     return (
@@ -145,12 +148,12 @@ export const TreeSection = ({ children, title, viewedPages }) => {
             <div className='section_top'>
                 {title}
             </div>
-            {children_arr.map(child => cloneElement(child, { viewedPages }))}
+            {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
         </div>
     )
 }
 
-export const LearnTree = ({ children, setSelected, setSticky, viewedPages }) => {
+export const LearnTree = ({ children, setSelected, setSticky, viewedPages, session }) => {
     const tree = useRef(null);
     const children_arr = Children.toArray(children);
 
@@ -202,7 +205,7 @@ export const LearnTree = ({ children, setSelected, setSticky, viewedPages }) => 
     return (
         <div className='learn_section'>
             <div className='section_map' ref={tree} >
-                {children_arr.map(child => cloneElement(child, { viewedPages }))}
+                {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
             </div>
         </div>
     )
@@ -276,7 +279,7 @@ export const LearnButtons = ({ children, selected, sticky, selections }) => {
     )
 }
 
-export const LearnLayout = ({ children, viewedPages }) => {
+export const LearnLayout = ({ children, viewedPages, session }) => {
     const [selected, setSelected] = useState("");
     const [sticky, setSticky] = useState(false);
 
@@ -299,7 +302,7 @@ export const LearnLayout = ({ children, viewedPages }) => {
 
     return (
         <div className={overviewClass}>
-            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky, viewedPages })}
+            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky, viewedPages, session })}
             {cloneElement(children_arr[1], {selected: selected, sticky: sticky, selections: selections})}
         </div>
     )

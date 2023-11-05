@@ -1,6 +1,7 @@
 import { LearnLayout, LearnButtons, LearnButton, LearnTree, TreeSection, IconContainer, Icon, IconDropdown, DropdownItem } from '@components/learn_tree';
 import { getCourseActivity } from '@lib/courses';
 import { createMetaData } from "@lib/metadata";
+import { getSession } from '@lib/session';
 
 export const metadata = createMetaData({
   title: 'Learn OPS',
@@ -11,10 +12,11 @@ export const metadata = createMetaData({
 
 export default async function OPS() {
     const viewedPages = await getCourseActivity('ops');
+    const session = getSession();
 
     return (
         <div className="main">
-        <LearnLayout viewedPages={viewedPages}>
+        <LearnLayout viewedPages={viewedPages} session={session}>
             <LearnTree>
             <TreeSection title="First-Steps">
                 <IconContainer>

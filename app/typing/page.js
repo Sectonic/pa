@@ -11,10 +11,11 @@ export const metadata = createMetaData({
 
 async function Typing() {
   const viewedPages = await getCourseActivity('typing');
+  const session = getSession();
 
   return (
     <div className="main">
-      <LearnLayout viewedPages={viewedPages}>
+      <LearnLayout viewedPages={viewedPages} session={session}>
           <LearnTree>
           <TreeSection title="Mentality">
           <IconContainer>
