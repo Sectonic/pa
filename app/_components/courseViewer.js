@@ -95,6 +95,7 @@ export default function CourseViewer({ course, children }) {
             }
         }
 
+        document.body.overflow = 'auto';
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -107,6 +108,7 @@ export default function CourseViewer({ course, children }) {
             const session = getSession();
             if (session) {
                 newCourseActivity();
+                document.body.overflow = 'auto';
             }
         }
     }, [activityWidth]);
