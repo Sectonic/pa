@@ -8,7 +8,7 @@ export default function Page() {
     return (
         <div className="main">
             <div className='home_banner'>
-                <div className='home_banner-update' onClick={() => router.push('/?' + new URLSearchParams({ updates: '11/1/23' }), { scroll: false })}>
+                <div className='home_banner-update' onClick={() => router.push('/?' + new URLSearchParams({ updates: '11/5/23' }), { scroll: false })}>
                     <img src='/img/main/sparkles.png' />
                     Official Project Release!
                 </div>

@@ -4,7 +4,7 @@ import Popup from "@components/popup";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createQueryString } from "@lib/params";
-import { getCookie, hasCookie, setCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 import { cookieOptions } from "@components/config";
 
 const UpdatesPopup = ({ date, params }) => {
@@ -26,7 +26,7 @@ const UpdatesPopup = ({ date, params }) => {
     return (
         <Popup onClose={onClose} >
             <h2 className="popup_title">Updates</h2>
-            <div className="popup_section" id="11/1/23">
+            <div className="popup_section" id="11/5/23">
                 <div className="popup_section-img">
                     <img src="/img/main/launch.png" />
                 </div>

@@ -15,7 +15,7 @@ const NotificationCenter = () => {
     const [seenUpdates, setSeenUpdates] = useState([]);
 
     const allUpdates = [
-        { title: 'Official Project Release!', date: '11/1/23', dateStr: 'Nov 1 2023' }
+        { title: 'Official Project Release!', date: '11/5/23', dateStr: 'Nov 5 2023' }
     ]
 
     useEffect(() => {
