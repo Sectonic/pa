@@ -4,8 +4,6 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { createQueryString } from "@lib/params";
 import { Pagination } from "./pagination";
-import Image from "next/image";
-// import Image from "../../_components/image";
 
 export default function Database({ data, count }) {
     const router = useRouter();
@@ -23,13 +21,13 @@ export default function Database({ data, count }) {
                     <div id={person.id} key={person.id} className="db_card db_card_hover" onClick={() => handlePopup(person.id)}>
                         {person.social && (
                         <div className='db_card-social'>
-                                <Image src={`/img/icons/social/${person.social}.png`} width={0} height={0} sizes="100vw" alt="" />
+                                <img src={`/img/icons/social/${person.social}.png`} alt="" />
                         </div>
                         )}
                         {
                             person.image === null ? 
                             <div className="db_card-img db_card-img-empty"><img src="/pa/static/img/main/empty_img.png"/></div> :
-                            <div className="db_card-img"><Image src={person.image} width={0} height={0} sizes="100vw" alt="" /></div> 
+                            <div className="db_card-img"><img src={person.image} alt="" /></div> 
                         }
                         <div className="db_card-text">
                             <div>

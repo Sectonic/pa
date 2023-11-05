@@ -26,7 +26,7 @@ export default function ObjectiveMethod() {
                     </div>
                     <div className="section_text multiple_paragraphs">
                         <div className="multi_paragraph">
-                        <h2 className="margin-sm">Attempt at Scienctific Method</h2>
+                        <h2 className="margin-sm">Attempt at Scientific Method</h2>
                         <p>
                             Objective Personality tries to implement ideas of the scientific method into its system. The reason it is laid out is because the system relies on trackable evidence rather than anecdotal evidence. It's goal is to minimize subjectivity during a typing process which is why they opt to pursue the scientific approach.
                         </p>
