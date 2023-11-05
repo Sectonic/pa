@@ -116,7 +116,7 @@ export function DropdownItem({ label, src, link, title, viewed }) {
     const session = getSession();
     const router = useRouter();
     return (
-        <div onClick={() => {
+        <div style={{cursor: 'pointer'}} onClick={() => {
             document.body.style.overflow = 'visible';
             router.push(link)
         }}>

@@ -6,16 +6,6 @@ import db from "@db/client";
 
 export const createUser = async ({ email, username, password }) => {
 
-    const checkUsername = await db.user.findUnique({ where: { username } });
-    if (checkUsername) {
-        return 'Username is taken';
-    }
-
-    const checkEmail = await db.user.findUnique({ where: { email } });
-    if (checkEmail) {
-        return 'Email is already registered';
-    }
-
     const hash = await bcrypt.hash(password, 10);
     const user = await db.user.create({
         data: {
@@ -24,7 +14,6 @@ export const createUser = async ({ email, username, password }) => {
         }
     });
     setSession(user.id);
-    return null;
 
 }
 

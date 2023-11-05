@@ -140,7 +140,7 @@ function Social() {
                 Savior (Specialize) will narrow in and make sure they're competent in their own corner rather than expanding to take the ownership of impacting the social structure.
                 </p>
                 <p>
-                (Specialize) is slightly Oi motivated, as it narrows down and specializes in a specific spot in the social str
+                (Specialize) is slightly Oi motivated, as it narrows down and specializes in a specific spot in the social structure
                 </p>
               </div>
             </div>

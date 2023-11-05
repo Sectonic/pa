@@ -775,10 +775,11 @@
 
 .modality_x {
   font-size: 40px;
+  font-weight: 400;
 }
 
 .modality_x span {
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .modality_text {

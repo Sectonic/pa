@@ -81,7 +81,9 @@ export default function CourseViewer({ course, children }) {
             const documentHeight = document.documentElement.scrollHeight;
             const scrollTop = window.scrollY;
 
-            const scrolledPercentage = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
+            const footerHeight = window.innerWidth > 775 ? 315 : ( window.innerWidth > 506 ? 408 : 692 )
+
+            const scrolledPercentage = Math.round((scrollTop / (documentHeight - windowHeight - footerHeight)) * 100);
             
             setActivityWidth(scrolledPercentage);
         };

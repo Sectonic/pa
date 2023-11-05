@@ -78,8 +78,7 @@ function Modalities() {
                   <strong>Flowy, Uncertain, Moveable</strong>
                 </div>
                 <p>
-                  Goes with the flow, gets moved easily. Doesn't push back Non
-                  certain, won't fight you over it.
+                  Goes with the flow, gets moved easily. Doesn't push back, uncertain, won't fight you over it.
                 </p>
               </div>
             </div>

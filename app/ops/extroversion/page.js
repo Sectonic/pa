@@ -166,7 +166,7 @@ function Extroversion() {
               <div className="text-sm_desc">
                 <h3 className="section_subtitle margin-sm extra_spacing_texts-sm">Oi Activation</h3>
                 <p>
-                  Focused, Stabile
+                  Focused, Stable
                 </p>
                 <p>
                   Stays in their lane, focuses their energy on staying on course in the same direction.
