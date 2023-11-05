@@ -66,7 +66,14 @@ export default function Register() {
         if (e.target.innerHTML != 'Creating...') {
             e.target.innerHTML = 'Creating...';
             if (auth == code) {
-                await createUser(registerBody);
+                const error = await createUser(registerBody);
+
+                if (error) {
+                    setError(error)
+                    e.target.innerHTML = 'Create Account';
+                    return;
+                }
+
                 if (!params.get('callback') || params.get('callback') === '/') {
                     window.location.href = '/dashboard';
                 } else {

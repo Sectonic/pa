@@ -156,7 +156,7 @@ function Letters() {
               <div className="text-sm_desc">
                 <h3 className="section_subtitle margin-sm">NT</h3>
                 <p>
-                  Puzzling, what works in the abstract works <br />
+                  Puzzling, what works in the abstract world <br />
                   "Nerdy"
                 </p>
               </div>
