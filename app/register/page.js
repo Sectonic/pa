@@ -72,7 +72,7 @@ export default function Register() {
                 } else {
                     window.location.href = params.get('callback');          
                 }
-            }
+            } 
             e.target.innerHTML = 'Create Account';
         }
     }

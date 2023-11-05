@@ -4,7 +4,7 @@ import { getSession, setSession } from './session';
 import db from "@db/client";
 import bcrypt from 'bcryptjs';
 
-export const useLogin = async (email, password) => {
+export const getLogin = async (email, password) => {
     
     const session = getSession();
     if (session) {

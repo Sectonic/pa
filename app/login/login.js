@@ -2,7 +2,7 @@
 
 import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
-import { useLogin } from '@lib/login';
+import { getLogin } from '@lib/login';
 import { useGoogleLogin, googleLogout } from '@react-oauth/google';
 import { loginUserEmail } from '@lib/login';
 import { getDiscordAuth } from '@lib/discord';
@@ -60,8 +60,7 @@ export default function Login() {
         }
 
         loginBtn.current.innerHTML = 'Logging In...';
-
-        const res = await useLogin(e.target.email.value, e.target.password.value);
+        const res = await getLogin(e.target.email.value, e.target.password.value);
         if (res) {
             setError(res.error);
             loginBtn.current.innerHTML = 'Login';
