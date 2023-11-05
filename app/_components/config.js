@@ -5,4 +5,4 @@ export const cookieOptions = {
     secure: process.env.NEXT_PUBLIC_API == "http:127.0.0.1:5000" ? false : true,
 }
 
-export const url = process.env.PRODUCTION === 'true' ? 'https://personalityacademy.vercel.app' : 'http://localhost:3000'
+export const url = process.env.PRODUCTION === 'true' ? 'https://personality.academy' : 'http://localhost:3000'

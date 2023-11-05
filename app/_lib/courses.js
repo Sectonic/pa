@@ -32,7 +32,7 @@ export const addNewCourseActivity = async (page, course) => {
 }
 
 export const getCourseActivity = async (course) => {
-    const baseUrl = process.env.PRODUCTION === 'true' ? 'https://personalityacademy.vercel.app' : 'http://localhost:3000';
+    const baseUrl = process.env.PRODUCTION === 'true' ? 'https://personality.academy' : 'http://localhost:3000';
     const hasSession = cookies().has('PAsession');
     const viewedPagesReq = await fetch(`${baseUrl}/api/course_activity?` + new URLSearchParams({ course, session: hasSession ? cookies().get('PAsession').value : ''}), { next: { tags: [`${course}PageViewed`] } });
     const viewedPages = await viewedPagesReq.json();
