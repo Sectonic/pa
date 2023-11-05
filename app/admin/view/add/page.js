@@ -15,10 +15,17 @@ export default function Page() {
     const [Type512, setType512] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
+    const submitBtn = useRef(null);
     const name = useRef(null);
 
     const typeHandler = async (e) => {
         e.preventDefault();
+
+        if (submitBtn.current.innerHTML === 'Creating...') {
+            return;
+        }
+
+        submitBtn.current.innerHTML = 'Creating...';
         
         const formattedType = formatType(Type512);
         setType512(formattedType);
@@ -31,6 +38,7 @@ export default function Page() {
 
         if (nextError) {
             setError(nextError)
+            submitBtn.current.innerHTML = 'Create Entry';
             return;
         }
 
@@ -67,6 +75,7 @@ export default function Page() {
             router.push('/admin/view');
         } else {
             setError('A person with the exact type already exists');
+            submitBtn.current.innerHTML = 'Create Entry';
         }
 
     }

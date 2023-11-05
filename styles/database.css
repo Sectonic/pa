@@ -39,12 +39,13 @@
 }
 }
 
-@media screen and (min-width: 775px) {
-    .db_card_hover:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-        background-color: var(--light-grey);
-    }
+.db_card_hover:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: var(--light-grey);
+}
+.db_card_hover:hover .db_card-social {
+    background-color: var(--light-grey);
 }
 
 .db_card-img {
@@ -94,10 +95,11 @@
     top: 4px;
     right: 4px;
     z-index: 2;
-    background-color: var(--dark-grey);
+    background-color: #061e47;
     padding: 2px;
     padding-left: 4px;
     border-radius: 0 10px 0 10px;
+    transition: .2s ease;
 }
 
 .db_card-social img {

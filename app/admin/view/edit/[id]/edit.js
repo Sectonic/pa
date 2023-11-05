@@ -13,10 +13,17 @@ export default function Edit({ type }) {
     const [imageB64, setImageB64] = useState(type.image);
     const [Type512, setType512] = useState(type.type);
     const [error, setError] = useState('');
+    const submitBtn = useRef(null);
     const name = useRef(null);
 
     const typeHandler = async (e) => {
         e.preventDefault();
+
+        if (submitBtn.current.innerHTML === 'Updating...') {
+            return;
+        }
+
+        submitBtn.current.innerHTML = 'Updating...';
         
         const formattedType = formatType(Type512);
         setType512(formattedType);
@@ -29,6 +36,7 @@ export default function Edit({ type }) {
 
         if (nextError) {
             setError(nextError)
+            submitBtn.current.innerHTML = 'Update Entry';
             return;
         }
 
@@ -226,7 +234,7 @@ export default function Edit({ type }) {
                     </div>
                 </div>
                 <div className="typeform_submit-container">
-                    <button type="submit" className="typeform_submit">Update Entry</button>
+                    <button type="submit" className="typeform_submit" ref={submitBtn}>Update Entry</button>
                     <div className="typeform_btn typeform_delete-btn" onClick={deleteHandler}>
                         <img src="/img/main/delete.png" />
                         <div>Delete Entry</div>

@@ -63,27 +63,31 @@ export default function Register() {
     }
 
     const Register = async (e) => {
-        e.target.innerHTML = 'Creating...';
-        if (auth == code) {
-            await createUser(registerBody);
-            if (!params.get('callback') || params.get('callback') === '/') {
-                window.location.href = '/dashboard';
-            } else {
-                window.location.href = params.get('callback');          
+        if (e.target.innerHTML != 'Creating...') {
+            e.target.innerHTML = 'Creating...';
+            if (auth == code) {
+                await createUser(registerBody);
+                if (!params.get('callback') || params.get('callback') === '/') {
+                    window.location.href = '/dashboard';
+                } else {
+                    window.location.href = params.get('callback');          
+                }
             }
+            e.target.innerHTML = 'Create Account';
         }
-        e.target.innerHTML = 'Create Account';
     }
 
     const resendCode = async (e) => {
-        e.target.innerHTML = 'Sending...';
-        const newCode = randomCode();
-        setCode(newCode);
-        const emailVerified = await getEmailVerification(registerBody.email, newCode);
-        if (emailVerified) {
-            e.target.innerHTML = 'New code sent!';
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            e.target.innerHTML = 'Resend Code'
+        if (e.target.innerHTML != 'Sending...') {
+            e.target.innerHTML = 'Sending...';
+            const newCode = randomCode();
+            setCode(newCode);
+            const emailVerified = await getEmailVerification(registerBody.email, newCode);
+            if (emailVerified) {
+                e.target.innerHTML = 'New code sent!';
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                e.target.innerHTML = 'Resend Code'
+            }
         }
     }
 

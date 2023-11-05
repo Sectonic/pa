@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import { useLogin } from '@lib/login';
 import { useGoogleLogin, googleLogout } from '@react-oauth/google';
@@ -13,6 +13,7 @@ export default function Login() {
     const [error, setError] = useState('');
     const router = useRouter();
     const params = useSearchParams();
+    const loginBtn = useRef(null);
 
     useEffect(() => {
         if (params.get('error')) {
@@ -53,9 +54,17 @@ export default function Login() {
 
     const Login = async (e) => {
         e.preventDefault();
+
+        if (loginBtn.current.innerHTML === 'Logging In...') {
+            return;
+        }
+
+        loginBtn.current.innerHTML = 'Logging In...';
+
         const res = await useLogin(e.target.email.value, e.target.password.value);
         if (res) {
             setError(res.error);
+            loginBtn.current.innerHTML = 'Login';
         } else {
             if (!params.get('callback') || params.get('callback') === '/') {
                 window.location.href = '/dashboard';
@@ -93,7 +102,7 @@ export default function Login() {
                     </div>
                     <Link className='register_forgotten' href='/reset'><div>forgot password?</div></Link>
                 </div>
-                <button type="submit" className="register_btn">Login</button>
+                <button type="submit" className="register_btn" ref={loginBtn}>Login</button>
                 <div className='register_line'><span>or</span></div>
                 <div className='register_providers'>
                     <div onClick={() => googleLogin()}>

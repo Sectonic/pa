@@ -13,6 +13,12 @@ export default function DonationPayment() {
 
     const handleDonate = async () => {
         setError('');
+
+        if (/[-.Ee+]/.test(donation.toString())) {
+            setError('Only positive whole numbers');
+            return;
+        }
+
         if (donation >= 1) {
             const donationUrl = await getDonationalUrl(donation);
 
@@ -55,7 +61,7 @@ export default function DonationPayment() {
             <label>Amount</label>
             <div className="donate_payment-input">
                 <div>$</div>
-                <input type="number" min={0} step={1} value={donation} onChange={(e) => setDonation(e.target.value)} />
+                <input type="number" value={donation} onChange={(e) => setDonation(e.target.value)} />
             </div>
             {error !== '' && <div className='register_error'>{error}</div>}
             <div className="donate_payment-submit" onClick={handleDonate}>Donate</div>
