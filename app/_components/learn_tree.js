@@ -5,6 +5,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import {useState, useRef, Children, cloneElement, useEffect} from 'react';
 import "animate.css";
 import { getSession } from "@lib/session";
+import { useRouter } from "next/navigation";
 
 export function IconContainer({children, viewedPages}) {
     const children_arr = Children.toArray(children);
@@ -113,8 +114,12 @@ export function IconDropdown({ children, title, viewedPages }) {
 
 export function DropdownItem({ label, src, link, title, viewed }) {
     const session = getSession();
+    const router = useRouter();
     return (
-        <Link href={link}>
+        <div onClick={() => {
+            document.body.style.overflow = 'visible';
+            router.push(link)
+        }}>
             <div className='icon-dropdown_bar'>
                 <div className={`icon-dropdown_${label ? 'link' : 'img'}`}>
                     {label ? <div>{label}</div> : <img src={`/img/${src}.png`} />}
@@ -128,7 +133,7 @@ export function DropdownItem({ label, src, link, title, viewed }) {
                     </div>
                 )}
             </div>
-        </Link>
+        </div>
     );
 }
 
