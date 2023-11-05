@@ -2,6 +2,7 @@
 
 import { useSearchParams, useRouter } from "next/navigation"
 import { createQueryString } from "@lib/params";
+import Image from "next/image";
 
 export const Examples = ({ data }) => {
     const router = useRouter();
@@ -20,13 +21,13 @@ export const Examples = ({ data }) => {
                     >
                         {person.social && (
                         <div className='db_card-social'>
-                                <img src={`/img/icons/social/${person.social}.png`} />
+                            <Image src={`/img/icons/social/${person.social}.png`} width={0} height={0} sizes="100vw" alt="" />
                         </div>
                         )}
                         {
                             person.image === null ? 
                             <div className="db_card-img db_card-img-empty"><img src="/pa/static/img/main/empty_img.png"/></div> :
-                            <div className="db_card-img"><img src={person.image} /></div> 
+                            <div className="db_card-img"><Image src={person.image} width={0} height={0} sizes="100vw" alt="" /></div> 
                         }
                         <div className="db_card-text">
                             <div>
