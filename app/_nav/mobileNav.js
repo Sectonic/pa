@@ -40,8 +40,8 @@ export default function MobileNav({ backgroundMobile, mobileMenuOut, navMobile, 
                       </div>
                     </Link>
                     <Link href='/donate'>
-                      <div className={`mobile_menu-link ${path[1] == 'resources' && 'mobile_menu-link--selected'}`}>
-                        <div>Resources</div>
+                      <div className={`mobile_menu-link ${path[1] == 'support' && 'mobile_menu-link--selected'}`}>
+                        <div>Support</div>
                         <img src='/img/main/support.png'/>
                       </div>
                     </Link>
