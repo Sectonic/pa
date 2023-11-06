@@ -68,12 +68,14 @@ a {
   text-decoration: none;
 }
 
+html {
+  background: linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
+}
+
 body {
   background-color: var(--purple-black);
   background: url("./backgrounds/gradient_bg.webp"), linear-gradient(to bottom right, var(--purple-black), var(--purple-black-light));
   background-size: contain;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   color: white;
   margin: 0;
   font-weight: 500 !important;
@@ -89,7 +91,6 @@ body {
 
 body::before {
   content: '';
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
