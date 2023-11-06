@@ -7,7 +7,7 @@ export const getTypes = async (page, filters) => {
     const skipAmount = high - 50;
     const takeAmount = 50;
 
-    const count = await db.type.count({...filters});
+    const count = await db.type.count();
     const types = await db.type.findMany({
         ...filters,
         skip: skipAmount,
@@ -45,7 +45,10 @@ export const getEntries = async () => {
 
 export const getExamples = async (typeData) => {
     const types = await db.type.findMany({
-        where: {...typeData},
+        where: {
+            ...typeData,
+            tag: { not: 'Community Member' }
+        },
         orderBy: {
             id: 'desc'
         },
