@@ -699,7 +699,7 @@ const getResults = (coin, allParts, factor = 512, rankShrink = 1) => {
     high_percentage = Math.round((high_percentage + Number.EPSILON) * 10) / 10;
     low_percentage = Math.round((low_percentage + Number.EPSILON) * 10) / 10;
     if (high_ranking === low_ranking) {
-        return { rank: [high_ranking], value: [high_percentage], amount: factor };
+        return { rank: [high_ranking], value: [high_ranking === 1 ? 100 : high_percentage], amount: factor };
     } else {
         return { rank: [low_ranking, high_ranking], value: [low_percentage, high_percentage], amount: factor };
     }
