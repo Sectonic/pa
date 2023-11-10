@@ -22,12 +22,12 @@ import "animate.css";
 import { Lexend } from "next/font/google";
 import {NavContainer, NavLoading} from './navContainer';
 import { createMetaData } from '@lib/metadata';
-import { Analytics } from '@vercel/analytics/react';
 import Provider from './provider';
 import { Suspense } from 'react';
 import SideNav from './_nav/sideNav';
 import UpdatesPopupContainer from './updatesPopup';
 import Footer from '@components/footer';
+import Script from 'next/script';
 
 const font = Lexend ({ 
     weights: ['400', '500', '600', '700', '800', '900'],
@@ -42,6 +42,23 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+
+        <Script strategy="lazyOnload">
+          {`
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                      gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                      page_path: window.location.pathname,
+                      });
+                  `}
+        </Script>
+      </head>
       <body className={font.className}>
         <UpdatesPopupContainer />
         <Provider>
@@ -53,7 +70,6 @@ export default async function RootLayout({ children }) {
               {children}
             </div>
             <Footer />
-          <Analytics/>
         </Provider>
       </body>
     </html>
