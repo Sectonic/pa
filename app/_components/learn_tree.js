@@ -153,9 +153,13 @@ export const TreeSection = ({ children, title, viewedPages, session }) => {
     )
 }
 
-export const LearnTree = ({ children, setSelected, setSticky, viewedPages, session }) => {
+export const LearnTree = ({ children, setSelected, setSticky, viewedPages, session, setTreeBottom }) => {
     const tree = useRef(null);
     const children_arr = Children.toArray(children);
+
+    useEffect(() => {
+        setTreeBottom(tree.current.getBoundingClientRect().bottom + window.scrollY);
+    }, [])
 
     useEffect(() => {
 
@@ -211,8 +215,17 @@ export const LearnTree = ({ children, setSelected, setSticky, viewedPages, sessi
     )
 }
 
-export const LearnButton = ({children, title, selected, selections }) => {
-    const className = selected ? 'section_button-selected' : 'section_button'
+export const LearnButton = ({children, title, selected, selections, index, stickyClass, setStickyClass }) => {
+    const className = selected ? 'section_button-selected' : 'section_button';
+    const btnRef = useRef(null);
+
+    useEffect(() => {
+        if (index === 1) {
+            if ((scrollY + 77 < btnRef.current.getBoundingClientRect().top + scrollY) && stickyClass === 'section_buttons section_button-bottom-sticky') {
+                setStickyClass('section_buttons section_buttons-sticky')
+            }
+        }
+    }, [scrollY])
 
     const scrollToSelect = () => {
         if (selections.indexOf(title) === 0) {
@@ -226,7 +239,7 @@ export const LearnButton = ({children, title, selected, selections }) => {
     }
 
     return (
-        <li className={className} id={title + '-btn'} onClick={scrollToSelect}>
+        <li className={className} id={title + '-btn'} onClick={scrollToSelect} ref={btnRef}>
             <div className="button-title-container">
             <div className="button_send">
                 <img src={"/img/main/section_btn.png"} alt=""  />
@@ -240,11 +253,37 @@ export const LearnButton = ({children, title, selected, selections }) => {
     )
 }
 
-export const LearnButtons = ({ children, selected, sticky, selections }) => {
-    const stickyClass = sticky ? 'section_buttons section_buttons-sticky' : 'section_buttons';
+export const LearnButtons = ({ children, selected, sticky, selections, treeBottom }) => {
+    const [stickyClass, setStickyClass] = useState(sticky ? 'section_buttons section_buttons-sticky' : 'section_buttons');
     const [styleSheet, setStyleSheet] = useState({ right: 38 });
+    const [btnsBottom, setBtnsBottom] = useState(null);
+    const [scrollY, setScrollY] = useState(null);
+    const learnBtnsRef = useRef(null);
 
     useEffect(() => {
+        if (treeBottom) {
+            if (btnsBottom > treeBottom) {
+                setStickyClass('section_buttons section_button-bottom-sticky');
+            } else {
+                setStickyClass(sticky ? 'section_buttons section_buttons-sticky' : 'section_buttons')
+            }
+        }
+    }, [sticky, btnsBottom]);
+
+    useEffect(() => {
+        if (treeBottom) {
+            const btnsBottomCurrent = learnBtnsRef.current.getBoundingClientRect().bottom + scrollY - 58;
+            console.log(btnsBottomCurrent, treeBottom);;
+            setBtnsBottom(btnsBottomCurrent);
+        }
+    }, [scrollY]);
+
+    useEffect(() => {
+
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        }
+
         const handleResize = () => {
           const currentWidth = window.innerWidth;
     
@@ -258,22 +297,21 @@ export const LearnButtons = ({ children, selected, sticky, selections }) => {
         };
     
         window.addEventListener('resize', handleResize);
+        window.addEventListener('scroll', handleScroll);
     
         handleResize();
     
         return () => {
           window.removeEventListener('resize', handleResize);
+          window.removeEventListener('scroll', handleScroll);
         };
-      }, []);
+    }, []);
+
 
     return (
-        <ul className={stickyClass} style={styleSheet}>
+        <ul className={stickyClass} style={styleSheet} ref={learnBtnsRef}>
             {Children.map(children, (child, i) => {
-                if (child.props.title == selected) {
-                    return cloneElement(child, {selected: true, selections:selections })
-                } else {
-                    return cloneElement(child, {selected: false, selections:selections })
-                }
+                return cloneElement(child, {selected: child.props.title == selected, selections, scrollY, index: i, stickyClass, setStickyClass })
             })}
         </ul>
     )
@@ -282,6 +320,7 @@ export const LearnButtons = ({ children, selected, sticky, selections }) => {
 export const LearnLayout = ({ children, viewedPages, session }) => {
     const [selected, setSelected] = useState("");
     const [sticky, setSticky] = useState(false);
+    const [treeBottom, setTreeBottom] = useState(null);
 
     const children_arr = Children.toArray(children);
     const overviewClass = sticky ? 'learn_overview learn_overview-sticky' : 'learn_overview';
@@ -302,8 +341,8 @@ export const LearnLayout = ({ children, viewedPages, session }) => {
 
     return (
         <div className={overviewClass}>
-            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky, viewedPages, session })}
-            {cloneElement(children_arr[1], {selected: selected, sticky: sticky, selections: selections})}
+            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky, viewedPages, session, setTreeBottom })}
+            {cloneElement(children_arr[1], {selected: selected, sticky: sticky, selections: selections, treeBottom })}
         </div>
     )
 

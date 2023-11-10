@@ -3,12 +3,6 @@ import { useRef } from "react"
 export const Type512Input = ({ Type512, setType512, label }) => {
     const inputRef = useRef(null);
 
-    const onFocus = () => {
-        if (inputRef.current) {
-            inputRef.current.selectionStart = inputRef.current.selectionEnd = Type512.length;
-        }
-    }
-
     const Type512Handler = (e) => {
         const inputValue = e.target.value;
         var lettersOnly = inputValue.replace(/[^A-Za-z]/g, ''); 
@@ -49,11 +43,11 @@ export const Type512Input = ({ Type512, setType512, label }) => {
         label ? (
             <>
                 <label className="register_label">{label}</label>
-                <input type="text" value={Type512} onChange={Type512Handler} ref={inputRef} onClick={onFocus} placeholder="xx xx/xx xx/x(x)" />
+                <input type="text" value={Type512} onChange={Type512Handler} ref={inputRef} placeholder="xx xx/xx xx/x(x)" />
             </>
         ) : (
             <div className="functions_input">
-            <input type="text" value={Type512} onChange={Type512Handler} ref={inputRef} onClick={onFocus} placeholder="xx xx/xx xx/x(x)" />
+            <input type="text" value={Type512} onChange={Type512Handler} ref={inputRef} placeholder="xx xx/xx xx/x(x)" />
         </div>
         )
     )

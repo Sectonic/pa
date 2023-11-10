@@ -356,6 +356,7 @@
 .section_buttons {
   width: 375px;
   display: flex;
+  height: max-content;
   flex-direction: column;
   align-items: center;
   top: 20px;
@@ -382,6 +383,16 @@
 @media only screen and (max-width: 1200px) {
   .section_buttons {
     display: none;
+  }
+}
+
+@media only screen and (max-height:890px) {
+  .section_button-bottom-sticky {
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: inherit;
+    position: relative;
+    margin-left: 40px;
   }
 }
 
@@ -719,6 +730,10 @@
 }
 
 .section_buttons-sticky .learn_system-learnbtn {
+  display: none;
+}
+
+.section_button-bottom-sticky .learn_system-learnbtn {
   display: none;
 }
 
