@@ -329,3 +329,35 @@
         font-size: 13px;
     }
 }
+
+.db_line {
+    height: 2px;
+    width: 100%;
+    margin: 0 30px;
+    background-color: var(--light-purple);
+}
+
+.db_tab {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 30px;
+}
+
+.db_tab .btn {
+    padding: 10px 15px;
+    background-color: var(--dark-grey);
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.db_tab .btn:hover {
+    background-color: var(--light-grey);
+}
+
+.db_tab .btn.active {
+    background-color: var(--light-purple);
+}

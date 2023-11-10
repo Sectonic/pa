@@ -7,11 +7,12 @@ import { updateType, deleteType } from "@lib/admin";
 import { checkCorrectType, formatType } from "@lib/getTypeData";
 
 export default function Edit({ type }) {
+    const typeData = type.typeData;
     const [links, setLinks] = useState(type.links.map(link => {
         return {url: link.url, name: link.name};
     }));
     const [imageB64, setImageB64] = useState(type.image);
-    const [Type512, setType512] = useState(type.type);
+    const [Type512, setType512] = useState(typeData.type);
     const [error, setError] = useState('');
     const submitBtn = useRef(null);
     const name = useRef(null);
@@ -199,7 +200,7 @@ export default function Edit({ type }) {
                     <div>
                         <Type512Input Type512={Type512} setType512={setType512} />
                     </div>
-                    <OptionDropdown name='Social' defaultValue={type.social}>
+                    <OptionDropdown name='Social' defaultValue={typeData.social}>
                         <Option>--</Option>
                         <Option>1</Option>
                         <Option>2</Option>

@@ -206,7 +206,7 @@ export default function Page() {
                     </div>
                 </div>
                 <div className="typeform_submit-container">
-                    <button type="submit" className="typeform_submit">Create Entry</button>
+                    <button type="submit" className="typeform_submit" ref={submitBtn}>Create Entry</button>
                     <div className="typeform_btn typeform_duplicates-btn" onClick={checkSimilar}>
                         <img src="/img/admin/duplicate.png" />
                         <div>Check Duplicates</div>

@@ -19,9 +19,9 @@ export default function Database({ data, count }) {
             {data.map(person => {
                 return(
                     <div id={person.id} key={person.id} className="db_card db_card_hover" onClick={() => handlePopup(person.id)}>
-                        {person.social && (
+                        {person.typeData.social && (
                         <div className='db_card-social'>
-                                <img src={`/img/icons/social/${person.social}.png`} alt="" />
+                                <img src={`/img/icons/social/${person.typeData.social}.png`} alt="" />
                         </div>
                         )}
                         {
@@ -32,7 +32,7 @@ export default function Database({ data, count }) {
                         <div className="db_card-text">
                             <div>
                                 <h3>{person.name}</h3>
-                                <p className="db_card-type">{person.type}</p>
+                                <p className="db_card-type">{person.typeData.type}</p>
                                 {person.tag != null ? <p className="db_card-text-purple">{person.tag}</p> : null}
                             </div>
                         </div>

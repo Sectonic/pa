@@ -8,7 +8,7 @@ import { createMetaData } from "@lib/metadata";
 import { getSession } from '@lib/session';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import Alert from '@components/alert';
+import Tabs from './tabs';
 
 export const metadata = createMetaData({
   title: 'TypeSearch',
@@ -61,7 +61,9 @@ const getFilteredResults = (selectedOptions) => {
 
     return {
         where: {
-            ...all_other_filters,
+            typeData: {
+                ...all_other_filters,
+            },
             AND: [
                 { tag },
                 { tag: { not: 'Community Member' } }
@@ -123,9 +125,9 @@ export default async function Page({ searchParams }) {
                         </div>
                         <DatabaseSearch filters={searchFilters}  />
                         <div className='database_contact'>Want to add someone or fix something incorrect? <Link className='database_contact-link' href={"/contact?" + new URLSearchParams({ topic: 'TypeSearch', callback: '/apps/typesearch?' + new URLSearchParams(searchParams) })}>Contact Us</Link></div>
-                        {/* <Alert prompt="We're currently updating the old website links" /> */}
                     </div>
-                    <Alert style={{marginBottom: 15}} prompt='Community Members are temporarily disabled in search' />
+                    {/* <Tabs names={['Official', 'Community']} /> */}
+                    {/* <Alert style={{marginBottom: 15}} prompt='Community Members are temporarily disabled in search' /> */}
                     <div className="db_card-container">
                         <Suspense fallback={<DatabaseLoading />}>
                             <DatabaseContainer page={page} filters={queryFilters} />

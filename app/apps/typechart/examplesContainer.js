@@ -29,5 +29,6 @@ export const ExamplesContainer = async ({ typeData }) => {
     }
     
     const data = await getExamples(removeEmpty(typeData));
+    
     return <Examples data={data} />
 }

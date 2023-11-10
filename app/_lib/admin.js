@@ -7,7 +7,7 @@ export const getSimilar = async (name, type) => {
     const similar = await db.type.findMany({
         where: {
             name: { startsWith: name},
-            type
+            typeData: { type }
         },
         select: {
             name: true,
@@ -21,11 +21,15 @@ export const addType = async (typeData) => {
 
     const { name, type, fileId, image, social, tag, sex, links } = typeData;
 
+    const sameType = await db.typeData.findUnique({
+        where: { type_social: { type: type, social: social || '' } }
+    });
+
     const alreadyUploaded = await db.type.findFirst({
         where: {
-            name, type
+            name, typeData: { type }
         }
-    })
+    });
 
     if (alreadyUploaded) {
         return false;
@@ -33,10 +37,16 @@ export const addType = async (typeData) => {
 
     const data = getTypeData(type);
 
+    const typeDataKey = sameType ? ({ 
+        typeData: { connect: { id: sameType.id } }
+    }) : ({
+        typeData: { create: { social, ...data } }
+    });
+
     await db.type.create({
         data: {
-            name, image, fileId, social, tag, sex,
-            ...data,
+            name, image, fileId, tag, sex,
+            ...typeDataKey,
             links: {
                 create: links
             }
@@ -47,13 +57,23 @@ export const addType = async (typeData) => {
 
 }
 
-export const updateType = async ({ id, name, type, links, ...data }) => {
+export const updateType = async ({ id, name, type, links, social, ...data }) => {
 
     const typeData = getTypeData(type);
 
+    const sameType = await db.typeData.findUnique({
+        where: { type_social: { type: type, social: social || '' } }
+    });
+
+    const typeDataKey = sameType ? ({ 
+        typeData: { connect: { id: sameType.id } }
+    }) : ({
+        typeData: { create: { social, ...typeData } }
+    });
+
     const updatedData = {
-        name, 
-        ...typeData, ...data,
+        name, ...data,
+        ...typeDataKey,
         links: {
             createMany: {data: links}
         }
@@ -116,8 +136,12 @@ export const getViewData = async (query) => {
             id: true,
             image: true,
             name: true,
-            type: true,
-            social: true
+            typeData: {
+                select: {
+                    type: true,
+                    social: true
+                }
+            }
         }
     })
 

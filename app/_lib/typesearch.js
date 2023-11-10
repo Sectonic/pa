@@ -15,10 +15,14 @@ export const getTypes = async (page, filters) => {
         select: {
             id: true,
             name: true,
-            social: true,
             image: true,
-            type: true,
-            tag: true
+            tag: true,
+            typeData: {
+                select: {
+                    type: true,
+                    social: true
+                }
+            }
         },
     })
 
@@ -32,7 +36,8 @@ export const getType = async (typeId) => {
             id: typeId
         },
         include: {
-            links: true
+            links: true,
+            typeData: true
         }
     })
     return type;
@@ -46,8 +51,16 @@ export const getEntries = async () => {
 export const getExamples = async (typeData) => {
     const types = await db.type.findMany({
         where: {
-            ...typeData,
+            typeData,
             tag: { not: 'Community Member' }
+        },
+        include: {
+            typeData: {
+                select: {
+                   social: true,
+                   type: true 
+                }
+            }
         },
         orderBy: {
             id: 'desc'

@@ -26,7 +26,7 @@ export default async function Page({ searchParams }) {
                             <img src={entry.image}/>
                         </div>
                         <div className="adminview_db_row-name">{entry.name}</div>
-                        <div className="adminview_db_row-type">{entry.type} {entry.social && '#' + entry.social}</div>
+                        <div className="adminview_db_row-type">{entry.typeData.type} {entry.typeData.social && '#' + entry.typeData.social}</div>
                         <d className="adminview_db_row-edit">
                             <Link href={`/admin/view/edit/${entry.id}`}>Edit</Link>
                         </d>
