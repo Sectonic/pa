@@ -20,8 +20,8 @@ model Type {
   image String?
   fileId String?
   links Link[]
-  typeData TypeData @relation(fields: [typeDataId], references: [id])
-  typeDataId Int
+  typeData TypeData? @relation(fields: [typeDataId], references: [id])
+  typeDataId Int?
 
   @@index([typeDataId])
 }
