@@ -40,10 +40,10 @@ export async function TypePopup({ popup_id }) {
       <div className="popup_text">
         <h2 className="popup_title">{data.name}</h2>
         <div className="type_top">
-            <div className="type_top-img"><img src={data["image"]}/></div>
+            <div className="type_top-img"><img src={data.image}/></div>
             <div className="type_top-info">
             <div className="type_top-info__full">
-                <p className="db_card-type">{data['type']}</p>
+                <p className="db_card-type">{typeData.type}</p>
                 {data.tag != null ? <p className="db_card-text-purple">{data.tag}</p> : <p className="db_card-text-purple">General</p> }
             </div>
             <div className="type_top-info__links">
