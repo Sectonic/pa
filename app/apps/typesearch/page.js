@@ -128,6 +128,7 @@ export default async function Page({ searchParams }) {
                         <div className='database_contact'>Want to add someone or fix something incorrect? <Link className='database_contact-link' href={"/contact?" + new URLSearchParams({ topic: 'TypeSearch', callback: '/apps/typesearch?' + new URLSearchParams(searchParams) })}>Contact Us</Link></div>
                     </div>
                     {/* <Tabs names={['Official', 'Community']} /> */}
+                    
                     {/* <Alert style={{marginBottom: 15}} prompt='Community Members are temporarily disabled in search' /> */}
                     <div className="db_card-container">
                         <Suspense fallback={<DatabaseLoading />}>
