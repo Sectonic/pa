@@ -9,8 +9,9 @@ export default function Tabs({ names }) {
     return (
         <>
             <div className='db_tab'>
-                {names.map(name => (
-                    <div 
+                {names.map((name, i) => (
+                    <div
+                        key={i} 
                         className={`btn ${(params.get('tab') || "Official") === name ? 'active' : ''}`}
                         onClick={() => {
                             const newParams = new URLSearchParams(params);

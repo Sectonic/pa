@@ -43,3 +43,4 @@ api/client_secrets.json
 # Local DB Script
 app/_lib/prisma/local.js
 app/_lib/prisma/typesearch.json
+app/_lib/prisma/pscale_dump_pa_main/
