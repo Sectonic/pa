@@ -41,15 +41,15 @@ export const getCommunityTypes = async (page, filters) => {
     const allTypeFilters = Object.entries(filters.typeData).length > 0 ? 
         Prisma.join(
             Object.entries(filters.typeData).map(([key, value]) => value.length > 1 ? 
-                Prisma.sql`typeData.${Prisma.raw(key)} IN (${Prisma.join(value)})`
-                : Prisma.sql`typeData.${Prisma.raw(key)} = ${value[0]}`
+                Prisma.sql`TypeData.${Prisma.raw(key)} IN (${Prisma.join(value)})`
+                : Prisma.sql`TypeData.${Prisma.raw(key)} = ${value[0]}`
             ), " AND ") 
         : Prisma.empty;
 
     const nameEmpty = !filters.name || filters.name.length === 0;
     const allNameFilters = nameEmpty ? Prisma.empty :
         Prisma.join(
-            filters.name.map(name => Prisma.sql`link.name LIKE ${Prisma.raw(`'%${name}%'`)}`),
+            filters.name.map(name => Prisma.sql`Link.name LIKE ${Prisma.raw(`'%${name}%'`)}`),
             " OR "
         )
 
@@ -57,23 +57,23 @@ export const getCommunityTypes = async (page, filters) => {
         SELECT COUNT(DISTINCT shared_types) AS count
         FROM (
             SELECT
-                GROUP_CONCAT(type.id) AS shared_types
+                GROUP_CONCAT(Type.id) AS shared_types
             FROM
-                link
+                Link
             JOIN
-                _linktotype ON link.id = _linktotype.A
+                _LinkToType ON Link.id = _LinkToType.A
             JOIN
-                type ON _linktotype.B = type.id
+                Type ON _LinkToType.B = Type.id
             JOIN
-                typeData ON type.typeDataId = typeData.id 
+                TypeData ON Type.TypeDataId = TypeData.id 
             WHERE
                 (
-                    type.tag = 'Community Member' 
+                    Type.tag = 'Community Member' 
                     ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
                 )
                 ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty}
             GROUP BY
-                link.id
+                Link.id
         ) AS subquery;
     `;
 
@@ -87,30 +87,30 @@ export const getCommunityTypes = async (page, filters) => {
             GROUP_CONCAT(typeData_social SEPARATOR '/*SEPARATOR/*') AS socials
         FROM (
             SELECT
-                link.id AS link_ids,
-                link.url AS link_urls,
-                link.name AS link_names,
-                link.channel AS link_channel,
-                link.linkId AS link_linkId,
-                GROUP_CONCAT(type.id SEPARATOR '/*SEPARATOR/*') AS shared_types,
-                GROUP_CONCAT(typeData.type SEPARATOR '/*SEPARATOR/*') AS typeData_type,
-                GROUP_CONCAT(typeData.social SEPARATOR '/*SEPARATOR/*') AS typeData_social
+                Link.id AS link_ids,
+                Link.url AS link_urls,
+                Link.name AS link_names,
+                Link.channel AS link_channel,
+                Link.linkId AS link_linkId,
+                GROUP_CONCAT(Type.id SEPARATOR '/*SEPARATOR/*') AS shared_types,
+                GROUP_CONCAT(TypeData.type SEPARATOR '/*SEPARATOR/*') AS typeData_type,
+                GROUP_CONCAT(TypeData.social SEPARATOR '/*SEPARATOR/*') AS typeData_social
             FROM
-                link
+                Link
             JOIN
-                _linktotype ON link.id = _linktotype.A
+                _LinkToType ON Link.id = _LinkToType.A
             JOIN
-                type ON _linktotype.B = type.id
+                Type ON _LinkToType.B = Type.id
             JOIN
-                typeData ON type.typeDataId = typeData.id 
+                TypeData ON Type.TypeDataId = TypeData.id 
             WHERE
                 (
-                    type.tag = 'Community Member' 
+                    Type.tag = 'Community Member' 
                     ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
                 )
                 ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty}
             GROUP BY
-                link.id
+                Link.id
         ) AS subquery
         GROUP BY
             shared_types
