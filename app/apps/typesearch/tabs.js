@@ -12,10 +12,11 @@ export default function Tabs({ names }) {
                 {names.map((name, i) => (
                     <div
                         key={i} 
-                        className={`btn ${(params.get('tab') || "Official") === name ? 'active' : ''}`}
+                        className={`btn ${(params.get('tab') || "Officially Typed") === name ? 'active' : ''}`}
                         onClick={() => {
                             const newParams = new URLSearchParams(params);
                             newParams.set('tab', name);
+                            newParams.set('page', 1);
                             const filters = newParams.get('filters') ? JSON.parse(decodeURIComponent(newParams.get('filters'))) : [];
                             const valuesToRemove = ["Class Typing", "Mentioned"];
                             const filteredFilters = filters.filter(filter => !valuesToRemove.includes(filter));

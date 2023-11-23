@@ -3,7 +3,7 @@
 import CreatableSelect from 'react-select/creatable';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createQueryString } from '@lib/params';
-import { options } from './filters';
+import { options, optionsNoTag } from './filters';
 
 export default function DatabaseSearch({ filters }) {
     const router = useRouter();
@@ -134,7 +134,7 @@ export default function DatabaseSearch({ filters }) {
                 formatOptionLabel={formatOptionLabel}
                 isMulti
                 name="colors"
-                options={options}
+                options={params.get('tab') === 'Community Interviews' ? optionsNoTag : options}
                 classNamePrefix="select"
                 spellcheck="false"
                 onChange={handleSelectChange}

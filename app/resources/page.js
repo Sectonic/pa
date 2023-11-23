@@ -227,7 +227,7 @@ export default function Resources() {
             </div>
             <div className="section_text  m0">
               <Link
-                href="https://docs.google.com/document/d/1JlYKh73yyJo15oYb5LTC3EqYmiU51azNV257sP_TFic/edit"
+                href="https://docs.google.com/document/d/1h5MkfI1KpnVZl2AWaUnm45Nkt6A12F7Bgi3CFZkXinM/edit"
                 target="_blank"
                 rel="noopener noreferrer"
               >

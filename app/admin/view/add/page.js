@@ -1,15 +1,22 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { OptionDropdown, Option } from "../optionDropdown";
 import { Type512Input } from "@components/type512Input";
-import { addType } from "@lib/admin";
+import { addType, getOnlyLink } from "@lib/admin";
 import { useRouter } from "next/navigation";
 import { getSimilar } from "@lib/admin";
 import { checkCorrectType, formatType } from "@lib/getTypeData";
+import LinkConnect from "app/admin/linkConnect";
+import { getYoutubeVideoId } from "@lib/youtube";
+import { url } from "@components/config";
 
 export default function Page() {
-    const [links, setLinks] = useState([]);
+    const [newLinks, setNewLinks] = useState([]);
+    const [connectedLinks, setConnectedLinks] = useState([]);
+    const [addLink, setAddLink] = useState(false);
+    const [addLinkValue, setAddLinkValue] = useState({ name: '', url: '', channel: false, linkId: '', edit: false });
+    const [tag, setTag] = useState(null);
     const [similar, setSimilar] = useState([]);
     const [imageB64, setImageB64] = useState(null);
     const [Type512, setType512] = useState('');
@@ -42,6 +49,30 @@ export default function Page() {
             return;
         }
 
+        if (tag === 'Community Member') {
+            for (let i = 0; i < newLinks.length; i++) {
+                const link = newLinks[i];
+                const correctVideoLink = getYoutubeVideoId(link.url);
+    
+                if (!link.channel && !correctVideoLink) {
+                    setError(`"${link.name}" is not a valid youtube video link`);
+                    submitBtn.current.innerHTML = 'Create Entry';
+                    return;
+                }
+    
+                if (link.channel && !link.linkId) {
+                    setError(`Channel link is not found for "${link.name}"`);
+                    submitBtn.current.innerHTML = 'Create Entry';
+                    return;
+                }
+            }
+        }
+
+        const verifiedLinks = newLinks.map(link => {
+            const { edit, ...restOfLink } = link;
+            return { ...restOfLink, linkId: link.channel ? link.linkId : getYoutubeVideoId(link.url) }
+        });
+
         setError('');
 
         var fileId, image;
@@ -67,7 +98,7 @@ export default function Page() {
             social: e.target.social.value != '--' ? e.target.social.value : null,
             tag: e.target.tag.value != '--' ? e.target.tag.value : null,
             sex: e.target.sex.value != '--' ? e.target.sex.value : null,
-            links: links
+            connectedLinks, newLinks: verifiedLinks
         };
 
         const valid = await addType(data);
@@ -80,22 +111,37 @@ export default function Page() {
 
     }
 
-    const addNewLink = () => {
-        setLinks(prev => [...prev, {
-            name: '', url: ''
-        }]);
-    }
-
-    const changeLink = (index, type, value) => {
-        let temp = [...links];
-        temp[index][type] = value;
-        setLinks(temp);
+    const handleNewLink = () => {
+        setNewLinks(prev => [...prev, addLinkValue]);
+        setAddLinkValue({ name: '', url: '', channel: false, linkId: '', edit: false });
+        setAddLink(false);
     }
 
     const deleteLink = (index) => {
-        let temp = [...links];
+        let temp = [...newLinks];
         temp.splice(index, 1);
-        setLinks(temp);
+        setNewLinks(temp);
+    }
+
+    const setEditLink = (index) => {
+        let temp = [...newLinks];
+        temp[index] = {...temp[index], edit: true};
+        setNewLinks(temp);
+    }
+
+    const saveEditLink = (index) => {
+        let temp = [...newLinks];
+        temp[index] = {...temp[index], edit: false};
+        setNewLinks(temp);
+    }
+
+    const editLink = (index, key, value) => {
+        let temp = [...newLinks];
+        temp[index] = {...temp[index], [key]: value };
+        if (key === 'channel') {
+            temp[index].linkId = '';
+        }
+        setNewLinks(temp);
     }
 
     const changeImage = (e) => {
@@ -124,9 +170,41 @@ export default function Page() {
     }
 
     const checkSimilar = async () => {
-        const duplicates = await getSimilar(name.current.value[0], getFullType());
+        const duplicates = await getSimilar(name.current.value[0], Type512);
         setSimilar(duplicates);
     }
+
+    const changeLinkChannel = (e) => {
+        if (e.target.checked) {
+            setAddLinkValue(prev => ({ ...prev, channel: true }))
+        } else {
+            setAddLinkValue(prev => ({...prev, channel: false, linkId: '' }))
+        }
+    }
+
+    const openLinkEdit = (linkId) => {
+        const editLink = window.open(`/admin/links/edit/${linkId}`, "_blank");
+        editLink?.postMessage("message", url);
+    }
+
+    useEffect(() => {
+        const refreshConnectedLinks = async (e) => {
+            if (typeof e?.data === 'string' && e?.data.includes('refresh')) {
+                const linkId = e?.data.split('|')[1];
+                const action = e?.data.split('|')[2];
+                if (action === 'delete') {
+                    setConnectedLinks(prev => prev.filter(link => link.id !== Number(linkId)));
+                } else {
+                    const updatedLink = await getOnlyLink(linkId);
+                    setConnectedLinks((prev) =>
+                        prev.map((link) => (link.id === Number(linkId) ? updatedLink : link))
+                    );
+                }
+            }
+        };
+        window.addEventListener('message', refreshConnectedLinks);
+        return () => window.removeEventListener('message', refreshConnectedLinks);
+    }, []);
 
     return (
         <div className="typeform_container" onPaste={pasteHandler}>
@@ -159,7 +237,7 @@ export default function Page() {
                         <Option>Male</Option>
                         <Option>Female</Option>
                     </OptionDropdown>
-                    <OptionDropdown name='Tag'>
+                    <OptionDropdown name='Tag' setChoice={setTag}>
                         <Option>--</Option>
                         <Option>Community Member</Option>
                         <Option>Class Typing</Option>
@@ -180,28 +258,101 @@ export default function Page() {
                     </OptionDropdown>
                 </div>
                 <h3>Links</h3>
-                <div className="register_inputs">
-                    {links.map((link, i) => (
-                        <div className="link_input" key={i}>
-                            <div className="link_input-entry">
-                                <label className="register_label">Name</label>
-                                <input type="text" required value={link.name} onChange={(e) => changeLink(i, 'name', e.target.value)} />
-                            </div>
-                            <div className="link_input-entry">
-                                <label className="register_label">Url</label>
-                                <input type="text" required value={link.url} onChange={(e) => changeLink(i, 'url', e.target.value)} />
-                            </div>
-                            <div className="link_input-delete">
-                                <div className="delete_button" onClick={() => deleteLink(i)}>
-                                    <img src="/img/main/delete.png" />
-                                </div>
-                            </div>
+                <div className="typeform_link-display">
+                    {connectedLinks.map((link, i) => (
+                        <div key={i}>
+                            <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{link.name}<br/><span style={{ color: 'rgba(255,255,255,.7)', fontSize: 12 }}>{link.url}</span></div>
+                            <a className="typeform_link-display__edit" onClick={() => openLinkEdit(link.id)} ><img src="/img/main/edit.png" /></a>
                         </div>
                     ))}
+                    {newLinks.map((link, i) => (
+                        <>
+                            {!link.edit ? (
+                                <div key={i}>
+                                    <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{link.name}<br/><span style={{ color: 'rgba(255,255,255,.7)', fontSize: 12 }}>{link.url}</span></div>
+                                    <div className="typeform_link-display__edit" >
+                                        <img src="/img/main/edit.png" onClick={() => setEditLink(i)} />
+                                        <img src="/img/main/delete.png" className="delete_button" onClick={() => deleteLink(i)} />
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="register_inputs" style={{gap: 10}} key={i}>
+                                    <div className="link_input" style={{width: '100%'}}>
+                                        <div className="link_input-entry">
+                                            <label className="register_label">Name</label>
+                                            <input type="text" required value={link.name} onChange={(e) => editLink(i, 'name', e.target.value)} />
+                                        </div>
+                                        <div className="link_input-entry">
+                                            <label className="register_label">Url</label>
+                                            <input type="text" required value={link.url} onChange={(e) => editLink(i, 'url', e.target.value)} />
+                                        </div>
+                                        <div className="link_input-delete" onClick={() => saveEditLink(i)}>
+                                            <div>
+                                                <img src="/img/main/save.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    { tag === 'Community Member' && (
+                                        <div className="link_input" style={{width: '100%'}}>
+                                            <div className="link_input-entry" style={{flexBasis: '10%'}}>
+                                                <label className="register_label">Channel</label>
+                                                <div class="checkbox-wrapper-3" style={{marginTop: 10, margin: '10px auto'}}>
+                                                    <input type="checkbox" id="cbx-3" checked={link.channel} onChange={(e) => editLink(i, 'channel', e.target.checked)} />
+                                                    <label htmlFor="cbx-3" className="toggle"><span></span></label>
+                                                </div>
+                                            </div>
+                                            <div className="link_input-entry" style={{flexBasis: '86%'}}>
+                                                <label className="register_label">Channel Image Link {!link.channel && '(Disabled)'}</label>
+                                                <input style={!link.channel ? ({ border: 'none', backgroundColor: '#050e27' }) : ({})} type="text" disabled={!link.channel} value={link.channel ? link.linkId : ''} onChange={(e) => editLink(i, 'linkId', e.target.value)} />
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </>
+                    ))}
+                </div>
+                <div style={{fontSize: 13, fontWeight: 400}}>Connected Links:</div>
+                <LinkConnect links={connectedLinks} setLinks={setConnectedLinks} />
+                <div className="register_inputs" style={{gap: 10}}>
+                    {addLink && (
+                        <>
+                            <div className="link_input">
+                                <div className="link_input-entry">
+                                    <label className="register_label">Name</label>
+                                    <input type="text" required value={addLinkValue.name} onChange={(e) => setAddLinkValue(prev => ({...prev, name: e.target.value}))} />
+                                </div>
+                                <div className="link_input-entry">
+                                    <label className="register_label">Url</label>
+                                    <input type="text" required value={addLinkValue.url} onChange={(e) => setAddLinkValue(prev => ({...prev, url: e.target.value}))} />
+                                </div>
+                                <div className="link_input-delete" onClick={handleNewLink}>
+                                    <div>
+                                        <img src="/img/main/save.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            { tag === 'Community Member' && (
+                                <div className="link_input">
+                                    <div className="link_input-entry" style={{flexBasis: '10%'}}>
+                                        <label className="register_label">Channel</label>
+                                        <div class="checkbox-wrapper-3" style={{marginTop: 10, margin: '10px auto'}}>
+                                            <input type="checkbox" id="cbx-3" checked={addLinkValue.channel} onChange={changeLinkChannel} />
+                                            <label htmlFor="cbx-3" className="toggle"><span></span></label>
+                                        </div>
+                                    </div>
+                                    <div className="link_input-entry" style={{flexBasis: '86%'}}>
+                                        <label className="register_label">Channel Image Link {!addLinkValue.channel && '(Disabled)'}</label>
+                                        <input style={!addLinkValue.channel ? ({ border: 'none', backgroundColor: '#050e27' }) : ({})} type="text" disabled={!addLinkValue.channel} value={addLinkValue.linkId} onChange={(e) => setAddLinkValue(prev => ({...prev, linkId: e.target.value}))} />
+                                    </div>
+                                </div>
+                            )}
+                        </>
+                    )}
                     <div>
-                        <div className="typeform_btn" onClick={addNewLink}>
-                            <img src="/img/admin/link.png" />
-                            <div>Add Link</div>
+                        <div className={`${addLink ? 'delete_button' : ''} typeform_btn`} onClick={() => setAddLink(prev => !prev)}>
+                            <img src={addLink ? "/img/main/delete.png" : "/img/admin/link.png"} />
+                            <div>{addLink ? 'Cancel' : 'Add'} New Link</div>
                         </div>
                     </div>
                 </div>

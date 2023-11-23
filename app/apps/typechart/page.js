@@ -19,8 +19,8 @@ import ToTypeSearchBtn from "./toTypeSearch";
 import DiagramContainer from "./diagramContainer";
 
 export const metadata = createMetaData({
-  title: 'TypeTool',
-  description: 'A type analyzer',
+  title: 'TypeChart',
+  description: 'The most advanced OPS type analyzer to date',
   image: '/embed/tools.png',
   url: '/apps/typetool',
 });

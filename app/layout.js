@@ -17,6 +17,7 @@ import '@css/admin.css';
 import '@css/dashboard.css';
 import '@css/footer.css';
 import '@css/donate.css';
+import '@css/checkbox.css';
 import "animate.css";
 
 import { Lexend } from "next/font/google";

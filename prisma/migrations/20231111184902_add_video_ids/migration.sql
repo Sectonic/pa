@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `Link` ADD COLUMN `channel` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `linkId` VARCHAR(191) NULL;

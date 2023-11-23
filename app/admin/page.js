@@ -17,7 +17,22 @@ export default function Page() {
                             />
                             <h3 className="typing_title-h3">TypeSearch</h3>
                             <p>
-                                Interact with TypeSearch Database
+                                Interact with the TypeSearch Database
+                            </p>
+                    </div>
+                    </Link>
+                </div>
+                <div className="section_text outline-gray">
+                    <Link href="/admin/links">
+                        <div>
+                            <img
+                            src="/img/admin/link.png"
+                            alt=""
+                            className="typing_img-home"
+                            />
+                            <h3 className="typing_title-h3">TypeSearch Links</h3>
+                            <p>
+                                Interact with the Links in the Database
                             </p>
                     </div>
                     </Link>

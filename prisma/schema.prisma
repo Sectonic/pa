@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -16,12 +17,12 @@ model Type {
   id Int @id @default(autoincrement())
   name String
   sex String?
-  tag String?
+  tag String
   image String?
   fileId String?
   links Link[]
-  typeData TypeData? @relation(fields: [typeDataId], references: [id])
-  typeDataId Int?
+  typeData TypeData @relation(fields: [typeDataId], references: [id])
+  typeDataId Int
 
   @@index([typeDataId])
 }
@@ -29,7 +30,6 @@ model Type {
 model TypeData {
   id Int @id @default(autoincrement())
   people Type[]
-  linkCollections LinkCollection[]
   type String
   mbti String?
   extrovertIntrovert String?
@@ -60,26 +60,13 @@ model TypeData {
   @@unique([type, social])
 }
 
-model LinkCollection {
-  id Int @id @default(autoincrement())
-  links Link[]
-  typeData TypeData @relation(fields: [typeDataId], references: [id])
-  typeDataId Int
-
-  @@index([typeDataId])
-}
-
 model Link {
   id Int @id @default(autoincrement())
   name String 
   url String
-  person Type? @relation(fields: [personId], references: [id], onDelete: Cascade)
-  personId Int?
-  linkCollection LinkCollection? @relation(fields: [linkCollectionId], references: [id], onDelete: Cascade)
-  linkCollectionId Int?
-
-  @@index([personId])
-  @@index([linkCollectionId])
+  linkId String?
+  channel Boolean @default(false)
+  people Type[]
 }
 
 model CourseActivity {

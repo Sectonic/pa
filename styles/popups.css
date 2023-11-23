@@ -616,7 +616,11 @@
 }
 
 .delete_button {
-  background-color: rgb(236, 78, 78);
+  background-color: rgba(196, 49, 49, .9) !important;
+}
+
+.delete_button:hover {
+  background-color: rgba(196, 49, 49, 0.678) !important;
 }
 
 @media screen and (max-width:900px) {
@@ -631,10 +635,6 @@
 
 .account_save-btn:hover {
   background-color: var(--dark-grey);
-}
-
-.delete_button:hover {
-  background-color: rgba(196, 49, 49, 0.678);
 }
 
 .delete_warning {

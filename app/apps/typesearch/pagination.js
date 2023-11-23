@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { createQueryString } from "@lib/params";
 
-export const Pagination = ({ currentPage, top, count }) => {
+export const Pagination = ({ currentPage, top, count, community }) => {
     const router = useRouter();
     const params = useSearchParams();
 
@@ -94,7 +94,7 @@ export const Pagination = ({ currentPage, top, count }) => {
     }
     
     return (
-        <div className={`db_update-container ${top ? 'db_update-container__top' : ''}`}>
+        <div className={`db_update-container ${community ? 'db_update-container__community' : ''} ${top ? 'db_update-container__top' : ''}`}>
             <button className="db_update">
                 <PrevBtn/>
                 <Selected num={1} />

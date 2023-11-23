@@ -723,7 +723,7 @@ export function gatherAnalytics(type = 'xx xx/xx xx/x(x)', invert = false) {
             typeData.deciderAxis === 'Fi-Te' ? 'SF' : 'ST'
         )
     ) : null;
-    const result = getResults(invert ? 'gather' : 'organize', { modalities: blastModality, animals, letters: typeData.oD ? `${typeData.oD} ${letters}` : null }, 512);
+    const result = getResults(invert ? 'organize' : 'gather', { modalities: blastModality, animals, letters: typeData.oD ? `${typeData.oD} ${letters}` : null }, 512);
     return result;
 }
 

@@ -1,8 +1,7 @@
 import { TypePopup, PopupLoading } from '@components/type_popup/typePopup';
-import { Entries, EntriesLoading } from './entries';
 import { filter_exchange } from './filters';
 import DatabaseSearch from './databaseSearch';
-import { DatabaseContainer, DatabaseLoading } from './databaseContainer';
+import { CommunityLoading, Container, DatabaseLoading } from './container';
 import { Suspense } from 'react';
 import { createMetaData } from "@lib/metadata";
 import { getSession } from '@lib/session';
@@ -17,7 +16,17 @@ export const metadata = createMetaData({
   url: '/apps/typesearch',
 });
 
-const getFilteredResults = (selectedOptions) => {
+function capitalizeEachWord(inputString) {
+    if (typeof inputString !== 'string') {
+        return inputString;
+    }
+    let words = inputString.split(' ');
+    let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    return capitalizedWords.join(' ');
+}
+
+
+const getFilteredResults = (selectedOptions, community) => {
     var clean_filters = {
 
     };
@@ -38,16 +47,24 @@ const getFilteredResults = (selectedOptions) => {
                 }
             });
         } else {
-            if (names > 1) {
-                clean_filters.OR.push({ name: { contains: filter } })
-            } else if (names > 0 ) {
-                clean_filters.OR = [
-                    { name: { contains: clean_filters.name.contains } },
-                    { name: { contains: filter } },
-                ]
-                delete clean_filters.name;
+            if (community) {
+                if (names > 0) {
+                    clean_filters.name.push(filter);
+                } else {
+                    clean_filters.name = [filter]
+                }
             } else {
-                clean_filters.name = { contains: filter };
+                if (names > 1) {
+                    clean_filters.OR.push({ name: { contains: filter } })
+                } else if (names > 0 ) {
+                    clean_filters.OR = [
+                        { name: { contains: clean_filters.name.contains } },
+                        { name: { contains: filter } },
+                    ]
+                    delete clean_filters.name;
+                } else {
+                    clean_filters.name = { contains: filter };
+                }
             }
             names++;
         }
@@ -57,11 +74,24 @@ const getFilteredResults = (selectedOptions) => {
         clean_filters.tag.in = clean_filters.tag.in.filter(tag => tag !== 'Community Member');
     }
 
-    const {tag, name, ...all_other_filters} = clean_filters;
+    const {tag, name, OR, ...all_other_filters} = clean_filters;
+
+    if (community) {
+        
+        const communityTypeData = Object.fromEntries(Object.entries(all_other_filters).map(([key, value]) => [key, value.in]))
+
+        return {
+            name: name,
+            typeData: communityTypeData
+        }
+    }
+
+
+    const nameField = name ? name : { OR };
 
     return {
         where: {
-            name,
+            ...nameField,
             typeData: {
                 ...all_other_filters,
             },
@@ -80,7 +110,7 @@ const getTypeSearchParams = async (params) => {
 
     const queryFilters = JSON.parse(params.filters ? decodeURIComponent(params.filters) : '[]');
     const preFilters = queryFilters.map(filter => ({label: filter, value:filter}));
-    const filters = getFilteredResults(queryFilters);
+    const filters = getFilteredResults(queryFilters, (params.tab || 'Officially Typed') === 'Community Interviews');
     const page = params.page ? Number(params.page) : 1;
 
     return ({
@@ -119,22 +149,16 @@ export default async function Page({ searchParams }) {
                             </div>
                             <div>
                                 <h1 className='banner_text blue'>TypeSearch</h1>
-                                <Suspense fallback={<EntriesLoading/>} >
-                                    <Entries/>
-                                </Suspense>
                             </div>
                         </div>
                         <DatabaseSearch filters={searchFilters}  />
                         <div className='database_contact'>Want to add someone or fix something incorrect? <Link className='database_contact-link' href={"/contact?" + new URLSearchParams({ topic: 'TypeSearch', callback: '/apps/typesearch?' + new URLSearchParams(searchParams) })}>Contact Us</Link></div>
                     </div>
-                    {/* <Tabs names={['Official', 'Community']} /> */}
-                    
+                    <Tabs names={['Officially Typed', 'Community Interviews']} />
                     {/* <Alert style={{marginBottom: 15}} prompt='Community Members are temporarily disabled in search' /> */}
-                    <div className="db_card-container">
-                        <Suspense fallback={<DatabaseLoading />}>
-                            <DatabaseContainer page={page} filters={queryFilters} />
-                        </Suspense>
-                    </div>
+                    <Suspense fallback={searchParams.tab === 'Community Interviews' ? <CommunityLoading /> : <DatabaseLoading />}>
+                        <Container page={page} filters={queryFilters} tab={searchParams.tab} />
+                    </Suspense>
                 </div>
             </div>
         </div>
