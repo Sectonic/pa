@@ -3,6 +3,8 @@
 import db from "./prisma/client";
 import { getTypeData } from "./getTypeData";
 
+const sortStringifiedList = (arr) => arr.map(Number).sort((a, b) => (a - b));
+
 export const getSimilar = async (name, type) => {
     const similar = await db.type.findMany({
         where: {
@@ -65,7 +67,7 @@ export const addType = async (typeData) => {
             updatePreviousLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    peopleIds: `${link.peopleIds},${newType.id}`,
+                    peopleIds: sortStringifiedList(`${link.peopleIds},${newType.id}`.split(',')).join(','),
                     people: {
                         connect: [{ id: newType.id }]
                     }
@@ -122,7 +124,7 @@ export const updateType = async (updatedInfo) => {
             updateDisconnectingLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    peopleIds: link.peopleIds.split(',').filter(personId => personId !== String(id)).join(','),
+                    peopleIds: sortStringifiedList(link.peopleIds.split(',').filter(personId => personId !== String(id))).join(','),
                     people: {
                         disconnect: [{ id: Number(id) }]
                     }
@@ -138,7 +140,7 @@ export const updateType = async (updatedInfo) => {
             updatePreviousLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    peopleIds: `${link.peopleIds},${id}`,
+                    peopleIds: sortStringifiedList(`${link.peopleIds},${id}`.split(',')).join(','),
                     people: {
                         connect: [{ id: Number(id) }]
                     }
