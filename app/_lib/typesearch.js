@@ -54,73 +54,51 @@ export const getCommunityTypes = async (page, filters) => {
         )
 
     const countQuery = await db.$queryRaw`
-        SELECT COUNT(DISTINCT shared_types) AS count
-        FROM (
-            SELECT
-                GROUP_CONCAT(Type.id) AS shared_types
-            FROM
-                Link
-            JOIN
-                _LinkToType ON Link.id = _LinkToType.A
-            JOIN
-                Type ON _LinkToType.B = Type.id
-            JOIN
-                TypeData ON Type.TypeDataId = TypeData.id 
-            WHERE
-                (
-                    Type.tag = 'Community Member' 
-                    ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
-                )
-                ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty}
-            GROUP BY
-                Link.id
-        ) AS subquery;
+        SELECT
+            COUNT(DISTINCT Link.peopleIds) AS totalGroups
+        FROM
+            Link
+        JOIN
+            Type ON FIND_IN_SET(Type.id, Link.peopleIds) > 0
+        JOIN
+            TypeData ON TypeData.id = Type.typeDataId
+        WHERE
+            (
+                Type.tag = 'Community Member' 
+                ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
+            )
+            ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty};
     `;
 
     const groupedLinks = await db.$queryRaw`
         SELECT
-            GROUP_CONCAT(link_urls SEPARATOR '/*SEPARATOR/*') AS urls,
-            GROUP_CONCAT(link_names SEPARATOR '/*SEPARATOR/*') AS names,
-            GROUP_CONCAT(link_channel SEPARATOR '/*SEPARATOR/*') AS channels,
-            GROUP_CONCAT(link_linkId SEPARATOR '/*SEPARATOR/*') AS linkIds,
-            GROUP_CONCAT(typeData_type SEPARATOR '/*SEPARATOR/*') AS types,
-            GROUP_CONCAT(typeData_social SEPARATOR '/*SEPARATOR/*') AS socials
-        FROM (
-            SELECT
-                Link.id AS link_ids,
-                Link.url AS link_urls,
-                Link.name AS link_names,
-                Link.channel AS link_channel,
-                Link.linkId AS link_linkId,
-                GROUP_CONCAT(Type.id SEPARATOR '/*SEPARATOR/*') AS shared_types,
-                GROUP_CONCAT(TypeData.type SEPARATOR '/*SEPARATOR/*') AS typeData_type,
-                GROUP_CONCAT(TypeData.social SEPARATOR '/*SEPARATOR/*') AS typeData_social
-            FROM
-                Link
-            JOIN
-                _LinkToType ON Link.id = _LinkToType.A
-            JOIN
-                Type ON _LinkToType.B = Type.id
-            JOIN
-                TypeData ON Type.TypeDataId = TypeData.id 
-            WHERE
-                (
-                    Type.tag = 'Community Member' 
-                    ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
-                )
-                ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty}
-            GROUP BY
-                Link.id
-        ) AS subquery
+            GROUP_CONCAT(Link.name SEPARATOR '/*SEPARATOR/*') AS names,
+            GROUP_CONCAT(Link.url SEPARATOR '/*SEPARATOR/*') AS urls,
+            GROUP_CONCAT(Link.channel SEPARATOR '/*SEPARATOR/*') AS channels,
+            GROUP_CONCAT(Link.linkId SEPARATOR '/*SEPARATOR/*') AS linkIds,
+            GROUP_CONCAT(TypeData.type SEPARATOR '/*SEPARATOR/*') AS types,
+            GROUP_CONCAT(TypeData.social SEPARATOR '/*SEPARATOR/*') AS socials
+        FROM
+            Link
+        JOIN
+            Type ON FIND_IN_SET(Type.id, Link.peopleIds) > 0
+        JOIN
+            TypeData ON TypeData.id = Type.typeDataId
+        WHERE
+            (
+                Type.tag = 'Community Member' 
+                ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
+            )
+            ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty}
         GROUP BY
-            shared_types
+            Link.peopleIds
         ORDER BY
-            shared_types DESC
+            Link.peopleIds DESC
         LIMIT ${takeAmount}
         OFFSET ${skipAmount};
-    `;
+    `
 
-    return { types: groupedLinks, count: Number(countQuery[0].count) || 0 }
+    return { types: groupedLinks, count: Number(countQuery[0].totalGroups) || 0 }
 }
 
 export const getSelectedLinks = async (value) => {
@@ -138,7 +116,8 @@ export const getSelectedLinks = async (value) => {
         select: {
             name: true,
             id: true,
-            url: true
+            url: true,
+            peopleIds: true
         },
         take: 10
     })

@@ -15,7 +15,7 @@ export default function CommunityToggle() {
     }
 
     return (
-        <div class="checkbox-wrapper-3" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '5px auto'}}>
+        <div className="checkbox-wrapper-3" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '5px auto'}}>
             <input type="checkbox" id="cbx-3" checked={params.get('filter') === 'Community Only'} onChange={handleChange} />
             <label htmlFor="cbx-3" className="toggle"><span></span></label>
         </div>

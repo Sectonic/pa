@@ -6,11 +6,11 @@ import { getSelectedLinks } from '@lib/typesearch';
 export default function LinkConnect({ links = [], setLinks }) {
 
     const filterLinks = (links) => {
-        return links.map(link => ({ value: link.id, label: link.name, url: link.url }))
+        return links.map(link => ({ value: link.id, label: link.name, url: link.url, peopleIds: link.peopleIds }))
     }
 
     const handleLinkChanges = (selectedLinks) => {
-        setLinks(selectedLinks.map(link => ({ id: link.value, name: link.label, url: link.url })))
+        setLinks(selectedLinks.map(link => ({ id: link.value, name: link.label, url: link.url, peopleIds: link.peopleIds })))
     }
     
     const loadOptions = async (input, callback) => {
@@ -132,7 +132,7 @@ export default function LinkConnect({ links = [], setLinks }) {
             }),
         }}
         isMulti
-        value={links.length > 0 ? links.map(link => ({ value: link.id, label: link.name, url: link.url })) : []}
+        value={links.length > 0 ? links.map(link => ({ value: link.id, label: link.name, url: link.url, peopleIds: link.peopleIds })) : []}
         formatOptionLabel={formatOptionLabel}
         loadOptions={loadOptions}
         placeholder="Connect a previous link"

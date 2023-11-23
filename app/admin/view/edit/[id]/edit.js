@@ -80,6 +80,9 @@ export default function Edit({ type }) {
             sex: e.target.sex.value != '--' ? e.target.sex.value : null,
             connectedLinks: connectedLinks,
             notConnectedLinks: verifiedLinks,
+            disconnectIdLinks: type.links.filter(link => link._count.people > 1)
+                               .map(link => ({ id: link.id, peopleIds: link.peopleIds }))
+                               .filter(x => !connectedLinks.map(link => link.id).includes(x.id)),
             id: type.id
         };
 

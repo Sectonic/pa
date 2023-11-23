@@ -43,16 +43,41 @@ export const addType = async (typeData) => {
         typeData: { create: { social, ...data } }
     });
 
-    await db.type.create({
+    const newType = await db.type.create({
         data: {
             name, image, fileId, tag, sex,
             ...typeDataKey,
-            links: {
-                create: newLinks,
-                connect: connectedLinks.map(link => ({ id: link.id }))
-            }
         }
     })
+
+    const transactionActions = [];
+
+    if (newLinks.length > 0) {
+        const createNewLinks = db.link.createMany({
+            data: newLinks.map(link => ({ ...link, peopleIds: String(newType.id), people: { connect: [{ id: newType.id }] } }))
+        });
+        transactionActions.push(createNewLinks);
+    }
+
+    if (connectedLinks.length > 0) {
+        const updatePreviousLinks = [];
+        connectedLinks.forEach(link => {
+            updatePreviousLinks.push(db.link.update({
+                where: { id: link.id },
+                data: {
+                    peopleIds: `${link.peopleIds},${newType.id}`,
+                    people: {
+                        connect: [{ id: newType.id }]
+                    }
+                }
+            }))
+        });
+        transactionActions.push(...updatePreviousLinks)
+    }
+
+    if (transactionActions.length > 0) {
+        await db.$transaction(transactionActions);
+    }
 
     return true;
 
@@ -60,7 +85,7 @@ export const addType = async (typeData) => {
 
 export const updateType = async (updatedInfo) => {
 
-    const { id, name, type, connectedLinks, notConnectedLinks, social, ...data } = updatedInfo;
+    const { id, name, type, connectedLinks, notConnectedLinks, social, disconnectIdLinks, ...data } = updatedInfo;
 
     const typeData = getTypeData(type);
 
@@ -81,34 +106,63 @@ export const updateType = async (updatedInfo) => {
             }
         }
     });
-    
-    const newNotConnectedLinkIds = [];
-    for (let i = 0; i < notConnectedLinks.length; i++) {
-        const link = notConnectedLinks[i];
-        const newNotConnectedLink = await db.link.create({
-            data: link,
-            select: {
-                id: true
-            }
+
+    const transactionActions = [];
+
+    if (notConnectedLinks.length > 0) {
+        const createManyNotConnectedLinks = db.link.createMany({
+            data: notConnectedLinks.map(link => ({ ...link, peopleIds: String(id), people: { connect: [{ id: Number(id) }] } }))
+        })
+        transactionActions.push(createManyNotConnectedLinks)
+    }
+
+    if (disconnectIdLinks.length > 0) {
+        const updateDisconnectingLinks = [];
+        disconnectIdLinks.forEach(link => {
+            updateDisconnectingLinks.push(db.link.update({
+                where: { id: link.id },
+                data: {
+                    peopleIds: link.peopleIds.split(',').filter(personId => personId !== String(id)).join(','),
+                    people: {
+                        disconnect: [{ id: Number(id) }]
+                    }
+                }
+            }))
         });
-        newNotConnectedLinkIds.push(newNotConnectedLink.id)
+        transactionActions.push(...updateDisconnectingLinks);
+    }
+
+    if (connectedLinks.length > 0) {
+        const updatePreviousLinks = [];
+        connectedLinks.forEach(link => {
+            updatePreviousLinks.push(db.link.update({
+                where: { id: link.id },
+                data: {
+                    peopleIds: `${link.peopleIds},${id}`,
+                    people: {
+                        connect: [{ id: Number(id) }]
+                    }
+                }
+            }))
+        });
+        transactionActions.push(...updatePreviousLinks);
     }
 
     const updatedData = {
         name, ...data,
         ...typeDataKey,
-        links: {
-            set: [
-                ...connectedLinks.map(link => ({ id: link.id })), 
-                ...newNotConnectedLinkIds.map(id => ({ id }))
-            ],
-        }
     }
 
-    await db.type.update({
+    const updatedType =  db.type.update({
         where: { id },
         data: updatedData
     });
+
+    transactionActions.push(updatedType);
+
+    if (transactionActions.length > 0) {
+        await db.$transaction(transactionActions);
+    }
 
 }
 
@@ -217,6 +271,7 @@ export const getLinkData = async (id) => {
             id: true,
             name: true,
             url: true,
+            peopleIds: true,
             channel: true,
             linkId: true,
             people: {
@@ -253,6 +308,7 @@ export const updateLink = async (data) => {
         where: { id: Number(id) },
         data: {
             ...link,
+            peopleIds: people.map(people => people.id).join(','),
             people: {
                 set: people
             }

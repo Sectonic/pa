@@ -64,13 +64,21 @@ export default function Community({ data, count }) {
                         const socials = person.socials ? [...new Set(person.socials.split('/*SEPARATOR/*'))] : [];
 
                         const links = [];
+                        const uniqueUrls = new Set();
+
                         for (let i = 0; i < urls.length; i++) {
-                            links.push({
-                                url: urls[i],
-                                channel: channels[i] === "1",
-                                linkId: linkIds[i],
-                                name: names[i],
-                            })
+                            const url = urls[i];
+
+                            if (!uniqueUrls.has(url)) {
+                                links.push({
+                                    url: url,
+                                    channel: channels[i] === "1",
+                                    linkId: linkIds[i],
+                                    name: names[i],
+                                });
+                                
+                                uniqueUrls.add(url);
+                            }
                         }
 
                         const kendrickIndex = links.findIndex(link => link.name.includes('Interviewed by ENFP Male'));

@@ -66,6 +66,7 @@ model Link {
   url String
   linkId String?
   channel Boolean @default(false)
+  peopleIds String?
   people Type[]
 }
 
