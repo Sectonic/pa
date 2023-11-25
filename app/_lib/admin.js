@@ -55,10 +55,18 @@ export const addType = async (typeData) => {
     const transactionActions = [];
 
     if (newLinks.length > 0) {
-        const createNewLinks = db.link.createMany({
-            data: newLinks.map(link => ({ ...link, peopleIds: String(newType.id), people: { connect: [{ id: newType.id }] } }))
-        });
-        transactionActions.push(createNewLinks);
+        const createNewLinks = [];
+        newLinks.forEach(link => {
+            const newLink = db.link.create({
+                data: {
+                    ...link,
+                    concatPeople: String(newType.id), 
+                    people: { connect: [{ id: newType.id }] }
+                }
+            })
+            transactionActions.push(newLink);
+        })
+        transactionActions.push(...createNewLinks);
     }
 
     if (connectedLinks.length > 0) {
@@ -67,7 +75,7 @@ export const addType = async (typeData) => {
             updatePreviousLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    peopleIds: sortStringifiedList(`${link.peopleIds},${newType.id}`.split(',')).join(','),
+                    concatPeople: sortStringifiedList(`${link.concatPeople},${newType.id}`.split(',')).join(','),
                     people: {
                         connect: [{ id: newType.id }]
                     }
@@ -112,10 +120,18 @@ export const updateType = async (updatedInfo) => {
     const transactionActions = [];
 
     if (notConnectedLinks.length > 0) {
-        const createManyNotConnectedLinks = db.link.createMany({
-            data: notConnectedLinks.map(link => ({ ...link, peopleIds: String(id), people: { connect: [{ id: Number(id) }] } }))
+        const createManyNotConnectedLinks = [];
+        notConnectedLinks.forEach(link => {
+            const notConnectedLink = db.link.create({
+                data: {
+                    ...link,
+                    concatPeople: String(id), 
+                    people: { connect: [{ id: Number(id) }] }
+                }
+            })
+            createManyNotConnectedLinks.push(notConnectedLink);
         })
-        transactionActions.push(createManyNotConnectedLinks)
+        transactionActions.push(...createManyNotConnectedLinks)
     }
 
     if (disconnectIdLinks.length > 0) {
@@ -124,7 +140,7 @@ export const updateType = async (updatedInfo) => {
             updateDisconnectingLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    peopleIds: sortStringifiedList(link.peopleIds.split(',').filter(personId => personId !== String(id))).join(','),
+                    concatPeople: sortStringifiedList(link.concatPeople.split(',').filter(personId => personId !== String(id))).join(','),
                     people: {
                         disconnect: [{ id: Number(id) }]
                     }
@@ -140,7 +156,7 @@ export const updateType = async (updatedInfo) => {
             updatePreviousLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    peopleIds: sortStringifiedList(`${link.peopleIds},${id}`.split(',')).join(','),
+                    concatPeople: sortStringifiedList(`${link.concatPeople},${id}`.split(',')).join(','),
                     people: {
                         connect: [{ id: Number(id) }]
                     }
@@ -273,7 +289,7 @@ export const getLinkData = async (id) => {
             id: true,
             name: true,
             url: true,
-            peopleIds: true,
+            concatPeople: true,
             channel: true,
             linkId: true,
             people: {
@@ -310,7 +326,7 @@ export const updateLink = async (data) => {
         where: { id: Number(id) },
         data: {
             ...link,
-            peopleIds: people.map(people => people.id).join(','),
+            concatPeople: people.map(people => people.id).join(','),
             people: {
                 set: people
             }

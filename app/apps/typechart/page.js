@@ -27,28 +27,28 @@ export const metadata = createMetaData({
 
 export default async function TypeTool({ searchParams }) {
 
-    // const allTypes = await db.type.findMany();
+    // const allTypes = await db.type.findMany({ include: { typeData: { select: { type: true } } } });
     // const percentages = Array.from({ length: 100 }, (_, i) => (i + 1) * 6.25).filter(num => num <= 100);
     // const percentageCounter = {};
     // allTypes.forEach(type => {
-    //   const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx', 'FX', 'XF', 'MX', 'XM'];
-    //   if (!incompletes.some(incomplete => type.type.includes(incomplete))) {
-    //     const coins = ['extroversion', 'gather', 'intuition', 'thinking', 'masculinity', 'introversion', 'organize', 'sensory', 'feeling', 'femininity'];
-    //     coins.forEach(coin => {
-    //         const analytics = getCoin(coin, type.type);
-    //         percentages.forEach(p => {
-    //             const currentPercentage = analytics.value[0];
-    //             const lowerP = p - 6.25;
-    //             if (currentPercentage >= lowerP && currentPercentage < p) {
-    //                 if (!percentageCounter.hasOwnProperty(coin)) percentageCounter[coin] = {};
-    //                 if (percentageCounter[coin].hasOwnProperty(p)) percentageCounter[coin][p] += 1
-    //                 else percentageCounter[coin][p] = 1
-    //             }
+    //     const incompletes = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx', 'FX', 'XF', 'MX', 'XM'];
+    //     if (!incompletes.some(incomplete => type.typeData.type.includes(incomplete))) {
+    //         const coins = ['extroversion', 'gather', 'intuition', 'thinking', 'masculinity', 'introversion', 'organize', 'sensory', 'feeling', 'femininity'];
+    //         coins.forEach(coin => {
+    //             const analytics = getCoin(coin, type.typeData.type);
+    //             percentages.forEach(p => {
+    //                 const currentPercentage = analytics.value[0];
+    //                 const lowerP = p - 6.25;
+    //                 if (currentPercentage >= lowerP && currentPercentage < p) {
+    //                     if (!percentageCounter.hasOwnProperty(coin)) percentageCounter[coin] = {};
+    //                     if (percentageCounter[coin].hasOwnProperty(p)) percentageCounter[coin][p] += 1
+    //                     else percentageCounter[coin][p] = 1
+    //                 }
+    //             })
     //         })
-    //     })
-    //   }
+    //     }
     // })
-    // fs.writeFile('public/json/typeAnalytics.json', JSON.stringify(percentageCounter), (err) => console.log(err));
+    // fs.writeFile('public/json/typeAnalytics.json', JSON.stringify(percentageCounter, null, 2), (err) => console.log(err));
 
     const incomplete_parts = ['Ox', 'Dx', 'x', 'De', 'Oe', 'Oi', 'Di', 'Nx', 'Tx', 'Sx', 'Fx', 'FX', 'XF', 'MX', 'XM'];
     const incomplete = searchParams.type ? incomplete_parts.some(part => searchParams.type.includes(part)) : true;

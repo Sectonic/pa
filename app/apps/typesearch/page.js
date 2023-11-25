@@ -8,6 +8,7 @@ import { getSession } from '@lib/session';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Tabs from './tabs';
+import TypeStatistics from './statistics';
 
 export const metadata = createMetaData({
   title: 'TypeSearch',
@@ -16,21 +17,12 @@ export const metadata = createMetaData({
   url: '/apps/typesearch',
 });
 
-function capitalizeEachWord(inputString) {
-    if (typeof inputString !== 'string') {
-        return inputString;
-    }
-    let words = inputString.split(' ');
-    let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-    return capitalizedWords.join(' ');
-}
-
-
-const getFilteredResults = (selectedOptions, community) => {
+const getFilteredResults = (selectedOptions, tab) => {
     var clean_filters = {
 
     };
     var names = 0;
+    const community = tab === 'Community Interviews';
     selectedOptions.forEach(filter => {
         var all_filters = filter_exchange[filter];
         if (all_filters) {
@@ -46,7 +38,7 @@ const getFilteredResults = (selectedOptions, community) => {
                     };
                 }
             });
-        } else {
+        } else if (tab !== 'Statistics') {
             if (community) {
                 if (names > 0) {
                     clean_filters.name.push(filter);
@@ -76,18 +68,24 @@ const getFilteredResults = (selectedOptions, community) => {
 
     const {tag, name, OR, ...all_other_filters} = clean_filters;
 
+    const rawTypeData = Object.fromEntries(Object.entries(all_other_filters).map(([key, value]) => [key, value.in]))
+
+    if (tab === 'Statistics') {
+        return {
+            typeData: rawTypeData
+        }
+    }
+
     if (community) {
-        
-        const communityTypeData = Object.fromEntries(Object.entries(all_other_filters).map(([key, value]) => [key, value.in]))
 
         return {
             name: name,
-            typeData: communityTypeData
+            typeData: rawTypeData
         }
     }
 
 
-    const nameField = name ? name : { OR };
+    const nameField = name ? { name } : { OR };
 
     return {
         where: {
@@ -110,7 +108,7 @@ const getTypeSearchParams = async (params) => {
 
     const queryFilters = JSON.parse(params.filters ? decodeURIComponent(params.filters) : '[]');
     const preFilters = queryFilters.map(filter => ({label: filter, value:filter}));
-    const filters = getFilteredResults(queryFilters, (params.tab || 'Officially Typed') === 'Community Interviews');
+    const filters = getFilteredResults(queryFilters, params.tab || 'Officially Typed');
     const page = params.page ? Number(params.page) : 1;
 
     return ({
@@ -156,9 +154,13 @@ export default async function Page({ searchParams }) {
                     </div>
                     <Tabs names={['Officially Typed', 'Community Interviews']} />
                     {/* <Alert style={{marginBottom: 15}} prompt='Community Members are temporarily disabled in search' /> */}
-                    <Suspense fallback={searchParams.tab === 'Community Interviews' ? <CommunityLoading /> : <DatabaseLoading />}>
-                        <Container page={page} filters={queryFilters} tab={searchParams.tab} />
-                    </Suspense>
+                    { searchParams.tab === 'Statistics' ? (
+                        <TypeStatistics filters={queryFilters.typeData} />
+                    ) : (
+                        <Suspense fallback={searchParams.tab === 'Community Interviews' ? <CommunityLoading /> : <DatabaseLoading />}>
+                            <Container page={page} filters={queryFilters} tab={searchParams.tab} />
+                        </Suspense>
+                    )}
                 </div>
             </div>
         </div>

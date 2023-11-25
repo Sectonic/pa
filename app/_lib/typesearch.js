@@ -55,11 +55,11 @@ export const getCommunityTypes = async (page, filters) => {
 
     const countQuery = await db.$queryRaw`
         SELECT
-            COUNT(DISTINCT Link.peopleIds) AS totalGroups
+            COUNT(DISTINCT Link.concatPeople) AS totalGroups
         FROM
             Link
         JOIN
-            Type ON FIND_IN_SET(Type.id, Link.peopleIds) > 0
+            Type ON FIND_IN_SET(Type.id, Link.concatPeople) > 0
         JOIN
             TypeData ON TypeData.id = Type.typeDataId
         WHERE
@@ -81,7 +81,7 @@ export const getCommunityTypes = async (page, filters) => {
         FROM
             Link
         JOIN
-            Type ON FIND_IN_SET(Type.id, Link.peopleIds) > 0
+            Type ON FIND_IN_SET(Type.id, Link.concatPeople) > 0
         JOIN
             TypeData ON TypeData.id = Type.typeDataId
         WHERE
@@ -91,9 +91,9 @@ export const getCommunityTypes = async (page, filters) => {
             )
             ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty}
         GROUP BY
-            Link.peopleIds
+            Link.concatPeople
         ORDER BY
-            Link.peopleIds DESC
+            Link.concatPeople DESC
         LIMIT ${takeAmount}
         OFFSET ${skipAmount};
     `

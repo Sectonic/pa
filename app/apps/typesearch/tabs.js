@@ -16,11 +16,17 @@ export default function Tabs({ names }) {
                         onClick={() => {
                             const newParams = new URLSearchParams(params);
                             newParams.set('tab', name);
-                            newParams.set('page', 1);
-                            const filters = newParams.get('filters') ? JSON.parse(decodeURIComponent(newParams.get('filters'))) : [];
-                            const valuesToRemove = ["Class Typing", "Mentioned"];
-                            const filteredFilters = filters.filter(filter => !valuesToRemove.includes(filter));
-                            newParams.set('filters', encodeURIComponent(JSON.stringify(filteredFilters)));
+                            if (name === 'Community Interviews') {
+                                if (newParams.get('page')) {
+                                    newParams.set('page', 1);
+                                }
+                                if (newParams.get('filters')) {
+                                    const filters = newParams.get('filters') ? JSON.parse(decodeURIComponent(newParams.get('filters'))) : [];
+                                    const valuesToRemove = ["Class Typing", "Mentioned"];
+                                    const filteredFilters = filters.filter(filter => !valuesToRemove.includes(filter));
+                                    newParams.set('filters', encodeURIComponent(JSON.stringify(filteredFilters)));
+                                }
+                            }
                             router.push('/apps/typesearch?' + newParams);
                         }}
                     >
