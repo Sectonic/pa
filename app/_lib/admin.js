@@ -60,7 +60,7 @@ export const addType = async (typeData) => {
             const newLink = db.link.create({
                 data: {
                     ...link,
-                    concatPeople: String(newType.id), 
+                    peopleIds: String(newType.id), 
                     people: { connect: [{ id: newType.id }] }
                 }
             })
@@ -75,7 +75,7 @@ export const addType = async (typeData) => {
             updatePreviousLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    concatPeople: sortStringifiedList(`${link.concatPeople},${newType.id}`.split(',')).join(','),
+                    peopleIds: sortStringifiedList(`${link.peopleIds},${newType.id}`.split(',')).join(','),
                     people: {
                         connect: [{ id: newType.id }]
                     }
@@ -125,7 +125,7 @@ export const updateType = async (updatedInfo) => {
             const notConnectedLink = db.link.create({
                 data: {
                     ...link,
-                    concatPeople: String(id), 
+                    peopleIds: String(id), 
                     people: { connect: [{ id: Number(id) }] }
                 }
             })
@@ -140,7 +140,7 @@ export const updateType = async (updatedInfo) => {
             updateDisconnectingLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    concatPeople: sortStringifiedList(link.concatPeople.split(',').filter(personId => personId !== String(id))).join(','),
+                    peopleIds: sortStringifiedList(link.peopleIds.split(',').filter(personId => personId !== String(id))).join(','),
                     people: {
                         disconnect: [{ id: Number(id) }]
                     }
@@ -156,7 +156,7 @@ export const updateType = async (updatedInfo) => {
             updatePreviousLinks.push(db.link.update({
                 where: { id: link.id },
                 data: {
-                    concatPeople: sortStringifiedList(`${link.concatPeople},${id}`.split(',')).join(','),
+                    peopleIds: sortStringifiedList(`${link.peopleIds},${id}`.split(',')).join(','),
                     people: {
                         connect: [{ id: Number(id) }]
                     }
@@ -289,7 +289,7 @@ export const getLinkData = async (id) => {
             id: true,
             name: true,
             url: true,
-            concatPeople: true,
+            peopleIds: true,
             channel: true,
             linkId: true,
             people: {
@@ -326,7 +326,7 @@ export const updateLink = async (data) => {
         where: { id: Number(id) },
         data: {
             ...link,
-            concatPeople: people.map(people => people.id).join(','),
+            peopleIds: people.map(people => people.id).join(','),
             people: {
                 set: people
             }
