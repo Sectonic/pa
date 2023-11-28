@@ -146,7 +146,7 @@ export default async function Page({ searchParams }) {
                         <DatabaseSearch filters={searchFilters}  />
                         <div className='database_contact'>Want to add someone or fix something incorrect? <Link className='database_contact-link' href={"/contact?" + new URLSearchParams({ topic: 'TypeSearch', callback: '/apps/typesearch?' + new URLSearchParams(searchParams) })}>Contact Us</Link></div>
                     </div>
-                    <Tabs names={['Officially Typed', 'Community Interviews']} />
+                    <Tabs names={['Officially Typed', 'Community Interviews', 'Statistics']} />
                     {/* <Alert style={{marginBottom: 15}} prompt='Community Members are temporarily disabled in search' /> */}
                     { searchParams.tab === 'Statistics' ? (
                         <TypeStatistics filters={queryFilters.typeData} />
