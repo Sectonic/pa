@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `Type` ADD COLUMN `retyped` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `verified` BOOLEAN NOT NULL DEFAULT false;

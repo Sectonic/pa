@@ -18,6 +18,8 @@ export default function Edit({ type }) {
     const [tag, setTag] = useState(type.tag);
     const [imageB64, setImageB64] = useState(type.image);
     const [Type512, setType512] = useState(typeData.type);
+    const [verified, setVerified] = useState(type.verified);
+    const [retyped, setRetyped] = useState(type.retyped);
     const [error, setError] = useState('');
     const submitBtn = useRef(null);
     const name = useRef(null);
@@ -83,7 +85,8 @@ export default function Edit({ type }) {
             disconnectIdLinks: type.links.filter(link => link._count.people > 1)
                                .map(link => ({ id: link.id, peopleIds: link.peopleIds }))
                                .filter(x => !connectedLinks.map(link => link.id).includes(x.id)),
-            id: type.id
+            id: type.id,
+            verified, retyped
         };
 
         if (imageB64 != null && process.env.NEXT_PUBLIC_PRODUCTION === 'true') {
@@ -258,6 +261,11 @@ export default function Edit({ type }) {
                         <input type="file" name="image" id="file-upload" onChange={changeImage} />
                     </div>
                 </div>
+                <div className="checkbox-wrapper-3" style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', margin: '10px auto', gap: 10, marginTop: 15}}>
+                    <div style={{ fontSize: 14, fontWeight: 400 }}>Verified</div>
+                    <input type="checkbox" id="cbx-3" checked={verified} onChange={(e) => setVerified(e.target.checked)} />
+                    <label htmlFor="cbx-3" className="toggle"><span></span></label>
+                </div>
                 <div className="register_inputs">
                     <div>
                         <label className="register_label">Name</label>
@@ -276,6 +284,11 @@ export default function Edit({ type }) {
                     </OptionDropdown>
                 </div>
                 <h3>Type Selection</h3>
+                <div className="checkbox-wrapper-3" style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', margin: '10px auto', gap: 10, marginTop: 15}}>
+                    <div style={{ fontSize: 14, fontWeight: 400 }}>Retyped</div>
+                    <input type="checkbox" id="cbx-2" checked={retyped} onChange={(e) => setRetyped(e.target.checked)} />
+                    <label htmlFor="cbx-2" className="toggle"><span></span></label>
+                </div>
                 <div className="register_inputs">
                     <div>
                         <Type512Input Type512={Type512} setType512={setType512} />

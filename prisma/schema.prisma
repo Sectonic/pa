@@ -16,6 +16,8 @@ datasource db {
 model Type {
   id Int @id @default(autoincrement())
   name String
+  verified Boolean @default(false)
+  retyped Boolean @default(false)
   sex String?
   tag String
   image String?

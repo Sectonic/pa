@@ -21,7 +21,7 @@ export const getSimilar = async (name, type) => {
 
 export const addType = async (typeData) => {
 
-    const { name, type, fileId, image, social, tag, sex, newLinks, connectedLinks } = typeData;
+    const { name, type, fileId, image, social, tag, sex, newLinks, connectedLinks, verified, retyped } = typeData;
 
     const sameType = await db.typeData.findUnique({
         where: { type_social: { type: type, social: social || '' } }
@@ -48,7 +48,8 @@ export const addType = async (typeData) => {
     const newType = await db.type.create({
         data: {
             name, image, fileId, tag, sex,
-            ...typeDataKey,
+            retyped, ...typeDataKey,
+            verified: tag !== 'Community Member' ? true : verified
         }
     })
 
@@ -95,7 +96,7 @@ export const addType = async (typeData) => {
 
 export const updateType = async (updatedInfo) => {
 
-    const { id, name, type, connectedLinks, notConnectedLinks, social, disconnectIdLinks, ...data } = updatedInfo;
+    const { id, name, type, connectedLinks, notConnectedLinks, social, disconnectIdLinks, retyped, verified, ...data } = updatedInfo;
 
     const typeData = getTypeData(type);
 
@@ -168,6 +169,7 @@ export const updateType = async (updatedInfo) => {
 
     const updatedData = {
         name, ...data,
+        retyped, verified: data.tag !== 'Community Member' ? true : verified,
         ...typeDataKey,
     }
 

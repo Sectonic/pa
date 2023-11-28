@@ -4,21 +4,6 @@ import typesData from '@public/json/typesData.json';
 
 export default async function TypeStatistics({ filters }) {
 
-    const allWeirdTypes = await db.typeData.findMany({
-        where: {
-            OR: [
-                { type: { contains: 'CB/C(S)' } },
-                { type: { contains: 'BC/P(B)' } },
-                { type: { contains: 'SS/B(P)' } }
-            ]
-        },
-        include: {
-            people: true
-        }
-    })
-
-    console.log(allWeirdTypes);
-
     // var allTypesCount = 0;
     // const allTypes = await db.typeData.findMany({
     //     include: {
@@ -41,13 +26,40 @@ export default async function TypeStatistics({ filters }) {
 
     const getStatistics = () => {
 
+        const typeInfo = {
+            doubleActivations: {
+                Sleep: ['Oe', 'De'],
+                Play: ['Oi', 'Di'],
+                Blast: ['Oe', 'Di'],
+                Consume: ['Oi', 'De']
+            },
+            needOpposites: {
+                Oe: 'Oi',
+                Oi: 'Oe',
+                Di: 'De',
+                De: 'Di'
+            }
+        }
+
         const filteredTypes = typesData.types.filter(type => {
             return Object.entries(filters).every(([key, value]) => {
                 return value.includes(type[key]);
             });
         });
     
-        const stats = { total: 0, modalities: {}, functions: {}, animals: {} };
+        const stats = { 
+            total: 0, 
+            modalities: {}, 
+            functions: {}, 
+            animals: {}, 
+            standardJumper: {}, 
+            letterPairings: {}, 
+            saviorFunctions: {}, 
+            saviorAnimals: {},
+            animalCombinations: {},
+            saviorActivation: {},
+            glassLizard: {},
+        };
     
         filteredTypes.forEach(type => {
             Object.entries(type).forEach(([key, value]) => {
@@ -67,23 +79,101 @@ export default async function TypeStatistics({ filters }) {
             });
 
             stats.total += type._count.people;
-            const [modalities, functions, animals] = type.type.split(' ');
 
-            if (!stats.modalities[modalities]) {
-                stats.modalities[modalities] = 0;
+            // Modalities, Functions, Animals
+            const typeSplit = type.type.split(' ');
+            ['modalities', 'functions', 'animals'].forEach((category,i) => {
+                if (!stats[category][typeSplit[i]]) {
+                    stats[category][typeSplit[i]] = 0;
+                }
+                stats[category][typeSplit[i]] += type._count.people;
+            });
+
+            // Jumper vs Standard
+            const countE = (typeSplit[1].match(/e/g) || []).length;
+            const countI = (typeSplit[1].match(/i/g) || []).length;
+            const standardJumper = (countE === 2 || countI === 2) ? 'Jumper' : 'Standard';
+            if (!stats.standardJumper[standardJumper]) {
+                stats.standardJumper[standardJumper] = 0;
+            }
+            stats.standardJumper[standardJumper] += type._count.people;
+
+            // Letter Saviors
+            const letterPairing = `${type.observerLetter}${type.deciderLetter}`;
+            if (!stats.letterPairings[letterPairing]) {
+                stats.letterPairings[letterPairing] = 0;
+            }
+            stats.letterPairings[letterPairing] += type._count.people;
+
+            // Savior Functions
+            [type.function1, type.function2].forEach(func => {
+                if (!stats.saviorFunctions[func]) {
+                    stats.saviorFunctions[func] = 0
+                }
+                stats.saviorFunctions[func] += type._count.people;
+            });
+
+            // Savior Animals
+            [type.animal1, type.animal2].forEach(anim => {
+                if (!stats.saviorAnimals[anim]) {
+                    stats.saviorAnimals[anim] = 0
+                }
+                stats.saviorAnimals[anim] += type._count.people;
+            });
+
+            // Animal Combinations
+            const saviorAnims = [type.animal1[0], type.animal2[0]].join('');
+            let combinationKey;
+
+            switch (saviorAnims) {
+                case 'BP':
+                    combinationKey = 'PB';
+                    break;
+                case 'CS':
+                    combinationKey = 'SC';
+                    break;
+                case 'SB':
+                    combinationKey = 'BS';
+                    break;
+                case 'PC':
+                    combinationKey = 'CP';
+                    break;
+                default:
+                    combinationKey = saviorAnims;
             }
 
-            if (!stats.functions[functions]) {
-                stats.functions[functions] = 0;
+            if (!stats.animalCombinations[combinationKey]) {
+                stats.animalCombinations[combinationKey] ??= 0;
             }
+            stats.animalCombinations[combinationKey] += type._count.people;
 
-            if (!stats.animals[animals]) {
-                stats.animals[animals] = 0;
+            // Double Activations
+            const activatedNeeds = typeInfo.doubleActivations[type.animal4]
+            const needStack = type.oD === 'Observer' ? 
+                [type.observerNeed, type.deciderNeed, typeInfo.needOpposites[type.deciderNeed], typeInfo.needOpposites[type.observerNeed]] 
+                : [type.deciderNeed, type.observerNeed, typeInfo.needOpposites[type.observerNeed], typeInfo.needOpposites[type.deciderNeed]];
+            let stackActivation = '';
+            needStack.forEach((need, i) => {
+                if (activatedNeeds.includes(need)) {
+                    if (stackActivation.length === 0) {
+                        stackActivation += String(i + 1);
+                    } else {
+                        stackActivation += `+${i + 1}`;
+                    }
+                }
+            })
+            
+            const saviorActivated = String(stackActivation === '1+2');
+            if (!stats.saviorActivation[saviorActivated]) {
+                stats.saviorActivation[saviorActivated] = 0;
             }
+            stats.saviorActivation[saviorActivated] += type._count.people;
 
-            stats.modalities[modalities] += type._count.people;
-            stats.functions[functions] += type._count.people;
-            stats.animals[animals] += type._count.people;
+            const glassLizard = String(stackActivation.includes('4'));
+            if (!stats.glassLizard[glassLizard]) {
+                stats.glassLizard[glassLizard] = 0;
+            }
+            stats.glassLizard[glassLizard] += type._count.people;
 
         });
     
@@ -93,12 +183,9 @@ export default async function TypeStatistics({ filters }) {
 
     const stats = getStatistics();
 
-    console.log(filters);
-    console.log(stats);
-
     return (
-        <div>
-
-        </div>
+        <pre>
+            { JSON.stringify(stats, null, 2) }
+        </pre>
     )
 }

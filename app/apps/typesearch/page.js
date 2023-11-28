@@ -62,10 +62,6 @@ const getFilteredResults = (selectedOptions, tab) => {
         }
     });
 
-    if (clean_filters.hasOwnProperty('tag') && clean_filters.tag.in.includes('Community Member')) {
-        clean_filters.tag.in = clean_filters.tag.in.filter(tag => tag !== 'Community Member');
-    }
-
     const {tag, name, OR, ...all_other_filters} = clean_filters;
 
     const rawTypeData = Object.fromEntries(Object.entries(all_other_filters).map(([key, value]) => [key, value.in]))
@@ -93,10 +89,8 @@ const getFilteredResults = (selectedOptions, tab) => {
             typeData: {
                 ...all_other_filters,
             },
-            AND: [
-                { tag },
-                { tag: { not: 'Community Member' } }
-            ]
+            tag,
+            verified: true
         },
         orderBy: {
            id: 'desc'

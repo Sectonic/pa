@@ -236,6 +236,7 @@ export const options = [
         options: [
             { value: 'Class Typing', label: 'Class Typing'},
             { value: 'Mentioned', label: 'Mentioned'},
+            { value: 'Community Member', label: 'Community Member'},
         ]
     },
     {
