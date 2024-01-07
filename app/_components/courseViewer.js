@@ -98,22 +98,22 @@ export default function CourseViewer({ course, children }) {
         }
 
         document.body.style.overflow = 'visible';
-        window.addEventListener('scroll', handleScroll);
+        // window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        // return () => {
+        //     window.removeEventListener('scroll', handleScroll);
+        // };
     }, [])
 
-    useEffect(() => {
-        if (pathname != coursePath && activityWidth >= 95) {
-            const session = getSession();
-            if (session) {
-                newCourseActivity();
-                document.body.style.overflow = 'visible';
-            }
-        }
-    }, [activityWidth]);
+    // useEffect(() => {
+    //     if (pathname != coursePath && activityWidth >= 95) {
+    //         const session = getSession();
+    //         if (session) {
+    //             newCourseActivity();
+    //             document.body.style.overflow = 'visible';
+    //         }
+    //     }
+    // }, [activityWidth]);
 
     useEffect(() => {
         if (pathname !== coursePath) {
