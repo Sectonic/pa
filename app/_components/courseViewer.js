@@ -98,11 +98,11 @@ export default function CourseViewer({ course, children }) {
         }
 
         document.body.style.overflow = 'visible';
-        // window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
 
-        // return () => {
-        //     window.removeEventListener('scroll', handleScroll);
-        // };
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [])
 
     // useEffect(() => {
