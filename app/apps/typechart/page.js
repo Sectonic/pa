@@ -57,10 +57,10 @@ export default async function TypeTool({ searchParams }) {
         return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
     }
 
-    const session = getSession();
-    if (!session) {
-      redirect('/login?' + new URLSearchParams({callback: '/apps/typechart', error: 'An account is required for TypeChart'}));
-    }
+    // const session = getSession();
+    // if (!session) {
+    //   redirect('/login?' + new URLSearchParams({callback: '/apps/typechart', error: 'An account is required for TypeChart'}));
+    // }
 
     const spreadsheet_filters = getTypeData(searchParams.type || 'xx xx/xx xx/x(x)', false);
     const filters = getTypeData(searchParams.type || 'xx xx/xx xx/x(x)');

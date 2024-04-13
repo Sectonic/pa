@@ -635,7 +635,46 @@ const values = {
             'FF fSfF': 1,
             'FF fFfS': 0,
         },
-    }
+    },
+    // observer: {
+    //     multiplier: {
+    //         observerDecider: 256,
+    //         animals: 32,
+    //         modalities: 8
+    //     },
+    //     observerDecider: {
+    //         Observer: 0,
+    //         Decider: 1
+    //     },
+    //     animals: {
+    //         BSPC: 0,
+    //         CPSB: 0,
+    //         SBPC: 1,
+    //         PCSB: 1,
+    //         BPSC: 2,
+    //         CSPB: 2,
+    //         BSCP: 3,
+    //         CPBS: 3,
+    //         SBCP: 4,
+    //         PCBS: 4,
+    //         PBSC: 5,
+    //         SCPB: 5,
+    //         BPCS: 6,
+    //         CSBP: 6,
+    //         PBCS: 7,
+    //         SCBP: 7,
+    //     },
+    //     modalities: {
+    //         'MM Blast': 0,
+    //         'MM Consume': 0,
+    //         'MF Blast': 1,
+    //         'MF Consume': 1,
+    //         'FM Blast': 2,
+    //         'FM Consume': 2,
+    //         'FF Blast': 3,
+    //         'FF Consume': 3
+    //     }
+    // }
 }
 
 
