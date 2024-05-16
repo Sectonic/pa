@@ -4,26 +4,24 @@ import Link from "next/link";
 import OutsideClickHandler from 'react-outside-click-handler';
 import {useState, useRef, Children, cloneElement, useEffect} from 'react';
 import "animate.css";
-import { getSession } from "@lib/session";
 import { useRouter } from "next/navigation";
 
-export function IconContainer({children, viewedPages, session }) {
-    const children_arr = Children.toArray(children);
+export function IconContainer({ children }) {
     if (Children.count(children) > 1) {
         return (
             <div className='seconds' >
-                {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
+                { children }
             </div>
         )
     }
     return (
         <>
-            {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
+            { children }
         </>
     )
 }
 
-export function Icon({comingSoon, img, name, children, direction, href, viewedPages, session }) {
+export function Icon({comingSoon, img, name, children, direction, href }) {
     const [clicked, setClicked] = useState(false);
     const dropdownBG = useRef(null);
     const dropdownContainer = useRef(null);
@@ -83,7 +81,7 @@ export function Icon({comingSoon, img, name, children, direction, href, viewedPa
                         <div className='page_icon-dropdown__bg animte__animated' ref={dropdownBG}>
                             <OutsideClickHandler onOutsideClick={dropdownHide}>
                                 <div className={`page_icon-dropdown page_icon-dropdown__${direction} animate__animated `} ref={dropdownContainer}>
-                                    {Children.toArray(children).map(child => cloneElement(child, { viewedPages }))}
+                                    { children }
                                 </div>
                             </OutsideClickHandler>
                         </div>
@@ -95,18 +93,13 @@ export function Icon({comingSoon, img, name, children, direction, href, viewedPa
     )
 }
 
-export function IconDropdown({ children, title, viewedPages, session }) {
-
-
+export function IconDropdown({ children, title }) {
 
     return (
         <>
             <div className='icon-dropdown_title'>{title}</div>
             <div className='icon-dropdown_links'>
-                {Children.map(children, child => {
-                    const viewed = viewedPages.map(page => page.url).includes(child.props.link);
-                    return cloneElement(child, { viewed, session });
-                })}
+                { children }
                 <div className='icon-dropdown_bar__transparent'>A</div>
                 <div className='icon-dropdown_bar__transparent'>A</div>
                 <div className='icon-dropdown_bar__transparent'>A</div>
@@ -115,7 +108,7 @@ export function IconDropdown({ children, title, viewedPages, session }) {
     )
 }
 
-export function DropdownItem({ label, src, link, title, viewed, session }) {
+export function DropdownItem({ label, src, link, title }) {
     const router = useRouter();
     
     return (
@@ -130,32 +123,25 @@ export function DropdownItem({ label, src, link, title, viewed, session }) {
                 <div className='icon-bar_title'>
                     {title}
                 </div>
-                { session && (
-                    <div className={`icon-bar_viewed ${viewed ? '' : 'icon-bar_viewed-red'}`}>
-                        <div></div>
-                    </div>
-                )}
             </div>
         </div>
     );
 }
 
-export const TreeSection = ({ children, title, viewedPages, session }) => {
-    const children_arr = Children.toArray(children);
+export const TreeSection = ({ children, title }) => {
 
     return (
         <div id={title}>
             <div className='section_top'>
                 {title}
             </div>
-            {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
+            { children }
         </div>
     )
 }
 
-export const LearnTree = ({ children, setSelected, setSticky, viewedPages, session, setTreeBottom }) => {
+export const LearnTree = ({ children, setSelected, setSticky, setTreeBottom }) => {
     const tree = useRef(null);
-    const children_arr = Children.toArray(children);
 
     useEffect(() => {
         setTreeBottom(tree.current.getBoundingClientRect().bottom + window.scrollY);
@@ -209,7 +195,7 @@ export const LearnTree = ({ children, setSelected, setSticky, viewedPages, sessi
     return (
         <div className='learn_section'>
             <div className='section_map' ref={tree} >
-                {children_arr.map(child => cloneElement(child, { viewedPages, session }))}
+                { children }
             </div>
         </div>
     )
@@ -317,7 +303,7 @@ export const LearnButtons = ({ children, selected, sticky, selections, treeBotto
     )
 }
 
-export const LearnLayout = ({ children, viewedPages, session }) => {
+export const LearnLayout = ({ children }) => {
     const [selected, setSelected] = useState("");
     const [sticky, setSticky] = useState(false);
     const [treeBottom, setTreeBottom] = useState(null);
@@ -341,7 +327,7 @@ export const LearnLayout = ({ children, viewedPages, session }) => {
 
     return (
         <div className={overviewClass}>
-            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky, viewedPages, session, setTreeBottom })}
+            {cloneElement(children_arr[0], {setSelected: setSelected, setSticky: setSticky, setTreeBottom })}
             {cloneElement(children_arr[1], {selected: selected, sticky: sticky, selections: selections, treeBottom })}
         </div>
     )

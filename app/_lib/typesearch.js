@@ -41,30 +41,30 @@ export const getCommunityTypes = async (page, filters) => {
     const allTypeFilters = Object.entries(filters.typeData).length > 0 ? 
         Prisma.join(
             Object.entries(filters.typeData).map(([key, value]) => value.length > 1 ? 
-                Prisma.sql`TypeData.${Prisma.raw(key)} IN (${Prisma.join(value)})`
-                : Prisma.sql`TypeData.${Prisma.raw(key)} = ${value[0]}`
+                Prisma.sql`"TypeData"."${Prisma.raw(key)}" IN (${Prisma.join(value)})`
+                : Prisma.sql`"TypeData"."${Prisma.raw(key)}" = ${value[0]}`
             ), " AND ") 
         : Prisma.empty;
 
     const nameEmpty = !filters.name || filters.name.length === 0;
     const allNameFilters = nameEmpty ? Prisma.empty :
         Prisma.join(
-            filters.name.map(name => Prisma.sql`Link.name LIKE ${Prisma.raw(`'%${name}%'`)}`),
+            filters.name.map(name => Prisma.sql`"Link"."name" LIKE ${Prisma.raw(`'%${name}%'`)}`),
             " OR "
         )
 
     const countQuery = await db.$queryRaw`
         SELECT
-            COUNT(DISTINCT Link.peopleIds) AS totalGroups
+            COUNT(DISTINCT "Link"."peopleIds") AS totalGroups
         FROM
-            Link
+            "Link"
         JOIN
-            Type ON FIND_IN_SET(Type.id, Link.peopleIds) > 0
+            "Type" ON "Type"."id" = ANY(string_to_array("Link"."peopleIds", ',')::int[])
         JOIN
-            TypeData ON TypeData.id = Type.typeDataId
+            "TypeData" ON "TypeData"."id" = "Type"."typeDataId"
         WHERE
             (
-                Type.tag = 'Community Member' 
+                "Type"."tag" = 'Community Member' 
                 ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
             )
             ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty};
@@ -72,33 +72,33 @@ export const getCommunityTypes = async (page, filters) => {
 
     const groupedLinks = await db.$queryRaw`
         SELECT
-            GROUP_CONCAT(Link.name SEPARATOR '/*SEPARATOR/*') AS names,
-            GROUP_CONCAT(Link.url SEPARATOR '/*SEPARATOR/*') AS urls,
-            GROUP_CONCAT(Link.channel SEPARATOR '/*SEPARATOR/*') AS channels,
-            GROUP_CONCAT(Link.linkId SEPARATOR '/*SEPARATOR/*') AS linkIds,
-            GROUP_CONCAT(TypeData.type SEPARATOR '/*SEPARATOR/*') AS types,
-            GROUP_CONCAT(TypeData.social SEPARATOR '/*SEPARATOR/*') AS socials
+            STRING_AGG("Link"."name", '/*SEPARATOR/*') AS names,
+            STRING_AGG("Link"."url", '/*SEPARATOR/*') AS urls,
+            STRING_AGG("Link"."channel"::TEXT, '/*SEPARATOR/*') AS channels,
+            STRING_AGG("Link"."linkId", '/*SEPARATOR/*') AS linkIds,
+            STRING_AGG("TypeData"."type", '/*SEPARATOR/*') AS types,
+            STRING_AGG("TypeData"."social", '/*SEPARATOR/*') AS socials
         FROM
-            Link
+            "Link"
         JOIN
-            Type ON FIND_IN_SET(Type.id, Link.peopleIds) > 0
+            "Type" ON "Type"."id" = ANY(string_to_array("Link"."peopleIds", ',')::int[])
         JOIN
-            TypeData ON TypeData.id = Type.typeDataId
+            "TypeData" ON "TypeData"."id" = "Type"."typeDataId"
         WHERE
             (
-                Type.tag = 'Community Member' 
+                "Type"."tag" = 'Community Member' 
                 ${!typeEmpty ? Prisma.sql`AND ${allTypeFilters}` : Prisma.empty}
             )
             ${!nameEmpty ? Prisma.sql`AND (${allNameFilters})` : Prisma.empty}
         GROUP BY
-            Link.peopleIds
+            "Link"."peopleIds"
         ORDER BY
-            Link.peopleIds DESC
+            "Link"."peopleIds" DESC
         LIMIT ${takeAmount}
         OFFSET ${skipAmount};
-    `
+    `;
 
-    return { types: groupedLinks, count: Number(countQuery[0].totalGroups) || 0 }
+    return { types: groupedLinks, count: Number(countQuery[0].totalgroups) || 0 }
 }
 
 export const getSelectedLinks = async (value) => {

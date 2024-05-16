@@ -10,6 +10,7 @@ import { CommunityLoading } from "./container";
 import { useEffect, useState } from "react";
 
 export default function Community({ data, count }) {
+
     const router = useRouter();
     const params = useSearchParams();
     const [masonryWidth, setMasonryWidth] = useState(null);
@@ -59,7 +60,7 @@ export default function Community({ data, count }) {
                         const urls = person.urls.split('/*SEPARATOR/*');
                         const names = person.names.split('/*SEPARATOR/*');
                         const channels = person.channels.split('/*SEPARATOR/*');
-                        const linkIds = person.linkIds.split('/*SEPARATOR/*');
+                        const linkIds = person.linkids.split('/*SEPARATOR/*');
                         const types = [...new Set(person.types.split('/*SEPARATOR/*'))];
                         const socials = person.socials ? [...new Set(person.socials.split('/*SEPARATOR/*'))] : [];
 

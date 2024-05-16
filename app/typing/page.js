@@ -1,7 +1,5 @@
 import { createMetaData } from "@lib/metadata";
 import { LearnLayout, LearnButtons, LearnButton, LearnTree, TreeSection, IconContainer, Icon, IconDropdown, DropdownItem } from '@components/learn_tree';
-import { getCourseActivity } from "@lib/courses";
-import { getSession } from '@lib/session';
 
 export const metadata = createMetaData({
   title: 'Typing',
@@ -11,12 +9,10 @@ export const metadata = createMetaData({
 });
 
 async function Typing() {
-  const viewedPages = await getCourseActivity('typing');
-  const session = getSession();
 
   return (
     <div className="main">
-      <LearnLayout viewedPages={viewedPages} session={session}>
+      <LearnLayout>
           <LearnTree>
           <TreeSection title="Mentality">
           <IconContainer>

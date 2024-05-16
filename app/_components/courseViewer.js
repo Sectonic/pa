@@ -1,9 +1,7 @@
 "use client";
 
-import { getSession } from "@lib/session";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { addNewCourseActivity } from "@lib/courses";
 import Link from "next/link";
 
 const coursesInfo = {
@@ -71,10 +69,6 @@ export default function CourseViewer({ course, children }) {
     const [activityWidth, setActivityWidth] = useState('0%');
     const [currentIndex, setCurrentIndex] = useState(null);
 
-    const newCourseActivity = async () => {
-        await addNewCourseActivity(pathname, course);
-    }
-
     useEffect(() => {
         const handleScroll = () => {
             const windowHeight = window.innerHeight;
@@ -104,16 +98,6 @@ export default function CourseViewer({ course, children }) {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [])
-
-    // useEffect(() => {
-    //     if (pathname != coursePath && activityWidth >= 95) {
-    //         const session = getSession();
-    //         if (session) {
-    //             newCourseActivity();
-    //             document.body.style.overflow = 'visible';
-    //         }
-    //     }
-    // }, [activityWidth]);
 
     useEffect(() => {
         if (pathname !== coursePath) {
