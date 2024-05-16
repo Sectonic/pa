@@ -73,7 +73,7 @@ export default function Community({ data, count }) {
                             if (!uniqueUrls.has(url)) {
                                 links.push({
                                     url: url,
-                                    channel: channels[i] === "1",
+                                    channel: channels[i] === "true",
                                     linkId: linkIds[i],
                                     name: names[i],
                                 });
