@@ -215,7 +215,7 @@ export const getViewData = async (query) => {
     if (!query) {
         filter = {}
     } else {
-        filter = isNumeric(query) ? { id: Number(query) } : { name: { contains: query.toLowerCase() } };
+        filter = isNumeric(query) ? { id: Number(query) } : { name: { contains: query.toLowerCase(), mode: 'insensitive' } };
     }
 
     const data = await db.type.findMany({
@@ -248,7 +248,7 @@ export const getLinksData = async (query, community) => {
                !isNaN(parseFloat(str))
     }
 
-    const searchFilter = query ? ( isNumeric(query) ? ({ id: Number(query) }) : ({ name: { contains: query.toLowerCase() } }) ) : ({});
+    const searchFilter = query ? ( isNumeric(query) ? ({ id: Number(query) }) : ({ name: { contains: query.toLowerCase(), mode: 'insensitive' } }) ) : ({});
     const communityFilter = community ? ({
         people: {
             every: {

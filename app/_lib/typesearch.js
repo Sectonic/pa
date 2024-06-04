@@ -49,7 +49,7 @@ export const getCommunityTypes = async (page, filters) => {
     const nameEmpty = !filters.name || filters.name.length === 0;
     const allNameFilters = nameEmpty ? Prisma.empty :
         Prisma.join(
-            filters.name.map(name => Prisma.sql`"Link"."name" LIKE ${Prisma.raw(`'%${name}%'`)}`),
+            filters.name.map(name => Prisma.sql`UPPER("Link"."name") LIKE UPPER(${Prisma.raw(`'%${name}%'`)})`),
             " OR "
         )
 

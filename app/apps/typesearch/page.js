@@ -47,15 +47,15 @@ const getFilteredResults = (selectedOptions, tab) => {
                 }
             } else {
                 if (names > 1) {
-                    clean_filters.OR.push({ name: { contains: filter } })
+                    clean_filters.OR.push({ name: { contains: filter, mode: 'insensitive' } })
                 } else if (names > 0 ) {
                     clean_filters.OR = [
-                        { name: { contains: clean_filters.name.contains } },
-                        { name: { contains: filter } },
+                        { name: { contains: clean_filters.name.contains, mode: 'insensitive' } },
+                        { name: { contains: filter, mode: 'insensitive' } },
                     ]
                     delete clean_filters.name;
                 } else {
-                    clean_filters.name = { contains: filter };
+                    clean_filters.name = { contains: filter, mode: 'insensitive' };
                 }
             }
             names++;
@@ -64,7 +64,7 @@ const getFilteredResults = (selectedOptions, tab) => {
 
     const {tag, name, OR, ...all_other_filters} = clean_filters;
 
-    const rawTypeData = Object.fromEntries(Object.entries(all_other_filters).map(([key, value]) => [key, value.in]))
+    const rawTypeData = Object.fromEntries(Object.entries(all_other_filters).map(([key, value]) => [key, value.in]));
 
     if (tab === 'Statistics') {
         return {
