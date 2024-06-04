@@ -147,6 +147,8 @@ export const LearnTree = ({ children, setSelected, setSticky, setTreeBottom }) =
         setTreeBottom(tree.current.getBoundingClientRect().bottom + window.scrollY);
     }, [])
 
+    const children_arr = Children.toArray(children);
+
     useEffect(() => {
 
         const scrollingHandler = () => {
@@ -205,13 +207,13 @@ export const LearnButton = ({children, title, selected, selections, index, stick
     const className = selected ? 'section_button-selected' : 'section_button';
     const btnRef = useRef(null);
 
-    useEffect(() => {
-        if (index === 1) {
-            if ((scrollY + 77 < btnRef.current.getBoundingClientRect().top + scrollY) && stickyClass === 'section_buttons section_button-bottom-sticky') {
-                setStickyClass('section_buttons section_buttons-sticky')
-            }
-        }
-    }, [scrollY])
+    // useEffect(() => {
+    //     if (index === 1) {
+    //         if ((scrollY + 77 < btnRef.current.getBoundingClientRect().top + scrollY) && stickyClass === 'section_buttons section_button-bottom-sticky') {
+    //             setStickyClass('section_buttons section_buttons-sticky')
+    //         }
+    //     }
+    // }, [scrollY])
 
     const scrollToSelect = () => {
         if (selections.indexOf(title) === 0) {
